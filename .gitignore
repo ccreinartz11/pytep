@@ -52,8 +52,8 @@ Temporary Items
 # OSX / *nix default autosave extension
 *.m~
 
-# Compiled MEX binaries (all platforms)
-*.mex*
+## Compiled MEX binaries (all platforms)
+#*.mex*
 
 # Packaged app and toolbox files
 *.mlappinstall
