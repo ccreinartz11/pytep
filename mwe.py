@@ -3,9 +3,15 @@ import matlab.engine
 
 class MatlabBridge:
 
-    def __init__(self, model):
+    def __init__(self, model="hi"):
         self.model = model
         self.startEngine()
+
+        
+        self.eng.eval("addpath('Simulator')", nargout=0)
+        print("Added path to simulator")
+        self.eng.eval("load('InitVariables.mat')", nargout=0)
+        print("Loaded InitVariables.mat")
         return
         
     def startEngine(self):
@@ -19,5 +25,10 @@ class MatlabBridge:
     def load_simulink(self):
         self.eng.eval("load_system({})".format(self.model), nargout=0)
 
+    def run_simulink(self):
+        self.eng.eval("sim('MultiLoop_mode3')", nargout=0)
+        return 1
 
 tep = MatlabBridge()
+tep.run_simulink()
+print(tep.run_simulink())
