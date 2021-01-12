@@ -30,5 +30,8 @@ class MatlabBridge:
         return 1
 
 tep = MatlabBridge()
+<<<<<<< HEAD
 tep.run_simulink()
 print(tep.run_simulink())
+=======
+>>>>>>> origin/dev
