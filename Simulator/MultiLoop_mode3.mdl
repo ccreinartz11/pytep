@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.135"
+    ComputedModelVersion    "1.138"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -251,8 +251,8 @@ Model {
 	  LoadSaveID		  "0"
 	  Extents		  [1898.0, 935.0]
 	  ZoomFactor		  [0.6]
-	  Offset		  [-1190.3885333402254, -123.23998529952257]
-	  SceneRectInView	  [-1190.3885333402254, -123.23998529952257, 3163.3333333333335, 1558.3333333333335]
+	  Offset		  [-1231.8052000068969, -320.1043661558802]
+	  SceneRectInView	  [-1231.8052000068969, -320.1043661558802, 3163.3333333333335, 1558.3333333333335]
 	}
 	Object {
 	  $ObjectID		  6
@@ -325,9 +325,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "christopher"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jan 11 16:08:50 2021"
-  RTWModifiedTimeStamp	  532282106
-  ModelVersionFormat	  "1.%<AutoIncrement:135>"
+  LastModifiedDate	  "Thu Jan 14 13:51:50 2021"
+  RTWModifiedTimeStamp	  532533097
+  ModelVersionFormat	  "1.%<AutoIncrement:138>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1472,6 +1472,9 @@ Model {
       AllowDiffInputSizes     off
     }
     Block {
+      BlockType		      Terminator
+    }
+    Block {
       BlockType		      ToWorkspace
       VariableName	      "simulink_output"
       MaxDataPoints	      "1000"
@@ -1511,7 +1514,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "60"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "462"
+    SIDHighWatermark	    "466"
     SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      Scope
@@ -4691,7 +4694,7 @@ Model {
       BlockType		      Clock
       Name		      "Clock"
       SID		      "2"
-      Position		      [355, -75, 375, -55]
+      Position		      [805, 75, 825, 95]
       ZOrder		      -2
     }
     Block {
@@ -5036,6 +5039,18 @@ Model {
       SampleTime	      "0"
     }
     Block {
+      BlockType		      Mux
+      Name		      "Mux"
+      SID		      "463"
+      Ports		      [12, 1]
+      Position		      [-33, -50, 538, -45]
+      ZOrder		      142
+      BlockRotation	      270
+      ShowName		      off
+      Inputs		      "12"
+      DisplayOption	      "bar"
+    }
+    Block {
       BlockType		      SubSystem
       Name		      "Production Loop Monitor"
       SID		      "21"
@@ -5258,19 +5273,6 @@ Model {
 	  DstPort		  1
 	}
       }
-    }
-    Block {
-      BlockType		      ToWorkspace
-      Name		      "StructureFlag2 Monitoring output rnd variation"
-      SID		      "276"
-      Ports		      [1]
-      Position		      [610, 800, 670, 830]
-      ZOrder		      114
-      VariableName	      "modelFlag1Vals"
-      MaxDataPoints	      "inf"
-      SaveFormat	      "Structure With Time"
-      FixptAsFi		      on
-      SampleTime	      "Ts_save"
     }
     Block {
       BlockType		      SubSystem
@@ -9242,6 +9244,20 @@ Model {
       }
     }
     Block {
+      BlockType		      Terminator
+      Name		      "Terminator"
+      SID		      "465"
+      Position		      [655, 815, 675, 835]
+      ZOrder		      144
+    }
+    Block {
+      BlockType		      Terminator
+      Name		      "Terminator1"
+      SID		      "466"
+      Position		      [580, 1025, 600, 1045]
+      ZOrder		      145
+    }
+    Block {
       BlockType		      ToWorkspace
       Name		      "To Workspace"
       SID		      "233"
@@ -9270,10 +9286,10 @@ Model {
       Name		      "To Workspace2"
       SID		      "235"
       Ports		      [1]
-      Position		      [550, 455, 610, 485]
+      Position		      [555, 455, 615, 485]
       ZOrder		      -10
       ShowName		      off
-      VariableName	      "idv"
+      VariableName	      "idv_list"
       MaxDataPoints	      "inf"
       SampleTime	      "Ts_save"
     }
@@ -9282,7 +9298,7 @@ Model {
       Name		      "To Workspace3"
       SID		      "236"
       Ports		      [1]
-      Position		      [425, -80, 485, -50]
+      Position		      [875, 70, 935, 100]
       ZOrder		      -11
       ShowName		      off
       VariableName	      "tout"
@@ -9303,14 +9319,13 @@ Model {
     }
     Block {
       BlockType		      ToWorkspace
-      Name		      "additionalMeasurements"
-      SID		      "277"
+      Name		      "To Workspace5"
+      SID		      "464"
       Ports		      [1]
-      Position		      [620, 1020, 680, 1050]
-      ZOrder		      115
-      VariableName	      "modelFlag0Vals"
+      Position		      [585, -165, 675, -135]
+      ZOrder		      143
+      VariableName	      "setpoints"
       MaxDataPoints	      "inf"
-      SaveFormat	      "Structure With Time"
       FixptAsFi		      on
       SampleTime	      "Ts_save"
     }
@@ -9384,99 +9399,203 @@ Model {
       ZOrder		      70
       SrcBlock		      "BoundedRamp\n"
       SrcPort		      1
-      DstBlock		      "TE Plant"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      57
-      SrcBlock		      "TE Plant"
-      SrcPort		      4
-      DstBlock		      "StructureFlag2 Monitoring output rnd variation"
-      DstPort		      1
-    }
-    Line {
-      ZOrder		      58
-      SrcBlock		      "TE Plant"
-      SrcPort		      5
-      DstBlock		      "additionalMeasurements"
-      DstPort		      1
+      Points		      [19, 0]
+      Branch {
+	ZOrder			109
+	DstBlock		"TE Plant"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			88
+	Points			[0, -87; -149, 0]
+	DstBlock		"Mux"
+	DstPort			1
+      }
     }
     Line {
       ZOrder		      71
       SrcBlock		      "BoundedRamp\n11"
       SrcPort		      1
-      DstBlock		      "TE Plant"
-      DstPort		      12
+      Points		      [80, 0]
+      Branch {
+	ZOrder			132
+	Points			[0, -1002; 280, 0]
+	DstBlock		"Mux"
+	DstPort			12
+      }
+      Branch {
+	ZOrder			131
+	DstBlock		"TE Plant"
+	DstPort			12
+      }
     }
     Line {
       ZOrder		      72
       SrcBlock		      "BoundedRamp\n10"
       SrcPort		      1
-      DstBlock		      "TE Plant"
-      DstPort		      11
+      Points		      [41, 0]
+      Branch {
+	ZOrder			127
+	Points			[0, -930; 274, 0]
+	DstBlock		"Mux"
+	DstPort			11
+      }
+      Branch {
+	ZOrder			126
+	DstBlock		"TE Plant"
+	DstPort			11
+      }
     }
     Line {
       ZOrder		      73
       SrcBlock		      "BoundedRamp\n9"
       SrcPort		      1
-      DstBlock		      "TE Plant"
-      DstPort		      10
+      Points		      [68, 0]
+      Branch {
+	ZOrder			130
+	Points			[0, -839; 202, 0]
+	DstBlock		"Mux"
+	DstPort			10
+      }
+      Branch {
+	ZOrder			123
+	DstBlock		"TE Plant"
+	DstPort			10
+      }
     }
     Line {
       ZOrder		      74
       SrcBlock		      "BoundedRamp\n8"
       SrcPort		      1
-      DstBlock		      "TE Plant"
-      DstPort		      9
+      Points		      [100, 0]
+      Branch {
+	ZOrder			116
+	Points			[8, 0; 0, -778; 117, 0]
+	DstBlock		"Mux"
+	DstPort			9
+      }
+      Branch {
+	ZOrder			115
+	DstBlock		"TE Plant"
+	DstPort			9
+      }
     }
     Line {
       ZOrder		      75
       SrcBlock		      "BoundedRamp\n7"
       SrcPort		      1
-      DstBlock		      "TE Plant"
-      DstPort		      8
+      Points		      [94, 0]
+      Branch {
+	ZOrder			113
+	Points			[0, -704; 86, 0]
+	DstBlock		"Mux"
+	DstPort			8
+      }
+      Branch {
+	ZOrder			112
+	DstBlock		"TE Plant"
+	DstPort			8
+      }
     }
     Line {
       ZOrder		      76
       SrcBlock		      "BoundedRamp\n6"
       SrcPort		      1
-      DstBlock		      "TE Plant"
-      DstPort		      7
+      Points		      [100, 0]
+      Branch {
+	ZOrder			103
+	Points			[0, -597; 35, 0]
+	DstBlock		"Mux"
+	DstPort			7
+      }
+      Branch {
+	ZOrder			102
+	DstBlock		"TE Plant"
+	DstPort			7
+      }
     }
     Line {
       ZOrder		      77
       SrcBlock		      "BoundedRamp\n5"
       SrcPort		      1
-      DstBlock		      "TE Plant"
-      DstPort		      6
+      Points		      [90, 0]
+      Branch {
+	ZOrder			98
+	DstBlock		"Mux"
+	DstPort			6
+      }
+      Branch {
+	ZOrder			97
+	DstBlock		"TE Plant"
+	DstPort			6
+      }
     }
     Line {
       ZOrder		      78
       SrcBlock		      "BoundedRamp\n4"
       SrcPort		      1
-      DstBlock		      "TE Plant"
-      DstPort		      5
+      Points		      [45, 0]
+      Branch {
+	ZOrder			120
+	DstBlock		"TE Plant"
+	DstPort			5
+      }
+      Branch {
+	ZOrder			96
+	DstBlock		"Mux"
+	DstPort			5
+      }
     }
     Line {
       ZOrder		      79
       SrcBlock		      "BoundedRamp\n3"
       SrcPort		      1
-      DstBlock		      "TE Plant"
-      DstPort		      4
+      Points		      [40, 0]
+      Branch {
+	ZOrder			111
+	DstBlock		"TE Plant"
+	DstPort			4
+      }
+      Branch {
+	ZOrder			94
+	Points			[0, -316; -35, 0]
+	DstBlock		"Mux"
+	DstPort			4
+      }
     }
     Line {
       ZOrder		      80
       SrcBlock		      "BoundedRamp\n2"
       SrcPort		      1
-      DstBlock		      "TE Plant"
-      DstPort		      3
+      Points		      [7, 0]
+      Branch {
+	ZOrder			121
+	DstBlock		"TE Plant"
+	DstPort			3
+      }
+      Branch {
+	ZOrder			92
+	Points			[0, -206; -47, 0]
+	DstBlock		"Mux"
+	DstPort			3
+      }
     }
     Line {
       ZOrder		      81
       SrcBlock		      "BoundedRamp\n1"
       SrcPort		      1
-      DstBlock		      "TE Plant"
-      DstPort		      2
+      Points		      [13, 0]
+      Branch {
+	ZOrder			122
+	DstBlock		"TE Plant"
+	DstPort			2
+      }
+      Branch {
+	ZOrder			90
+	Points			[0, -194; -98, 0]
+	DstBlock		"Mux"
+	DstPort			2
+      }
     }
     Line {
       ZOrder		      85
@@ -9484,6 +9603,29 @@ Model {
       SrcPort		      1
       DstBlock		      "TE Plant"
       DstPort		      13
+    }
+    Line {
+      ZOrder		      134
+      SrcBlock		      "Mux"
+      SrcPort		      1
+      Points		      [0, -95]
+      DstBlock		      "To Workspace5"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      166
+      SrcBlock		      "TE Plant"
+      SrcPort		      4
+      Points		      [78, 0; 0, 10]
+      DstBlock		      "Terminator"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      167
+      SrcBlock		      "TE Plant"
+      SrcPort		      5
+      DstBlock		      "Terminator1"
+      DstPort		      1
     }
   }
 }

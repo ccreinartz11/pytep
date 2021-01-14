@@ -38,8 +38,15 @@ class MatlabBridge:
 
 
 tep = MatlabBridge()
-#print(get_workspace(tep.eng
 
-set_variable(tep.eng, 'tspan', matlab.double([0,1]))
+# set_variable(tep.eng, 'tspan', matlab.double([0,1]))
 tep.run_simulink()
-tep.save_workspace('python_save')
+tep.save_workspace('python_save_afterFirstSim')
+tep.eng.saveSimulationState(nargout=0)
+tep.eng.prepareSimulation(nargout=0)
+print('Saved sim state and prepared next iteration.')
+tep.save_workspace('python_save_beforeSecondSim')
+tep.run_simulink()
+tep.save_workspace('python_save_afterSecondSim')
+
+
