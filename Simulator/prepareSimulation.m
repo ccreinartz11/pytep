@@ -14,5 +14,5 @@ IDV_Init(1,:) = idv;
 IDV_Init(2,:) = idv;
 IDV_Init(3,:) = zeros(1,28);
 
-tspan = [t, t+5];
+tspan = [t, t+100];
 
