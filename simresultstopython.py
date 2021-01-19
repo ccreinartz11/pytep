@@ -37,7 +37,6 @@ class MatlabBridge:
         self.eng.eval("save('{}')".format(name), nargout=0)
         print("Workspace has been saved to {}.mat".format(name))
 
-
 tep = MatlabBridge()
 tep.eng.eval("load('python_save_afterSecondSim.mat')", nargout=0)
 simulation_output = np.asarray(tep.eng.eval('simout'))
