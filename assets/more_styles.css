@@ -10,7 +10,21 @@
 
 .full-page-bordered-box{
     height: 100vh;
+    width: 100vw;
     border-style: solid;
     border-width: 1px
+}
+
+.fitted-image{
+    width: True;
+    height: True;
+}
+
+.grey-background{
+    background-color: grey;
+}
+
+#input-panel{
+    color: red;
 }
 
