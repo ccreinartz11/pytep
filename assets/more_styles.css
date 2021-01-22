@@ -4,8 +4,13 @@
     border-color: grey;
 }
 
-.full-page-col{
-    height: 100px;
+.full-page-box{
+    height: 100vh;
+}
+
+.full-page-bordered-box{
+    height: 100vh;
     border-style: solid;
+    border-width: 1px
 }
 
