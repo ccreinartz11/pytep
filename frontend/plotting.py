@@ -6,6 +6,7 @@ import base64
 import os
 
 dummy_scatter = px.scatter(x=[1, 2, 3], y=[4, 5, 6])
+dummy_scatter.update_layout(autosize=True)
 
 eight_subplots = make_subplots(rows=4, cols=2, start_cell="bottom-left")
 eight_subplots.add_trace(go.Scatter(x=[1, 2, 3], y=[4, 5, 6]), row=1, col=1)

@@ -6,19 +6,38 @@ from frontend.plotting import dummy_scatter, middle_finger
 
 main_plots_panel = html.Div([
     dbc.Row([
-        dbc.Col([], id="main-plot-one"),
-        dbc.Col([], id="main-plot-two")
-    ], align="center", className="h-25"),
-    dbc.Row([
-        dbc.Col([], id="main-plot-three"),
-        dbc.Col([], id="main-plot-four")
+        dbc.Col(dcc.Graph(figure=dummy_scatter, className="w-100 h-100"), className="w-50 h-100", id="main-plot-one", style={"background-color": "blue", "border": "solid"}),
+        dbc.Col(dcc.Graph(figure=dummy_scatter, className="w-100 h-100"), className="w-50 h-100", id="main-plot-two", style={"background-color": "blue", "border": "solid"})
     ], className="h-25"),
     dbc.Row([
-        dbc.Col([], id="main-plot-five"),
-        dbc.Col([], id="main-plot-six")
+        dbc.Col(dcc.Graph(figure=dummy_scatter, className="w-100 h-100"), className="w-50 h-100", id="main-plot-three", style={"background-color": "blue", "border": "solid"}),
+        dbc.Col(dcc.Graph(figure=dummy_scatter, className="w-100 h-100"), className="w-50 h-100", id="main-plot-four", style={"background-color": "blue", "border": "solid"})
     ], className="h-25"),
     dbc.Row([
-        dbc.Col([], id="main-plot-seven"),
-        dbc.Col([], id="main-plot-eight")
+        dbc.Col(dcc.Graph(figure=dummy_scatter, className="w-100 h-100"), className="w-50 h-100", id="main-plot-five", style={"background-color": "blue", "border": "solid"}),
+        dbc.Col(dcc.Graph(figure=dummy_scatter, className="w-100 h-100"), className="w-50 h-100", id="main-plot-six", style={"background-color": "blue", "border": "solid"})
     ], className="h-25"),
-], id="main-plots-panel", className="h=100")
+    dbc.Row([
+        dbc.Col(dcc.Graph(figure=dummy_scatter, className="w-100 h-100"), className="w-50 h-100", id="main-plot-seven", style={"background-color": "blue", "border": "solid"}),
+        dbc.Col(dcc.Graph(figure=dummy_scatter, className="w-100 h-100"), className="w-50 h-100", id="main-plot-eight", style={"background-color": "blue", "border": "solid"})
+    ], className="h-25"),
+], id="main-plots-panel", className="h-100 w-100")
+#
+# main_plots_panel = html.Div([
+#     dbc.Row([
+#         dbc.Col([], className="w-50 h-100", id="main-plot-one", style={"background-color": "blue", "border": "solid"}),
+#         dbc.Col([], className="w-50 h-100", id="main-plot-two", style={"background-color": "blue", "border": "solid"})
+#     ], className="h-25"),
+#     dbc.Row([
+#         dbc.Col([], className="w-50 h-100", id="main-plot-three", style={"background-color": "blue", "border": "solid"}),
+#         dbc.Col([], className="w-50 h-100", id="main-plot-four", style={"background-color": "blue", "border": "solid"})
+#     ], className="h-25"),
+#     dbc.Row([
+#         dbc.Col([], className="w-50 h-100", id="main-plot-five", style={"background-color": "blue", "border": "solid"}),
+#         dbc.Col([], className="w-50 h-100", id="main-plot-six", style={"background-color": "blue", "border": "solid"})
+#     ], className="h-25"),
+#     dbc.Row([
+#         dbc.Col([], className="w-50 h-100", id="main-plot-seven", style={"background-color": "blue", "border": "solid"}),
+#         dbc.Col([], className="w-50 h-100", id="main-plot-eight", style={"background-color": "blue", "border": "solid"})
+#     ], className="h-25"),
+# ], id="main-plots-panel", className="h-100 w-100")
