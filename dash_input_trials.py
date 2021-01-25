@@ -7,21 +7,10 @@ app = dash.Dash()
 f_vars = ['f1','f2','f3','f4']
 m_vars = ['m1','m2','m3','m4'] + f_vars
 
-
-
-
-# f_dropdown = html.Div([
-# dcc.Dropdown(
-#     id='f_dropdown',
-#     options=[{'label': x, 'value': x} for x in f_vars],
-#     value=None
-# )])
-
 app.layout = html.Div([
     html.Div(children=[
         html.Button('Run Simulation', id='b_runsim', type='submit'),
         html.Button('Add mvar', id='b_add_mvar', type='submit'),
-        html.Button('Add fvar', id='b_add_fvar', type='submit'),
     ]),
     html.Div(id='container_mvar', children=[], style=dict(width='33%',background="powderblue")),
     html.Div(id='container_runsim'),
@@ -97,45 +86,12 @@ def add_mvar_row(n_clicks, n_clicks2, childdiv):
 
     if 'b_remove_mvar' in triggered_id:
         idx = (triggered_id.partition(",")[0])[9:]
-        #How to find ID of the child::: childdiv[]['props']['id']
-        print(int(idx))
-        del childdiv[int(idx)-1]
+        for i,e in enumerate(childdiv):
+            if e['props']['id'] == idx:
+                del childdiv[int(i)]
+                continue
 
     return childdiv
-
-# @app.callback(
-#     Output({'type': 'outputblob', 'index': MATCH}, 'children'),
-#     [Input(component_id={'type': 'm_dropdown', 'index': ALL}, component_property='value'),
-#     Input(component_id={'type': 'm_start', 'index': ALL}, component_property='value'),
-#     Input(component_id={'type': 'm_stop', 'index': ALL}, component_property='value'),
-#     Input(component_id={'type': 'm_mag', 'index': ALL}, component_property='value')]
-#     #Input({'type': 'b_remove_mvar', 'index': ALL}, 'value')]
-# )
-# def collect_mvar(v_dropdown, v_tb_start, v_tb_stop, v_tb_mag):
-#     return 
-#     # print(v_dropdown)
-#     # print(v_tb_start)
-#     # print(v_tb_stop)
-#     # print(v_tb_mag)
-
-# @app.callback(
-#     Output({'type': 'outputblob', 'index': MATCH}, 'children'),
-#     [Input(component_id={'type': 'b_remove_mvar', 'index': MATCH}, component_property='n_clicks')],
-#     [State('container_mvar', 'children')]
-# )
-# def collect_mvar(n_clicks, childdiv):
-#     if n_clicks > 0:
-#         triggered = [t["prop_id"] for t in dash.callback_context.triggered]
-#         triggered = triggered[0]
-#         triggered = (triggered.partition(",")[0])[9:]
-#         print(triggered)
-#     del childdiv[int(triggered)]
-#     return childdiv
-#     #print(dash.callback_context.triggered)
-#     # print(v_dropdown)
-#     # print(v_tb_start)
-#     # print(v_tb_stop)
-#     # print(v_tb_mag)
     
 @app.callback(
     Output('container_runsim', 'children'),
