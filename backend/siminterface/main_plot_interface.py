@@ -1,20 +1,27 @@
 import pandas as pd
 
+from utils.singleton import Singleton
 
-class MainPlotInterface:
+
+class MainPlotInterface(metaclass=Singleton):
 
     def __init__(self):
-        self._data = None
+        self._data = pd.DataFrame()
+
+    def labels(self):
+        return self._data.columns.tolist()
 
     def timed_var(self, var_name):
         """Returns a dataframe with columns `time` and `var_name`"""
+        if var_name == 'time':
+            return self._data[['time']]
         return self._data[['time', var_name]]
 
     @property
     def data(self):
         return self._data
 
-    @property
+    @data.setter
     def data(self, data):
         self._data = data
 

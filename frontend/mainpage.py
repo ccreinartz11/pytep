@@ -40,3 +40,4 @@ mainpage = html.Div(
     ],
     className="full-page-box",
 )
+
