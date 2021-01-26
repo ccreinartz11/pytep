@@ -19,7 +19,7 @@ input_panel = html.Div(
         html.Div(
             id="container_mvar",
             children=[],
-            style=dict(width="33%", background="powderblue"),
+            className='w-100 h-100',
         ),
         html.Div(id="container_runsim"),
         html.Div(id="container_rem")

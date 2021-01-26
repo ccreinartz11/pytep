@@ -3,8 +3,7 @@ import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 
 from frontend.main_plots_panel import main_plots_panel
-
-input_panel = html.Div("Input panel", id="input-panel")
+from frontend.input_panel import input_panel
 
 fixed_plots_panel = html.Div("Fixed plots here.")
 
