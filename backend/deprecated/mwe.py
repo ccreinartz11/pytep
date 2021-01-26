@@ -2,13 +2,12 @@ import matlab.engine
 from engineutils import get_workspace
 from engineutils import set_variable
 
-class MatlabBridge:
 
-    def __init__(self, model='MultiLoop_mode3'):
+class MatlabBridge:
+    def __init__(self, model="MultiLoop_mode3"):
         self.model = model
         self.start_engine()
 
-        
         self.eng.eval("addpath('Simulator')", nargout=0)
         print("Added path to simulator")
         self.eng.eval("load('InitVariables.mat')", nargout=0)
@@ -16,9 +15,9 @@ class MatlabBridge:
         self.load_simulink()
         print("Loaded Simulink Model")
         return
-        
+
     def start_engine(self):
-        # Raises "EngineError" is Matlab can't be started 
+        # Raises "EngineError" is Matlab can't be started
         # Implemented a check for this, to report it to the user
         self.eng = matlab.engine.start_matlab()
 
@@ -41,12 +40,8 @@ tep = MatlabBridge()
 
 # set_variable(tep.eng, 'tspan', matlab.double([0,1]))
 tep.run_simulink()
-tep.save_workspace('python_save_afterFirstSim')
 tep.eng.saveSimulationState(nargout=0)
 tep.eng.prepareSimulation(nargout=0)
-print('Saved sim state and prepared next iteration.')
-tep.save_workspace('python_save_beforeSecondSim')
+print("Saved sim state and prepared next iteration.")
 tep.run_simulink()
-tep.save_workspace('python_save_afterSecondSim')
-
-
+tep.save_workspace("dummy_simout.mat")

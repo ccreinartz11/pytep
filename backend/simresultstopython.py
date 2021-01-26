@@ -1,12 +1,11 @@
 import matlab.engine
 import numpy as np
-
+import pandas as pd
 from engineutils import get_workspace
 from engineutils import set_variable
 
 
 class MatlabBridge:
-
     def __init__(self):
         self.start_engine()
 
@@ -37,11 +36,11 @@ class MatlabBridge:
         self.eng.eval("save('{}')".format(name), nargout=0)
         print("Workspace has been saved to {}.mat".format(name))
 
+
 tep = MatlabBridge()
-tep.eng.eval("load('python_save_afterSecondSim.mat')", nargout=0)
-simulation_output = np.asarray(tep.eng.eval('simout'))
-np.save('SimulationOutput.npy', simulation_output)
-print('Finished.')
-
-
-
+tep.eng.eval("load('dummy_simout.mat')", nargout=0)
+sim_pv = np.asarray(tep.eng.eval("simout"))
+sim_time = np.asarray(tep.eng.eval("tout"))
+sim_out = pd.DataFrame(np.hstack([sim_time, sim_pv]))
+pd.to_pickle(sim_out, "simout/pv_all.pkl")
+print("Finished.")
