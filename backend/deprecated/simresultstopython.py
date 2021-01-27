@@ -9,7 +9,7 @@ class MatlabBridge:
     def __init__(self):
         self.start_engine()
 
-        # self.eng.eval("addpath('Simulator')", nargout=0)
+        # self.eng.eval("addpath('simulator')", nargout=0)
         # print("Added path to simulator")
         # self.eng.eval("load('InitVariables.mat')", nargout=0)
         # print("Loaded InitVariables.mat")
