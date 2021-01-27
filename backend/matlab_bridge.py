@@ -11,6 +11,7 @@ class MatlabBridge:
         self.eng.eval("addpath('{}')".format(str(simulator_dir)), nargout=0)
         self.load_simulink()
         self.eng.eval("load('InitVariables.mat')", nargout=0)
+        self.eng = None
         return
 
     def start_engine(self):
@@ -32,17 +33,17 @@ class MatlabBridge:
         self.eng.eval("save('{}')".format(name), nargout=0)
         print("Workspace has been saved to {}.mat".format(name))
 
-
-def main():
-    tep = MatlabBridge()
-    # set_variable(tep.eng, 'tspan', matlab.double([0,1]))
-    tep.run_simulink()
-    tep.eng.saveSimulationState(nargout=0)
-    tep.eng.prepareSimulation(nargout=0)
-    print("Saved sim state and prepared next iteration.")
-    tep.run_simulink()
-    tep.save_workspace("dummy_simout.mat")
-
-
-if __name__ == '__main__':
-    main()
+#
+# def main():
+#     tep = MatlabBridge()
+#     # set_variable(tep.eng, 'tspan', matlab.double([0,1]))
+#     tep.run_simulink()
+#     tep.eng.saveSimulationState(nargout=0)
+#     tep.eng.prepareSimulation(nargout=0)
+#     print("Saved sim state and prepared next iteration.")
+#     tep.run_simulink()
+#     tep.save_workspace("dummy_simout.mat")
+#
+#
+# if __name__ == '__main__':
+#     main()

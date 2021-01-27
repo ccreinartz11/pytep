@@ -7,16 +7,16 @@ from dash.dependencies import Input, Output
 import plotly.express as px
 
 from app import app
-from backend.siminterface.siminterface import MainPlotInterface
+import backend.siminterface as simulation_interface
 
-mpp_interface = MainPlotInterface.dummy_interface()
+siminterface = simulation_interface.SimInterface()
 
 main_plots_panel = html.Div(
     [
         dbc.Row(
             [
                 dbc.Col([
-                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in mpp_interface.labels()],
+                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
                                  value=['time'],
                                  multi=False,
                                  clearable=False,
@@ -27,7 +27,7 @@ main_plots_panel = html.Div(
                     style={"background-color": "blue", "border": "solid"},
                 ),
                 dbc.Col([
-                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in mpp_interface.labels()],
+                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
                                  value=['time'],
                                  multi=False,
                                  clearable=False,
@@ -43,7 +43,7 @@ main_plots_panel = html.Div(
         dbc.Row(
             [
                 dbc.Col([
-                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in mpp_interface.labels()],
+                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
                                  value=['time'],
                                  multi=False,
                                  clearable=False,
@@ -54,7 +54,7 @@ main_plots_panel = html.Div(
                     style={"background-color": "blue", "border": "solid"}
                 ),
                 dbc.Col([
-                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in mpp_interface.labels()],
+                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
                                  value=['time'],
                                  multi=False,
                                  clearable=False,
@@ -69,7 +69,7 @@ main_plots_panel = html.Div(
         ),        dbc.Row(
             [
                 dbc.Col([
-                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in mpp_interface.labels()],
+                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
                                  value=['time'],
                                  multi=False,
                                  clearable=False,
@@ -80,7 +80,7 @@ main_plots_panel = html.Div(
                     style={"background-color": "blue", "border": "solid"}
                 ),
                 dbc.Col([
-                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in mpp_interface.labels()],
+                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
                                  value=['time'],
                                  multi=False,
                                  clearable=False,
@@ -95,7 +95,7 @@ main_plots_panel = html.Div(
         ),        dbc.Row(
             [
                 dbc.Col([
-                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in mpp_interface.labels()],
+                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
                                  value=['time'],
                                  multi=False,
                                  clearable=False,
@@ -106,7 +106,7 @@ main_plots_panel = html.Div(
                     style={"background-color": "blue", "border": "solid"}
                 ),
                 dbc.Col([
-                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in mpp_interface.labels()],
+                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
                                  value=['time'],
                                  multi=False,
                                  clearable=False,
@@ -187,7 +187,7 @@ def plot_on_p1(col_label):
 
 
 def scatter(col_label):
-    data = mpp_interface.timed_var(col_label)
+    data = siminterface.timed_var(col_label)
     fig = px.scatter(x=data['time'], y=data[col_label])
     fig.update_layout(xaxis_title='time',
                       yaxis_title=col_label)

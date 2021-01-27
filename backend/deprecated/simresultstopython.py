@@ -1,20 +1,11 @@
 import matlab.engine
 import numpy as np
 import pandas as pd
-from engineutils import get_workspace
-from engineutils import set_variable
-
 
 class MatlabBridge:
     def __init__(self):
         self.start_engine()
 
-        # self.eng.eval("addpath('simulator')", nargout=0)
-        # print("Added path to simulator")
-        # self.eng.eval("load('InitVariables.mat')", nargout=0)
-        # print("Loaded InitVariables.mat")
-        # self.load_simulink()
-        # print("Loaded Simulink Model")
         return
 
     def start_engine(self):
