@@ -2,13 +2,16 @@ import matlab.engine
 from backend.engineutils import get_workspace
 from backend.engineutils import set_variable
 
+from pathlib import Path
+
 
 class MatlabBridge:
     def __init__(self, model="MultiLoop_mode3"):
         self.model = model
         self.start_engine()
-
-        self.eng.eval("addpath('simulator')", nargout=0)
+        simulator_dir = Path(__file__).parent.parent / 'simulator'
+        self.eng.eval("addpath('{}')".format(str(simulator_dir)), nargout=0)
+        # self.eng.eval("addpath('../simulator')", nargout=0)
         print("Added path to simulator")
         self.eng.eval("load('InitVariables.mat')", nargout=0)
         print("Loaded InitVariables.mat")
@@ -42,6 +45,6 @@ tep = MatlabBridge()
 tep.run_simulink()
 tep.eng.saveSimulationState(nargout=0)
 tep.eng.prepareSimulation(nargout=0)
-print("Saved sim state and prepared next iteration.")
 tep.run_simulink()
 tep.save_workspace("dummy_simout.mat")
+

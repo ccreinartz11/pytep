@@ -7,8 +7,8 @@ from dash.dependencies import Input, Output
 import plotly.express as px
 
 from app import app
-import backend.siminterface as simulation_interface
 
+import backend.siminterface as simulation_interface
 siminterface = simulation_interface.SimInterface()
 
 main_plots_panel = html.Div(

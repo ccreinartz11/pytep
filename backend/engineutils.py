@@ -9,6 +9,8 @@ def get_workspace(engine):
 
 
 def set_variable(engine, var, val):
-    print(engine.eval(var))
     engine.workspace[var] = val
-    print(engine.eval(var))
+
+
+def get_variable(engine, var):
+    return engine.workspace[var]

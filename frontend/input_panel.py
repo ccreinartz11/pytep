@@ -5,6 +5,9 @@ import dash_html_components as html
 from dash.dependencies import Input, Output, ALL, State, MATCH, ALLSMALLER
 from app import app
 
+import backend.siminterface as simulation_interface
+siminterface = simulation_interface.SimInterface()
+
 f_vars = ["f1", "f2", "f3", "f4"]
 m_vars = ["m1", "m2", "m3", "m4"] + f_vars
 
@@ -126,5 +129,8 @@ def run_simulation(n_clicks, v_dropdown, v_tb_start, v_tb_stop, v_tb_mag):
         print(v_tb_start)
         print(v_tb_stop)
         print(v_tb_mag)
+        siminterface.simulate()
+        print('Going into siminterface update now.')
+        siminterface.update()
 
 

@@ -14,25 +14,19 @@ class SimInterface(metaclass=Singleton):
         self._process_units = pd.DataFrame()
         self._setpoints = pd.DataFrame()
 
-    @staticmethod
-    def setup():
-        si = SimInterface()
-        mb = MatlabBridge()
-        si.matlab_bridge = mb
-        return si
+    def simulate(self):
+        print('Should start simulating now')
+        self._matlab_bridge.run_simulink()
 
-    @staticmethod
-    def dummy_setup():
-        interface = SimInterface()
-        dummy_data = pd.read_pickle('./frontend/dummy_frame.pkl')
-        interface.process_vars = dummy_data
-        return interface
+    def update(self):
+        print('Starting update')
+        self._update_process_data()
 
-    @staticmethod
-    def setup_no_engine():
-        si = SimInterface()
-        si._load_dataframes()
-        return si
+    def _update_process_data(self):
+        new_process_data = self._matlab_bridge.get_simulation_output()
+        new_process_data = pd.DataFrame(data=new_process_data, columns=self._process_data.columns)
+        self._process_data.append(new_process_data)
+
 
     def _load_dataframes(self):
         setupinfo_path = pathlib.Path(__file__).parent / 'setupinfo'
@@ -45,14 +39,6 @@ class SimInterface(metaclass=Singleton):
         with open(setupinfo_path / 'process_var_units.pkl', 'rb') as pv_units_file:
             pv_units = pickle.load(pv_units_file)
         self._process_units = pd.DataFrame(data=[pv_units], columns=pv_labels)
-
-    @property
-    def matlab_bridge(self):
-        return self._matlab_bridge
-
-    @matlab_bridge.setter
-    def matlab_bridge(self, matlab_bridge):
-        self._matlab_bridge = matlab_bridge
 
     def plot_labels(self):
         return self._process_data.columns.tolist()
@@ -70,4 +56,25 @@ class SimInterface(metaclass=Singleton):
     @process_vars.setter
     def process_vars(self, data):
         self._process_data = data
+
+    @staticmethod
+    def setup():
+        si = SimInterface()
+        mb = MatlabBridge()
+        si._matlab_bridge = mb
+        si._load_dataframes()
+        return si
+
+    @staticmethod
+    def dummy_setup():
+        interface = SimInterface()
+        dummy_data = pd.read_pickle('./frontend/dummy_frame.pkl')
+        interface.process_vars = dummy_data
+        return interface
+
+    @staticmethod
+    def setup_no_engine():
+        si = SimInterface()
+        si._load_dataframes()
+        return si
 
