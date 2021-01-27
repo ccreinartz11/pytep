@@ -7,7 +7,7 @@ from dash.dependencies import Input, Output
 import plotly.express as px
 
 from app import app
-from backend.siminterface.main_plot_interface import MainPlotInterface
+from backend.siminterface.siminterface import MainPlotInterface
 
 mpp_interface = MainPlotInterface.dummy_interface()
 
