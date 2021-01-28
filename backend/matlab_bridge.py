@@ -28,9 +28,7 @@ class MatlabBridge:
         self.eng.load_system(self.model)
 
     def run_simulink(self):
-        print('Starting simulation')
-        self.eng.eval("sim('{}',[0 3])".format(self.model), nargout=0)
-        print('Finished simulation.')
+        self.eng.eval("sim('{}',tspan)".format(self.model), nargout=0)
 
     def save_workspace(self, name):
         self.eng.eval("save('{}')".format(name), nargout=0)
