@@ -19,13 +19,12 @@ class SimInterface(metaclass=Singleton):
         self._matlab_bridge.run_simulink()
 
     def update(self):
-        print('Starting update')
         self._update_process_data()
 
     def _update_process_data(self):
-        new_process_data = self._matlab_bridge.get_simulation_output()
+        new_process_data = self._matlab_bridge.get_process_vars()
         new_process_data = pd.DataFrame(data=new_process_data, columns=self._process_data.columns)
-        self._process_data.append(new_process_data)
+        self._process_data = self._process_data.append(new_process_data)
 
 
     def _load_dataframes(self):
@@ -50,11 +49,11 @@ class SimInterface(metaclass=Singleton):
         return self._process_data[['time', var_name]]
 
     @property
-    def process_vars(self):
+    def process_data(self):
         return self._process_data
 
-    @process_vars.setter
-    def process_vars(self, data):
+    @process_data.setter
+    def process_data(self, data):
         self._process_data = data
 
     @staticmethod
@@ -69,7 +68,7 @@ class SimInterface(metaclass=Singleton):
     def dummy_setup():
         interface = SimInterface()
         dummy_data = pd.read_pickle('./frontend/dummy_frame.pkl')
-        interface.process_vars = dummy_data
+        interface.process_data = dummy_data
         return interface
 
     @staticmethod

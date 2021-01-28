@@ -1,5 +1,7 @@
 import matlab.engine
+import numpy as np
 from pathlib import Path
+
 
 import backend.engineutils as engineutils
 
@@ -27,15 +29,16 @@ class MatlabBridge:
 
     def run_simulink(self):
         print('Starting simulation')
-        self.eng.eval("sim('{}',[0 2])".format(self.model), nargout=0)
+        self.eng.eval("sim('{}',[0 3])".format(self.model), nargout=0)
         print('Finished simulation.')
 
     def save_workspace(self, name):
         self.eng.eval("save('{}')".format(name), nargout=0)
         print("Workspace has been saved to {}.mat".format(name))
 
-    def get_simulation_output(self):
-        print('Getting sim output.')
-        simout = engineutils.get_variable(self.eng, 'simout')
-        print(simout)
+    def get_process_vars(self):
+        time = np.asarray(engineutils.get_variable(self.eng, 'tout'))
+        process_vars = np.asarray(engineutils.get_variable(self.eng, 'simout'))
+        simout = np.hstack((time, process_vars))
+        return simout
 

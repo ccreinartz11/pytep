@@ -130,28 +130,28 @@ main_plots_panel = html.Div(
     Input(component_id='dropdown_p1', component_property='value')
 )
 def plot_on_p1(col_label):
-    return scatter(col_label)
+    return line(col_label)
 
 @app.callback(
     Output(component_id='graph_p2', component_property='figure'),
     Input(component_id='dropdown_p2', component_property='value')
 )
 def plot_on_p1(col_label):
-    return scatter(col_label)
+    return line(col_label)
 
 @app.callback(
     Output(component_id='graph_p3', component_property='figure'),
     Input(component_id='dropdown_p3', component_property='value')
 )
 def plot_on_p1(col_label):
-    return scatter(col_label)
+    return line(col_label)
 
 @app.callback(
     Output(component_id='graph_p4', component_property='figure'),
     Input(component_id='dropdown_p4', component_property='value')
 )
 def plot_on_p1(col_label):
-    return scatter(col_label)
+    return line(col_label)
 
 
 @app.callback(
@@ -159,7 +159,7 @@ def plot_on_p1(col_label):
     Input(component_id='dropdown_p5', component_property='value')
 )
 def plot_on_p1(col_label):
-    return scatter(col_label)
+    return line(col_label)
 
 
 @app.callback(
@@ -167,7 +167,7 @@ def plot_on_p1(col_label):
     Input(component_id='dropdown_p6', component_property='value')
 )
 def plot_on_p1(col_label):
-    return scatter(col_label)
+    return line(col_label)
 
 
 @app.callback(
@@ -175,7 +175,7 @@ def plot_on_p1(col_label):
     Input(component_id='dropdown_p7', component_property='value')
 )
 def plot_on_p1(col_label):
-    return scatter(col_label)
+    return line(col_label)
 
 
 @app.callback(
@@ -183,12 +183,21 @@ def plot_on_p1(col_label):
     Input(component_id='dropdown_p8', component_property='value')
 )
 def plot_on_p1(col_label):
-    return scatter(col_label)
+    return line(col_label)
 
 
 def scatter(col_label):
     data = siminterface.timed_var(col_label)
     fig = px.scatter(x=data['time'], y=data[col_label])
+    fig.update_layout(xaxis_title='time',
+                      yaxis_title=col_label)
+    fig.update_layout(autosize=True)
+    return fig
+
+
+def line(col_label):
+    data = siminterface.timed_var(col_label)
+    fig = px.line(x=data['time'], y=data[col_label])
     fig.update_layout(xaxis_title='time',
                       yaxis_title=col_label)
     fig.update_layout(autosize=True)
