@@ -71,19 +71,19 @@ def add_mvar_row(n_clicks, n_clicks2, childdiv):
                 dcc.Input(
                     id={"type": "m_start", "index": n_clicks},
                     style={"width": "10%"},
-                    value="Start",
+                    placeholder="Start",
                     type="text",
                 ),
                 dcc.Input(
                     id={"type": "m_stop", "index": n_clicks},
                     style={"width": "10%"},
-                    value="Stop",
+                    placeholder="Stop",
                     type="text",
                 ),
                 dcc.Input(
                     id={"type": "m_mag", "index": n_clicks},
                     style={"width": "10%"},
-                    value="Magnitude",
+                    placeholder="Magnitude",
                     type="text",
                 ),
                 # html.Button('X', id='b_remove_mvar', type='submit'),
