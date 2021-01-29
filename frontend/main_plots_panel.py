@@ -39,6 +39,7 @@ main_plots_panel = html.Div(
                 )
             ],
             className="h-25",
+            no_gutters=True,
         ),
         dbc.Row(
             [
@@ -66,6 +67,7 @@ main_plots_panel = html.Div(
                 )
             ],
             className="h-25",
+            no_gutters=True,
         ),        dbc.Row(
             [
                 dbc.Col([
@@ -92,6 +94,7 @@ main_plots_panel = html.Div(
                 )
             ],
             className="h-25",
+            no_gutters=True,
         ),        dbc.Row(
             [
                 dbc.Col([
@@ -118,6 +121,7 @@ main_plots_panel = html.Div(
                 )
             ],
             className="h-25",
+            no_gutters=True,
         ),
     ],
     id="main-plots-panel",

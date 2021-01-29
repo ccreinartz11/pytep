@@ -36,6 +36,7 @@ mainpage = html.Div(
                 ),
             ],
             className="h-100",
+            no_gutters=True,
         )
     ],
     className="full-page-box",
