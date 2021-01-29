@@ -40,3 +40,6 @@ class MatlabBridge:
         simout = np.hstack((time, process_vars))
         return simout
 
+    def prep_next_iteration(self):
+        self.eng.prepNextSimIteration(nargout=0)
+

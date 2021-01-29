@@ -131,5 +131,6 @@ def run_simulation(n_clicks, v_dropdown, v_tb_start, v_tb_stop, v_tb_mag):
         print(v_tb_mag)
         siminterface.simulate()
         siminterface.update()
+        # siminterface.prep_next_iteration()
 
 

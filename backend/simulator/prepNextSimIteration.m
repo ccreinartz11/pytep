@@ -1,4 +1,5 @@
 xInitial = xFinal;
+t = tout(end);
 SetPoint_Init(1,:) = setpoints(end);
 SetPoint_Init(2,:) = setpoints(end);
 SetPoint_Init(3,:) = zeros(1,12);

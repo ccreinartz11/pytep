@@ -188,17 +188,19 @@ def plot_on_p1(col_label):
 
 def scatter(col_label):
     data = siminterface.timed_var(col_label)
+    col_unit = siminterface.get_var_unit(col_label)
     fig = px.scatter(x=data['time'], y=data[col_label])
     fig.update_layout(xaxis_title='time',
-                      yaxis_title=col_label)
+                      yaxis_title=col_unit)
     fig.update_layout(autosize=True)
     return fig
 
 
 def line(col_label):
     data = siminterface.timed_var(col_label)
+    col_unit = siminterface.get_var_unit(col_label)
     fig = px.line(x=data['time'], y=data[col_label])
     fig.update_layout(xaxis_title='time',
-                      yaxis_title=col_label)
+                      yaxis_title=col_unit)
     fig.update_layout(autosize=True)
     return fig

@@ -20,6 +20,9 @@ class SimInterface(metaclass=Singleton):
     def update(self):
         self._update_process_data()
 
+    def prep_next_iteration(self):
+        self._matlab_bridge.prep_next_iteration()
+
     def _update_process_data(self):
         new_process_data = self._matlab_bridge.get_process_vars()
         new_process_data = pd.DataFrame(data=new_process_data, columns=self._process_data.columns)
@@ -75,4 +78,8 @@ class SimInterface(metaclass=Singleton):
         si = SimInterface()
         si._load_dataframes()
         return si
+
+    def get_var_unit(self, col_label):
+        return self._process_units[col_label][0]
+
 
