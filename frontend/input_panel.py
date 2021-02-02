@@ -15,7 +15,7 @@ input_panel = html.Div(
     [
         html.Div(
             children=[
-                html.Button("Run Simulation", id="b_runsim", type="submit"),
+                html.Button("Run Simulation", id="b_runsim", type="submit", className='mr-1'),
                 html.Button("Add mvar", id="b_add_mvar", type="submit"),
             ]
         ),
@@ -131,6 +131,5 @@ def run_simulation(n_clicks, v_dropdown, v_tb_start, v_tb_stop, v_tb_mag):
         print(v_tb_mag)
         siminterface.simulate()
         siminterface.update()
-        # siminterface.prep_next_iteration()
 
 
