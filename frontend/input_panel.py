@@ -33,7 +33,7 @@ input_panel = html.Div(
         ),
         html.Div(id="container_runsim"),
         html.Div(id="container_rem")
-    ], className="full-page-box"
+    ], className="fitted-image"
 )
 
 
@@ -100,6 +100,7 @@ def add_mvar_row(n_clicks, n_clicks2, childdiv):
                             "display": "inline-block",
                             "width": "100px",
                             "margin-top": "0px",
+                            "vertical-align": "top"
                         },
                         placeholder="Magnitude",
                         type="text",
@@ -110,6 +111,7 @@ def add_mvar_row(n_clicks, n_clicks2, childdiv):
                             "display": "inline-block",
                             "width": "100px",
                             "margin-top": "0px",
+                            "vertical-align": "top"
                         },
                         placeholder="Duration",
                         type="text",
@@ -119,7 +121,7 @@ def add_mvar_row(n_clicks, n_clicks2, childdiv):
                         "X", id={"type": "b_remove_mvar", "index": n_clicks}, type="submit"
                     ),
                 ])
-            ],style={"background-color": "red"})
+            ], style={"background-color": "red"})
             ]
         )
         childdiv.append(new_mvar)

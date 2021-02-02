@@ -16,7 +16,7 @@ mainpage = html.Div(
                         dbc.Row(
                             dbc.Col(input_panel),
                             className="h-50",
-                            style={"background-color": "grey"},
+                            style={"box-sizing": "border-box"},
                         ),
                         dbc.Row(
                             dbc.Col(fixed_plots_panel),
@@ -39,6 +39,6 @@ mainpage = html.Div(
             no_gutters=True,
         )
     ],
-    className="full-page-box",
+    className="full-page-box no-overflow",
 )
 

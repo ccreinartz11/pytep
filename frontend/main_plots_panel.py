@@ -195,7 +195,8 @@ def scatter(col_label):
     col_unit = siminterface.get_var_unit(col_label)
     fig = px.scatter(x=data['time'], y=data[col_label])
     fig.update_layout(xaxis_title='time',
-                      yaxis_title=col_unit)
+                      yaxis_title=col_unit,
+                      margin={"t": 5})
     fig.update_layout(autosize=True)
     return fig
 
@@ -205,6 +206,8 @@ def line(col_label):
     col_unit = siminterface.get_var_unit(col_label)
     fig = px.line(x=data['time'], y=data[col_label])
     fig.update_layout(xaxis_title='time',
-                      yaxis_title=col_unit)
+                      yaxis_title=col_unit,
+                      margin={"t": 15,
+                              "b": 15})
     fig.update_layout(autosize=True)
     return fig
