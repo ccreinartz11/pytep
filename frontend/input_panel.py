@@ -16,7 +16,7 @@ input_panel = html.Div(
     [
         html.Div(
             children=[
-                html.Button("Run Simulation", id="b_runsim", type="submit", className='mr-1'),
+                html.Button("Run Simulation", id="b_runsim", type="submit", className='btn btn-primary'),
                 html.Button("Add mvar", id="b_add_mvar", type="submit"),
                 html.Button("Add fvar", id="b_add_fvar", type="submit"),
             ]
