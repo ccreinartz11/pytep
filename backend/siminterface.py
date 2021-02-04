@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import pickle
 import pathlib
 
@@ -24,10 +25,15 @@ class SimInterface(metaclass=Singleton):
         self._matlab_bridge.prep_next_iteration()
 
     def _update_process_data(self):
-        new_process_data = self._matlab_bridge.get_process_vars()
+        new_process_data = self._fetch_process_data()
         new_process_data = pd.DataFrame(data=new_process_data, columns=self._process_data.columns)
         self._process_data = self._process_data.append(new_process_data)
 
+    def _fetch_process_data(self):
+        time = self._matlab_bridge.get_workspace_variable('tout')
+        process_vars = self._matlab_bridge.get_workspace_variable('simout')
+        time_and_pv = np.hstack((time, process_vars))
+        return time_and_pv
 
     def _load_dataframes(self):
         setupinfo_path = pathlib.Path(__file__).parent / 'setupinfo'

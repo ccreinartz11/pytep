@@ -63,13 +63,6 @@ class MatlabBridge:
             var = value
         engineutils.set_variable(self._eng, name, var)
 
-    # TODO: Belongs in Siminterface
-    def get_process_vars(self):
-        time = np.asarray(engineutils.get_variable(self._eng, 'tout'))
-        process_vars = np.asarray(engineutils.get_variable(self._eng, 'simout'))
-        simout = np.hstack((time, process_vars))
-        return simout
-
     def prep_next_iteration(self):
         self._eng.prepNextSimIteration(nargout=0)
 
