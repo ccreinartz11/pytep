@@ -1,0 +1,4 @@
+Matlab / Python variable types:
+https://www.mathworks.com/help/matlab/matlab_external/handle-data-returned-from-matlab-to-python.html
+
+
