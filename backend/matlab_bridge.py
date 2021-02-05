@@ -28,7 +28,7 @@ class MatlabBridge:
         self._eng.load_system(self._model)
 
     def dir_to_path(self, dir_path):
-        self._eng.eval("addpath('{}')".format(str(dir_path)), nargout=0)
+        self._eng.eval("addpath(genpath('{}'))".format(str(dir_path)), nargout=0)
 
     def _load_workspace(self):
         self._eng.eval("load('InitVariables.mat')", nargout=0)

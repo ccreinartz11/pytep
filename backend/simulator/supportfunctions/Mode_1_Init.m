@@ -30,8 +30,6 @@ load Mode1xInitial
 load SetPoint_Init
 load SetPoint_Names
 
-process_disturbances = zeros(2,28);
-
 % TS_base is the sampling period of most discrete PI controllers used 
 % in the simulation.
 Ts_base=0.0005;
