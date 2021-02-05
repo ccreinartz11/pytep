@@ -14,7 +14,7 @@ io_type = ["Step", "Ramp"]
 
 input_panel = html.Div(
     [
-        dbc.Row([
+        dbc.Row(dbc.Col([
             html.Button("Run Simulation", id="b_runsim", type="submit", className='btn btn-primary'),
             html.Button("Add mvar", id="b_add_mvar", type="submit"),
             html.Button("Add fvar", id="b_add_fvar", type="submit"),
@@ -23,10 +23,9 @@ input_panel = html.Div(
                     placeholder="Simulation duration",
                     type="text",
                 )
-        ],
-        className="w-100"
+        ], className="w-100"), className="w-100"
         ),
-        dbc.Row([
+        dbc.Row(dbc.Col([
             html.Div(
                 id="container_mvar",
                 children=[],
@@ -34,8 +33,8 @@ input_panel = html.Div(
                     "background-color": "grey",
                     },
                 className="fitted-image w-100 h-50 overflow-auto"),
-        ]),
-        dbc.Row([
+        ])),
+        dbc.Row(dbc.Col([
             html.Div(
                 id="container_fvar",
                 children=[],
@@ -43,7 +42,7 @@ input_panel = html.Div(
             ),
             html.Div(id="container_runsim"),
             html.Div(id="container_rem")
-        ])
+        ]))
     ],
     className="fitted-image"
 )
