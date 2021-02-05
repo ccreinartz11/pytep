@@ -24,25 +24,25 @@ input_panel = html.Div(
                     placeholder="Simulation duration",
                     type="text",
                 )
-        ], className="w-100"), className="w-100 h-20"
+        ], className="w-100"), className="w-100"
         ),
         dbc.Row(dbc.Col([
             html.Div(
                 id="container_mvar",
                 children=[],
-                className="w-90 h-100"),
-        ]), className="h-40 overflow-auto", style={"background-color":"green"}),
+                className="w-100 overflow-auto"),
+        ]), className="h-50 overflow-auto", style={"background-color":"green"}),
         dbc.Row(dbc.Col([
             html.Div(
                 id="container_fvar",
                 children=[],
-                className='w-90',
+                className='w-100 overflow-auto',
             ),
-            html.Div(id="container_runsim"),
-            html.Div(id="container_rem")
-        ]), className="h-40 overflow-auto", style={"background-color":"blue"})
+            html.Div(id="container_runsim", className="h-0"),
+            html.Div(id="container_rem", className="h-0")
+        ]), className="h-50 overflow-auto", style={"background-color":"yellow"})
     ],
-    className="h-100"
+    className="h-100 overflow-auto"
 )
 
 

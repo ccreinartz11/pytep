@@ -15,15 +15,15 @@ mainpage = html.Div(
                     [
                         dbc.Row(
                             dbc.Col(input_panel),
-                            className="h-50",
+                            className="h-50 overflow-auto",
                             style={"box-sizing": "border-box"},
                         ),
                         dbc.Row(
                             dbc.Col(fixed_plots_panel),
-                            className="h-50",
-                            style={"background-color": "black"},
+                            className="h-50 overflow-auto",
                         ),
                     ],
+                    className="h-100 overflow-auto",
                     width=4,
                     id="left-column",
                 ),
