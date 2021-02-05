@@ -1,4 +1,3 @@
-import matlab.engine
 import numpy as np
 
 import backend.matlab_bridge as matlab_bridge
