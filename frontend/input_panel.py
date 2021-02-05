@@ -16,6 +16,7 @@ input_panel = html.Div(
     [
         dbc.Row(dbc.Col([
             html.Button("Run Simulation", id="b_runsim", type="submit", className='btn btn-primary'),
+            html.Button("Stop Simulation", id="b_stopsim", type="submit", className='btn btn-primary'),
             html.Button("Add mvar", id="b_add_mvar", type="submit"),
             html.Button("Add fvar", id="b_add_fvar", type="submit"),
             dbc.Input(
@@ -23,28 +24,25 @@ input_panel = html.Div(
                     placeholder="Simulation duration",
                     type="text",
                 )
-        ], className="w-100"), className="w-100"
+        ], className="w-100"), className="w-100 h-20"
         ),
         dbc.Row(dbc.Col([
             html.Div(
                 id="container_mvar",
                 children=[],
-                style={
-                    "background-color": "grey",
-                    },
-                className="fitted-image w-100 h-50 overflow-auto"),
-        ])),
+                className="w-90 h-100"),
+        ]), className="h-40 overflow-auto", style={"background-color":"green"}),
         dbc.Row(dbc.Col([
             html.Div(
                 id="container_fvar",
                 children=[],
-                className='w-100 h-100',
+                className='w-90',
             ),
             html.Div(id="container_runsim"),
             html.Div(id="container_rem")
-        ]))
+        ]), className="h-40 overflow-auto", style={"background-color":"blue"})
     ],
-    className="fitted-image"
+    className="h-100"
 )
 
 
@@ -150,7 +148,7 @@ def add_mvar_row(n_clicks, n_clicks2, childdiv):
                     className="w-10",
                     )],
                     style={"background-color": "red"},no_gutters=True),
-                ])
+                ], className="h-100")
         childdiv.append(new_mvar)
 
     if "b_remove_mvar" in triggered_id:
