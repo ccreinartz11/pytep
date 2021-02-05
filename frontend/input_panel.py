@@ -14,26 +14,38 @@ io_type = ["Step", "Ramp"]
 
 input_panel = html.Div(
     [
-        html.Div(
-            children=[
-                html.Button("Run Simulation", id="b_runsim", type="submit", className='btn btn-primary'),
-                html.Button("Add mvar", id="b_add_mvar", type="submit"),
-                html.Button("Add fvar", id="b_add_fvar", type="submit"),
-            ]
+        dbc.Row([
+            html.Button("Run Simulation", id="b_runsim", type="submit", className='btn btn-primary'),
+            html.Button("Add mvar", id="b_add_mvar", type="submit"),
+            html.Button("Add fvar", id="b_add_fvar", type="submit"),
+            dbc.Input(
+                    id="sim_duration",
+                    placeholder="Simulation duration",
+                    type="text",
+                )
+        ],
+        className="w-100"
         ),
-        html.Div(
-            id="container_mvar",
-            children=[],
-            #className='w-100 h-100',
-        ),
-        html.Div(
-            id="container_fvar",
-            children=[],
-            className='w-100 h-100',
-        ),
-        html.Div(id="container_runsim"),
-        html.Div(id="container_rem")
-    ], className="fitted-image"
+        dbc.Row([
+            html.Div(
+                id="container_mvar",
+                children=[],
+                style={
+                    "background-color": "grey",
+                    },
+                className="fitted-image w-100 h-50 overflow-auto"),
+        ]),
+        dbc.Row([
+            html.Div(
+                id="container_fvar",
+                children=[],
+                className='w-100 h-100',
+            ),
+            html.Div(id="container_runsim"),
+            html.Div(id="container_rem")
+        ])
+    ],
+    className="fitted-image"
 )
 
 
@@ -67,20 +79,21 @@ def add_mvar_row(n_clicks, n_clicks2, childdiv):
                         style={
                             "width": "100%",
                             "display": "inline-block",
-                            "min-width": "100px",
                         },
                         value=None,
                         clearable=False,
                         searchable=False,
                     ),  
                 ],
-                width=2),
+                className="w-50"),
+                
                 dbc.Col([
                     html.Div("Hello")
                 ],
-                width=2)
+                className="w-50"),
             ],
-            style={"background-color": "blue"}),
+            style={"background-color": "blue"},
+            no_gutters=True),
             dbc.Row([
                 dbc.Col([
                     dcc.Dropdown(
@@ -88,42 +101,57 @@ def add_mvar_row(n_clicks, n_clicks2, childdiv):
                         options=[{"label": x, "value": x} for x in io_type],
                         style={
                             "display": "inline-block",
-                            "min-width": "100px",
-                            "margin-bottom": "-5px",
+                            "width": "100%"
                         },
                         value=None,
                         clearable=False,
+                        searchable=False,
+                        
+                    )],
+                    className="w-30"
                     ),
+                dbc.Col([
                     dbc.Input(
                         id={"type": "m_mag", "index": n_clicks},
                         style={
                             "display": "inline-block",
-                            "width": "100px",
+                            "width": "100%",
                             "margin-top": "0px",
                             "vertical-align": "top"
                         },
                         placeholder="Magnitude",
                         type="text",
+                    )],
+                    className="w-30",
                     ),
+                dbc.Col([
                     dbc.Input(
-                        id={"type": "m_stop", "index": n_clicks},
+                        id={"type": "m_duration", "index": n_clicks},
                         style={
                             "display": "inline-block",
-                            "width": "100px",
+                            "width": "100%",
                             "margin-top": "0px",
                             "vertical-align": "top"
                         },
                         placeholder="Duration",
                         type="text",
                         disabled=False,
+                    )],
+                    className="w-30",
                     ),
+                dbc.Col([
                     html.Button(
-                        "X", id={"type": "b_remove_mvar", "index": n_clicks}, type="submit"
-                    ),
+                        "X", 
+                        id={"type": "b_remove_mvar", "index": n_clicks}, 
+                        style={
+                            "width": "100%"
+                        },
+                        type="submit",
+                    )],
+                    className="w-10",
+                    )],
+                    style={"background-color": "red"},no_gutters=True),
                 ])
-            ], style={"background-color": "red"})
-            ]
-        )
         childdiv.append(new_mvar)
 
     if "b_remove_mvar" in triggered_id:
@@ -137,40 +165,51 @@ def add_mvar_row(n_clicks, n_clicks2, childdiv):
 
 
 @app.callback(
-    Output({"index": MATCH, "type": "m_mag"}, "disabled"),
-    Input({"index": MATCH, "type": "m_io_dropdown"}, "value")
+    [Output({"index": MATCH, "type": "m_duration"}, "disabled"),
+    Output({"index": MATCH, "type": "m_duration"}, "value")],
+    Input({"index": MATCH, "type": "m_io_dropdown"}, "value"),
+    State({"index": MATCH, "type": "m_duration"}, "value"),
 )
-def disable_box(step):
-    return True if step == "Step" else False
+def disable_box(step, val):
+    dis = True if step == "Step" else False
+    val = None if step == "Step" else val
+
+    return dis, val
 
 @app.callback(
     Output("container_runsim", "children"),
     [Input("b_runsim", "n_clicks")],
     state=[
         State(
+            component_id="sim_duration",
+            component_property="value"
+        ),
+        State(
             component_id={"type": "m_dropdown", "index": ALL},
             component_property="value",
         ),
         State(
-            component_id={"type": "m_start", "index": ALL}, component_property="value"
+            component_id={"type": "m_io_dropdown", "index": ALL}, component_property="value"
         ),
         State(
-            component_id={"type": "m_stop", "index": ALL}, component_property="value"
+            component_id={"type": "m_duration", "index": ALL}, component_property="value"
         ),
         State(
             component_id={"type": "m_mag", "index": ALL}, component_property="value"
         ),
     ],
 )
-def run_simulation(n_clicks, v_dropdown, v_tb_start, v_tb_stop, v_tb_mag):
+def run_simulation(n_clicks, sim_duration, v_dropdown, v_tb_type, v_tb_duration, v_tb_mag):
     if n_clicks is not None:
         print("Run simulation pressed")
         print("With the following arguments:")
+        print(sim_duration)
         print(v_dropdown)
-        print(v_tb_start)
-        print(v_tb_stop)
+        print(v_tb_type)
         print(v_tb_mag)
-        siminterface.simulate()
-        siminterface.update()
+        print(v_tb_duration)
+        
+        #siminterface.simulate()
+        #siminterface.update()
 
 
