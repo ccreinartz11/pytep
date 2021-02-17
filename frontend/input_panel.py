@@ -170,6 +170,7 @@ def run_simulation(n_clicks, v_dropdown, v_tb_start, v_tb_stop, v_tb_mag):
         print(v_tb_start)
         print(v_tb_stop)
         print(v_tb_mag)
+        siminterface._matlab_bridge.set_simpause_time(10)
         siminterface.simulate()
         siminterface.update()
 

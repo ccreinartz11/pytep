@@ -24,17 +24,20 @@ class MatlabBridge:
     def stop_engine(self):
         self._eng.quit()
 
-    def load_simulink(self):
+    def _load_simulink(self):
         self._eng.load_system(self._model)
 
     def dir_to_path(self, dir_path):
         self._eng.eval("addpath(genpath('{}'))".format(str(dir_path)), nargout=0)
 
     def _load_workspace(self):
-        self._eng.eval("load('InitVariables.mat')", nargout=0)
+        self._eng.eval("loadSimEnvironment", nargout=0)
 
-    def run_simulink(self):
-        self._eng.eval("sim('{}',tspan)".format(self._model), nargout=0)
+    def run_simulation(self):
+        self._eng.eval("sim('{}',[0 20])".format(self._model), nargout=0)
+
+    def set_simpause_time(self, absolute_pause_time):
+        self._eng.set_simpause_time(absolute_pause_time, nargout=0)
 
     def save_workspace(self, name):
         self._eng.eval("save('{}')".format(name), nargout=0)
@@ -65,7 +68,4 @@ class MatlabBridge:
 
     def prep_next_iteration(self):
         self._eng.prepNextSimIteration(nargout=0)
-
-    def _load_simulink(self):
-        pass
 

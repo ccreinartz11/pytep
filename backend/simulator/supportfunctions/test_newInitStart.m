@@ -1,0 +1,16 @@
+clearvars;
+loadSimEnvironment;
+% SetPoint_Init(2,1) = 40;
+% SetPoint_Init(3,1) = 20;
+xInitial.time = 10;
+sim('MultiLoop_mode3', [10, 20]);
+simout_save = simout(2:end,:);
+tout_save = tout(2:end);
+xmv_save = xmv(2:end,:);
+% xInitial = xFinal;
+% setpoint_save = setpoints(2:end,:);
+% sim('MultiLoop_mode3', [30, 40]);
+% simout = [simout_save; simout(2:end,:)];
+% tout = [tout_save; tout(2:end)];
+% xmv = [xmv_save; xmv(2:end,:)];
+% setpoints = [setpoint_save; setpoints(2:end,:)];
