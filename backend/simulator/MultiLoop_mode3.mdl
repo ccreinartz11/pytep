@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.156"
+    ComputedModelVersion    "1.161"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -180,7 +180,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [1920.0, 0.0, 1680.0, 1050.0]
+      Location		      [72.0, 27.0, 1848.0, 1053.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -205,6 +205,17 @@ Model {
 	  $ObjectID		  5
 	  IsActive		  [1]
 	  IsTabbed		  [1]
+	  ViewObjType		  "SimulinkTopLevel"
+	  LoadSaveID		  "0"
+	  Extents		  [1810.0, 806.0]
+	  ZoomFactor		  [1.0]
+	  Offset		  [-587.82887323943635, -56.755441741357231]
+	  SceneRectInView	  [-587.82887323943635, -56.755441741357231, 1810.0, 806.0]
+	}
+	Object {
+	  $ObjectID		  6
+	  IsActive		  [0]
+	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "45:7"
 	  Extents		  [1642.0, 809.0]
@@ -213,7 +224,7 @@ Model {
 	  SceneRectInView	  [-551.1484375, -323.9375, 1642.0, 809.0]
 	}
 	Object {
-	  $ObjectID		  6
+	  $ObjectID		  7
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -224,7 +235,7 @@ Model {
 	  SceneRectInView	  [-598.1484375, -302.9375, 1642.0, 809.0]
 	}
 	Object {
-	  $ObjectID		  7
+	  $ObjectID		  8
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -235,26 +246,15 @@ Model {
 	  SceneRectInView	  [-478.5, -481.5, 1642.0, 809.0]
 	}
 	Object {
-	  $ObjectID		  8
-	  IsActive		  [0]
-	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkTopLevel"
-	  LoadSaveID		  "0"
-	  Extents		  [1642.0, 809.0]
-	  ZoomFactor		  [0.586776859504131]
-	  Offset		  [-641.53740778001554, 233.58980549966134]
-	  SceneRectInView	  [-641.53740778001554, 233.58980549966134, 2798.3380281690197, 1378.7183098591577]
-	}
-	Object {
 	  $ObjectID		  9
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "31"
 	  Extents		  [1642.0, 809.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-323.03393671927131, 680.15598115879357]
-	  SceneRectInView	  [-323.03393671927131, 680.15598115879357, 1642.0, 809.0]
+	  ZoomFactor		  [0.4]
+	  Offset		  [-1260.9162956311673, -264.097571419363]
+	  SceneRectInView	  [-1260.9162956311673, -264.097571419363, 4105.0, 2022.5]
 	}
 	Object {
 	  $ObjectID		  10
@@ -772,7 +772,7 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABiAP///wAAAAEAAAEEAAADZvwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAAOQD///8AAAaQAAADZgAAAAEAAAACAAAAAQAAAAL8AAAAAA=="
+      "QBjAHQAbwByAAAAAAD/////AAAAOQD///8AAAc4AAADaQAAAAEAAAACAAAAAQAAAAL8AAAAAA=="
       Array {
 	Type			"Cell"
 	Dimension		0
@@ -780,7 +780,7 @@ Model {
       }
       WindowUuid	      "f05e94bb-bd43-474a-a09c-6782e1d5d6c5"
     }
-    BDUuid		    "39694763-ecef-45ce-82e5-d71b27e25536"
+    BDUuid		    "13d80c6e-1785-4bde-b97c-4d102380ee1b"
   }
   HideAutomaticNames	  on
   Created		  "Fri Nov 22 10:46:09 2002"
@@ -789,9 +789,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "christopher"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Feb 17 13:11:05 2021"
-  RTWModifiedTimeStamp	  535462194
-  ModelVersionFormat	  "1.%<AutoIncrement:156>"
+  LastModifiedDate	  "Wed Feb 17 19:00:56 2021"
+  RTWModifiedTimeStamp	  535489238
+  ModelVersionFormat	  "1.%<AutoIncrement:161>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1980,8 +1980,8 @@ Model {
   }
   System {
     Name		    "MultiLoop_mode3"
-    Location		    [1920, 0, 3600, 1050]
-    Open		    off
+    Location		    [72, 27, 1920, 1080]
+    Open		    on
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
     ExecutionDomainType	    "Deduce"
@@ -1995,7 +1995,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "59"
+    ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "538"
     SimulinkSubDomain	    "Simulink"
@@ -2034,7 +2034,7 @@ Model {
       SID		      "535"
       Position		      [795, 12, 855, 58]
       ZOrder		      148
-      AssertionFailFcn	      "set_param(bdroot,'SimulationCommand','pause')"
+      AssertionFailFcn	      "set_param(gcs ,'SimulationCommand','pause')"
       StopWhenAssertionFail   off
     }
     Block {
@@ -2676,7 +2676,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"100"
+	ZoomFactor		"40"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
@@ -3024,7 +3024,7 @@ Model {
 	      System {
 		Name			"Vel PI"
 		Location		[1920, 0, 3600, 1050]
-		Open			on
+		Open			off
 		PortBlocksUseCompactNotation off
 		SetExecutionDomain	off
 		ExecutionDomainType	"Deduce"
@@ -13040,7 +13040,7 @@ Model {
       SID		      "537"
       Position		      [645, 50, 675, 80]
       ZOrder		      150
-      Value		      "80"
+      Value		      "1000"
     }
     Block {
       BlockType		      SubSystem

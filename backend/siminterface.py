@@ -16,7 +16,7 @@ class SimInterface(metaclass=Singleton):
         self._setpoints = pd.DataFrame()
 
     def simulate(self):
-        self._matlab_bridge.run_simulation()
+        self._matlab_bridge.start_simulation()
 
     def update(self):
         self._update_process_data()
