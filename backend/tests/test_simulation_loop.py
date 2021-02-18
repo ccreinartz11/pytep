@@ -27,3 +27,20 @@ def test_sim_status_query():
     assert status_during_sim2 == 'running'
     assert status_after_sim2 == 'paused'
     assert status_after_stop == 'stopped'
+
+
+def test_blocking_process_until_sim_paused():
+    bridge.set_simpause_time(2)
+    bridge.run_until_paused()
+    status = bridge.get_sim_status()
+    assert status == 'paused'
+
+
+def test_reset_workspace():
+    seed_init = bridge.get_workspace_variable('seed')
+    bridge.set_workspace_variable('seed', 15000)
+    seed_15000 = bridge.get_workspace_variable('seed')
+    bridge.reset_workspace()
+    seed_after_reset = bridge.get_workspace_variable('seed')
+    assert seed_15000 == 15000
+    assert seed_init == seed_after_reset

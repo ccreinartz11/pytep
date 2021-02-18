@@ -21,6 +21,10 @@ SP_deltaTRamp = 0;
 Ts_base = 5e-4;
 Ts_save = 0.05;
 
+% dummy init for pytep queries
+tout = 0;
+simout = zeros(1, 41);
+
 if (exist('controller_init', 'var'))
     Eadj_0 = controller_init(end, 1);
     SP17_0 = controller_init(end, 2);

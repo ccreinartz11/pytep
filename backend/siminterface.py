@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import pickle
 import pathlib
+from collections.abc import Iterable
 
 from utils.singleton import Singleton
 from backend.matlab_bridge import MatlabBridge
@@ -16,21 +17,29 @@ class SimInterface(metaclass=Singleton):
         self._setpoints = pd.DataFrame()
 
     def simulate(self):
-        self._matlab_bridge.start_simulation()
+        self._matlab_bridge.run_until_paused()
 
     def update(self):
         self._update_process_data()
 
-    def prep_next_iteration(self):
-        self._matlab_bridge.prep_next_iteration()
+    def extend_simulation(self, extra_sim_time=5):
+        """Extends the simulation time by extra_sim_time [h]"""
+        time = self._matlab_bridge.get_workspace_variable('tout')
+        if isinstance(time, Iterable):
+            current_time = time[-1]
+        else:
+            current_time = time
+        self._matlab_bridge.set_simpause_time(current_time + extra_sim_time)
 
     def _update_process_data(self):
         new_process_data = self._fetch_process_data()
         new_process_data = pd.DataFrame(data=new_process_data, columns=self._process_data.columns)
-        self._process_data = self._process_data.append(new_process_data)
+        self._process_data = new_process_data  # FIXME: It would be better if the new process data was appended
 
     def _fetch_process_data(self):
         time = self._matlab_bridge.get_workspace_variable('tout')
+        if not isinstance(time, Iterable):
+            time = np.asarray(time).reshape(1,1)
         process_vars = self._matlab_bridge.get_workspace_variable('simout')
         time_and_pv = np.hstack((time, process_vars))
         return time_and_pv
@@ -70,6 +79,7 @@ class SimInterface(metaclass=Singleton):
         mb = MatlabBridge()
         si._matlab_bridge = mb
         si._load_dataframes()
+        si._update_process_data()
         return si
 
     @staticmethod
