@@ -17,7 +17,7 @@ main_plots_panel = html.Div(
             [
                 dbc.Col([
                     dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
-                                 value=['time'],
+                                 value='time',
                                  multi=False,
                                  clearable=False,
                                  id='dropdown_p1'),
@@ -28,7 +28,7 @@ main_plots_panel = html.Div(
                 ),
                 dbc.Col([
                     dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
-                                 value=['time'],
+                                 value='time',
                                  multi=False,
                                  clearable=False,
                                  id='dropdown_p2'),
@@ -45,7 +45,7 @@ main_plots_panel = html.Div(
             [
                 dbc.Col([
                     dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
-                                 value=['time'],
+                                 value='time',
                                  multi=False,
                                  clearable=False,
                                  id='dropdown_p3'),
@@ -56,7 +56,7 @@ main_plots_panel = html.Div(
                 ),
                 dbc.Col([
                     dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
-                                 value=['time'],
+                                 value='time',
                                  multi=False,
                                  clearable=False,
                                  id='dropdown_p4'),
@@ -72,7 +72,7 @@ main_plots_panel = html.Div(
             [
                 dbc.Col([
                     dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
-                                 value=['time'],
+                                 value='time',
                                  multi=False,
                                  clearable=False,
                                  id='dropdown_p5'),
@@ -83,7 +83,7 @@ main_plots_panel = html.Div(
                 ),
                 dbc.Col([
                     dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
-                                 value=['time'],
+                                 value='time',
                                  multi=False,
                                  clearable=False,
                                  id='dropdown_p6'),
@@ -99,7 +99,7 @@ main_plots_panel = html.Div(
             [
                 dbc.Col([
                     dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
-                                 value=['time'],
+                                 value='time',
                                  multi=False,
                                  clearable=False,
                                  id='dropdown_p7'),
@@ -110,7 +110,7 @@ main_plots_panel = html.Div(
                 ),
                 dbc.Col([
                     dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
-                                 value=['time'],
+                                 value='time',
                                  multi=False,
                                  clearable=False,
                                  id='dropdown_p8'),
