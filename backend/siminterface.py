@@ -9,7 +9,6 @@ from backend.matlab_bridge import MatlabBridge
 
 
 class SimInterface(metaclass=Singleton):
-
     def __init__(self):
         self._matlab_bridge = None
         self._process_data = pd.DataFrame()
@@ -24,7 +23,7 @@ class SimInterface(metaclass=Singleton):
 
     def extend_simulation(self, extra_sim_time=5):
         """Extends the simulation time by extra_sim_time [h]"""
-        time = self._matlab_bridge.get_workspace_variable('tout')
+        time = self._matlab_bridge.get_workspace_variable("tout")
         if isinstance(time, Iterable):
             current_time = time[-1]
         else:
@@ -33,26 +32,28 @@ class SimInterface(metaclass=Singleton):
 
     def _update_process_data(self):
         new_process_data = self._fetch_process_data()
-        new_process_data = pd.DataFrame(data=new_process_data, columns=self._process_data.columns)
+        new_process_data = pd.DataFrame(
+            data=new_process_data, columns=self._process_data.columns
+        )
         self._process_data = new_process_data  # FIXME: It would be better if the new process data was appended
 
     def _fetch_process_data(self):
-        time = self._matlab_bridge.get_workspace_variable('tout')
+        time = self._matlab_bridge.get_workspace_variable("tout")
         if not isinstance(time, Iterable):
-            time = np.asarray(time).reshape(1,1)
-        process_vars = self._matlab_bridge.get_workspace_variable('simout')
+            time = np.asarray(time).reshape(1, 1)
+        process_vars = self._matlab_bridge.get_workspace_variable("simout")
         time_and_pv = np.hstack((time, process_vars))
         return time_and_pv
 
     def _load_dataframes(self):
-        setupinfo_path = pathlib.Path(__file__).parent / 'setupinfo'
-        with open(setupinfo_path / 'process_var_labels.pkl', 'rb') as pv_label_file:
+        setupinfo_path = pathlib.Path(__file__).parent / "setupinfo"
+        with open(setupinfo_path / "process_var_labels.pkl", "rb") as pv_label_file:
             pv_labels = pickle.load(pv_label_file)
         self._process_data = pd.DataFrame(columns=pv_labels)
-        with open(setupinfo_path / 'setpoint_labels.pkl', 'rb') as setpoint_label_file:
+        with open(setupinfo_path / "setpoint_labels.pkl", "rb") as setpoint_label_file:
             setpoint_labels = pickle.load(setpoint_label_file)
         self._setpoints = pd.DataFrame(columns=setpoint_labels)
-        with open(setupinfo_path / 'process_var_units.pkl', 'rb') as pv_units_file:
+        with open(setupinfo_path / "process_var_units.pkl", "rb") as pv_units_file:
             pv_units = pickle.load(pv_units_file)
         self._process_units = pd.DataFrame(data=[pv_units], columns=pv_labels)
 
@@ -61,9 +62,9 @@ class SimInterface(metaclass=Singleton):
 
     def timed_var(self, var_name):
         """Returns a dataframe with columns `time` and `var_name`"""
-        if var_name == 'time':
-            return self._process_data[['time']]
-        return self._process_data[['time', var_name]]
+        if var_name == "time":
+            return self._process_data[["time"]]
+        return self._process_data[["time", var_name]]
 
     @property
     def process_data(self):
@@ -85,7 +86,7 @@ class SimInterface(metaclass=Singleton):
     @staticmethod
     def dummy_setup():
         interface = SimInterface()
-        dummy_data = pd.read_pickle('./frontend/dummy_frame.pkl')
+        dummy_data = pd.read_pickle("./frontend/dummy_frame.pkl")
         interface.process_data = dummy_data
         return interface
 
@@ -97,5 +98,3 @@ class SimInterface(metaclass=Singleton):
 
     def get_var_unit(self, col_label):
         return self._process_units[col_label][0]
-
-

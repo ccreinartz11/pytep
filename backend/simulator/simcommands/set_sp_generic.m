@@ -6,4 +6,3 @@ function [] = set_sp_generic(block_name, val_before, val_after, duration, delay)
         'tRampStart', string(delay)...
         )
 end
-

@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.161"
+    ComputedModelVersion    "1.166"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -94,7 +94,7 @@ Model {
     }
     ExternalFileReference {
       Reference		      "simulink/Sources/Ramp"
-      Path		      "MultiLoop_mode3/production_sp /Ramp"
+      Path		      "MultiLoop_mode3/production_sp/Ramp"
       SID		      "281"
       Type		      "LIBRARY_BLOCK"
     }
@@ -207,10 +207,10 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1810.0, 806.0]
+	  Extents		  [1810.0, 812.0]
 	  ZoomFactor		  [1.0]
-	  Offset		  [-587.82887323943635, -56.755441741357231]
-	  SceneRectInView	  [-587.82887323943635, -56.755441741357231, 1810.0, 806.0]
+	  Offset		  [-587.82887323943635, -59.755441741357231]
+	  SceneRectInView	  [-587.82887323943635, -59.755441741357231, 1810.0, 812.0]
 	}
 	Object {
 	  $ObjectID		  6
@@ -789,9 +789,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "christopher"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Feb 17 19:00:56 2021"
-  RTWModifiedTimeStamp	  535489238
-  ModelVersionFormat	  "1.%<AutoIncrement:161>"
+  LastModifiedDate	  "Thu Feb 18 19:58:09 2021"
+  RTWModifiedTimeStamp	  535579087
+  ModelVersionFormat	  "1.%<AutoIncrement:166>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -10939,7 +10939,7 @@ Model {
     }
     Block {
       BlockType		      SubSystem
-      Name		      "production_sp\n"
+      Name		      "production_sp"
       SID		      "278"
       Ports		      [0, 1]
       Position		      [30, 64, 130, 106]
@@ -10959,28 +10959,28 @@ Model {
 	    Type		    "edit"
 	    Name		    "SP_before"
 	    Prompt		    "Value before ramp"
-	    Value		    "22.9"
+	    Value		    "SetPoint_Init(1,1)"
 	  }
 	  Object {
 	    $ObjectID		    173
 	    Type		    "edit"
 	    Name		    "SP_after"
 	    Prompt		    "Value after ramp"
-	    Value		    "28"
+	    Value		    "SetPoint_Init(2,1)"
 	  }
 	  Object {
 	    $ObjectID		    174
 	    Type		    "edit"
 	    Name		    "tRampStart"
 	    Prompt		    "Ramp start time"
-	    Value		    "15"
+	    Value		    "SetPoint_Init(3,1)"
 	  }
 	  Object {
 	    $ObjectID		    175
 	    Type		    "edit"
 	    Name		    "deltaT_ramp"
 	    Prompt		    "Ramp transition time"
-	    Value		    "0"
+	    Value		    "SP_deltaTRamp"
 	  }
 	  PropName		  "Parameters"
 	}
@@ -11033,7 +11033,7 @@ Model {
 	}
       }
       System {
-	Name			"production_sp\n"
+	Name			"production_sp"
 	Location		[1920, 0, 3600, 1050]
 	Open			off
 	PortBlocksUseCompactNotation off
@@ -13643,7 +13643,7 @@ Model {
     }
     Line {
       ZOrder		      70
-      SrcBlock		      "production_sp\n"
+      SrcBlock		      "production_sp"
       SrcPort		      1
       DstBlock		      "TE Plant"
       DstPort		      1

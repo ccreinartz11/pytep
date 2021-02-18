@@ -30,5 +30,15 @@ def test_passing_2d_array():
     var = b.get_workspace_variable('vector')
     assert isinstance(var, np.ndarray)
     assert (var == vector).all()
+    
+    
+def test_setpoint_change():
+    b = bridge
+    b.set_production_sp(after=26, duration=5, start_time=5)
+    b.set_simpause_time(30)
+    b.run_until_paused()
+    setpoints = b.get_workspace_variable('setpoints')
+    test = b.get_production_sp()
+    assert setpoints[-1, 0] == 26
 
 
