@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.166"
+    ComputedModelVersion    "1.167"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -88,7 +88,7 @@ Model {
     }
     ExternalFileReference {
       Reference		      "simulink/Sources/Ramp"
-      Path		      "MultiLoop_mode3/mole_g_sp/Ramp"
+      Path		      "MultiLoop_mode3/g_in_product_sp/Ramp"
       SID		      "384"
       Type		      "LIBRARY_BLOCK"
     }
@@ -180,7 +180,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [72.0, 27.0, 1848.0, 1053.0]
+      Location		      [1920.0, 0.0, 1680.0, 1050.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -207,10 +207,10 @@ Model {
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
-	  Extents		  [1810.0, 812.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-587.82887323943635, -59.755441741357231]
-	  SceneRectInView	  [-587.82887323943635, -59.755441741357231, 1810.0, 812.0]
+	  Extents		  [1642.0, 809.0]
+	  ZoomFactor		  [1.25]
+	  Offset		  [-425.526492287055, 409.21122492530856]
+	  SceneRectInView	  [-425.526492287055, 409.21122492530856, 1313.6, 647.2]
 	}
 	Object {
 	  $ObjectID		  6
@@ -772,7 +772,7 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABiAP///wAAAAEAAAEEAAADZvwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAAOQD///8AAAc4AAADaQAAAAEAAAACAAAAAQAAAAL8AAAAAA=="
+      "QBjAHQAbwByAAAAAAD/////AAAAOQD///8AAAaQAAADZgAAAAEAAAACAAAAAQAAAAL8AAAAAA=="
       Array {
 	Type			"Cell"
 	Dimension		0
@@ -789,9 +789,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "christopher"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Feb 18 19:58:09 2021"
-  RTWModifiedTimeStamp	  535579087
-  ModelVersionFormat	  "1.%<AutoIncrement:166>"
+  LastModifiedDate	  "Fri Feb 19 11:46:16 2021"
+  RTWModifiedTimeStamp	  535635973
+  ModelVersionFormat	  "1.%<AutoIncrement:167>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1980,7 +1980,7 @@ Model {
   }
   System {
     Name		    "MultiLoop_mode3"
-    Location		    [72, 27, 1920, 1080]
+    Location		    [1920, 0, 3600, 1050]
     Open		    on
     PortBlocksUseCompactNotation off
     SetExecutionDomain	    off
@@ -1995,7 +1995,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "100"
+    ZoomFactor		    "125"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "538"
     SimulinkSubDomain	    "Simulink"
@@ -10677,7 +10677,7 @@ Model {
     }
     Block {
       BlockType		      SubSystem
-      Name		      "mole_g_sp"
+      Name		      "g_in_product_sp"
       SID		      "381"
       Ports		      [0, 1]
       Position		      [35, 489, 135, 531]
@@ -10771,7 +10771,7 @@ Model {
 	}
       }
       System {
-	Name			"mole_g_sp"
+	Name			"g_in_product_sp"
 	Location		[-8, -8, 1928, 1168]
 	Open			off
 	PortBlocksUseCompactNotation off
@@ -13752,7 +13752,7 @@ Model {
     }
     Line {
       ZOrder		      77
-      SrcBlock		      "mole_g_sp"
+      SrcBlock		      "g_in_product_sp"
       SrcPort		      1
       DstBlock		      "TE Plant"
       DstPort		      6
