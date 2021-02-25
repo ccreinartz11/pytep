@@ -48,7 +48,7 @@ class MatlabBridge:
         self.block_until_sim_paused()
 
     def block_until_sim_paused(self):
-        while not self.get_sim_status() == "paused":
+        while not self.get_sim_status() in ["paused", "stopped"]:
             time.sleep(0.01)
 
     def start_simulation(self):
@@ -96,12 +96,15 @@ class MatlabBridge:
             var = value
         engineutils.set_variable(self._eng, name, var)
 
-    def _clear_workspace(self):
-        self._eng.eval("clearvars", nargout=0)
-
     def reset_workspace(self):
         self._clear_workspace()
         self._load_workspace()
+
+    def _clear_workspace(self):
+        self._eng.eval("clearvars", nargout=0)
+
+    def _load_workspace(self):
+        self._eng.eval("loadSimEnvironment", nargout=0)
 
     def _load_simulink(self):
         self._eng.load_system(self._model)
@@ -109,116 +112,113 @@ class MatlabBridge:
     def dir_to_path(self, dir_path):
         self._eng.eval("addpath(genpath('{}'))".format(str(dir_path)), nargout=0)
 
-    def _load_workspace(self):
-        self._eng.eval("loadSimEnvironment", nargout=0)
-
     # Setpoint modification methods
 
     def set_production_sp(self, before=None, after=None, duration=0, start_time=None):
-        block_name = "production_sp"
+        block_name = "ProductionSP"
         self._set_sp_block_generic(block_name, before, after, duration, start_time)
 
     def get_production_sp(self):
-        block_name = "production_sp"
+        block_name = "ProductionSP"
         bef, aft, dur, t_start = self._eng.get_sp_generic(block_name, nargout=4)
         return bef, aft, dur, t_start
 
     def set_strip_level_sp(self, before=None, after=None, duration=0, start_time=None):
-        block_name = "strip_level_sp"
+        block_name = "StripLevelSP"
         self._set_sp_block_generic(block_name, before, after, duration, start_time)
 
     def get_strip_level_sp(self):
-        block_name = "strip_level_sp"
+        block_name = "StripLevelSP"
         bef, aft, dur, t_start = self._eng.get_sp_generic(block_name, nargout=4)
         return bef, aft, dur, t_start
 
     def set_sep_level_sp(self, before=None, after=None, duration=0, start_time=None):
-        block_name = "sep_level_sp"
+        block_name = "SepLevelSP"
         self._set_sp_block_generic(block_name, before, after, duration, start_time)
 
     def get_sep_level_sp(self):
-        block_name = "sep_level_sp"
+        block_name = "SepLevelSP"
         bef, aft, dur, t_start = self._eng.get_sp_generic(block_name, nargout=4)
         return bef, aft, dur, t_start
 
     def set_reactor_level_sp(self, before=None, after=None, duration=0, start_time=None):
-        block_name = "reactor_level_sp"
+        block_name = "ReactorLevelSP"
         self._set_sp_block_generic(block_name, before, after, duration, start_time)
 
     def get_reactor_level_sp(self):
-        block_name = "reactor_level_sp"
+        block_name = "ReactorLevelSP"
         bef, aft, dur, t_start = self._eng.get_sp_generic(block_name, nargout=4)
         return bef, aft, dur, t_start
 
     def set_reactor_press_sp(self, before=None, after=None, duration=0, start_time=None):
-        block_name = "reactor_press_sp"
+        block_name = "ReactorPressSP"
         self._set_sp_block_generic(block_name, before, after, duration, start_time)
 
     def get_reactor_press_sp(self):
-        block_name = "reactor_press_sp"
+        block_name = "ReactorPressSP"
         bef, aft, dur, t_start = self._eng.get_sp_generic(block_name, nargout=4)
         return bef, aft, dur, t_start
 
     def set_g_in_product_sp(self, before=None, after=None, duration=0, start_time=None):
-        block_name = "g_in_product_sp"
+        block_name = "MolePctGSP"
         self._set_sp_block_generic(block_name, before, after, duration, start_time)
 
     def get_g_in_product_sp(self):
-        block_name = "g_in_product_sp"
+        block_name = "MolePctGSP"
         bef, aft, dur, t_start = self._eng.get_sp_generic(block_name, nargout=4)
         return bef, aft, dur, t_start
 
     def set_ya_sp(self, before=None, after=None, duration=0, start_time=None):
-        block_name = "ya_sp"
+        block_name = "YASP"
         self._set_sp_block_generic(block_name, before, after, duration, start_time)
 
     def get_ya_sp(self):
-        block_name = "ya_sp"
+        block_name = "YASP"
         bef, aft, dur, t_start = self._eng.get_sp_generic(block_name, nargout=4)
         return bef, aft, dur, t_start
 
     def set_yac_sp(self, before=None, after=None, duration=0, start_time=None):
-        block_name = "yac_sp"
+        block_name = "YACSP"
         self._set_sp_block_generic(block_name, before, after, duration, start_time)
 
     def get_yac_sp(self):
-        block_name = "yac_sp"
+        block_name = "YACSP"
         bef, aft, dur, t_start = self._eng.get_sp_generic(block_name, nargout=4)
         return bef, aft, dur, t_start
 
     def set_reactor_temp_sp(self, before=None, after=None, duration=0, start_time=None):
-        block_name = "reactor_temp_sp"
+        block_name = "ReactorTempSP"
         self._set_sp_block_generic(block_name, before, after, duration, start_time)
 
     def get_reactor_temp_sp(self):
-        block_name = "reactor_temp_sp"
+        block_name = "ReactorTempSP"
         bef, aft, dur, t_start = self._eng.get_sp_generic(block_name, nargout=4)
         return bef, aft, dur, t_start
 
     def set_recycle_valve_sp(self, before=None, after=None, duration=0, start_time=None):
-        block_name = "recycle_valve_sp"
+        block_name = "RecycleValvePosSP"
         self._set_sp_block_generic(block_name, before, after, duration, start_time)
 
     def get_recycle_valve_sp(self):
-        block_name = "recycle_valve_sp"
+        block_name = "RecycleValvePosSP"
         bef, aft, dur, t_start = self._eng.get_sp_generic(block_name, nargout=4)
         return bef, aft, dur, t_start
 
     def set_steam_valve_sp(self, before=None, after=None, duration=0, start_time=None):
-        block_name = "steam_valve_sp"
+        block_name = "SteamValvePosSP"
         self._set_sp_block_generic(block_name, before, after, duration, start_time)
 
     def get_steam_valve_sp(self):
-        block_name = "steam_valve_sp"
+        block_name = "SteamValvePosSP"
         bef, aft, dur, t_start = self._eng.get_sp_generic(block_name, nargout=4)
         return bef, aft, dur, t_start
 
     def set_agitator_sp(self, before=None, after=None, duration=0, start_time=None):
-        block_name = "agitator_sp"
+        block_name = "AgitatorSpeedSP"
         self._set_sp_block_generic(block_name, before, after, duration, start_time)
 
     def get_agitator_sp(self):
-        block_name = "agitator_sp"
+        block_name = "AgitatorSpeedSP"
         bef, aft, dur, t_start = self._eng.get_sp_generic(block_name, nargout=4)
         return bef, aft, dur, t_start
 

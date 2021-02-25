@@ -38,7 +38,6 @@ def test_setpoint_change():
     b.set_simpause_time(30)
     b.run_until_paused()
     setpoints = b.get_workspace_variable('setpoints')
-    test = b.get_production_sp()
     assert setpoints[-1, 0] == 26
 
 

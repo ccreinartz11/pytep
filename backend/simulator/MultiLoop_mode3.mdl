@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.167"
+    ComputedModelVersion    "1.170"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -20,6 +20,66 @@ Model {
     IsAUTOSARArchitectureModel 0
     NumParameterArguments   0
     NumExternalFileReferences 22
+    ExternalFileReference {
+      Reference		      "simulink/Sources/Ramp"
+      Path		      "MultiLoop_mode3/AgitatorSpeedSP/Ramp"
+      SID		      "432"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "simulink/Sources/Ramp"
+      Path		      "MultiLoop_mode3/MolePctGSP/Ramp"
+      SID		      "384"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "simulink/Sources/Ramp"
+      Path		      "MultiLoop_mode3/ProductionSP/Ramp"
+      SID		      "281"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "simulink/Sources/Ramp"
+      Path		      "MultiLoop_mode3/ReactorLevelSP/Ramp"
+      SID		      "368"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "simulink/Sources/Ramp"
+      Path		      "MultiLoop_mode3/ReactorPressSP/Ramp"
+      SID		      "376"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "simulink/Sources/Ramp"
+      Path		      "MultiLoop_mode3/ReactorTempSP/Ramp"
+      SID		      "408"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "simulink/Sources/Ramp"
+      Path		      "MultiLoop_mode3/RecycleValvePosSP/Ramp"
+      SID		      "416"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "simulink/Sources/Ramp"
+      Path		      "MultiLoop_mode3/SepLevelSP/Ramp"
+      SID		      "360"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "simulink/Sources/Ramp"
+      Path		      "MultiLoop_mode3/SteamValvePosSP/Ramp"
+      SID		      "424"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "simulink/Sources/Ramp"
+      Path		      "MultiLoop_mode3/StripLevelSP/Ramp"
+      SID		      "352"
+      Type		      "LIBRARY_BLOCK"
+    }
     ExternalFileReference {
       Reference		      "TElib/Discrete PI"
       Path		      "MultiLoop_mode3/TE Plant/D feed rate/Discrete PI"
@@ -82,74 +142,14 @@ Model {
     }
     ExternalFileReference {
       Reference		      "simulink/Sources/Ramp"
-      Path		      "MultiLoop_mode3/agitator_sp/Ramp"
-      SID		      "432"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "simulink/Sources/Ramp"
-      Path		      "MultiLoop_mode3/g_in_product_sp/Ramp"
-      SID		      "384"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "simulink/Sources/Ramp"
-      Path		      "MultiLoop_mode3/production_sp/Ramp"
-      SID		      "281"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "simulink/Sources/Ramp"
-      Path		      "MultiLoop_mode3/reactor_level_sp/Ramp"
-      SID		      "368"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "simulink/Sources/Ramp"
-      Path		      "MultiLoop_mode3/reactor_press_sp/Ramp"
-      SID		      "376"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "simulink/Sources/Ramp"
-      Path		      "MultiLoop_mode3/reactor_temp_sp/Ramp"
-      SID		      "408"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "simulink/Sources/Ramp"
-      Path		      "MultiLoop_mode3/recycle_valve_sp/Ramp"
-      SID		      "416"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "simulink/Sources/Ramp"
-      Path		      "MultiLoop_mode3/sep_level_sp/Ramp"
-      SID		      "360"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "simulink/Sources/Ramp"
-      Path		      "MultiLoop_mode3/steam_valve_sp/Ramp"
-      SID		      "424"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "simulink/Sources/Ramp"
-      Path		      "MultiLoop_mode3/strip_level_sp/Ramp"
-      SID		      "352"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "simulink/Sources/Ramp"
-      Path		      "MultiLoop_mode3/ya_sp/Ramp"
-      SID		      "392"
-      Type		      "LIBRARY_BLOCK"
-    }
-    ExternalFileReference {
-      Reference		      "simulink/Sources/Ramp"
-      Path		      "MultiLoop_mode3/yac_sp/Ramp"
+      Path		      "MultiLoop_mode3/YACSP/Ramp"
       SID		      "400"
+      Type		      "LIBRARY_BLOCK"
+    }
+    ExternalFileReference {
+      Reference		      "simulink/Sources/Ramp"
+      Path		      "MultiLoop_mode3/YASP/Ramp"
+      SID		      "392"
       Type		      "LIBRARY_BLOCK"
     }
     OrderedModelArguments   1
@@ -208,9 +208,9 @@ Model {
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
 	  Extents		  [1642.0, 809.0]
-	  ZoomFactor		  [1.25]
-	  Offset		  [-425.526492287055, 409.21122492530856]
-	  SceneRectInView	  [-425.526492287055, 409.21122492530856, 1313.6, 647.2]
+	  ZoomFactor		  [2.5]
+	  Offset		  [-124.94315895372324, 853.58979635387618]
+	  SceneRectInView	  [-124.94315895372324, 853.58979635387618, 656.8, 323.6]
 	}
 	Object {
 	  $ObjectID		  6
@@ -789,9 +789,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "christopher"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Feb 19 11:46:16 2021"
-  RTWModifiedTimeStamp	  535635973
-  ModelVersionFormat	  "1.%<AutoIncrement:167>"
+  LastModifiedDate	  "Thu Feb 25 17:43:35 2021"
+  RTWModifiedTimeStamp	  536175815
+  ModelVersionFormat	  "1.%<AutoIncrement:170>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1995,7 +1995,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "125"
+    ZoomFactor		    "250"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "538"
     SimulinkSubDomain	    "Simulink"
@@ -2027,6 +2027,268 @@ Model {
       "'Location',[513 146 842 384])"
       NumInputPorts	      "1"
       Floating		      off
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "AgitatorSpeedSP"
+      SID		      "429"
+      Ports		      [0, 1]
+      Position		      [35, 999, 135, 1041]
+      ZOrder		      140
+      RequestExecContextInheritance off
+      ContentPreviewEnabled   on
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		70
+	$ClassName		"Simulink.Mask"
+	RunInitForIconRedraw	"off"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  4
+	  Object {
+	    $ObjectID		    71
+	    Type		    "edit"
+	    Name		    "SP_before"
+	    Prompt		    "Value before ramp"
+	    Value		    "SetPoint_Init(1,12)"
+	  }
+	  Object {
+	    $ObjectID		    72
+	    Type		    "edit"
+	    Name		    "SP_after"
+	    Prompt		    "Value after ramp"
+	    Value		    "SetPoint_Init(2,12)"
+	  }
+	  Object {
+	    $ObjectID		    73
+	    Type		    "edit"
+	    Name		    "tRampStart"
+	    Prompt		    "Ramp start time"
+	    Value		    "SetPoint_Init(3,12)"
+	  }
+	  Object {
+	    $ObjectID		    74
+	    Type		    "edit"
+	    Name		    "deltaT_ramp"
+	    Prompt		    "Ramp transition time"
+	    Value		    "SP_deltaTRamp"
+	  }
+	  PropName		  "Parameters"
+	}
+	Array {
+	  Type			  "Simulink.dialog.Group"
+	  Dimension		  2
+	  Object {
+	    $ObjectID		    75
+	    Prompt		    "%<MaskType>"
+	    Object {
+	      $PropName		      "DialogControls"
+	      $ObjectID		      76
+	      $ClassName	      "Simulink.dialog.Text"
+	      Prompt		      "%<MaskDescription>"
+	      Name		      "DescTextVar"
+	    }
+	    Name		    "DescGroupVar"
+	  }
+	  Object {
+	    $ObjectID		    77
+	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
+	    Array {
+	      Type		      "Simulink.dialog.parameter.Edit"
+	      Dimension		      4
+	      Object {
+		$ObjectID		78
+		PromptLocation		"left"
+		Name			"SP_before"
+	      }
+	      Object {
+		$ObjectID		79
+		PromptLocation		"left"
+		Name			"SP_after"
+	      }
+	      Object {
+		$ObjectID		80
+		PromptLocation		"left"
+		Name			"tRampStart"
+	      }
+	      Object {
+		$ObjectID		81
+		PromptLocation		"left"
+		Name			"deltaT_ramp"
+	      }
+	      PropName		      "DialogControls"
+	    }
+	    Name		    "ParameterGroupVar"
+	  }
+	  PropName		  "DialogControls"
+	}
+      }
+      System {
+	Name			"AgitatorSpeedSP"
+	Location		[-8, -8, 1928, 1168]
+	Open			off
+	PortBlocksUseCompactNotation off
+	SetExecutionDomain	off
+	ExecutionDomainType	"Deduce"
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SimulinkSubDomain	"Simulink"
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "430"
+	  Position		  [20, -55, 50, -25]
+	  ZOrder		  3
+	  Value			  "SP_before"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  SID			  "431"
+	  Position		  [20, -135, 50, -105]
+	  ZOrder		  7
+	  Value			  "deltaT_ramp"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ramp"
+	  SID			  "432"
+	  Ports			  [0, 1]
+	  Position		  [20, 30, 50, 60]
+	  ZOrder		  1
+	  LibraryVersion	  "1.453"
+	  SourceBlock		  "simulink/Sources/Ramp"
+	  SourceType		  "Ramp"
+	  SourceProductName	  "Simulink"
+	  SourceProductBaseCode	  "SL"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ContentPreviewEnabled	  on
+	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
+	  start			  "tRampStart"
+	  InitialOutput		  "0"
+	  VectorParams1D	  on
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation"
+	  SID			  "461"
+	  Ports			  [1, 1]
+	  Position		  [205, -55, 235, -25]
+	  ZOrder		  11
+	  InputPortMap		  "u0"
+	  UpperLimit		  "max(SP_before, SP_after)"
+	  LowerLimit		  "min(SP_before, SP_after)"
+	}
+	Block {
+	  BlockType		  Step
+	  Name			  "Step"
+	  SID			  "433"
+	  Position		  [20, -215, 50, -185]
+	  ZOrder		  5
+	  Time			  "tRampStart"
+	  Before		  "SP_before"
+	  After			  "SP_after"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "434"
+	  Ports			  [2, 1]
+	  Position		  [130, -50, 150, -30]
+	  ZOrder		  4
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  SID			  "435"
+	  Position		  [405, -140, 455, -100]
+	  ZOrder		  6
+	  Criteria		  "u2 > Threshold"
+	  InputSameDT		  off
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  SID			  "436"
+	  Position		  [635, -127, 665, -113]
+	  ZOrder		  8
+	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "Ramp"
+	  SrcPort		  1
+	  Points		  [85, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  15
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "Saturation"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  10
+	  SrcBlock		  "Step"
+	  SrcPort		  1
+	  Points		  [287, 0; 0, 95]
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "Saturation"
+	  SrcPort		  1
+	  Points		  [49, 0; 0, -95]
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+      }
     }
     Block {
       BlockType		      Assertion
@@ -2404,6 +2666,268 @@ Model {
       SampleTime	      "0"
     }
     Block {
+      BlockType		      SubSystem
+      Name		      "MolePctGSP"
+      SID		      "381"
+      Ports		      [0, 1]
+      Position		      [35, 489, 135, 531]
+      ZOrder		      134
+      RequestExecContextInheritance off
+      ContentPreviewEnabled   on
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		82
+	$ClassName		"Simulink.Mask"
+	RunInitForIconRedraw	"off"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  4
+	  Object {
+	    $ObjectID		    83
+	    Type		    "edit"
+	    Name		    "SP_before"
+	    Prompt		    "Value before ramp"
+	    Value		    "SetPoint_Init(1,6)"
+	  }
+	  Object {
+	    $ObjectID		    84
+	    Type		    "edit"
+	    Name		    "SP_after"
+	    Prompt		    "Value after ramp"
+	    Value		    "SetPoint_Init(2,6)"
+	  }
+	  Object {
+	    $ObjectID		    85
+	    Type		    "edit"
+	    Name		    "tRampStart"
+	    Prompt		    "Ramp start time"
+	    Value		    "SetPoint_Init(3,6)"
+	  }
+	  Object {
+	    $ObjectID		    86
+	    Type		    "edit"
+	    Name		    "deltaT_ramp"
+	    Prompt		    "Ramp transition time"
+	    Value		    "SP_deltaTRamp"
+	  }
+	  PropName		  "Parameters"
+	}
+	Array {
+	  Type			  "Simulink.dialog.Group"
+	  Dimension		  2
+	  Object {
+	    $ObjectID		    87
+	    Prompt		    "%<MaskType>"
+	    Object {
+	      $PropName		      "DialogControls"
+	      $ObjectID		      88
+	      $ClassName	      "Simulink.dialog.Text"
+	      Prompt		      "%<MaskDescription>"
+	      Name		      "DescTextVar"
+	    }
+	    Name		    "DescGroupVar"
+	  }
+	  Object {
+	    $ObjectID		    89
+	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
+	    Array {
+	      Type		      "Simulink.dialog.parameter.Edit"
+	      Dimension		      4
+	      Object {
+		$ObjectID		90
+		PromptLocation		"left"
+		Name			"SP_before"
+	      }
+	      Object {
+		$ObjectID		91
+		PromptLocation		"left"
+		Name			"SP_after"
+	      }
+	      Object {
+		$ObjectID		92
+		PromptLocation		"left"
+		Name			"tRampStart"
+	      }
+	      Object {
+		$ObjectID		93
+		PromptLocation		"left"
+		Name			"deltaT_ramp"
+	      }
+	      PropName		      "DialogControls"
+	    }
+	    Name		    "ParameterGroupVar"
+	  }
+	  PropName		  "DialogControls"
+	}
+      }
+      System {
+	Name			"MolePctGSP"
+	Location		[-8, -8, 1928, 1168]
+	Open			off
+	PortBlocksUseCompactNotation off
+	SetExecutionDomain	off
+	ExecutionDomainType	"Deduce"
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SimulinkSubDomain	"Simulink"
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "382"
+	  Position		  [20, -55, 50, -25]
+	  ZOrder		  3
+	  Value			  "SP_before"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  SID			  "383"
+	  Position		  [20, -135, 50, -105]
+	  ZOrder		  7
+	  Value			  "deltaT_ramp"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ramp"
+	  SID			  "384"
+	  Ports			  [0, 1]
+	  Position		  [20, 30, 50, 60]
+	  ZOrder		  1
+	  LibraryVersion	  "1.453"
+	  SourceBlock		  "simulink/Sources/Ramp"
+	  SourceType		  "Ramp"
+	  SourceProductName	  "Simulink"
+	  SourceProductBaseCode	  "SL"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ContentPreviewEnabled	  on
+	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
+	  start			  "tRampStart"
+	  InitialOutput		  "0"
+	  VectorParams1D	  on
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation1"
+	  SID			  "455"
+	  Ports			  [1, 1]
+	  Position		  [250, -55, 280, -25]
+	  ZOrder		  11
+	  InputPortMap		  "u0"
+	  UpperLimit		  "max(SP_before, SP_after)"
+	  LowerLimit		  "min(SP_before, SP_after)"
+	}
+	Block {
+	  BlockType		  Step
+	  Name			  "Step"
+	  SID			  "385"
+	  Position		  [20, -215, 50, -185]
+	  ZOrder		  5
+	  Time			  "tRampStart"
+	  Before		  "SP_before"
+	  After			  "SP_after"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "386"
+	  Ports			  [2, 1]
+	  Position		  [130, -50, 150, -30]
+	  ZOrder		  4
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  SID			  "387"
+	  Position		  [405, -140, 455, -100]
+	  ZOrder		  6
+	  Criteria		  "u2 > Threshold"
+	  InputSameDT		  off
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  SID			  "388"
+	  Position		  [635, -127, 665, -113]
+	  ZOrder		  8
+	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "Ramp"
+	  SrcPort		  1
+	  Points		  [85, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "Saturation1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  9
+	  SrcBlock		  "Step"
+	  SrcPort		  1
+	  Points		  [325, 0; 0, 95]
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  13
+	  SrcBlock		  "Saturation1"
+	  SrcPort		  1
+	  Points		  [45, 0; 0, -95]
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
       BlockType		      Mux
       Name		      "Mux"
       SID		      "463"
@@ -2529,6 +3053,268 @@ Model {
     }
     Block {
       BlockType		      SubSystem
+      Name		      "ProductionSP"
+      SID		      "278"
+      Ports		      [0, 1]
+      Position		      [30, 64, 130, 106]
+      ZOrder		      116
+      RequestExecContextInheritance off
+      ContentPreviewEnabled   on
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		94
+	$ClassName		"Simulink.Mask"
+	RunInitForIconRedraw	"off"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  4
+	  Object {
+	    $ObjectID		    95
+	    Type		    "edit"
+	    Name		    "SP_before"
+	    Prompt		    "Value before ramp"
+	    Value		    "SetPoint_Init(1,1)"
+	  }
+	  Object {
+	    $ObjectID		    96
+	    Type		    "edit"
+	    Name		    "SP_after"
+	    Prompt		    "Value after ramp"
+	    Value		    "SetPoint_Init(2,1)"
+	  }
+	  Object {
+	    $ObjectID		    97
+	    Type		    "edit"
+	    Name		    "tRampStart"
+	    Prompt		    "Ramp start time"
+	    Value		    "SetPoint_Init(3,1)"
+	  }
+	  Object {
+	    $ObjectID		    98
+	    Type		    "edit"
+	    Name		    "deltaT_ramp"
+	    Prompt		    "Ramp transition time"
+	    Value		    "SP_deltaTRamp"
+	  }
+	  PropName		  "Parameters"
+	}
+	Array {
+	  Type			  "Simulink.dialog.Group"
+	  Dimension		  2
+	  Object {
+	    $ObjectID		    99
+	    Prompt		    "%<MaskType>"
+	    Object {
+	      $PropName		      "DialogControls"
+	      $ObjectID		      100
+	      $ClassName	      "Simulink.dialog.Text"
+	      Prompt		      "%<MaskDescription>"
+	      Name		      "DescTextVar"
+	    }
+	    Name		    "DescGroupVar"
+	  }
+	  Object {
+	    $ObjectID		    101
+	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
+	    Array {
+	      Type		      "Simulink.dialog.parameter.Edit"
+	      Dimension		      4
+	      Object {
+		$ObjectID		102
+		PromptLocation		"left"
+		Name			"SP_before"
+	      }
+	      Object {
+		$ObjectID		103
+		PromptLocation		"left"
+		Name			"SP_after"
+	      }
+	      Object {
+		$ObjectID		104
+		PromptLocation		"left"
+		Name			"tRampStart"
+	      }
+	      Object {
+		$ObjectID		105
+		PromptLocation		"left"
+		Name			"deltaT_ramp"
+	      }
+	      PropName		      "DialogControls"
+	    }
+	    Name		    "ParameterGroupVar"
+	  }
+	  PropName		  "DialogControls"
+	}
+      }
+      System {
+	Name			"ProductionSP"
+	Location		[1920, 0, 3600, 1050]
+	Open			off
+	PortBlocksUseCompactNotation off
+	SetExecutionDomain	off
+	ExecutionDomainType	"Deduce"
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SimulinkSubDomain	"Simulink"
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "283"
+	  Position		  [20, -55, 50, -25]
+	  ZOrder		  3
+	  Value			  "SP_before"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  SID			  "347"
+	  Position		  [20, -135, 50, -105]
+	  ZOrder		  7
+	  Value			  "deltaT_ramp"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ramp"
+	  SID			  "281"
+	  Ports			  [0, 1]
+	  Position		  [20, 30, 50, 60]
+	  ZOrder		  1
+	  LibraryVersion	  "1.453"
+	  SourceBlock		  "simulink/Sources/Ramp"
+	  SourceType		  "Ramp"
+	  SourceProductName	  "Simulink"
+	  SourceProductBaseCode	  "SL"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ContentPreviewEnabled	  on
+	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
+	  start			  "tRampStart"
+	  InitialOutput		  "0"
+	  VectorParams1D	  on
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation"
+	  SID			  "439"
+	  Ports			  [1, 1]
+	  Position		  [230, -55, 260, -25]
+	  ZOrder		  9
+	  InputPortMap		  "u0"
+	  UpperLimit		  "max(SP_before, SP_after)"
+	  LowerLimit		  "min(SP_before, SP_after)"
+	}
+	Block {
+	  BlockType		  Step
+	  Name			  "Step"
+	  SID			  "345"
+	  Position		  [20, -215, 50, -185]
+	  ZOrder		  5
+	  Time			  "tRampStart"
+	  Before		  "SP_before"
+	  After			  "SP_after"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "284"
+	  Ports			  [2, 1]
+	  Position		  [130, -50, 150, -30]
+	  ZOrder		  4
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  SID			  "346"
+	  Position		  [405, -140, 455, -100]
+	  ZOrder		  6
+	  Criteria		  "u2 > Threshold"
+	  InputSameDT		  off
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  SID			  "280"
+	  Position		  [635, -127, 665, -113]
+	  ZOrder		  8
+	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  3
+	  SrcBlock		  "Ramp"
+	  SrcPort		  1
+	  Points		  [85, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  21
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "Saturation"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  6
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  7
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  22
+	  SrcBlock		  "Step"
+	  SrcPort		  1
+	  Points		  [161, 0; 0, 95]
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  25
+	  SrcBlock		  "Saturation"
+	  SrcPort		  1
+	  Points		  [68, 0; 0, -95]
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
       Name		      "Quality Loop Monitor"
       SID		      "26"
       Ports		      []
@@ -2640,6 +3426,1054 @@ Model {
       }
     }
     Block {
+      BlockType		      SubSystem
+      Name		      "ReactorLevelSP"
+      SID		      "365"
+      Ports		      [0, 1]
+      Position		      [30, 319, 130, 361]
+      ZOrder		      132
+      RequestExecContextInheritance off
+      ContentPreviewEnabled   on
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		106
+	$ClassName		"Simulink.Mask"
+	RunInitForIconRedraw	"off"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  4
+	  Object {
+	    $ObjectID		    107
+	    Type		    "edit"
+	    Name		    "SP_before"
+	    Prompt		    "Value before ramp"
+	    Value		    "SetPoint_Init(1,4)"
+	  }
+	  Object {
+	    $ObjectID		    108
+	    Type		    "edit"
+	    Name		    "SP_after"
+	    Prompt		    "Value after ramp"
+	    Value		    "SetPoint_Init(2,4)"
+	  }
+	  Object {
+	    $ObjectID		    109
+	    Type		    "edit"
+	    Name		    "tRampStart"
+	    Prompt		    "Ramp start time"
+	    Value		    "SetPoint_Init(3,4)"
+	  }
+	  Object {
+	    $ObjectID		    110
+	    Type		    "edit"
+	    Name		    "deltaT_ramp"
+	    Prompt		    "Ramp transition time"
+	    Value		    "SP_deltaTRamp"
+	  }
+	  PropName		  "Parameters"
+	}
+	Array {
+	  Type			  "Simulink.dialog.Group"
+	  Dimension		  2
+	  Object {
+	    $ObjectID		    111
+	    Prompt		    "%<MaskType>"
+	    Object {
+	      $PropName		      "DialogControls"
+	      $ObjectID		      112
+	      $ClassName	      "Simulink.dialog.Text"
+	      Prompt		      "%<MaskDescription>"
+	      Name		      "DescTextVar"
+	    }
+	    Name		    "DescGroupVar"
+	  }
+	  Object {
+	    $ObjectID		    113
+	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
+	    Array {
+	      Type		      "Simulink.dialog.parameter.Edit"
+	      Dimension		      4
+	      Object {
+		$ObjectID		114
+		PromptLocation		"left"
+		Name			"SP_before"
+	      }
+	      Object {
+		$ObjectID		115
+		PromptLocation		"left"
+		Name			"SP_after"
+	      }
+	      Object {
+		$ObjectID		116
+		PromptLocation		"left"
+		Name			"tRampStart"
+	      }
+	      Object {
+		$ObjectID		117
+		PromptLocation		"left"
+		Name			"deltaT_ramp"
+	      }
+	      PropName		      "DialogControls"
+	    }
+	    Name		    "ParameterGroupVar"
+	  }
+	  PropName		  "DialogControls"
+	}
+      }
+      System {
+	Name			"ReactorLevelSP"
+	Location		[-8, -8, 1928, 1168]
+	Open			off
+	PortBlocksUseCompactNotation off
+	SetExecutionDomain	off
+	ExecutionDomainType	"Deduce"
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SimulinkSubDomain	"Simulink"
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "366"
+	  Position		  [20, -55, 50, -25]
+	  ZOrder		  3
+	  Value			  "SP_before"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  SID			  "367"
+	  Position		  [20, -135, 50, -105]
+	  ZOrder		  7
+	  Value			  "deltaT_ramp"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ramp"
+	  SID			  "368"
+	  Ports			  [0, 1]
+	  Position		  [20, 30, 50, 60]
+	  ZOrder		  1
+	  LibraryVersion	  "1.453"
+	  SourceBlock		  "simulink/Sources/Ramp"
+	  SourceType		  "Ramp"
+	  SourceProductName	  "Simulink"
+	  SourceProductBaseCode	  "SL"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ContentPreviewEnabled	  on
+	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
+	  start			  "tRampStart"
+	  InitialOutput		  "0"
+	  VectorParams1D	  on
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation"
+	  SID			  "453"
+	  Ports			  [1, 1]
+	  Position		  [255, -55, 285, -25]
+	  ZOrder		  11
+	  InputPortMap		  "u0"
+	  UpperLimit		  "max(SP_before, SP_after)"
+	  LowerLimit		  "min(SP_before, SP_after)"
+	}
+	Block {
+	  BlockType		  Step
+	  Name			  "Step"
+	  SID			  "369"
+	  Position		  [20, -215, 50, -185]
+	  ZOrder		  5
+	  Time			  "tRampStart"
+	  Before		  "SP_before"
+	  After			  "SP_after"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "370"
+	  Ports			  [2, 1]
+	  Position		  [130, -50, 150, -30]
+	  ZOrder		  4
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  SID			  "371"
+	  Position		  [405, -140, 455, -100]
+	  ZOrder		  6
+	  Criteria		  "u2 > Threshold"
+	  InputSameDT		  off
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  SID			  "372"
+	  Position		  [635, -127, 665, -113]
+	  ZOrder		  8
+	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "Ramp"
+	  SrcPort		  1
+	  Points		  [85, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  13
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "Saturation"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  9
+	  SrcBlock		  "Step"
+	  SrcPort		  1
+	  Points		  [326, 0; 0, 95]
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "Saturation"
+	  SrcPort		  1
+	  Points		  [67, 0; 0, -95]
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "ReactorPressSP"
+      SID		      "373"
+      Ports		      [0, 1]
+      Position		      [35, 404, 135, 446]
+      ZOrder		      133
+      RequestExecContextInheritance off
+      ContentPreviewEnabled   on
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		118
+	$ClassName		"Simulink.Mask"
+	RunInitForIconRedraw	"off"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  4
+	  Object {
+	    $ObjectID		    119
+	    Type		    "edit"
+	    Name		    "SP_before"
+	    Prompt		    "Value before ramp"
+	    Value		    "SetPoint_Init(1,5)"
+	  }
+	  Object {
+	    $ObjectID		    120
+	    Type		    "edit"
+	    Name		    "SP_after"
+	    Prompt		    "Value after ramp"
+	    Value		    "SetPoint_Init(2,5)"
+	  }
+	  Object {
+	    $ObjectID		    121
+	    Type		    "edit"
+	    Name		    "tRampStart"
+	    Prompt		    "Ramp start time"
+	    Value		    "SetPoint_Init(3,5)"
+	  }
+	  Object {
+	    $ObjectID		    122
+	    Type		    "edit"
+	    Name		    "deltaT_ramp"
+	    Prompt		    "Ramp transition time"
+	    Value		    "SP_deltaTRamp"
+	  }
+	  PropName		  "Parameters"
+	}
+	Array {
+	  Type			  "Simulink.dialog.Group"
+	  Dimension		  2
+	  Object {
+	    $ObjectID		    123
+	    Prompt		    "%<MaskType>"
+	    Object {
+	      $PropName		      "DialogControls"
+	      $ObjectID		      124
+	      $ClassName	      "Simulink.dialog.Text"
+	      Prompt		      "%<MaskDescription>"
+	      Name		      "DescTextVar"
+	    }
+	    Name		    "DescGroupVar"
+	  }
+	  Object {
+	    $ObjectID		    125
+	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
+	    Array {
+	      Type		      "Simulink.dialog.parameter.Edit"
+	      Dimension		      4
+	      Object {
+		$ObjectID		126
+		PromptLocation		"left"
+		Name			"SP_before"
+	      }
+	      Object {
+		$ObjectID		127
+		PromptLocation		"left"
+		Name			"SP_after"
+	      }
+	      Object {
+		$ObjectID		128
+		PromptLocation		"left"
+		Name			"tRampStart"
+	      }
+	      Object {
+		$ObjectID		129
+		PromptLocation		"left"
+		Name			"deltaT_ramp"
+	      }
+	      PropName		      "DialogControls"
+	    }
+	    Name		    "ParameterGroupVar"
+	  }
+	  PropName		  "DialogControls"
+	}
+      }
+      System {
+	Name			"ReactorPressSP"
+	Location		[-8, -8, 1928, 1168]
+	Open			off
+	PortBlocksUseCompactNotation off
+	SetExecutionDomain	off
+	ExecutionDomainType	"Deduce"
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SimulinkSubDomain	"Simulink"
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "374"
+	  Position		  [20, -55, 50, -25]
+	  ZOrder		  3
+	  Value			  "SP_before"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  SID			  "375"
+	  Position		  [20, -135, 50, -105]
+	  ZOrder		  7
+	  Value			  "deltaT_ramp"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ramp"
+	  SID			  "376"
+	  Ports			  [0, 1]
+	  Position		  [20, 30, 50, 60]
+	  ZOrder		  1
+	  LibraryVersion	  "1.453"
+	  SourceBlock		  "simulink/Sources/Ramp"
+	  SourceType		  "Ramp"
+	  SourceProductName	  "Simulink"
+	  SourceProductBaseCode	  "SL"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ContentPreviewEnabled	  on
+	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
+	  start			  "tRampStart"
+	  InitialOutput		  "0"
+	  VectorParams1D	  on
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation1"
+	  SID			  "454"
+	  Ports			  [1, 1]
+	  Position		  [240, -55, 270, -25]
+	  ZOrder		  11
+	  InputPortMap		  "u0"
+	  UpperLimit		  "max(SP_before, SP_after)"
+	  LowerLimit		  "min(SP_before, SP_after)"
+	}
+	Block {
+	  BlockType		  Step
+	  Name			  "Step"
+	  SID			  "377"
+	  Position		  [20, -215, 50, -185]
+	  ZOrder		  5
+	  Time			  "tRampStart"
+	  Before		  "SP_before"
+	  After			  "SP_after"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "378"
+	  Ports			  [2, 1]
+	  Position		  [130, -50, 150, -30]
+	  ZOrder		  4
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  SID			  "379"
+	  Position		  [405, -140, 455, -100]
+	  ZOrder		  6
+	  Criteria		  "u2 > Threshold"
+	  InputSameDT		  off
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  SID			  "380"
+	  Position		  [635, -127, 665, -113]
+	  ZOrder		  8
+	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "Ramp"
+	  SrcPort		  1
+	  Points		  [85, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "Saturation1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  9
+	  SrcBlock		  "Step"
+	  SrcPort		  1
+	  Points		  [330, 0; 0, 95]
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  13
+	  SrcBlock		  "Saturation1"
+	  SrcPort		  1
+	  Points		  [89, 0; 0, -95]
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "ReactorTempSP"
+      SID		      "405"
+      Ports		      [0, 1]
+      Position		      [35, 744, 135, 786]
+      ZOrder		      137
+      RequestExecContextInheritance off
+      ContentPreviewEnabled   on
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		130
+	$ClassName		"Simulink.Mask"
+	RunInitForIconRedraw	"off"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  4
+	  Object {
+	    $ObjectID		    131
+	    Type		    "edit"
+	    Name		    "SP_before"
+	    Prompt		    "Value before ramp"
+	    Value		    "SetPoint_Init(1,9)"
+	  }
+	  Object {
+	    $ObjectID		    132
+	    Type		    "edit"
+	    Name		    "SP_after"
+	    Prompt		    "Value after ramp"
+	    Value		    "SetPoint_Init(2,9)"
+	  }
+	  Object {
+	    $ObjectID		    133
+	    Type		    "edit"
+	    Name		    "tRampStart"
+	    Prompt		    "Ramp start time"
+	    Value		    "SetPoint_Init(3,9)"
+	  }
+	  Object {
+	    $ObjectID		    134
+	    Type		    "edit"
+	    Name		    "deltaT_ramp"
+	    Prompt		    "Ramp transition time"
+	    Value		    "SP_deltaTRamp"
+	  }
+	  PropName		  "Parameters"
+	}
+	Array {
+	  Type			  "Simulink.dialog.Group"
+	  Dimension		  2
+	  Object {
+	    $ObjectID		    135
+	    Prompt		    "%<MaskType>"
+	    Object {
+	      $PropName		      "DialogControls"
+	      $ObjectID		      136
+	      $ClassName	      "Simulink.dialog.Text"
+	      Prompt		      "%<MaskDescription>"
+	      Name		      "DescTextVar"
+	    }
+	    Name		    "DescGroupVar"
+	  }
+	  Object {
+	    $ObjectID		    137
+	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
+	    Array {
+	      Type		      "Simulink.dialog.parameter.Edit"
+	      Dimension		      4
+	      Object {
+		$ObjectID		138
+		PromptLocation		"left"
+		Name			"SP_before"
+	      }
+	      Object {
+		$ObjectID		139
+		PromptLocation		"left"
+		Name			"SP_after"
+	      }
+	      Object {
+		$ObjectID		140
+		PromptLocation		"left"
+		Name			"tRampStart"
+	      }
+	      Object {
+		$ObjectID		141
+		PromptLocation		"left"
+		Name			"deltaT_ramp"
+	      }
+	      PropName		      "DialogControls"
+	    }
+	    Name		    "ParameterGroupVar"
+	  }
+	  PropName		  "DialogControls"
+	}
+      }
+      System {
+	Name			"ReactorTempSP"
+	Location		[-8, -8, 1928, 1168]
+	Open			off
+	PortBlocksUseCompactNotation off
+	SetExecutionDomain	off
+	ExecutionDomainType	"Deduce"
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SimulinkSubDomain	"Simulink"
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "406"
+	  Position		  [20, -55, 50, -25]
+	  ZOrder		  3
+	  Value			  "SP_before"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  SID			  "407"
+	  Position		  [20, -135, 50, -105]
+	  ZOrder		  7
+	  Value			  "deltaT_ramp"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ramp"
+	  SID			  "408"
+	  Ports			  [0, 1]
+	  Position		  [20, 30, 50, 60]
+	  ZOrder		  1
+	  LibraryVersion	  "1.453"
+	  SourceBlock		  "simulink/Sources/Ramp"
+	  SourceType		  "Ramp"
+	  SourceProductName	  "Simulink"
+	  SourceProductBaseCode	  "SL"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ContentPreviewEnabled	  on
+	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
+	  start			  "tRampStart"
+	  InitialOutput		  "0"
+	  VectorParams1D	  on
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation1"
+	  SID			  "458"
+	  Ports			  [1, 1]
+	  Position		  [250, -55, 280, -25]
+	  ZOrder		  11
+	  InputPortMap		  "u0"
+	  UpperLimit		  "max(SP_before, SP_after)"
+	  LowerLimit		  "min(SP_before, SP_after)"
+	}
+	Block {
+	  BlockType		  Step
+	  Name			  "Step"
+	  SID			  "409"
+	  Position		  [20, -215, 50, -185]
+	  ZOrder		  5
+	  Time			  "tRampStart"
+	  Before		  "SP_before"
+	  After			  "SP_after"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "410"
+	  Ports			  [2, 1]
+	  Position		  [130, -50, 150, -30]
+	  ZOrder		  4
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  SID			  "411"
+	  Position		  [405, -140, 455, -100]
+	  ZOrder		  6
+	  Criteria		  "u2 > Threshold"
+	  InputSameDT		  off
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  SID			  "412"
+	  Position		  [635, -127, 665, -113]
+	  ZOrder		  8
+	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "Ramp"
+	  SrcPort		  1
+	  Points		  [85, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "Saturation1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  9
+	  SrcBlock		  "Step"
+	  SrcPort		  1
+	  Points		  [328, 0; 0, 95]
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  13
+	  SrcBlock		  "Saturation1"
+	  SrcPort		  1
+	  Points		  [76, 0; 0, -95]
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "RecycleValvePosSP"
+      SID		      "413"
+      Ports		      [0, 1]
+      Position		      [35, 829, 135, 871]
+      ZOrder		      138
+      RequestExecContextInheritance off
+      ContentPreviewEnabled   on
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		142
+	$ClassName		"Simulink.Mask"
+	RunInitForIconRedraw	"off"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  4
+	  Object {
+	    $ObjectID		    143
+	    Type		    "edit"
+	    Name		    "SP_before"
+	    Prompt		    "Value before ramp"
+	    Value		    "SetPoint_Init(1,10)"
+	  }
+	  Object {
+	    $ObjectID		    144
+	    Type		    "edit"
+	    Name		    "SP_after"
+	    Prompt		    "Value after ramp"
+	    Value		    "SetPoint_Init(2,10)"
+	  }
+	  Object {
+	    $ObjectID		    145
+	    Type		    "edit"
+	    Name		    "tRampStart"
+	    Prompt		    "Ramp start time"
+	    Value		    "SetPoint_Init(3,10)"
+	  }
+	  Object {
+	    $ObjectID		    146
+	    Type		    "edit"
+	    Name		    "deltaT_ramp"
+	    Prompt		    "Ramp transition time"
+	    Value		    "SP_deltaTRamp"
+	  }
+	  PropName		  "Parameters"
+	}
+	Array {
+	  Type			  "Simulink.dialog.Group"
+	  Dimension		  2
+	  Object {
+	    $ObjectID		    147
+	    Prompt		    "%<MaskType>"
+	    Object {
+	      $PropName		      "DialogControls"
+	      $ObjectID		      148
+	      $ClassName	      "Simulink.dialog.Text"
+	      Prompt		      "%<MaskDescription>"
+	      Name		      "DescTextVar"
+	    }
+	    Name		    "DescGroupVar"
+	  }
+	  Object {
+	    $ObjectID		    149
+	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
+	    Array {
+	      Type		      "Simulink.dialog.parameter.Edit"
+	      Dimension		      4
+	      Object {
+		$ObjectID		150
+		PromptLocation		"left"
+		Name			"SP_before"
+	      }
+	      Object {
+		$ObjectID		151
+		PromptLocation		"left"
+		Name			"SP_after"
+	      }
+	      Object {
+		$ObjectID		152
+		PromptLocation		"left"
+		Name			"tRampStart"
+	      }
+	      Object {
+		$ObjectID		153
+		PromptLocation		"left"
+		Name			"deltaT_ramp"
+	      }
+	      PropName		      "DialogControls"
+	    }
+	    Name		    "ParameterGroupVar"
+	  }
+	  PropName		  "DialogControls"
+	}
+      }
+      System {
+	Name			"RecycleValvePosSP"
+	Location		[-8, -8, 1928, 1168]
+	Open			off
+	PortBlocksUseCompactNotation off
+	SetExecutionDomain	off
+	ExecutionDomainType	"Deduce"
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SimulinkSubDomain	"Simulink"
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "414"
+	  Position		  [20, -55, 50, -25]
+	  ZOrder		  3
+	  Value			  "SP_before"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  SID			  "415"
+	  Position		  [20, -135, 50, -105]
+	  ZOrder		  7
+	  Value			  "deltaT_ramp"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ramp"
+	  SID			  "416"
+	  Ports			  [0, 1]
+	  Position		  [20, 30, 50, 60]
+	  ZOrder		  1
+	  LibraryVersion	  "1.453"
+	  SourceBlock		  "simulink/Sources/Ramp"
+	  SourceType		  "Ramp"
+	  SourceProductName	  "Simulink"
+	  SourceProductBaseCode	  "SL"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ContentPreviewEnabled	  on
+	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
+	  start			  "tRampStart"
+	  InitialOutput		  "0"
+	  VectorParams1D	  on
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation1"
+	  SID			  "459"
+	  Ports			  [1, 1]
+	  Position		  [210, -55, 240, -25]
+	  ZOrder		  11
+	  InputPortMap		  "u0"
+	  UpperLimit		  "max(SP_before, SP_after)"
+	  LowerLimit		  "min(SP_before, SP_after)"
+	}
+	Block {
+	  BlockType		  Step
+	  Name			  "Step"
+	  SID			  "417"
+	  Position		  [20, -215, 50, -185]
+	  ZOrder		  5
+	  Time			  "tRampStart"
+	  Before		  "SP_before"
+	  After			  "SP_after"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "418"
+	  Ports			  [2, 1]
+	  Position		  [130, -50, 150, -30]
+	  ZOrder		  4
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  SID			  "419"
+	  Position		  [405, -140, 455, -100]
+	  ZOrder		  6
+	  Criteria		  "u2 > Threshold"
+	  InputSameDT		  off
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  SID			  "420"
+	  Position		  [635, -127, 665, -113]
+	  ZOrder		  8
+	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "Ramp"
+	  SrcPort		  1
+	  Points		  [85, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  15
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "Saturation1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  8
+	  SrcBlock		  "Step"
+	  SrcPort		  1
+	  Points		  [326, 0; 0, 95]
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "Saturation1"
+	  SrcPort		  1
+	  Points		  [21, 0; 0, -95]
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
       BlockType		      RelationalOperator
       Name		      "Relational\nOperator"
       SID		      "538"
@@ -2650,6 +4484,793 @@ Model {
       InputSameDT	      off
       OutDataTypeStr	      "boolean"
       RndMeth		      "Simplest"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "SepLevelSP"
+      SID		      "357"
+      Ports		      [0, 1]
+      Position		      [30, 234, 130, 276]
+      ZOrder		      131
+      RequestExecContextInheritance off
+      ContentPreviewEnabled   on
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		154
+	$ClassName		"Simulink.Mask"
+	RunInitForIconRedraw	"off"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  4
+	  Object {
+	    $ObjectID		    155
+	    Type		    "edit"
+	    Name		    "SP_before"
+	    Prompt		    "Value before ramp"
+	    Value		    "SetPoint_Init(1,3)"
+	  }
+	  Object {
+	    $ObjectID		    156
+	    Type		    "edit"
+	    Name		    "SP_after"
+	    Prompt		    "Value after ramp"
+	    Value		    "SetPoint_Init(2,3)"
+	  }
+	  Object {
+	    $ObjectID		    157
+	    Type		    "edit"
+	    Name		    "tRampStart"
+	    Prompt		    "Ramp start time"
+	    Value		    "SetPoint_Init(3,3)"
+	  }
+	  Object {
+	    $ObjectID		    158
+	    Type		    "edit"
+	    Name		    "deltaT_ramp"
+	    Prompt		    "Ramp transition time"
+	    Value		    "SP_deltaTRamp"
+	  }
+	  PropName		  "Parameters"
+	}
+	Array {
+	  Type			  "Simulink.dialog.Group"
+	  Dimension		  2
+	  Object {
+	    $ObjectID		    159
+	    Prompt		    "%<MaskType>"
+	    Object {
+	      $PropName		      "DialogControls"
+	      $ObjectID		      160
+	      $ClassName	      "Simulink.dialog.Text"
+	      Prompt		      "%<MaskDescription>"
+	      Name		      "DescTextVar"
+	    }
+	    Name		    "DescGroupVar"
+	  }
+	  Object {
+	    $ObjectID		    161
+	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
+	    Array {
+	      Type		      "Simulink.dialog.parameter.Edit"
+	      Dimension		      4
+	      Object {
+		$ObjectID		162
+		PromptLocation		"left"
+		Name			"SP_before"
+	      }
+	      Object {
+		$ObjectID		163
+		PromptLocation		"left"
+		Name			"SP_after"
+	      }
+	      Object {
+		$ObjectID		164
+		PromptLocation		"left"
+		Name			"tRampStart"
+	      }
+	      Object {
+		$ObjectID		165
+		PromptLocation		"left"
+		Name			"deltaT_ramp"
+	      }
+	      PropName		      "DialogControls"
+	    }
+	    Name		    "ParameterGroupVar"
+	  }
+	  PropName		  "DialogControls"
+	}
+      }
+      System {
+	Name			"SepLevelSP"
+	Location		[-8, -8, 1928, 1168]
+	Open			off
+	PortBlocksUseCompactNotation off
+	SetExecutionDomain	off
+	ExecutionDomainType	"Deduce"
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SimulinkSubDomain	"Simulink"
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "358"
+	  Position		  [20, -55, 50, -25]
+	  ZOrder		  3
+	  Value			  "SP_before"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  SID			  "359"
+	  Position		  [20, -135, 50, -105]
+	  ZOrder		  7
+	  Value			  "deltaT_ramp"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ramp"
+	  SID			  "360"
+	  Ports			  [0, 1]
+	  Position		  [20, 30, 50, 60]
+	  ZOrder		  1
+	  LibraryVersion	  "1.453"
+	  SourceBlock		  "simulink/Sources/Ramp"
+	  SourceType		  "Ramp"
+	  SourceProductName	  "Simulink"
+	  SourceProductBaseCode	  "SL"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ContentPreviewEnabled	  on
+	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
+	  start			  "tRampStart"
+	  InitialOutput		  "0"
+	  VectorParams1D	  on
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation1"
+	  SID			  "452"
+	  Ports			  [1, 1]
+	  Position		  [230, -55, 260, -25]
+	  ZOrder		  11
+	  InputPortMap		  "u0"
+	  UpperLimit		  "max(SP_before, SP_after)"
+	  LowerLimit		  "min(SP_before, SP_after)"
+	}
+	Block {
+	  BlockType		  Step
+	  Name			  "Step"
+	  SID			  "361"
+	  Position		  [20, -215, 50, -185]
+	  ZOrder		  5
+	  Time			  "tRampStart"
+	  Before		  "SP_before"
+	  After			  "SP_after"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "362"
+	  Ports			  [2, 1]
+	  Position		  [130, -50, 150, -30]
+	  ZOrder		  4
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  SID			  "363"
+	  Position		  [405, -140, 455, -100]
+	  ZOrder		  6
+	  Criteria		  "u2 > Threshold"
+	  InputSameDT		  off
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  SID			  "364"
+	  Position		  [635, -127, 665, -113]
+	  ZOrder		  8
+	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "Ramp"
+	  SrcPort		  1
+	  Points		  [85, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  8
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "Saturation1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  9
+	  SrcBlock		  "Step"
+	  SrcPort		  1
+	  Points		  [329, 0; 0, 95]
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "Saturation1"
+	  SrcPort		  1
+	  Points		  [57, 0; 0, -95]
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "SteamValvePosSP"
+      SID		      "421"
+      Ports		      [0, 1]
+      Position		      [35, 914, 135, 956]
+      ZOrder		      139
+      RequestExecContextInheritance off
+      ContentPreviewEnabled   on
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		166
+	$ClassName		"Simulink.Mask"
+	RunInitForIconRedraw	"off"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  4
+	  Object {
+	    $ObjectID		    167
+	    Type		    "edit"
+	    Name		    "SP_before"
+	    Prompt		    "Value before ramp"
+	    Value		    "SetPoint_Init(1,11)"
+	  }
+	  Object {
+	    $ObjectID		    168
+	    Type		    "edit"
+	    Name		    "SP_after"
+	    Prompt		    "Value after ramp"
+	    Value		    "SetPoint_Init(2,11)"
+	  }
+	  Object {
+	    $ObjectID		    169
+	    Type		    "edit"
+	    Name		    "tRampStart"
+	    Prompt		    "Ramp start time"
+	    Value		    "SetPoint_Init(3,11)"
+	  }
+	  Object {
+	    $ObjectID		    170
+	    Type		    "edit"
+	    Name		    "deltaT_ramp"
+	    Prompt		    "Ramp transition time"
+	    Value		    "SP_deltaTRamp"
+	  }
+	  PropName		  "Parameters"
+	}
+	Array {
+	  Type			  "Simulink.dialog.Group"
+	  Dimension		  2
+	  Object {
+	    $ObjectID		    171
+	    Prompt		    "%<MaskType>"
+	    Object {
+	      $PropName		      "DialogControls"
+	      $ObjectID		      172
+	      $ClassName	      "Simulink.dialog.Text"
+	      Prompt		      "%<MaskDescription>"
+	      Name		      "DescTextVar"
+	    }
+	    Name		    "DescGroupVar"
+	  }
+	  Object {
+	    $ObjectID		    173
+	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
+	    Array {
+	      Type		      "Simulink.dialog.parameter.Edit"
+	      Dimension		      4
+	      Object {
+		$ObjectID		174
+		PromptLocation		"left"
+		Name			"SP_before"
+	      }
+	      Object {
+		$ObjectID		175
+		PromptLocation		"left"
+		Name			"SP_after"
+	      }
+	      Object {
+		$ObjectID		176
+		PromptLocation		"left"
+		Name			"tRampStart"
+	      }
+	      Object {
+		$ObjectID		177
+		PromptLocation		"left"
+		Name			"deltaT_ramp"
+	      }
+	      PropName		      "DialogControls"
+	    }
+	    Name		    "ParameterGroupVar"
+	  }
+	  PropName		  "DialogControls"
+	}
+      }
+      System {
+	Name			"SteamValvePosSP"
+	Location		[-8, -8, 1928, 1168]
+	Open			off
+	PortBlocksUseCompactNotation off
+	SetExecutionDomain	off
+	ExecutionDomainType	"Deduce"
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SimulinkSubDomain	"Simulink"
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "422"
+	  Position		  [20, -55, 50, -25]
+	  ZOrder		  3
+	  Value			  "SP_before"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  SID			  "423"
+	  Position		  [20, -135, 50, -105]
+	  ZOrder		  7
+	  Value			  "deltaT_ramp"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ramp"
+	  SID			  "424"
+	  Ports			  [0, 1]
+	  Position		  [20, 30, 50, 60]
+	  ZOrder		  1
+	  LibraryVersion	  "1.453"
+	  SourceBlock		  "simulink/Sources/Ramp"
+	  SourceType		  "Ramp"
+	  SourceProductName	  "Simulink"
+	  SourceProductBaseCode	  "SL"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ContentPreviewEnabled	  on
+	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
+	  start			  "tRampStart"
+	  InitialOutput		  "0"
+	  VectorParams1D	  on
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation1"
+	  SID			  "460"
+	  Ports			  [1, 1]
+	  Position		  [250, -100, 280, -70]
+	  ZOrder		  11
+	  InputPortMap		  "u0"
+	  UpperLimit		  "max(SP_before, SP_after)"
+	  LowerLimit		  "min(SP_before, SP_after)"
+	}
+	Block {
+	  BlockType		  Step
+	  Name			  "Step"
+	  SID			  "425"
+	  Position		  [20, -215, 50, -185]
+	  ZOrder		  5
+	  Time			  "tRampStart"
+	  Before		  "SP_before"
+	  After			  "SP_after"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "426"
+	  Ports			  [2, 1]
+	  Position		  [130, -50, 150, -30]
+	  ZOrder		  4
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  SID			  "427"
+	  Position		  [405, -140, 455, -100]
+	  ZOrder		  6
+	  Criteria		  "u2 > Threshold"
+	  InputSameDT		  off
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  SID			  "428"
+	  Position		  [635, -127, 665, -113]
+	  ZOrder		  8
+	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "Ramp"
+	  SrcPort		  1
+	  Points		  [85, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  13
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  Points		  [0, -45]
+	  DstBlock		  "Saturation1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  9
+	  SrcBlock		  "Step"
+	  SrcPort		  1
+	  Points		  [326, 0; 0, 95]
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "Saturation1"
+	  SrcPort		  1
+	  Points		  [72, 0; 0, -50]
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "StripLevelSP"
+      SID		      "349"
+      Ports		      [0, 1]
+      Position		      [30, 149, 130, 191]
+      ZOrder		      130
+      RequestExecContextInheritance off
+      ContentPreviewEnabled   on
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		178
+	$ClassName		"Simulink.Mask"
+	RunInitForIconRedraw	"off"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  4
+	  Object {
+	    $ObjectID		    179
+	    Type		    "edit"
+	    Name		    "SP_before"
+	    Prompt		    "Value before ramp"
+	    Value		    "SetPoint_Init(1,2)"
+	  }
+	  Object {
+	    $ObjectID		    180
+	    Type		    "edit"
+	    Name		    "SP_after"
+	    Prompt		    "Value after ramp"
+	    Value		    "SetPoint_Init(2,2)"
+	  }
+	  Object {
+	    $ObjectID		    181
+	    Type		    "edit"
+	    Name		    "tRampStart"
+	    Prompt		    "Ramp start time"
+	    Value		    "SetPoint_Init(3,2)"
+	  }
+	  Object {
+	    $ObjectID		    182
+	    Type		    "edit"
+	    Name		    "deltaT_ramp"
+	    Prompt		    "Ramp transition time"
+	    Value		    "SP_deltaTRamp"
+	  }
+	  PropName		  "Parameters"
+	}
+	Array {
+	  Type			  "Simulink.dialog.Group"
+	  Dimension		  2
+	  Object {
+	    $ObjectID		    183
+	    Prompt		    "%<MaskType>"
+	    Object {
+	      $PropName		      "DialogControls"
+	      $ObjectID		      184
+	      $ClassName	      "Simulink.dialog.Text"
+	      Prompt		      "%<MaskDescription>"
+	      Name		      "DescTextVar"
+	    }
+	    Name		    "DescGroupVar"
+	  }
+	  Object {
+	    $ObjectID		    185
+	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
+	    Array {
+	      Type		      "Simulink.dialog.parameter.Edit"
+	      Dimension		      4
+	      Object {
+		$ObjectID		186
+		PromptLocation		"left"
+		Name			"SP_before"
+	      }
+	      Object {
+		$ObjectID		187
+		PromptLocation		"left"
+		Name			"SP_after"
+	      }
+	      Object {
+		$ObjectID		188
+		PromptLocation		"left"
+		Name			"tRampStart"
+	      }
+	      Object {
+		$ObjectID		189
+		PromptLocation		"left"
+		Name			"deltaT_ramp"
+	      }
+	      PropName		      "DialogControls"
+	    }
+	    Name		    "ParameterGroupVar"
+	  }
+	  PropName		  "DialogControls"
+	}
+      }
+      System {
+	Name			"StripLevelSP"
+	Location		[72, 27, 2008, 1203]
+	Open			off
+	PortBlocksUseCompactNotation off
+	SetExecutionDomain	off
+	ExecutionDomainType	"Deduce"
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SimulinkSubDomain	"Simulink"
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "350"
+	  Position		  [20, -55, 50, -25]
+	  ZOrder		  3
+	  Value			  "SP_before"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  SID			  "351"
+	  Position		  [20, -135, 50, -105]
+	  ZOrder		  7
+	  Value			  "deltaT_ramp"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ramp"
+	  SID			  "352"
+	  Ports			  [0, 1]
+	  Position		  [20, 30, 50, 60]
+	  ZOrder		  1
+	  LibraryVersion	  "1.453"
+	  SourceBlock		  "simulink/Sources/Ramp"
+	  SourceType		  "Ramp"
+	  SourceProductName	  "Simulink"
+	  SourceProductBaseCode	  "SL"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ContentPreviewEnabled	  on
+	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
+	  start			  "tRampStart"
+	  InitialOutput		  "0"
+	  VectorParams1D	  on
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation"
+	  SID			  "451"
+	  Ports			  [1, 1]
+	  Position		  [260, -55, 290, -25]
+	  ZOrder		  11
+	  InputPortMap		  "u0"
+	  UpperLimit		  "max(SP_before, SP_after)"
+	  LowerLimit		  "min(SP_before, SP_after)"
+	}
+	Block {
+	  BlockType		  Step
+	  Name			  "Step"
+	  SID			  "353"
+	  Position		  [20, -215, 50, -185]
+	  ZOrder		  5
+	  Time			  "tRampStart"
+	  Before		  "SP_before"
+	  After			  "SP_after"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "354"
+	  Ports			  [2, 1]
+	  Position		  [130, -50, 150, -30]
+	  ZOrder		  4
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  SID			  "355"
+	  Position		  [405, -140, 455, -100]
+	  ZOrder		  6
+	  Criteria		  "u2 > Threshold"
+	  InputSameDT		  off
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  SID			  "356"
+	  Position		  [635, -127, 665, -113]
+	  ZOrder		  8
+	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "Ramp"
+	  SrcPort		  1
+	  Points		  [85, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "Saturation"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  9
+	  SrcBlock		  "Step"
+	  SrcPort		  1
+	  Points		  [159, 0; 0, 95]
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  13
+	  SrcBlock		  "Saturation"
+	  SrcPort		  1
+	  Points		  [83, 0; 0, -95]
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+      }
     }
     Block {
       BlockType		      SubSystem
@@ -2806,48 +5427,48 @@ Model {
 	  RequestExecContextInheritance	off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    70
+	    $ObjectID		    190
 	    $ClassName		    "Simulink.Mask"
 	    Array {
 	      Type		      "Simulink.MaskParameter"
 	      Dimension		      6
 	      Object {
-		$ObjectID		71
+		$ObjectID		191
 		Type			"edit"
 		Name			"Kc"
 		Prompt			"Kc"
 		Value			"-0.4"
 	      }
 	      Object {
-		$ObjectID		72
+		$ObjectID		192
 		Type			"edit"
 		Name			"Ti"
 		Prompt			"Ti"
 		Value			"100/60"
 	      }
 	      Object {
-		$ObjectID		73
+		$ObjectID		193
 		Type			"edit"
 		Name			"Ts"
 		Prompt			"Ts"
 		Value			"Ts_base"
 	      }
 	      Object {
-		$ObjectID		74
+		$ObjectID		194
 		Type			"edit"
 		Name			"x0"
 		Prompt			"x0"
 		Value			"Eadj_0"
 	      }
 	      Object {
-		$ObjectID		75
+		$ObjectID		195
 		Type			"edit"
 		Name			"Hi"
 		Prompt			"Hi"
 		Value			"inf"
 	      }
 	      Object {
-		$ObjectID		76
+		$ObjectID		196
 		Type			"edit"
 		Name			"Lo"
 		Prompt			"Lo"
@@ -2992,27 +5613,27 @@ Model {
 	      RequestExecContextInheritance off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		77
+		$ObjectID		197
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  3
 		  Object {
-		    $ObjectID		    78
+		    $ObjectID		    198
 		    Type		    "edit"
 		    Name		    "Kc"
 		    Prompt		    "Kc"
 		    Value		    "Kc"
 		  }
 		  Object {
-		    $ObjectID		    79
+		    $ObjectID		    199
 		    Type		    "edit"
 		    Name		    "Ti"
 		    Prompt		    "Ti"
 		    Value		    "Ti"
 		  }
 		  Object {
-		    $ObjectID		    80
+		    $ObjectID		    200
 		    Type		    "edit"
 		    Name		    "Ts"
 		    Prompt		    "Ts"
@@ -3508,48 +6129,48 @@ Model {
 	      RequestExecContextInheritance off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		81
+		$ObjectID		201
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  6
 		  Object {
-		    $ObjectID		    82
+		    $ObjectID		    202
 		    Type		    "edit"
 		    Name		    "Kc"
 		    Prompt		    "Kc"
 		    Value		    "0.01"
 		  }
 		  Object {
-		    $ObjectID		    83
+		    $ObjectID		    203
 		    Type		    "edit"
 		    Name		    "Ti"
 		    Prompt		    "Ti"
 		    Value		    "0.001/60"
 		  }
 		  Object {
-		    $ObjectID		    84
+		    $ObjectID		    204
 		    Type		    "edit"
 		    Name		    "Ts"
 		    Prompt		    "Ts"
 		    Value		    "Ts_base"
 		  }
 		  Object {
-		    $ObjectID		    85
+		    $ObjectID		    205
 		    Type		    "edit"
 		    Name		    "x0"
 		    Prompt		    "x0"
 		    Value		    "xmv_0(3)"
 		  }
 		  Object {
-		    $ObjectID		    86
+		    $ObjectID		    206
 		    Type		    "edit"
 		    Name		    "Hi"
 		    Prompt		    "Hi"
 		    Value		    "100"
 		  }
 		  Object {
-		    $ObjectID		    87
+		    $ObjectID		    207
 		    Type		    "edit"
 		    Name		    "Lo"
 		    Prompt		    "Lo"
@@ -3639,27 +6260,27 @@ Model {
 		  RequestExecContextInheritance	off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    88
+		    $ObjectID		    208
 		    $ClassName		    "Simulink.Mask"
 		    Array {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    3
 		    Object {
-		    $ObjectID		    89
+		    $ObjectID		    209
 		    Type		    "edit"
 		    Name		    "Kc"
 		    Prompt		    "Kc"
 		    Value		    "Kc"
 		    }
 		    Object {
-		    $ObjectID		    90
+		    $ObjectID		    210
 		    Type		    "edit"
 		    Name		    "Ti"
 		    Prompt		    "Ti"
 		    Value		    "Ti"
 		    }
 		    Object {
-		    $ObjectID		    91
+		    $ObjectID		    211
 		    Type		    "edit"
 		    Name		    "Ts"
 		    Prompt		    "Ts"
@@ -4051,48 +6672,48 @@ Model {
 	      RequestExecContextInheritance off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		92
+		$ObjectID		212
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  6
 		  Object {
-		    $ObjectID		    93
+		    $ObjectID		    213
 		    Type		    "edit"
 		    Name		    "Kc"
 		    Prompt		    "Kc"
 		    Value		    "0.003"
 		  }
 		  Object {
-		    $ObjectID		    94
+		    $ObjectID		    214
 		    Type		    "edit"
 		    Name		    "Ti"
 		    Prompt		    "Ti"
 		    Value		    "0.001/60"
 		  }
 		  Object {
-		    $ObjectID		    95
+		    $ObjectID		    215
 		    Type		    "edit"
 		    Name		    "Ts"
 		    Prompt		    "Ts"
 		    Value		    "Ts_base"
 		  }
 		  Object {
-		    $ObjectID		    96
+		    $ObjectID		    216
 		    Type		    "edit"
 		    Name		    "x0"
 		    Prompt		    "x0"
 		    Value		    "xmv_0(4)"
 		  }
 		  Object {
-		    $ObjectID		    97
+		    $ObjectID		    217
 		    Type		    "edit"
 		    Name		    "Hi"
 		    Prompt		    "Hi"
 		    Value		    "100"
 		  }
 		  Object {
-		    $ObjectID		    98
+		    $ObjectID		    218
 		    Type		    "edit"
 		    Name		    "Lo"
 		    Prompt		    "Lo"
@@ -4237,27 +6858,27 @@ Model {
 		  RequestExecContextInheritance	off
 		  Object {
 		    $PropName		    "MaskObject"
-		    $ObjectID		    99
+		    $ObjectID		    219
 		    $ClassName		    "Simulink.Mask"
 		    Array {
 		    Type		    "Simulink.MaskParameter"
 		    Dimension		    3
 		    Object {
-		    $ObjectID		    100
+		    $ObjectID		    220
 		    Type		    "edit"
 		    Name		    "Kc"
 		    Prompt		    "Kc"
 		    Value		    "Kc"
 		    }
 		    Object {
-		    $ObjectID		    101
+		    $ObjectID		    221
 		    Type		    "edit"
 		    Name		    "Ti"
 		    Prompt		    "Ti"
 		    Value		    "Ti"
 		    }
 		    Object {
-		    $ObjectID		    102
+		    $ObjectID		    222
 		    Type		    "edit"
 		    Name		    "Ts"
 		    Prompt		    "Ts"
@@ -6338,48 +8959,48 @@ Model {
 	  RequestExecContextInheritance	off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    103
+	    $ObjectID		    223
 	    $ClassName		    "Simulink.Mask"
 	    Array {
 	      Type		      "Simulink.MaskParameter"
 	      Dimension		      6
 	      Object {
-		$ObjectID		104
+		$ObjectID		224
 		Type			"edit"
 		Name			"Kc"
 		Prompt			"Kc"
 		Value			"3.2"
 	      }
 	      Object {
-		$ObjectID		105
+		$ObjectID		225
 		Type			"edit"
 		Name			"Ti"
 		Prompt			"Ti"
 		Value			"120/60"
 	      }
 	      Object {
-		$ObjectID		106
+		$ObjectID		226
 		Type			"edit"
 		Name			"Ts"
 		Prompt			"Ts"
 		Value			"Ts_base"
 	      }
 	      Object {
-		$ObjectID		107
+		$ObjectID		227
 		Type			"edit"
 		Name			"x0"
 		Prompt			"x0"
 		Value			"0"
 	      }
 	      Object {
-		$ObjectID		108
+		$ObjectID		228
 		Type			"edit"
 		Name			"Hi"
 		Prompt			"Hi"
 		Value			"30"
 	      }
 	      Object {
-		$ObjectID		109
+		$ObjectID		229
 		Type			"edit"
 		Name			"Lo"
 		Prompt			"Lo"
@@ -6469,27 +9090,27 @@ Model {
 	      RequestExecContextInheritance off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		110
+		$ObjectID		230
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  3
 		  Object {
-		    $ObjectID		    111
+		    $ObjectID		    231
 		    Type		    "edit"
 		    Name		    "Kc"
 		    Prompt		    "Kc"
 		    Value		    "Kc"
 		  }
 		  Object {
-		    $ObjectID		    112
+		    $ObjectID		    232
 		    Type		    "edit"
 		    Name		    "Ti"
 		    Prompt		    "Ti"
 		    Value		    "Ti"
 		  }
 		  Object {
-		    $ObjectID		    113
+		    $ObjectID		    233
 		    Type		    "edit"
 		    Name		    "Ts"
 		    Prompt		    "Ts"
@@ -7116,48 +9737,48 @@ Model {
 	  RequestExecContextInheritance	off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    114
+	    $ObjectID		    234
 	    $ClassName		    "Simulink.Mask"
 	    Array {
 	      Type		      "Simulink.MaskParameter"
 	      Dimension		      6
 	      Object {
-		$ObjectID		115
+		$ObjectID		235
 		Type			"edit"
 		Name			"Kc"
 		Prompt			"Kc"
 		Value			"0.8"
 	      }
 	      Object {
-		$ObjectID		116
+		$ObjectID		236
 		Type			"edit"
 		Name			"Ti"
 		Prompt			"Ti"
 		Value			"60/60"
 	      }
 	      Object {
-		$ObjectID		117
+		$ObjectID		237
 		Type			"edit"
 		Name			"Ts"
 		Prompt			"Ts"
 		Value			"Ts_base"
 	      }
 	      Object {
-		$ObjectID		118
+		$ObjectID		238
 		Type			"edit"
 		Name			"x0"
 		Prompt			"x0"
 		Value			"SP17_0"
 	      }
 	      Object {
-		$ObjectID		119
+		$ObjectID		239
 		Type			"edit"
 		Name			"Hi"
 		Prompt			"Hi"
 		Value			"120"
 	      }
 	      Object {
-		$ObjectID		120
+		$ObjectID		240
 		Type			"edit"
 		Name			"Lo"
 		Prompt			"Lo"
@@ -7256,27 +9877,27 @@ Model {
 	      RequestExecContextInheritance off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		121
+		$ObjectID		241
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  3
 		  Object {
-		    $ObjectID		    122
+		    $ObjectID		    242
 		    Type		    "edit"
 		    Name		    "Kc"
 		    Prompt		    "Kc"
 		    Value		    "Kc"
 		  }
 		  Object {
-		    $ObjectID		    123
+		    $ObjectID		    243
 		    Type		    "edit"
 		    Name		    "Ti"
 		    Prompt		    "Ti"
 		    Value		    "Ti"
 		  }
 		  Object {
-		    $ObjectID		    124
+		    $ObjectID		    244
 		    Type		    "edit"
 		    Name		    "Ts"
 		    Prompt		    "Ts"
@@ -7565,48 +10186,48 @@ Model {
 	  RequestExecContextInheritance	off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    125
+	    $ObjectID		    245
 	    $ClassName		    "Simulink.Mask"
 	    Array {
 	      Type		      "Simulink.MaskParameter"
 	      Dimension		      6
 	      Object {
-		$ObjectID		126
+		$ObjectID		246
 		Type			"edit"
 		Name			"Kc"
 		Prompt			"Kc"
 		Value			"-1e-4"
 	      }
 	      Object {
-		$ObjectID		127
+		$ObjectID		247
 		Type			"edit"
 		Name			"Ti"
 		Prompt			"Ti"
 		Value			"20/60"
 	      }
 	      Object {
-		$ObjectID		128
+		$ObjectID		248
 		Type			"edit"
 		Name			"Ts"
 		Prompt			"Ts"
 		Value			"Ts_base"
 	      }
 	      Object {
-		$ObjectID		129
+		$ObjectID		249
 		Type			"edit"
 		Name			"x0"
 		Prompt			"x0"
 		Value			"r5_0"
 	      }
 	      Object {
-		$ObjectID		130
+		$ObjectID		250
 		Type			"edit"
 		Name			"Hi"
 		Prompt			"Hi"
 		Value			"100"
 	      }
 	      Object {
-		$ObjectID		131
+		$ObjectID		251
 		Type			"edit"
 		Name			"Lo"
 		Prompt			"Lo"
@@ -7696,27 +10317,27 @@ Model {
 	      RequestExecContextInheritance off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		132
+		$ObjectID		252
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  3
 		  Object {
-		    $ObjectID		    133
+		    $ObjectID		    253
 		    Type		    "edit"
 		    Name		    "Kc"
 		    Prompt		    "Kc"
 		    Value		    "Kc"
 		  }
 		  Object {
-		    $ObjectID		    134
+		    $ObjectID		    254
 		    Type		    "edit"
 		    Name		    "Ti"
 		    Prompt		    "Ti"
 		    Value		    "Ti"
 		  }
 		  Object {
-		    $ObjectID		    135
+		    $ObjectID		    255
 		    Type		    "edit"
 		    Name		    "Ts"
 		    Prompt		    "Ts"
@@ -8670,48 +11291,48 @@ Model {
 	  RequestExecContextInheritance	off
 	  Object {
 	    $PropName		    "MaskObject"
-	    $ObjectID		    136
+	    $ObjectID		    256
 	    $ClassName		    "Simulink.Mask"
 	    Array {
 	      Type		      "Simulink.MaskParameter"
 	      Dimension		      6
 	      Object {
-		$ObjectID		137
+		$ObjectID		257
 		Type			"edit"
 		Name			"Kc"
 		Prompt			"Kc"
 		Value			"-2e-4"
 	      }
 	      Object {
-		$ObjectID		138
+		$ObjectID		258
 		Type			"edit"
 		Name			"Ti"
 		Prompt			"Ti"
 		Value			"200/60"
 	      }
 	      Object {
-		$ObjectID		139
+		$ObjectID		259
 		Type			"edit"
 		Name			"Ts"
 		Prompt			"Ts"
 		Value			"Ts_base"
 	      }
 	      Object {
-		$ObjectID		140
+		$ObjectID		260
 		Type			"edit"
 		Name			"x0"
 		Prompt			"x0"
 		Value			"r7_0"
 	      }
 	      Object {
-		$ObjectID		141
+		$ObjectID		261
 		Type			"edit"
 		Name			"Hi"
 		Prompt			"Hi"
 		Value			"100"
 	      }
 	      Object {
-		$ObjectID		142
+		$ObjectID		262
 		Type			"edit"
 		Name			"Lo"
 		Prompt			"Lo"
@@ -8801,27 +11422,27 @@ Model {
 	      RequestExecContextInheritance off
 	      Object {
 		$PropName		"MaskObject"
-		$ObjectID		143
+		$ObjectID		263
 		$ClassName		"Simulink.Mask"
 		Array {
 		  Type			  "Simulink.MaskParameter"
 		  Dimension		  3
 		  Object {
-		    $ObjectID		    144
+		    $ObjectID		    264
 		    Type		    "edit"
 		    Name		    "Kc"
 		    Prompt		    "Kc"
 		    Value		    "Kc"
 		  }
 		  Object {
-		    $ObjectID		    145
+		    $ObjectID		    265
 		    Type		    "edit"
 		    Name		    "Ti"
 		    Prompt		    "Ti"
 		    Value		    "Ti"
 		  }
 		  Object {
-		    $ObjectID		    146
+		    $ObjectID		    266
 		    Type		    "edit"
 		    Name		    "Ts"
 		    Prompt		    "Ts"
@@ -10415,2640 +13036,11 @@ Model {
     }
     Block {
       BlockType		      SubSystem
-      Name		      "agitator_sp"
-      SID		      "429"
+      Name		      "YACSP"
+      SID		      "397"
       Ports		      [0, 1]
-      Position		      [35, 999, 135, 1041]
-      ZOrder		      140
-      RequestExecContextInheritance off
-      ContentPreviewEnabled   on
-      Object {
-	$PropName		"MaskObject"
-	$ObjectID		147
-	$ClassName		"Simulink.Mask"
-	RunInitForIconRedraw	"off"
-	Array {
-	  Type			  "Simulink.MaskParameter"
-	  Dimension		  4
-	  Object {
-	    $ObjectID		    148
-	    Type		    "edit"
-	    Name		    "SP_before"
-	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,12)"
-	  }
-	  Object {
-	    $ObjectID		    149
-	    Type		    "edit"
-	    Name		    "SP_after"
-	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,12)"
-	  }
-	  Object {
-	    $ObjectID		    150
-	    Type		    "edit"
-	    Name		    "tRampStart"
-	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,12)"
-	  }
-	  Object {
-	    $ObjectID		    151
-	    Type		    "edit"
-	    Name		    "deltaT_ramp"
-	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
-	  }
-	  PropName		  "Parameters"
-	}
-	Array {
-	  Type			  "Simulink.dialog.Group"
-	  Dimension		  2
-	  Object {
-	    $ObjectID		    152
-	    Prompt		    "%<MaskType>"
-	    Object {
-	      $PropName		      "DialogControls"
-	      $ObjectID		      153
-	      $ClassName	      "Simulink.dialog.Text"
-	      Prompt		      "%<MaskDescription>"
-	      Name		      "DescTextVar"
-	    }
-	    Name		    "DescGroupVar"
-	  }
-	  Object {
-	    $ObjectID		    154
-	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
-	    Array {
-	      Type		      "Simulink.dialog.parameter.Edit"
-	      Dimension		      4
-	      Object {
-		$ObjectID		155
-		PromptLocation		"left"
-		Name			"SP_before"
-	      }
-	      Object {
-		$ObjectID		156
-		PromptLocation		"left"
-		Name			"SP_after"
-	      }
-	      Object {
-		$ObjectID		157
-		PromptLocation		"left"
-		Name			"tRampStart"
-	      }
-	      Object {
-		$ObjectID		158
-		PromptLocation		"left"
-		Name			"deltaT_ramp"
-	      }
-	      PropName		      "DialogControls"
-	    }
-	    Name		    "ParameterGroupVar"
-	  }
-	  PropName		  "DialogControls"
-	}
-      }
-      System {
-	Name			"agitator_sp"
-	Location		[-8, -8, 1928, 1168]
-	Open			off
-	PortBlocksUseCompactNotation off
-	SetExecutionDomain	off
-	ExecutionDomainType	"Deduce"
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	SimulinkSubDomain	"Simulink"
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant"
-	  SID			  "430"
-	  Position		  [20, -55, 50, -25]
-	  ZOrder		  3
-	  Value			  "SP_before"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant1"
-	  SID			  "431"
-	  Position		  [20, -135, 50, -105]
-	  ZOrder		  7
-	  Value			  "deltaT_ramp"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Ramp"
-	  SID			  "432"
-	  Ports			  [0, 1]
-	  Position		  [20, 30, 50, 60]
-	  ZOrder		  1
-	  LibraryVersion	  "1.453"
-	  SourceBlock		  "simulink/Sources/Ramp"
-	  SourceType		  "Ramp"
-	  SourceProductName	  "Simulink"
-	  SourceProductBaseCode	  "SL"
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
-	  ContentPreviewEnabled	  on
-	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
-	  start			  "tRampStart"
-	  InitialOutput		  "0"
-	  VectorParams1D	  on
-	}
-	Block {
-	  BlockType		  Saturate
-	  Name			  "Saturation"
-	  SID			  "461"
-	  Ports			  [1, 1]
-	  Position		  [205, -55, 235, -25]
-	  ZOrder		  11
-	  InputPortMap		  "u0"
-	  UpperLimit		  "max(SP_before, SP_after)"
-	  LowerLimit		  "min(SP_before, SP_after)"
-	}
-	Block {
-	  BlockType		  Step
-	  Name			  "Step"
-	  SID			  "433"
-	  Position		  [20, -215, 50, -185]
-	  ZOrder		  5
-	  Time			  "tRampStart"
-	  Before		  "SP_before"
-	  After			  "SP_after"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum"
-	  SID			  "434"
-	  Ports			  [2, 1]
-	  Position		  [130, -50, 150, -30]
-	  ZOrder		  4
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "|++"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Switch
-	  Name			  "Switch"
-	  SID			  "435"
-	  Position		  [405, -140, 455, -100]
-	  ZOrder		  6
-	  Criteria		  "u2 > Threshold"
-	  InputSameDT		  off
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Out1"
-	  SID			  "436"
-	  Position		  [635, -127, 665, -113]
-	  ZOrder		  8
-	  IconDisplay		  "Port number"
-	  VectorParamsAs1DForOutWhenUnconnected	off
-	}
-	Line {
-	  ZOrder		  1
-	  SrcBlock		  "Constant"
-	  SrcPort		  1
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  2
-	  SrcBlock		  "Ramp"
-	  SrcPort		  1
-	  Points		  [85, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  15
-	  SrcBlock		  "Sum"
-	  SrcPort		  1
-	  DstBlock		  "Saturation"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  4
-	  SrcBlock		  "Constant1"
-	  SrcPort		  1
-	  DstBlock		  "Switch"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  5
-	  SrcBlock		  "Switch"
-	  SrcPort		  1
-	  DstBlock		  "Out1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  10
-	  SrcBlock		  "Step"
-	  SrcPort		  1
-	  Points		  [287, 0; 0, 95]
-	  DstBlock		  "Switch"
-	  DstPort		  3
-	}
-	Line {
-	  ZOrder		  14
-	  SrcBlock		  "Saturation"
-	  SrcPort		  1
-	  Points		  [49, 0; 0, -95]
-	  DstBlock		  "Switch"
-	  DstPort		  1
-	}
-      }
-    }
-    Block {
-      BlockType		      SubSystem
-      Name		      "g_in_product_sp"
-      SID		      "381"
-      Ports		      [0, 1]
-      Position		      [35, 489, 135, 531]
-      ZOrder		      134
-      RequestExecContextInheritance off
-      ContentPreviewEnabled   on
-      Object {
-	$PropName		"MaskObject"
-	$ObjectID		159
-	$ClassName		"Simulink.Mask"
-	RunInitForIconRedraw	"off"
-	Array {
-	  Type			  "Simulink.MaskParameter"
-	  Dimension		  4
-	  Object {
-	    $ObjectID		    160
-	    Type		    "edit"
-	    Name		    "SP_before"
-	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,6)"
-	  }
-	  Object {
-	    $ObjectID		    161
-	    Type		    "edit"
-	    Name		    "SP_after"
-	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,6)"
-	  }
-	  Object {
-	    $ObjectID		    162
-	    Type		    "edit"
-	    Name		    "tRampStart"
-	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,6)"
-	  }
-	  Object {
-	    $ObjectID		    163
-	    Type		    "edit"
-	    Name		    "deltaT_ramp"
-	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
-	  }
-	  PropName		  "Parameters"
-	}
-	Array {
-	  Type			  "Simulink.dialog.Group"
-	  Dimension		  2
-	  Object {
-	    $ObjectID		    164
-	    Prompt		    "%<MaskType>"
-	    Object {
-	      $PropName		      "DialogControls"
-	      $ObjectID		      165
-	      $ClassName	      "Simulink.dialog.Text"
-	      Prompt		      "%<MaskDescription>"
-	      Name		      "DescTextVar"
-	    }
-	    Name		    "DescGroupVar"
-	  }
-	  Object {
-	    $ObjectID		    166
-	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
-	    Array {
-	      Type		      "Simulink.dialog.parameter.Edit"
-	      Dimension		      4
-	      Object {
-		$ObjectID		167
-		PromptLocation		"left"
-		Name			"SP_before"
-	      }
-	      Object {
-		$ObjectID		168
-		PromptLocation		"left"
-		Name			"SP_after"
-	      }
-	      Object {
-		$ObjectID		169
-		PromptLocation		"left"
-		Name			"tRampStart"
-	      }
-	      Object {
-		$ObjectID		170
-		PromptLocation		"left"
-		Name			"deltaT_ramp"
-	      }
-	      PropName		      "DialogControls"
-	    }
-	    Name		    "ParameterGroupVar"
-	  }
-	  PropName		  "DialogControls"
-	}
-      }
-      System {
-	Name			"g_in_product_sp"
-	Location		[-8, -8, 1928, 1168]
-	Open			off
-	PortBlocksUseCompactNotation off
-	SetExecutionDomain	off
-	ExecutionDomainType	"Deduce"
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	SimulinkSubDomain	"Simulink"
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant"
-	  SID			  "382"
-	  Position		  [20, -55, 50, -25]
-	  ZOrder		  3
-	  Value			  "SP_before"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant1"
-	  SID			  "383"
-	  Position		  [20, -135, 50, -105]
-	  ZOrder		  7
-	  Value			  "deltaT_ramp"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Ramp"
-	  SID			  "384"
-	  Ports			  [0, 1]
-	  Position		  [20, 30, 50, 60]
-	  ZOrder		  1
-	  LibraryVersion	  "1.453"
-	  SourceBlock		  "simulink/Sources/Ramp"
-	  SourceType		  "Ramp"
-	  SourceProductName	  "Simulink"
-	  SourceProductBaseCode	  "SL"
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
-	  ContentPreviewEnabled	  on
-	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
-	  start			  "tRampStart"
-	  InitialOutput		  "0"
-	  VectorParams1D	  on
-	}
-	Block {
-	  BlockType		  Saturate
-	  Name			  "Saturation1"
-	  SID			  "455"
-	  Ports			  [1, 1]
-	  Position		  [250, -55, 280, -25]
-	  ZOrder		  11
-	  InputPortMap		  "u0"
-	  UpperLimit		  "max(SP_before, SP_after)"
-	  LowerLimit		  "min(SP_before, SP_after)"
-	}
-	Block {
-	  BlockType		  Step
-	  Name			  "Step"
-	  SID			  "385"
-	  Position		  [20, -215, 50, -185]
-	  ZOrder		  5
-	  Time			  "tRampStart"
-	  Before		  "SP_before"
-	  After			  "SP_after"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum"
-	  SID			  "386"
-	  Ports			  [2, 1]
-	  Position		  [130, -50, 150, -30]
-	  ZOrder		  4
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "|++"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Switch
-	  Name			  "Switch"
-	  SID			  "387"
-	  Position		  [405, -140, 455, -100]
-	  ZOrder		  6
-	  Criteria		  "u2 > Threshold"
-	  InputSameDT		  off
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Out1"
-	  SID			  "388"
-	  Position		  [635, -127, 665, -113]
-	  ZOrder		  8
-	  IconDisplay		  "Port number"
-	  VectorParamsAs1DForOutWhenUnconnected	off
-	}
-	Line {
-	  ZOrder		  1
-	  SrcBlock		  "Constant"
-	  SrcPort		  1
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  2
-	  SrcBlock		  "Ramp"
-	  SrcPort		  1
-	  Points		  [85, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  14
-	  SrcBlock		  "Sum"
-	  SrcPort		  1
-	  DstBlock		  "Saturation1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  4
-	  SrcBlock		  "Constant1"
-	  SrcPort		  1
-	  DstBlock		  "Switch"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  5
-	  SrcBlock		  "Switch"
-	  SrcPort		  1
-	  DstBlock		  "Out1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  9
-	  SrcBlock		  "Step"
-	  SrcPort		  1
-	  Points		  [325, 0; 0, 95]
-	  DstBlock		  "Switch"
-	  DstPort		  3
-	}
-	Line {
-	  ZOrder		  13
-	  SrcBlock		  "Saturation1"
-	  SrcPort		  1
-	  Points		  [45, 0; 0, -95]
-	  DstBlock		  "Switch"
-	  DstPort		  1
-	}
-      }
-    }
-    Block {
-      BlockType		      SubSystem
-      Name		      "production_sp"
-      SID		      "278"
-      Ports		      [0, 1]
-      Position		      [30, 64, 130, 106]
-      ZOrder		      116
-      RequestExecContextInheritance off
-      ContentPreviewEnabled   on
-      Object {
-	$PropName		"MaskObject"
-	$ObjectID		171
-	$ClassName		"Simulink.Mask"
-	RunInitForIconRedraw	"off"
-	Array {
-	  Type			  "Simulink.MaskParameter"
-	  Dimension		  4
-	  Object {
-	    $ObjectID		    172
-	    Type		    "edit"
-	    Name		    "SP_before"
-	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,1)"
-	  }
-	  Object {
-	    $ObjectID		    173
-	    Type		    "edit"
-	    Name		    "SP_after"
-	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,1)"
-	  }
-	  Object {
-	    $ObjectID		    174
-	    Type		    "edit"
-	    Name		    "tRampStart"
-	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,1)"
-	  }
-	  Object {
-	    $ObjectID		    175
-	    Type		    "edit"
-	    Name		    "deltaT_ramp"
-	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
-	  }
-	  PropName		  "Parameters"
-	}
-	Array {
-	  Type			  "Simulink.dialog.Group"
-	  Dimension		  2
-	  Object {
-	    $ObjectID		    176
-	    Prompt		    "%<MaskType>"
-	    Object {
-	      $PropName		      "DialogControls"
-	      $ObjectID		      177
-	      $ClassName	      "Simulink.dialog.Text"
-	      Prompt		      "%<MaskDescription>"
-	      Name		      "DescTextVar"
-	    }
-	    Name		    "DescGroupVar"
-	  }
-	  Object {
-	    $ObjectID		    178
-	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
-	    Array {
-	      Type		      "Simulink.dialog.parameter.Edit"
-	      Dimension		      4
-	      Object {
-		$ObjectID		179
-		PromptLocation		"left"
-		Name			"SP_before"
-	      }
-	      Object {
-		$ObjectID		180
-		PromptLocation		"left"
-		Name			"SP_after"
-	      }
-	      Object {
-		$ObjectID		181
-		PromptLocation		"left"
-		Name			"tRampStart"
-	      }
-	      Object {
-		$ObjectID		182
-		PromptLocation		"left"
-		Name			"deltaT_ramp"
-	      }
-	      PropName		      "DialogControls"
-	    }
-	    Name		    "ParameterGroupVar"
-	  }
-	  PropName		  "DialogControls"
-	}
-      }
-      System {
-	Name			"production_sp"
-	Location		[1920, 0, 3600, 1050]
-	Open			off
-	PortBlocksUseCompactNotation off
-	SetExecutionDomain	off
-	ExecutionDomainType	"Deduce"
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	SimulinkSubDomain	"Simulink"
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant"
-	  SID			  "283"
-	  Position		  [20, -55, 50, -25]
-	  ZOrder		  3
-	  Value			  "SP_before"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant1"
-	  SID			  "347"
-	  Position		  [20, -135, 50, -105]
-	  ZOrder		  7
-	  Value			  "deltaT_ramp"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Ramp"
-	  SID			  "281"
-	  Ports			  [0, 1]
-	  Position		  [20, 30, 50, 60]
-	  ZOrder		  1
-	  LibraryVersion	  "1.453"
-	  SourceBlock		  "simulink/Sources/Ramp"
-	  SourceType		  "Ramp"
-	  SourceProductName	  "Simulink"
-	  SourceProductBaseCode	  "SL"
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
-	  ContentPreviewEnabled	  on
-	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
-	  start			  "tRampStart"
-	  InitialOutput		  "0"
-	  VectorParams1D	  on
-	}
-	Block {
-	  BlockType		  Saturate
-	  Name			  "Saturation"
-	  SID			  "439"
-	  Ports			  [1, 1]
-	  Position		  [230, -55, 260, -25]
-	  ZOrder		  9
-	  InputPortMap		  "u0"
-	  UpperLimit		  "max(SP_before, SP_after)"
-	  LowerLimit		  "min(SP_before, SP_after)"
-	}
-	Block {
-	  BlockType		  Step
-	  Name			  "Step"
-	  SID			  "345"
-	  Position		  [20, -215, 50, -185]
-	  ZOrder		  5
-	  Time			  "tRampStart"
-	  Before		  "SP_before"
-	  After			  "SP_after"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum"
-	  SID			  "284"
-	  Ports			  [2, 1]
-	  Position		  [130, -50, 150, -30]
-	  ZOrder		  4
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "|++"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Switch
-	  Name			  "Switch"
-	  SID			  "346"
-	  Position		  [405, -140, 455, -100]
-	  ZOrder		  6
-	  Criteria		  "u2 > Threshold"
-	  InputSameDT		  off
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Out1"
-	  SID			  "280"
-	  Position		  [635, -127, 665, -113]
-	  ZOrder		  8
-	  IconDisplay		  "Port number"
-	  VectorParamsAs1DForOutWhenUnconnected	off
-	}
-	Line {
-	  ZOrder		  2
-	  SrcBlock		  "Constant"
-	  SrcPort		  1
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  3
-	  SrcBlock		  "Ramp"
-	  SrcPort		  1
-	  Points		  [85, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  21
-	  SrcBlock		  "Sum"
-	  SrcPort		  1
-	  DstBlock		  "Saturation"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  6
-	  SrcBlock		  "Constant1"
-	  SrcPort		  1
-	  DstBlock		  "Switch"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  7
-	  SrcBlock		  "Switch"
-	  SrcPort		  1
-	  DstBlock		  "Out1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  22
-	  SrcBlock		  "Step"
-	  SrcPort		  1
-	  Points		  [161, 0; 0, 95]
-	  DstBlock		  "Switch"
-	  DstPort		  3
-	}
-	Line {
-	  ZOrder		  25
-	  SrcBlock		  "Saturation"
-	  SrcPort		  1
-	  Points		  [68, 0; 0, -95]
-	  DstBlock		  "Switch"
-	  DstPort		  1
-	}
-      }
-    }
-    Block {
-      BlockType		      SubSystem
-      Name		      "reactor_level_sp"
-      SID		      "365"
-      Ports		      [0, 1]
-      Position		      [30, 319, 130, 361]
-      ZOrder		      132
-      RequestExecContextInheritance off
-      ContentPreviewEnabled   on
-      Object {
-	$PropName		"MaskObject"
-	$ObjectID		183
-	$ClassName		"Simulink.Mask"
-	RunInitForIconRedraw	"off"
-	Array {
-	  Type			  "Simulink.MaskParameter"
-	  Dimension		  4
-	  Object {
-	    $ObjectID		    184
-	    Type		    "edit"
-	    Name		    "SP_before"
-	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,4)"
-	  }
-	  Object {
-	    $ObjectID		    185
-	    Type		    "edit"
-	    Name		    "SP_after"
-	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,4)"
-	  }
-	  Object {
-	    $ObjectID		    186
-	    Type		    "edit"
-	    Name		    "tRampStart"
-	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,4)"
-	  }
-	  Object {
-	    $ObjectID		    187
-	    Type		    "edit"
-	    Name		    "deltaT_ramp"
-	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
-	  }
-	  PropName		  "Parameters"
-	}
-	Array {
-	  Type			  "Simulink.dialog.Group"
-	  Dimension		  2
-	  Object {
-	    $ObjectID		    188
-	    Prompt		    "%<MaskType>"
-	    Object {
-	      $PropName		      "DialogControls"
-	      $ObjectID		      189
-	      $ClassName	      "Simulink.dialog.Text"
-	      Prompt		      "%<MaskDescription>"
-	      Name		      "DescTextVar"
-	    }
-	    Name		    "DescGroupVar"
-	  }
-	  Object {
-	    $ObjectID		    190
-	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
-	    Array {
-	      Type		      "Simulink.dialog.parameter.Edit"
-	      Dimension		      4
-	      Object {
-		$ObjectID		191
-		PromptLocation		"left"
-		Name			"SP_before"
-	      }
-	      Object {
-		$ObjectID		192
-		PromptLocation		"left"
-		Name			"SP_after"
-	      }
-	      Object {
-		$ObjectID		193
-		PromptLocation		"left"
-		Name			"tRampStart"
-	      }
-	      Object {
-		$ObjectID		194
-		PromptLocation		"left"
-		Name			"deltaT_ramp"
-	      }
-	      PropName		      "DialogControls"
-	    }
-	    Name		    "ParameterGroupVar"
-	  }
-	  PropName		  "DialogControls"
-	}
-      }
-      System {
-	Name			"reactor_level_sp"
-	Location		[-8, -8, 1928, 1168]
-	Open			off
-	PortBlocksUseCompactNotation off
-	SetExecutionDomain	off
-	ExecutionDomainType	"Deduce"
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	SimulinkSubDomain	"Simulink"
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant"
-	  SID			  "366"
-	  Position		  [20, -55, 50, -25]
-	  ZOrder		  3
-	  Value			  "SP_before"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant1"
-	  SID			  "367"
-	  Position		  [20, -135, 50, -105]
-	  ZOrder		  7
-	  Value			  "deltaT_ramp"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Ramp"
-	  SID			  "368"
-	  Ports			  [0, 1]
-	  Position		  [20, 30, 50, 60]
-	  ZOrder		  1
-	  LibraryVersion	  "1.453"
-	  SourceBlock		  "simulink/Sources/Ramp"
-	  SourceType		  "Ramp"
-	  SourceProductName	  "Simulink"
-	  SourceProductBaseCode	  "SL"
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
-	  ContentPreviewEnabled	  on
-	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
-	  start			  "tRampStart"
-	  InitialOutput		  "0"
-	  VectorParams1D	  on
-	}
-	Block {
-	  BlockType		  Saturate
-	  Name			  "Saturation"
-	  SID			  "453"
-	  Ports			  [1, 1]
-	  Position		  [255, -55, 285, -25]
-	  ZOrder		  11
-	  InputPortMap		  "u0"
-	  UpperLimit		  "max(SP_before, SP_after)"
-	  LowerLimit		  "min(SP_before, SP_after)"
-	}
-	Block {
-	  BlockType		  Step
-	  Name			  "Step"
-	  SID			  "369"
-	  Position		  [20, -215, 50, -185]
-	  ZOrder		  5
-	  Time			  "tRampStart"
-	  Before		  "SP_before"
-	  After			  "SP_after"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum"
-	  SID			  "370"
-	  Ports			  [2, 1]
-	  Position		  [130, -50, 150, -30]
-	  ZOrder		  4
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "|++"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Switch
-	  Name			  "Switch"
-	  SID			  "371"
-	  Position		  [405, -140, 455, -100]
-	  ZOrder		  6
-	  Criteria		  "u2 > Threshold"
-	  InputSameDT		  off
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Out1"
-	  SID			  "372"
-	  Position		  [635, -127, 665, -113]
-	  ZOrder		  8
-	  IconDisplay		  "Port number"
-	  VectorParamsAs1DForOutWhenUnconnected	off
-	}
-	Line {
-	  ZOrder		  1
-	  SrcBlock		  "Constant"
-	  SrcPort		  1
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  2
-	  SrcBlock		  "Ramp"
-	  SrcPort		  1
-	  Points		  [85, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  13
-	  SrcBlock		  "Sum"
-	  SrcPort		  1
-	  DstBlock		  "Saturation"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  4
-	  SrcBlock		  "Constant1"
-	  SrcPort		  1
-	  DstBlock		  "Switch"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  5
-	  SrcBlock		  "Switch"
-	  SrcPort		  1
-	  DstBlock		  "Out1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  9
-	  SrcBlock		  "Step"
-	  SrcPort		  1
-	  Points		  [326, 0; 0, 95]
-	  DstBlock		  "Switch"
-	  DstPort		  3
-	}
-	Line {
-	  ZOrder		  14
-	  SrcBlock		  "Saturation"
-	  SrcPort		  1
-	  Points		  [67, 0; 0, -95]
-	  DstBlock		  "Switch"
-	  DstPort		  1
-	}
-      }
-    }
-    Block {
-      BlockType		      SubSystem
-      Name		      "reactor_press_sp"
-      SID		      "373"
-      Ports		      [0, 1]
-      Position		      [35, 404, 135, 446]
-      ZOrder		      133
-      RequestExecContextInheritance off
-      ContentPreviewEnabled   on
-      Object {
-	$PropName		"MaskObject"
-	$ObjectID		195
-	$ClassName		"Simulink.Mask"
-	RunInitForIconRedraw	"off"
-	Array {
-	  Type			  "Simulink.MaskParameter"
-	  Dimension		  4
-	  Object {
-	    $ObjectID		    196
-	    Type		    "edit"
-	    Name		    "SP_before"
-	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,5)"
-	  }
-	  Object {
-	    $ObjectID		    197
-	    Type		    "edit"
-	    Name		    "SP_after"
-	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,5)"
-	  }
-	  Object {
-	    $ObjectID		    198
-	    Type		    "edit"
-	    Name		    "tRampStart"
-	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,5)"
-	  }
-	  Object {
-	    $ObjectID		    199
-	    Type		    "edit"
-	    Name		    "deltaT_ramp"
-	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
-	  }
-	  PropName		  "Parameters"
-	}
-	Array {
-	  Type			  "Simulink.dialog.Group"
-	  Dimension		  2
-	  Object {
-	    $ObjectID		    200
-	    Prompt		    "%<MaskType>"
-	    Object {
-	      $PropName		      "DialogControls"
-	      $ObjectID		      201
-	      $ClassName	      "Simulink.dialog.Text"
-	      Prompt		      "%<MaskDescription>"
-	      Name		      "DescTextVar"
-	    }
-	    Name		    "DescGroupVar"
-	  }
-	  Object {
-	    $ObjectID		    202
-	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
-	    Array {
-	      Type		      "Simulink.dialog.parameter.Edit"
-	      Dimension		      4
-	      Object {
-		$ObjectID		203
-		PromptLocation		"left"
-		Name			"SP_before"
-	      }
-	      Object {
-		$ObjectID		204
-		PromptLocation		"left"
-		Name			"SP_after"
-	      }
-	      Object {
-		$ObjectID		205
-		PromptLocation		"left"
-		Name			"tRampStart"
-	      }
-	      Object {
-		$ObjectID		206
-		PromptLocation		"left"
-		Name			"deltaT_ramp"
-	      }
-	      PropName		      "DialogControls"
-	    }
-	    Name		    "ParameterGroupVar"
-	  }
-	  PropName		  "DialogControls"
-	}
-      }
-      System {
-	Name			"reactor_press_sp"
-	Location		[-8, -8, 1928, 1168]
-	Open			off
-	PortBlocksUseCompactNotation off
-	SetExecutionDomain	off
-	ExecutionDomainType	"Deduce"
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	SimulinkSubDomain	"Simulink"
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant"
-	  SID			  "374"
-	  Position		  [20, -55, 50, -25]
-	  ZOrder		  3
-	  Value			  "SP_before"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant1"
-	  SID			  "375"
-	  Position		  [20, -135, 50, -105]
-	  ZOrder		  7
-	  Value			  "deltaT_ramp"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Ramp"
-	  SID			  "376"
-	  Ports			  [0, 1]
-	  Position		  [20, 30, 50, 60]
-	  ZOrder		  1
-	  LibraryVersion	  "1.453"
-	  SourceBlock		  "simulink/Sources/Ramp"
-	  SourceType		  "Ramp"
-	  SourceProductName	  "Simulink"
-	  SourceProductBaseCode	  "SL"
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
-	  ContentPreviewEnabled	  on
-	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
-	  start			  "tRampStart"
-	  InitialOutput		  "0"
-	  VectorParams1D	  on
-	}
-	Block {
-	  BlockType		  Saturate
-	  Name			  "Saturation1"
-	  SID			  "454"
-	  Ports			  [1, 1]
-	  Position		  [240, -55, 270, -25]
-	  ZOrder		  11
-	  InputPortMap		  "u0"
-	  UpperLimit		  "max(SP_before, SP_after)"
-	  LowerLimit		  "min(SP_before, SP_after)"
-	}
-	Block {
-	  BlockType		  Step
-	  Name			  "Step"
-	  SID			  "377"
-	  Position		  [20, -215, 50, -185]
-	  ZOrder		  5
-	  Time			  "tRampStart"
-	  Before		  "SP_before"
-	  After			  "SP_after"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum"
-	  SID			  "378"
-	  Ports			  [2, 1]
-	  Position		  [130, -50, 150, -30]
-	  ZOrder		  4
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "|++"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Switch
-	  Name			  "Switch"
-	  SID			  "379"
-	  Position		  [405, -140, 455, -100]
-	  ZOrder		  6
-	  Criteria		  "u2 > Threshold"
-	  InputSameDT		  off
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Out1"
-	  SID			  "380"
-	  Position		  [635, -127, 665, -113]
-	  ZOrder		  8
-	  IconDisplay		  "Port number"
-	  VectorParamsAs1DForOutWhenUnconnected	off
-	}
-	Line {
-	  ZOrder		  1
-	  SrcBlock		  "Constant"
-	  SrcPort		  1
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  2
-	  SrcBlock		  "Ramp"
-	  SrcPort		  1
-	  Points		  [85, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  14
-	  SrcBlock		  "Sum"
-	  SrcPort		  1
-	  DstBlock		  "Saturation1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  4
-	  SrcBlock		  "Constant1"
-	  SrcPort		  1
-	  DstBlock		  "Switch"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  5
-	  SrcBlock		  "Switch"
-	  SrcPort		  1
-	  DstBlock		  "Out1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  9
-	  SrcBlock		  "Step"
-	  SrcPort		  1
-	  Points		  [330, 0; 0, 95]
-	  DstBlock		  "Switch"
-	  DstPort		  3
-	}
-	Line {
-	  ZOrder		  13
-	  SrcBlock		  "Saturation1"
-	  SrcPort		  1
-	  Points		  [89, 0; 0, -95]
-	  DstBlock		  "Switch"
-	  DstPort		  1
-	}
-      }
-    }
-    Block {
-      BlockType		      SubSystem
-      Name		      "reactor_temp_sp"
-      SID		      "405"
-      Ports		      [0, 1]
-      Position		      [35, 744, 135, 786]
-      ZOrder		      137
-      RequestExecContextInheritance off
-      ContentPreviewEnabled   on
-      Object {
-	$PropName		"MaskObject"
-	$ObjectID		207
-	$ClassName		"Simulink.Mask"
-	RunInitForIconRedraw	"off"
-	Array {
-	  Type			  "Simulink.MaskParameter"
-	  Dimension		  4
-	  Object {
-	    $ObjectID		    208
-	    Type		    "edit"
-	    Name		    "SP_before"
-	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,9)"
-	  }
-	  Object {
-	    $ObjectID		    209
-	    Type		    "edit"
-	    Name		    "SP_after"
-	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,9)"
-	  }
-	  Object {
-	    $ObjectID		    210
-	    Type		    "edit"
-	    Name		    "tRampStart"
-	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,9)"
-	  }
-	  Object {
-	    $ObjectID		    211
-	    Type		    "edit"
-	    Name		    "deltaT_ramp"
-	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
-	  }
-	  PropName		  "Parameters"
-	}
-	Array {
-	  Type			  "Simulink.dialog.Group"
-	  Dimension		  2
-	  Object {
-	    $ObjectID		    212
-	    Prompt		    "%<MaskType>"
-	    Object {
-	      $PropName		      "DialogControls"
-	      $ObjectID		      213
-	      $ClassName	      "Simulink.dialog.Text"
-	      Prompt		      "%<MaskDescription>"
-	      Name		      "DescTextVar"
-	    }
-	    Name		    "DescGroupVar"
-	  }
-	  Object {
-	    $ObjectID		    214
-	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
-	    Array {
-	      Type		      "Simulink.dialog.parameter.Edit"
-	      Dimension		      4
-	      Object {
-		$ObjectID		215
-		PromptLocation		"left"
-		Name			"SP_before"
-	      }
-	      Object {
-		$ObjectID		216
-		PromptLocation		"left"
-		Name			"SP_after"
-	      }
-	      Object {
-		$ObjectID		217
-		PromptLocation		"left"
-		Name			"tRampStart"
-	      }
-	      Object {
-		$ObjectID		218
-		PromptLocation		"left"
-		Name			"deltaT_ramp"
-	      }
-	      PropName		      "DialogControls"
-	    }
-	    Name		    "ParameterGroupVar"
-	  }
-	  PropName		  "DialogControls"
-	}
-      }
-      System {
-	Name			"reactor_temp_sp"
-	Location		[-8, -8, 1928, 1168]
-	Open			off
-	PortBlocksUseCompactNotation off
-	SetExecutionDomain	off
-	ExecutionDomainType	"Deduce"
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	SimulinkSubDomain	"Simulink"
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant"
-	  SID			  "406"
-	  Position		  [20, -55, 50, -25]
-	  ZOrder		  3
-	  Value			  "SP_before"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant1"
-	  SID			  "407"
-	  Position		  [20, -135, 50, -105]
-	  ZOrder		  7
-	  Value			  "deltaT_ramp"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Ramp"
-	  SID			  "408"
-	  Ports			  [0, 1]
-	  Position		  [20, 30, 50, 60]
-	  ZOrder		  1
-	  LibraryVersion	  "1.453"
-	  SourceBlock		  "simulink/Sources/Ramp"
-	  SourceType		  "Ramp"
-	  SourceProductName	  "Simulink"
-	  SourceProductBaseCode	  "SL"
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
-	  ContentPreviewEnabled	  on
-	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
-	  start			  "tRampStart"
-	  InitialOutput		  "0"
-	  VectorParams1D	  on
-	}
-	Block {
-	  BlockType		  Saturate
-	  Name			  "Saturation1"
-	  SID			  "458"
-	  Ports			  [1, 1]
-	  Position		  [250, -55, 280, -25]
-	  ZOrder		  11
-	  InputPortMap		  "u0"
-	  UpperLimit		  "max(SP_before, SP_after)"
-	  LowerLimit		  "min(SP_before, SP_after)"
-	}
-	Block {
-	  BlockType		  Step
-	  Name			  "Step"
-	  SID			  "409"
-	  Position		  [20, -215, 50, -185]
-	  ZOrder		  5
-	  Time			  "tRampStart"
-	  Before		  "SP_before"
-	  After			  "SP_after"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum"
-	  SID			  "410"
-	  Ports			  [2, 1]
-	  Position		  [130, -50, 150, -30]
-	  ZOrder		  4
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "|++"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Switch
-	  Name			  "Switch"
-	  SID			  "411"
-	  Position		  [405, -140, 455, -100]
-	  ZOrder		  6
-	  Criteria		  "u2 > Threshold"
-	  InputSameDT		  off
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Out1"
-	  SID			  "412"
-	  Position		  [635, -127, 665, -113]
-	  ZOrder		  8
-	  IconDisplay		  "Port number"
-	  VectorParamsAs1DForOutWhenUnconnected	off
-	}
-	Line {
-	  ZOrder		  1
-	  SrcBlock		  "Constant"
-	  SrcPort		  1
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  2
-	  SrcBlock		  "Ramp"
-	  SrcPort		  1
-	  Points		  [85, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  14
-	  SrcBlock		  "Sum"
-	  SrcPort		  1
-	  DstBlock		  "Saturation1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  4
-	  SrcBlock		  "Constant1"
-	  SrcPort		  1
-	  DstBlock		  "Switch"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  5
-	  SrcBlock		  "Switch"
-	  SrcPort		  1
-	  DstBlock		  "Out1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  9
-	  SrcBlock		  "Step"
-	  SrcPort		  1
-	  Points		  [328, 0; 0, 95]
-	  DstBlock		  "Switch"
-	  DstPort		  3
-	}
-	Line {
-	  ZOrder		  13
-	  SrcBlock		  "Saturation1"
-	  SrcPort		  1
-	  Points		  [76, 0; 0, -95]
-	  DstBlock		  "Switch"
-	  DstPort		  1
-	}
-      }
-    }
-    Block {
-      BlockType		      SubSystem
-      Name		      "recycle_valve_sp"
-      SID		      "413"
-      Ports		      [0, 1]
-      Position		      [35, 829, 135, 871]
-      ZOrder		      138
-      RequestExecContextInheritance off
-      ContentPreviewEnabled   on
-      Object {
-	$PropName		"MaskObject"
-	$ObjectID		219
-	$ClassName		"Simulink.Mask"
-	RunInitForIconRedraw	"off"
-	Array {
-	  Type			  "Simulink.MaskParameter"
-	  Dimension		  4
-	  Object {
-	    $ObjectID		    220
-	    Type		    "edit"
-	    Name		    "SP_before"
-	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,10)"
-	  }
-	  Object {
-	    $ObjectID		    221
-	    Type		    "edit"
-	    Name		    "SP_after"
-	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,10)"
-	  }
-	  Object {
-	    $ObjectID		    222
-	    Type		    "edit"
-	    Name		    "tRampStart"
-	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,10)"
-	  }
-	  Object {
-	    $ObjectID		    223
-	    Type		    "edit"
-	    Name		    "deltaT_ramp"
-	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
-	  }
-	  PropName		  "Parameters"
-	}
-	Array {
-	  Type			  "Simulink.dialog.Group"
-	  Dimension		  2
-	  Object {
-	    $ObjectID		    224
-	    Prompt		    "%<MaskType>"
-	    Object {
-	      $PropName		      "DialogControls"
-	      $ObjectID		      225
-	      $ClassName	      "Simulink.dialog.Text"
-	      Prompt		      "%<MaskDescription>"
-	      Name		      "DescTextVar"
-	    }
-	    Name		    "DescGroupVar"
-	  }
-	  Object {
-	    $ObjectID		    226
-	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
-	    Array {
-	      Type		      "Simulink.dialog.parameter.Edit"
-	      Dimension		      4
-	      Object {
-		$ObjectID		227
-		PromptLocation		"left"
-		Name			"SP_before"
-	      }
-	      Object {
-		$ObjectID		228
-		PromptLocation		"left"
-		Name			"SP_after"
-	      }
-	      Object {
-		$ObjectID		229
-		PromptLocation		"left"
-		Name			"tRampStart"
-	      }
-	      Object {
-		$ObjectID		230
-		PromptLocation		"left"
-		Name			"deltaT_ramp"
-	      }
-	      PropName		      "DialogControls"
-	    }
-	    Name		    "ParameterGroupVar"
-	  }
-	  PropName		  "DialogControls"
-	}
-      }
-      System {
-	Name			"recycle_valve_sp"
-	Location		[-8, -8, 1928, 1168]
-	Open			off
-	PortBlocksUseCompactNotation off
-	SetExecutionDomain	off
-	ExecutionDomainType	"Deduce"
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	SimulinkSubDomain	"Simulink"
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant"
-	  SID			  "414"
-	  Position		  [20, -55, 50, -25]
-	  ZOrder		  3
-	  Value			  "SP_before"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant1"
-	  SID			  "415"
-	  Position		  [20, -135, 50, -105]
-	  ZOrder		  7
-	  Value			  "deltaT_ramp"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Ramp"
-	  SID			  "416"
-	  Ports			  [0, 1]
-	  Position		  [20, 30, 50, 60]
-	  ZOrder		  1
-	  LibraryVersion	  "1.453"
-	  SourceBlock		  "simulink/Sources/Ramp"
-	  SourceType		  "Ramp"
-	  SourceProductName	  "Simulink"
-	  SourceProductBaseCode	  "SL"
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
-	  ContentPreviewEnabled	  on
-	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
-	  start			  "tRampStart"
-	  InitialOutput		  "0"
-	  VectorParams1D	  on
-	}
-	Block {
-	  BlockType		  Saturate
-	  Name			  "Saturation1"
-	  SID			  "459"
-	  Ports			  [1, 1]
-	  Position		  [210, -55, 240, -25]
-	  ZOrder		  11
-	  InputPortMap		  "u0"
-	  UpperLimit		  "max(SP_before, SP_after)"
-	  LowerLimit		  "min(SP_before, SP_after)"
-	}
-	Block {
-	  BlockType		  Step
-	  Name			  "Step"
-	  SID			  "417"
-	  Position		  [20, -215, 50, -185]
-	  ZOrder		  5
-	  Time			  "tRampStart"
-	  Before		  "SP_before"
-	  After			  "SP_after"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum"
-	  SID			  "418"
-	  Ports			  [2, 1]
-	  Position		  [130, -50, 150, -30]
-	  ZOrder		  4
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "|++"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Switch
-	  Name			  "Switch"
-	  SID			  "419"
-	  Position		  [405, -140, 455, -100]
-	  ZOrder		  6
-	  Criteria		  "u2 > Threshold"
-	  InputSameDT		  off
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Out1"
-	  SID			  "420"
-	  Position		  [635, -127, 665, -113]
-	  ZOrder		  8
-	  IconDisplay		  "Port number"
-	  VectorParamsAs1DForOutWhenUnconnected	off
-	}
-	Line {
-	  ZOrder		  1
-	  SrcBlock		  "Constant"
-	  SrcPort		  1
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  2
-	  SrcBlock		  "Ramp"
-	  SrcPort		  1
-	  Points		  [85, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  15
-	  SrcBlock		  "Sum"
-	  SrcPort		  1
-	  DstBlock		  "Saturation1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  4
-	  SrcBlock		  "Constant1"
-	  SrcPort		  1
-	  DstBlock		  "Switch"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  5
-	  SrcBlock		  "Switch"
-	  SrcPort		  1
-	  DstBlock		  "Out1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  8
-	  SrcBlock		  "Step"
-	  SrcPort		  1
-	  Points		  [326, 0; 0, 95]
-	  DstBlock		  "Switch"
-	  DstPort		  3
-	}
-	Line {
-	  ZOrder		  14
-	  SrcBlock		  "Saturation1"
-	  SrcPort		  1
-	  Points		  [21, 0; 0, -95]
-	  DstBlock		  "Switch"
-	  DstPort		  1
-	}
-      }
-    }
-    Block {
-      BlockType		      SubSystem
-      Name		      "sep_level_sp"
-      SID		      "357"
-      Ports		      [0, 1]
-      Position		      [30, 234, 130, 276]
-      ZOrder		      131
-      RequestExecContextInheritance off
-      ContentPreviewEnabled   on
-      Object {
-	$PropName		"MaskObject"
-	$ObjectID		231
-	$ClassName		"Simulink.Mask"
-	RunInitForIconRedraw	"off"
-	Array {
-	  Type			  "Simulink.MaskParameter"
-	  Dimension		  4
-	  Object {
-	    $ObjectID		    232
-	    Type		    "edit"
-	    Name		    "SP_before"
-	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,3)"
-	  }
-	  Object {
-	    $ObjectID		    233
-	    Type		    "edit"
-	    Name		    "SP_after"
-	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,3)"
-	  }
-	  Object {
-	    $ObjectID		    234
-	    Type		    "edit"
-	    Name		    "tRampStart"
-	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,3)"
-	  }
-	  Object {
-	    $ObjectID		    235
-	    Type		    "edit"
-	    Name		    "deltaT_ramp"
-	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
-	  }
-	  PropName		  "Parameters"
-	}
-	Array {
-	  Type			  "Simulink.dialog.Group"
-	  Dimension		  2
-	  Object {
-	    $ObjectID		    236
-	    Prompt		    "%<MaskType>"
-	    Object {
-	      $PropName		      "DialogControls"
-	      $ObjectID		      237
-	      $ClassName	      "Simulink.dialog.Text"
-	      Prompt		      "%<MaskDescription>"
-	      Name		      "DescTextVar"
-	    }
-	    Name		    "DescGroupVar"
-	  }
-	  Object {
-	    $ObjectID		    238
-	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
-	    Array {
-	      Type		      "Simulink.dialog.parameter.Edit"
-	      Dimension		      4
-	      Object {
-		$ObjectID		239
-		PromptLocation		"left"
-		Name			"SP_before"
-	      }
-	      Object {
-		$ObjectID		240
-		PromptLocation		"left"
-		Name			"SP_after"
-	      }
-	      Object {
-		$ObjectID		241
-		PromptLocation		"left"
-		Name			"tRampStart"
-	      }
-	      Object {
-		$ObjectID		242
-		PromptLocation		"left"
-		Name			"deltaT_ramp"
-	      }
-	      PropName		      "DialogControls"
-	    }
-	    Name		    "ParameterGroupVar"
-	  }
-	  PropName		  "DialogControls"
-	}
-      }
-      System {
-	Name			"sep_level_sp"
-	Location		[-8, -8, 1928, 1168]
-	Open			off
-	PortBlocksUseCompactNotation off
-	SetExecutionDomain	off
-	ExecutionDomainType	"Deduce"
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	SimulinkSubDomain	"Simulink"
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant"
-	  SID			  "358"
-	  Position		  [20, -55, 50, -25]
-	  ZOrder		  3
-	  Value			  "SP_before"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant1"
-	  SID			  "359"
-	  Position		  [20, -135, 50, -105]
-	  ZOrder		  7
-	  Value			  "deltaT_ramp"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Ramp"
-	  SID			  "360"
-	  Ports			  [0, 1]
-	  Position		  [20, 30, 50, 60]
-	  ZOrder		  1
-	  LibraryVersion	  "1.453"
-	  SourceBlock		  "simulink/Sources/Ramp"
-	  SourceType		  "Ramp"
-	  SourceProductName	  "Simulink"
-	  SourceProductBaseCode	  "SL"
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
-	  ContentPreviewEnabled	  on
-	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
-	  start			  "tRampStart"
-	  InitialOutput		  "0"
-	  VectorParams1D	  on
-	}
-	Block {
-	  BlockType		  Saturate
-	  Name			  "Saturation1"
-	  SID			  "452"
-	  Ports			  [1, 1]
-	  Position		  [230, -55, 260, -25]
-	  ZOrder		  11
-	  InputPortMap		  "u0"
-	  UpperLimit		  "max(SP_before, SP_after)"
-	  LowerLimit		  "min(SP_before, SP_after)"
-	}
-	Block {
-	  BlockType		  Step
-	  Name			  "Step"
-	  SID			  "361"
-	  Position		  [20, -215, 50, -185]
-	  ZOrder		  5
-	  Time			  "tRampStart"
-	  Before		  "SP_before"
-	  After			  "SP_after"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum"
-	  SID			  "362"
-	  Ports			  [2, 1]
-	  Position		  [130, -50, 150, -30]
-	  ZOrder		  4
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "|++"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Switch
-	  Name			  "Switch"
-	  SID			  "363"
-	  Position		  [405, -140, 455, -100]
-	  ZOrder		  6
-	  Criteria		  "u2 > Threshold"
-	  InputSameDT		  off
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Out1"
-	  SID			  "364"
-	  Position		  [635, -127, 665, -113]
-	  ZOrder		  8
-	  IconDisplay		  "Port number"
-	  VectorParamsAs1DForOutWhenUnconnected	off
-	}
-	Line {
-	  ZOrder		  1
-	  SrcBlock		  "Constant"
-	  SrcPort		  1
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  2
-	  SrcBlock		  "Ramp"
-	  SrcPort		  1
-	  Points		  [85, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  8
-	  SrcBlock		  "Sum"
-	  SrcPort		  1
-	  DstBlock		  "Saturation1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  4
-	  SrcBlock		  "Constant1"
-	  SrcPort		  1
-	  DstBlock		  "Switch"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  5
-	  SrcBlock		  "Switch"
-	  SrcPort		  1
-	  DstBlock		  "Out1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  9
-	  SrcBlock		  "Step"
-	  SrcPort		  1
-	  Points		  [329, 0; 0, 95]
-	  DstBlock		  "Switch"
-	  DstPort		  3
-	}
-	Line {
-	  ZOrder		  14
-	  SrcBlock		  "Saturation1"
-	  SrcPort		  1
-	  Points		  [57, 0; 0, -95]
-	  DstBlock		  "Switch"
-	  DstPort		  1
-	}
-      }
-    }
-    Block {
-      BlockType		      SubSystem
-      Name		      "steam_valve_sp"
-      SID		      "421"
-      Ports		      [0, 1]
-      Position		      [35, 914, 135, 956]
-      ZOrder		      139
-      RequestExecContextInheritance off
-      ContentPreviewEnabled   on
-      Object {
-	$PropName		"MaskObject"
-	$ObjectID		243
-	$ClassName		"Simulink.Mask"
-	RunInitForIconRedraw	"off"
-	Array {
-	  Type			  "Simulink.MaskParameter"
-	  Dimension		  4
-	  Object {
-	    $ObjectID		    244
-	    Type		    "edit"
-	    Name		    "SP_before"
-	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,11)"
-	  }
-	  Object {
-	    $ObjectID		    245
-	    Type		    "edit"
-	    Name		    "SP_after"
-	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,11)"
-	  }
-	  Object {
-	    $ObjectID		    246
-	    Type		    "edit"
-	    Name		    "tRampStart"
-	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,11)"
-	  }
-	  Object {
-	    $ObjectID		    247
-	    Type		    "edit"
-	    Name		    "deltaT_ramp"
-	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
-	  }
-	  PropName		  "Parameters"
-	}
-	Array {
-	  Type			  "Simulink.dialog.Group"
-	  Dimension		  2
-	  Object {
-	    $ObjectID		    248
-	    Prompt		    "%<MaskType>"
-	    Object {
-	      $PropName		      "DialogControls"
-	      $ObjectID		      249
-	      $ClassName	      "Simulink.dialog.Text"
-	      Prompt		      "%<MaskDescription>"
-	      Name		      "DescTextVar"
-	    }
-	    Name		    "DescGroupVar"
-	  }
-	  Object {
-	    $ObjectID		    250
-	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
-	    Array {
-	      Type		      "Simulink.dialog.parameter.Edit"
-	      Dimension		      4
-	      Object {
-		$ObjectID		251
-		PromptLocation		"left"
-		Name			"SP_before"
-	      }
-	      Object {
-		$ObjectID		252
-		PromptLocation		"left"
-		Name			"SP_after"
-	      }
-	      Object {
-		$ObjectID		253
-		PromptLocation		"left"
-		Name			"tRampStart"
-	      }
-	      Object {
-		$ObjectID		254
-		PromptLocation		"left"
-		Name			"deltaT_ramp"
-	      }
-	      PropName		      "DialogControls"
-	    }
-	    Name		    "ParameterGroupVar"
-	  }
-	  PropName		  "DialogControls"
-	}
-      }
-      System {
-	Name			"steam_valve_sp"
-	Location		[-8, -8, 1928, 1168]
-	Open			off
-	PortBlocksUseCompactNotation off
-	SetExecutionDomain	off
-	ExecutionDomainType	"Deduce"
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	SimulinkSubDomain	"Simulink"
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant"
-	  SID			  "422"
-	  Position		  [20, -55, 50, -25]
-	  ZOrder		  3
-	  Value			  "SP_before"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant1"
-	  SID			  "423"
-	  Position		  [20, -135, 50, -105]
-	  ZOrder		  7
-	  Value			  "deltaT_ramp"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Ramp"
-	  SID			  "424"
-	  Ports			  [0, 1]
-	  Position		  [20, 30, 50, 60]
-	  ZOrder		  1
-	  LibraryVersion	  "1.453"
-	  SourceBlock		  "simulink/Sources/Ramp"
-	  SourceType		  "Ramp"
-	  SourceProductName	  "Simulink"
-	  SourceProductBaseCode	  "SL"
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
-	  ContentPreviewEnabled	  on
-	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
-	  start			  "tRampStart"
-	  InitialOutput		  "0"
-	  VectorParams1D	  on
-	}
-	Block {
-	  BlockType		  Saturate
-	  Name			  "Saturation1"
-	  SID			  "460"
-	  Ports			  [1, 1]
-	  Position		  [250, -100, 280, -70]
-	  ZOrder		  11
-	  InputPortMap		  "u0"
-	  UpperLimit		  "max(SP_before, SP_after)"
-	  LowerLimit		  "min(SP_before, SP_after)"
-	}
-	Block {
-	  BlockType		  Step
-	  Name			  "Step"
-	  SID			  "425"
-	  Position		  [20, -215, 50, -185]
-	  ZOrder		  5
-	  Time			  "tRampStart"
-	  Before		  "SP_before"
-	  After			  "SP_after"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum"
-	  SID			  "426"
-	  Ports			  [2, 1]
-	  Position		  [130, -50, 150, -30]
-	  ZOrder		  4
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "|++"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Switch
-	  Name			  "Switch"
-	  SID			  "427"
-	  Position		  [405, -140, 455, -100]
-	  ZOrder		  6
-	  Criteria		  "u2 > Threshold"
-	  InputSameDT		  off
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Out1"
-	  SID			  "428"
-	  Position		  [635, -127, 665, -113]
-	  ZOrder		  8
-	  IconDisplay		  "Port number"
-	  VectorParamsAs1DForOutWhenUnconnected	off
-	}
-	Line {
-	  ZOrder		  1
-	  SrcBlock		  "Constant"
-	  SrcPort		  1
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  2
-	  SrcBlock		  "Ramp"
-	  SrcPort		  1
-	  Points		  [85, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  13
-	  SrcBlock		  "Sum"
-	  SrcPort		  1
-	  Points		  [0, -45]
-	  DstBlock		  "Saturation1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  4
-	  SrcBlock		  "Constant1"
-	  SrcPort		  1
-	  DstBlock		  "Switch"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  5
-	  SrcBlock		  "Switch"
-	  SrcPort		  1
-	  DstBlock		  "Out1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  9
-	  SrcBlock		  "Step"
-	  SrcPort		  1
-	  Points		  [326, 0; 0, 95]
-	  DstBlock		  "Switch"
-	  DstPort		  3
-	}
-	Line {
-	  ZOrder		  14
-	  SrcBlock		  "Saturation1"
-	  SrcPort		  1
-	  Points		  [72, 0; 0, -50]
-	  DstBlock		  "Switch"
-	  DstPort		  1
-	}
-      }
-    }
-    Block {
-      BlockType		      SubSystem
-      Name		      "strip_level_sp"
-      SID		      "349"
-      Ports		      [0, 1]
-      Position		      [30, 149, 130, 191]
-      ZOrder		      130
-      RequestExecContextInheritance off
-      ContentPreviewEnabled   on
-      Object {
-	$PropName		"MaskObject"
-	$ObjectID		255
-	$ClassName		"Simulink.Mask"
-	RunInitForIconRedraw	"off"
-	Array {
-	  Type			  "Simulink.MaskParameter"
-	  Dimension		  4
-	  Object {
-	    $ObjectID		    256
-	    Type		    "edit"
-	    Name		    "SP_before"
-	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,2)"
-	  }
-	  Object {
-	    $ObjectID		    257
-	    Type		    "edit"
-	    Name		    "SP_after"
-	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,2)"
-	  }
-	  Object {
-	    $ObjectID		    258
-	    Type		    "edit"
-	    Name		    "tRampStart"
-	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,2)"
-	  }
-	  Object {
-	    $ObjectID		    259
-	    Type		    "edit"
-	    Name		    "deltaT_ramp"
-	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
-	  }
-	  PropName		  "Parameters"
-	}
-	Array {
-	  Type			  "Simulink.dialog.Group"
-	  Dimension		  2
-	  Object {
-	    $ObjectID		    260
-	    Prompt		    "%<MaskType>"
-	    Object {
-	      $PropName		      "DialogControls"
-	      $ObjectID		      261
-	      $ClassName	      "Simulink.dialog.Text"
-	      Prompt		      "%<MaskDescription>"
-	      Name		      "DescTextVar"
-	    }
-	    Name		    "DescGroupVar"
-	  }
-	  Object {
-	    $ObjectID		    262
-	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
-	    Array {
-	      Type		      "Simulink.dialog.parameter.Edit"
-	      Dimension		      4
-	      Object {
-		$ObjectID		263
-		PromptLocation		"left"
-		Name			"SP_before"
-	      }
-	      Object {
-		$ObjectID		264
-		PromptLocation		"left"
-		Name			"SP_after"
-	      }
-	      Object {
-		$ObjectID		265
-		PromptLocation		"left"
-		Name			"tRampStart"
-	      }
-	      Object {
-		$ObjectID		266
-		PromptLocation		"left"
-		Name			"deltaT_ramp"
-	      }
-	      PropName		      "DialogControls"
-	    }
-	    Name		    "ParameterGroupVar"
-	  }
-	  PropName		  "DialogControls"
-	}
-      }
-      System {
-	Name			"strip_level_sp"
-	Location		[72, 27, 2008, 1203]
-	Open			off
-	PortBlocksUseCompactNotation off
-	SetExecutionDomain	off
-	ExecutionDomainType	"Deduce"
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	SimulinkSubDomain	"Simulink"
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant"
-	  SID			  "350"
-	  Position		  [20, -55, 50, -25]
-	  ZOrder		  3
-	  Value			  "SP_before"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant1"
-	  SID			  "351"
-	  Position		  [20, -135, 50, -105]
-	  ZOrder		  7
-	  Value			  "deltaT_ramp"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Ramp"
-	  SID			  "352"
-	  Ports			  [0, 1]
-	  Position		  [20, 30, 50, 60]
-	  ZOrder		  1
-	  LibraryVersion	  "1.453"
-	  SourceBlock		  "simulink/Sources/Ramp"
-	  SourceType		  "Ramp"
-	  SourceProductName	  "Simulink"
-	  SourceProductBaseCode	  "SL"
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
-	  ContentPreviewEnabled	  on
-	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
-	  start			  "tRampStart"
-	  InitialOutput		  "0"
-	  VectorParams1D	  on
-	}
-	Block {
-	  BlockType		  Saturate
-	  Name			  "Saturation"
-	  SID			  "451"
-	  Ports			  [1, 1]
-	  Position		  [260, -55, 290, -25]
-	  ZOrder		  11
-	  InputPortMap		  "u0"
-	  UpperLimit		  "max(SP_before, SP_after)"
-	  LowerLimit		  "min(SP_before, SP_after)"
-	}
-	Block {
-	  BlockType		  Step
-	  Name			  "Step"
-	  SID			  "353"
-	  Position		  [20, -215, 50, -185]
-	  ZOrder		  5
-	  Time			  "tRampStart"
-	  Before		  "SP_before"
-	  After			  "SP_after"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum"
-	  SID			  "354"
-	  Ports			  [2, 1]
-	  Position		  [130, -50, 150, -30]
-	  ZOrder		  4
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "|++"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Switch
-	  Name			  "Switch"
-	  SID			  "355"
-	  Position		  [405, -140, 455, -100]
-	  ZOrder		  6
-	  Criteria		  "u2 > Threshold"
-	  InputSameDT		  off
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Out1"
-	  SID			  "356"
-	  Position		  [635, -127, 665, -113]
-	  ZOrder		  8
-	  IconDisplay		  "Port number"
-	  VectorParamsAs1DForOutWhenUnconnected	off
-	}
-	Line {
-	  ZOrder		  1
-	  SrcBlock		  "Constant"
-	  SrcPort		  1
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  2
-	  SrcBlock		  "Ramp"
-	  SrcPort		  1
-	  Points		  [85, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  14
-	  SrcBlock		  "Sum"
-	  SrcPort		  1
-	  DstBlock		  "Saturation"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  4
-	  SrcBlock		  "Constant1"
-	  SrcPort		  1
-	  DstBlock		  "Switch"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  5
-	  SrcBlock		  "Switch"
-	  SrcPort		  1
-	  DstBlock		  "Out1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  9
-	  SrcBlock		  "Step"
-	  SrcPort		  1
-	  Points		  [159, 0; 0, 95]
-	  DstBlock		  "Switch"
-	  DstPort		  3
-	}
-	Line {
-	  ZOrder		  13
-	  SrcBlock		  "Saturation"
-	  SrcPort		  1
-	  Points		  [83, 0; 0, -95]
-	  DstBlock		  "Switch"
-	  DstPort		  1
-	}
-      }
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "t_simpause"
-      SID		      "537"
-      Position		      [645, 50, 675, 80]
-      ZOrder		      150
-      Value		      "1000"
-    }
-    Block {
-      BlockType		      SubSystem
-      Name		      "ya_sp"
-      SID		      "389"
-      Ports		      [0, 1]
-      Position		      [35, 574, 135, 616]
-      ZOrder		      135
+      Position		      [35, 659, 135, 701]
+      ZOrder		      136
       RequestExecContextInheritance off
       ContentPreviewEnabled   on
       Object {
@@ -13064,21 +13056,21 @@ Model {
 	    Type		    "edit"
 	    Name		    "SP_before"
 	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,7)"
+	    Value		    "SetPoint_Init(1,8)"
 	  }
 	  Object {
 	    $ObjectID		    269
 	    Type		    "edit"
 	    Name		    "SP_after"
 	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,7)"
+	    Value		    "SetPoint_Init(2,8)"
 	  }
 	  Object {
 	    $ObjectID		    270
 	    Type		    "edit"
 	    Name		    "tRampStart"
 	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,7)"
+	    Value		    "SetPoint_Init(3,8)"
 	  }
 	  Object {
 	    $ObjectID		    271
@@ -13138,7 +13130,269 @@ Model {
 	}
       }
       System {
-	Name			"ya_sp"
+	Name			"YACSP"
+	Location		[-8, -8, 1928, 1168]
+	Open			off
+	PortBlocksUseCompactNotation off
+	SetExecutionDomain	off
+	ExecutionDomainType	"Deduce"
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SimulinkSubDomain	"Simulink"
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "398"
+	  Position		  [20, -55, 50, -25]
+	  ZOrder		  3
+	  Value			  "SP_before"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  SID			  "399"
+	  Position		  [20, -135, 50, -105]
+	  ZOrder		  7
+	  Value			  "deltaT_ramp"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Ramp"
+	  SID			  "400"
+	  Ports			  [0, 1]
+	  Position		  [20, 30, 50, 60]
+	  ZOrder		  1
+	  LibraryVersion	  "1.453"
+	  SourceBlock		  "simulink/Sources/Ramp"
+	  SourceType		  "Ramp"
+	  SourceProductName	  "Simulink"
+	  SourceProductBaseCode	  "SL"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  ContentPreviewEnabled	  on
+	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
+	  start			  "tRampStart"
+	  InitialOutput		  "0"
+	  VectorParams1D	  on
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation1"
+	  SID			  "457"
+	  Ports			  [1, 1]
+	  Position		  [240, -55, 270, -25]
+	  ZOrder		  11
+	  InputPortMap		  "u0"
+	  UpperLimit		  "max(SP_before, SP_after)"
+	  LowerLimit		  "min(SP_before, SP_after)"
+	}
+	Block {
+	  BlockType		  Step
+	  Name			  "Step"
+	  SID			  "401"
+	  Position		  [20, -215, 50, -185]
+	  ZOrder		  5
+	  Time			  "tRampStart"
+	  Before		  "SP_before"
+	  After			  "SP_after"
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  SID			  "402"
+	  Ports			  [2, 1]
+	  Position		  [130, -50, 150, -30]
+	  ZOrder		  4
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|++"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  SID			  "403"
+	  Position		  [405, -140, 455, -100]
+	  ZOrder		  6
+	  Criteria		  "u2 > Threshold"
+	  InputSameDT		  off
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Out1"
+	  SID			  "404"
+	  Position		  [635, -127, 665, -113]
+	  ZOrder		  8
+	  IconDisplay		  "Port number"
+	  VectorParamsAs1DForOutWhenUnconnected	off
+	}
+	Line {
+	  ZOrder		  1
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  2
+	  SrcBlock		  "Ramp"
+	  SrcPort		  1
+	  Points		  [85, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  13
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "Saturation1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  4
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  ZOrder		  5
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  DstBlock		  "Out1"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  9
+	  SrcBlock		  "Step"
+	  SrcPort		  1
+	  Points		  [333, 0; 0, 95]
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  ZOrder		  14
+	  SrcBlock		  "Saturation1"
+	  SrcPort		  1
+	  Points		  [95, 0; 0, -95]
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "YASP"
+      SID		      "389"
+      Ports		      [0, 1]
+      Position		      [35, 574, 135, 616]
+      ZOrder		      135
+      RequestExecContextInheritance off
+      ContentPreviewEnabled   on
+      Object {
+	$PropName		"MaskObject"
+	$ObjectID		279
+	$ClassName		"Simulink.Mask"
+	RunInitForIconRedraw	"off"
+	Array {
+	  Type			  "Simulink.MaskParameter"
+	  Dimension		  4
+	  Object {
+	    $ObjectID		    280
+	    Type		    "edit"
+	    Name		    "SP_before"
+	    Prompt		    "Value before ramp"
+	    Value		    "SetPoint_Init(1,7)"
+	  }
+	  Object {
+	    $ObjectID		    281
+	    Type		    "edit"
+	    Name		    "SP_after"
+	    Prompt		    "Value after ramp"
+	    Value		    "SetPoint_Init(2,7)"
+	  }
+	  Object {
+	    $ObjectID		    282
+	    Type		    "edit"
+	    Name		    "tRampStart"
+	    Prompt		    "Ramp start time"
+	    Value		    "SetPoint_Init(3,7)"
+	  }
+	  Object {
+	    $ObjectID		    283
+	    Type		    "edit"
+	    Name		    "deltaT_ramp"
+	    Prompt		    "Ramp transition time"
+	    Value		    "SP_deltaTRamp"
+	  }
+	  PropName		  "Parameters"
+	}
+	Array {
+	  Type			  "Simulink.dialog.Group"
+	  Dimension		  2
+	  Object {
+	    $ObjectID		    284
+	    Prompt		    "%<MaskType>"
+	    Object {
+	      $PropName		      "DialogControls"
+	      $ObjectID		      285
+	      $ClassName	      "Simulink.dialog.Text"
+	      Prompt		      "%<MaskDescription>"
+	      Name		      "DescTextVar"
+	    }
+	    Name		    "DescGroupVar"
+	  }
+	  Object {
+	    $ObjectID		    286
+	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
+	    Array {
+	      Type		      "Simulink.dialog.parameter.Edit"
+	      Dimension		      4
+	      Object {
+		$ObjectID		287
+		PromptLocation		"left"
+		Name			"SP_before"
+	      }
+	      Object {
+		$ObjectID		288
+		PromptLocation		"left"
+		Name			"SP_after"
+	      }
+	      Object {
+		$ObjectID		289
+		PromptLocation		"left"
+		Name			"tRampStart"
+	      }
+	      Object {
+		$ObjectID		290
+		PromptLocation		"left"
+		Name			"deltaT_ramp"
+	      }
+	      PropName		      "DialogControls"
+	    }
+	    Name		    "ParameterGroupVar"
+	  }
+	  PropName		  "DialogControls"
+	}
+      }
+      System {
+	Name			"YASP"
 	Location		[-8, -8, 1928, 1168]
 	Open			off
 	PortBlocksUseCompactNotation off
@@ -13305,266 +13559,12 @@ Model {
       }
     }
     Block {
-      BlockType		      SubSystem
-      Name		      "yac_sp"
-      SID		      "397"
-      Ports		      [0, 1]
-      Position		      [35, 659, 135, 701]
-      ZOrder		      136
-      RequestExecContextInheritance off
-      ContentPreviewEnabled   on
-      Object {
-	$PropName		"MaskObject"
-	$ObjectID		279
-	$ClassName		"Simulink.Mask"
-	RunInitForIconRedraw	"off"
-	Array {
-	  Type			  "Simulink.MaskParameter"
-	  Dimension		  4
-	  Object {
-	    $ObjectID		    280
-	    Type		    "edit"
-	    Name		    "SP_before"
-	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,8)"
-	  }
-	  Object {
-	    $ObjectID		    281
-	    Type		    "edit"
-	    Name		    "SP_after"
-	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,8)"
-	  }
-	  Object {
-	    $ObjectID		    282
-	    Type		    "edit"
-	    Name		    "tRampStart"
-	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,8)"
-	  }
-	  Object {
-	    $ObjectID		    283
-	    Type		    "edit"
-	    Name		    "deltaT_ramp"
-	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
-	  }
-	  PropName		  "Parameters"
-	}
-	Array {
-	  Type			  "Simulink.dialog.Group"
-	  Dimension		  2
-	  Object {
-	    $ObjectID		    284
-	    Prompt		    "%<MaskType>"
-	    Object {
-	      $PropName		      "DialogControls"
-	      $ObjectID		      285
-	      $ClassName	      "Simulink.dialog.Text"
-	      Prompt		      "%<MaskDescription>"
-	      Name		      "DescTextVar"
-	    }
-	    Name		    "DescGroupVar"
-	  }
-	  Object {
-	    $ObjectID		    286
-	    Prompt		    "Simulink:studio:ToolBarParametersMenu"
-	    Array {
-	      Type		      "Simulink.dialog.parameter.Edit"
-	      Dimension		      4
-	      Object {
-		$ObjectID		287
-		PromptLocation		"left"
-		Name			"SP_before"
-	      }
-	      Object {
-		$ObjectID		288
-		PromptLocation		"left"
-		Name			"SP_after"
-	      }
-	      Object {
-		$ObjectID		289
-		PromptLocation		"left"
-		Name			"tRampStart"
-	      }
-	      Object {
-		$ObjectID		290
-		PromptLocation		"left"
-		Name			"deltaT_ramp"
-	      }
-	      PropName		      "DialogControls"
-	    }
-	    Name		    "ParameterGroupVar"
-	  }
-	  PropName		  "DialogControls"
-	}
-      }
-      System {
-	Name			"yac_sp"
-	Location		[-8, -8, 1928, 1168]
-	Open			off
-	PortBlocksUseCompactNotation off
-	SetExecutionDomain	off
-	ExecutionDomainType	"Deduce"
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	SimulinkSubDomain	"Simulink"
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant"
-	  SID			  "398"
-	  Position		  [20, -55, 50, -25]
-	  ZOrder		  3
-	  Value			  "SP_before"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant1"
-	  SID			  "399"
-	  Position		  [20, -135, 50, -105]
-	  ZOrder		  7
-	  Value			  "deltaT_ramp"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Ramp"
-	  SID			  "400"
-	  Ports			  [0, 1]
-	  Position		  [20, 30, 50, 60]
-	  ZOrder		  1
-	  LibraryVersion	  "1.453"
-	  SourceBlock		  "simulink/Sources/Ramp"
-	  SourceType		  "Ramp"
-	  SourceProductName	  "Simulink"
-	  SourceProductBaseCode	  "SL"
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
-	  ContentPreviewEnabled	  on
-	  slope			  "(SP_after-SP_before) /max(deltaT_ramp,0.1)"
-	  start			  "tRampStart"
-	  InitialOutput		  "0"
-	  VectorParams1D	  on
-	}
-	Block {
-	  BlockType		  Saturate
-	  Name			  "Saturation1"
-	  SID			  "457"
-	  Ports			  [1, 1]
-	  Position		  [240, -55, 270, -25]
-	  ZOrder		  11
-	  InputPortMap		  "u0"
-	  UpperLimit		  "max(SP_before, SP_after)"
-	  LowerLimit		  "min(SP_before, SP_after)"
-	}
-	Block {
-	  BlockType		  Step
-	  Name			  "Step"
-	  SID			  "401"
-	  Position		  [20, -215, 50, -185]
-	  ZOrder		  5
-	  Time			  "tRampStart"
-	  Before		  "SP_before"
-	  After			  "SP_after"
-	  SampleTime		  "0"
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Sum"
-	  SID			  "402"
-	  Ports			  [2, 1]
-	  Position		  [130, -50, 150, -30]
-	  ZOrder		  4
-	  ShowName		  off
-	  IconShape		  "round"
-	  Inputs		  "|++"
-	  InputSameDT		  off
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Switch
-	  Name			  "Switch"
-	  SID			  "403"
-	  Position		  [405, -140, 455, -100]
-	  ZOrder		  6
-	  Criteria		  "u2 > Threshold"
-	  InputSameDT		  off
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Out1"
-	  SID			  "404"
-	  Position		  [635, -127, 665, -113]
-	  ZOrder		  8
-	  IconDisplay		  "Port number"
-	  VectorParamsAs1DForOutWhenUnconnected	off
-	}
-	Line {
-	  ZOrder		  1
-	  SrcBlock		  "Constant"
-	  SrcPort		  1
-	  DstBlock		  "Sum"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  2
-	  SrcBlock		  "Ramp"
-	  SrcPort		  1
-	  Points		  [85, 0]
-	  DstBlock		  "Sum"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  13
-	  SrcBlock		  "Sum"
-	  SrcPort		  1
-	  DstBlock		  "Saturation1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  4
-	  SrcBlock		  "Constant1"
-	  SrcPort		  1
-	  DstBlock		  "Switch"
-	  DstPort		  2
-	}
-	Line {
-	  ZOrder		  5
-	  SrcBlock		  "Switch"
-	  SrcPort		  1
-	  DstBlock		  "Out1"
-	  DstPort		  1
-	}
-	Line {
-	  ZOrder		  9
-	  SrcBlock		  "Step"
-	  SrcPort		  1
-	  Points		  [333, 0; 0, 95]
-	  DstBlock		  "Switch"
-	  DstPort		  3
-	}
-	Line {
-	  ZOrder		  14
-	  SrcBlock		  "Saturation1"
-	  SrcPort		  1
-	  Points		  [95, 0; 0, -95]
-	  DstBlock		  "Switch"
-	  DstPort		  1
-	}
-      }
+      BlockType		      Constant
+      Name		      "t_simpause"
+      SID		      "537"
+      Position		      [645, 50, 675, 80]
+      ZOrder		      150
+      Value		      "1000"
     }
     Line {
       ZOrder		      1
@@ -13643,14 +13643,14 @@ Model {
     }
     Line {
       ZOrder		      70
-      SrcBlock		      "production_sp"
+      SrcBlock		      "ProductionSP"
       SrcPort		      1
       DstBlock		      "TE Plant"
       DstPort		      1
     }
     Line {
       ZOrder		      71
-      SrcBlock		      "agitator_sp"
+      SrcBlock		      "AgitatorSpeedSP"
       SrcPort		      1
       Points		      [80, 0]
       Branch {
@@ -13667,7 +13667,7 @@ Model {
     }
     Line {
       ZOrder		      72
-      SrcBlock		      "steam_valve_sp"
+      SrcBlock		      "SteamValvePosSP"
       SrcPort		      1
       Points		      [41, 0]
       Branch {
@@ -13684,7 +13684,7 @@ Model {
     }
     Line {
       ZOrder		      73
-      SrcBlock		      "recycle_valve_sp"
+      SrcBlock		      "RecycleValvePosSP"
       SrcPort		      1
       Points		      [68, 0]
       Branch {
@@ -13701,7 +13701,7 @@ Model {
     }
     Line {
       ZOrder		      74
-      SrcBlock		      "reactor_temp_sp"
+      SrcBlock		      "ReactorTempSP"
       SrcPort		      1
       Points		      [90, 0]
       Branch {
@@ -13718,7 +13718,7 @@ Model {
     }
     Line {
       ZOrder		      75
-      SrcBlock		      "yac_sp"
+      SrcBlock		      "YACSP"
       SrcPort		      1
       Points		      [90, 0]
       Branch {
@@ -13735,7 +13735,7 @@ Model {
     }
     Line {
       ZOrder		      76
-      SrcBlock		      "ya_sp"
+      SrcBlock		      "YASP"
       SrcPort		      1
       Points		      [90, 0]
       Branch {
@@ -13752,14 +13752,14 @@ Model {
     }
     Line {
       ZOrder		      77
-      SrcBlock		      "g_in_product_sp"
+      SrcBlock		      "MolePctGSP"
       SrcPort		      1
       DstBlock		      "TE Plant"
       DstPort		      6
     }
     Line {
       ZOrder		      78
-      SrcBlock		      "reactor_press_sp"
+      SrcBlock		      "ReactorPressSP"
       SrcPort		      1
       Points		      [45, 0]
       Branch {
@@ -13775,7 +13775,7 @@ Model {
     }
     Line {
       ZOrder		      79
-      SrcBlock		      "reactor_level_sp"
+      SrcBlock		      "ReactorLevelSP"
       SrcPort		      1
       Points		      [40, 0]
       Branch {
@@ -13792,7 +13792,7 @@ Model {
     }
     Line {
       ZOrder		      80
-      SrcBlock		      "sep_level_sp"
+      SrcBlock		      "SepLevelSP"
       SrcPort		      1
       Points		      [7, 0]
       Branch {
@@ -13809,7 +13809,7 @@ Model {
     }
     Line {
       ZOrder		      81
-      SrcBlock		      "strip_level_sp"
+      SrcBlock		      "StripLevelSP"
       SrcPort		      1
       Points		      [13, 0]
       Branch {

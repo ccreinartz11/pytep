@@ -9,11 +9,13 @@ from backend.matlab_bridge import MatlabBridge
 
 
 class SimInterface(metaclass=Singleton):
+
     def __init__(self):
         self._matlab_bridge = None
         self._process_data = pd.DataFrame()
         self._process_units = pd.DataFrame()
         self._setpoint_data = pd.DataFrame()
+        self._internal_sp_info = None
 
     def simulate(self):
         self._matlab_bridge.run_until_paused()
@@ -21,6 +23,11 @@ class SimInterface(metaclass=Singleton):
     def update(self):
         self._update_process_data()
         self._update_setpoint_data()
+
+    def reset(self):
+        self._matlab_bridge.reset_workspace()
+        self._matlab_bridge.stop_simulation()
+        self.update()
 
     def extend_simulation(self, extra_sim_time=5):
         """Extends the simulation time by extra_sim_time [h]"""
@@ -92,6 +99,7 @@ class SimInterface(metaclass=Singleton):
         mb = MatlabBridge()
         si._matlab_bridge = mb
         si._load_dataframes()
+        si._setup_internal_sp_info()
         si.update()
         return si
 
@@ -113,25 +121,83 @@ class SimInterface(metaclass=Singleton):
 
     # setpoint commands
 
+    def _setup_internal_sp_info(self):
+        """Generates a dictionary containing setpoint labels as keys and correponding utility functions (getter/setter)
+        in the matlab_bridge as values.
+        """
+
+        sp_info = {
+            "ProductionSP": {"setter": self._matlab_bridge.set_production_sp},
+            "StripLevelSP": {"setter": self._matlab_bridge.set_strip_level_sp},
+            "SepLevelSP": {"setter": self._matlab_bridge.set_sep_level_sp},
+            "ReactorLevelSP": {"setter": self._matlab_bridge.set_reactor_level_sp},
+            "ReactorPressSP": {"setter": self._matlab_bridge.set_reactor_press_sp},
+            "MolePctGSP": {"setter": self._matlab_bridge.set_g_in_product_sp},
+            "YASP": {"setter": self._matlab_bridge.set_ya_sp},
+            "YACSP": {"setter": self._matlab_bridge.set_yac_sp},
+            "ReactorTempSP": {"setter": self._matlab_bridge.set_reactor_temp_sp},
+            "RecycleValvePosSP": {"setter": self._matlab_bridge.set_recycle_valve_sp},
+            "SteamValvePosSP": {"setter": self._matlab_bridge.set_steam_valve_sp},
+            "AgitatorSpeedSP": {"setter": self._matlab_bridge.set_agitator_sp}
+        }
+        self._internal_sp_info = sp_info
+
     def ramp_production(self, target_val=None, duration=None, slope=None):
         label = 'ProductionSP'
-        setter_method = self._matlab_bridge.set_production_sp
-        self._ramp_setpoint(label, setter_method, target_val, duration, slope)
+        self._ramp_setpoint(label, target_val, duration, slope)
 
-    def ramp_agitator(self, target_val=None, duration=None, slope=None):
-        label = 'AgitatorSettingSP'
-        setter_method = self._matlab_bridge.set_agitator_sp
-        self._ramp_setpoint(label, setter_method, target_val, duration, slope)
+    def ramp_stripper_level(self, target_val=None, duration=None, slope=None):
+        label = 'StripLevelSP'
+        self._ramp_setpoint(label, target_val, duration, slope)
 
-    def _ramp_setpoint(self, setpoint_label, sp_set_func, target_val=None, duration=None, slope=None):
+    def ramp_separator_level(self, target_val=None, duration=None, slope=None):
+        label = 'SepLevelSP'
+        self._ramp_setpoint(label, target_val, duration, slope)
+
+    def ramp_reactor_level(self, target_val=None, duration=None, slope=None):
+        label = 'ReactorLevelSP'
+        self._ramp_setpoint(label, target_val, duration, slope)
+
+    def ramp_reactor_pressure(self, target_val=None, duration=None, slope=None):
+        label = 'ReactorPressSP'
+        self._ramp_setpoint(label, target_val, duration, slope)
+
+    def ramp_g_in_product(self, target_val=None, duration=None, slope=None):
+        label = 'MolePctGSP'
+        self._ramp_setpoint(label, target_val, duration, slope)
+
+    def ramp_ya(self, target_val=None, duration=None, slope=None):
+        label = 'YASP'
+        self._ramp_setpoint(label, target_val, duration, slope)
+
+    def ramp_yac(self, target_val=None, duration=None, slope=None):
+        label = 'YACSP'
+        self._ramp_setpoint(label, target_val, duration, slope)
+
+    def ramp_reactor_temp(self, target_val=None, duration=None, slope=None):
+        label = 'ReactorTempSP'
+        self._ramp_setpoint(label, target_val, duration, slope)
+
+    def ramp_recycle_valve_pos(self, target_val=None, duration=None, slope=None):
+        label = 'RecycleValvePosSP'
+        self._ramp_setpoint(label, target_val, duration, slope)
+
+    def ramp_steam_valve_pos(self, target_val=None, duration=None, slope=None):
+        label = 'SteamValvePosSP'
+        self._ramp_setpoint(label, target_val, duration, slope)
+
+    def ramp_agitator_speed(self, target_val=None, duration=None, slope=None):
+        label = 'AgitatorSpeedSP'
+        self._ramp_setpoint(label, target_val, duration, slope)
+
+    def _ramp_setpoint(self, setpoint_label, target_val=None, duration=None, slope=None):
         """Generic setpoint ramp generation. The setpoint ramp profile starts at the current simulation time and current
         setpoint value and follows the ramp profile specified by the target value, duration and slope.
         Only two of the profile defining parameters may be set simultaneously (if all three are set, 'slope' is ignored).
 
         Parameters
         ----------
-        sp_set_func (function): Setter function for specific setpoint.
-        sp_get_func (function): Getter function for specific setpoint.
+        setpoint_label: Label as specified in the setpoint_labels.pkl in backend/setupinfo
         target_val (float): Target value of setpoint to be assumed after ramp profile completed.
         duration (float): Duration in (h) of ramp profile.
         slope (float): Value change/(h) of the ramp profile.
@@ -139,6 +205,7 @@ class SimInterface(metaclass=Singleton):
 
         current_sp_val = list(self._setpoint_data[setpoint_label])[-1]
         current_time = list(self._process_data['time'])[-1]
+        sp_set_func = self._internal_sp_info[setpoint_label]["setter"]
 
         if not any([target_val, duration]):
             raise ValueError("Either target_val or duration has to be set for the method to execute.")
