@@ -42,19 +42,19 @@ def test_reactor_level_ramp():
 def test_reactor_press_ramp():
     si.reset()
     si.extend_simulation(10)
-    si.ramp_stripper_level(target_val=2785, duration=5)
+    si.ramp_reactor_pressure(target_val=2750, duration=5)
     si.simulate()
     si.update()
-    assert si._setpoint_data['ReactorPressSP'].values[-1] == 2785
+    assert si._setpoint_data['ReactorPressSP'].values[-1] == 2750
 
 
 def test_g_in_product_ramp():
     si.reset()
     si.extend_simulation(10)
-    si.ramp_g_in_product(target_val=60, duration=5)
+    si.ramp_g_in_product(target_val=53, duration=5)
     si.simulate()
     si.update()
-    assert si._setpoint_data['MolePctGSP'].values[-1] == 60
+    assert si._setpoint_data['MolePctGSP'].values[-1] == 53
 
 
 def test_ya_sp_ramp():
@@ -96,10 +96,10 @@ def test_recycle_valve_pos_ramp():
 def test_steam_valve_pos_ramp():
     si.reset()
     si.extend_simulation(10)
-    si.ramp_steam_valve_pos(target_val=15, duration=5)
+    si.ramp_steam_valve_pos(target_val=2, duration=5)
     si.simulate()
     si.update()
-    assert si._setpoint_data['SteamValvePosSP'].values[-1] == 15
+    assert si._setpoint_data['SteamValvePosSP'].values[-1] == 2
 
 
 def test_agitator_speed_ramp():
