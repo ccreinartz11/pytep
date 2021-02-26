@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.170"
+    ComputedModelVersion    "1.173"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -208,12 +208,45 @@ Model {
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
 	  Extents		  [1642.0, 809.0]
-	  ZoomFactor		  [2.5]
-	  Offset		  [-124.94315895372324, 853.58979635387618]
-	  SceneRectInView	  [-124.94315895372324, 853.58979635387618, 656.8, 323.6]
+	  ZoomFactor		  [0.39999999999999997]
+	  Offset		  [-1352.0622065727721, -663.0214285714294]
+	  SceneRectInView	  [-1352.0622065727721, -663.0214285714294, 4105.0, 2022.5000000000002]
 	}
 	Object {
 	  $ObjectID		  6
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "31"
+	  Extents		  [1642.0, 809.0]
+	  ZoomFactor		  [0.6]
+	  Offset		  [-295.86054140457395, 332.3975633486009]
+	  SceneRectInView	  [-295.86054140457395, 332.3975633486009, 2736.666666666667, 1348.3333333333335]
+	}
+	Object {
+	  $ObjectID		  7
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "57"
+	  Extents		  [1642.0, 809.0]
+	  ZoomFactor		  [2.5]
+	  Offset		  [-100.33415178571443, -36.984523809523978]
+	  SceneRectInView	  [-100.33415178571443, -36.984523809523978, 656.8, 323.6]
+	}
+	Object {
+	  $ObjectID		  8
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "54"
+	  Extents		  [1642.0, 809.0]
+	  ZoomFactor		  [1.75]
+	  Offset		  [-124.83686755952374, -113.57142857142873]
+	  SceneRectInView	  [-124.83686755952374, -113.57142857142873, 938.28571428571433, 462.28571428571428]
+	}
+	Object {
+	  $ObjectID		  9
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -224,7 +257,7 @@ Model {
 	  SceneRectInView	  [-551.1484375, -323.9375, 1642.0, 809.0]
 	}
 	Object {
-	  $ObjectID		  7
+	  $ObjectID		  10
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -235,7 +268,7 @@ Model {
 	  SceneRectInView	  [-598.1484375, -302.9375, 1642.0, 809.0]
 	}
 	Object {
-	  $ObjectID		  8
+	  $ObjectID		  11
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -246,18 +279,7 @@ Model {
 	  SceneRectInView	  [-478.5, -481.5, 1642.0, 809.0]
 	}
 	Object {
-	  $ObjectID		  9
-	  IsActive		  [0]
-	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "31"
-	  Extents		  [1642.0, 809.0]
-	  ZoomFactor		  [0.4]
-	  Offset		  [-1260.9162956311673, -264.097571419363]
-	  SceneRectInView	  [-1260.9162956311673, -264.097571419363, 4105.0, 2022.5]
-	}
-	Object {
-	  $ObjectID		  10
+	  $ObjectID		  12
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -268,7 +290,7 @@ Model {
 	  SceneRectInView	  [-598.1484375, -302.9375, 1642.0, 809.0]
 	}
 	Object {
-	  $ObjectID		  11
+	  $ObjectID		  13
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -279,7 +301,7 @@ Model {
 	  SceneRectInView	  [-598.1484375, -302.875, 1642.0, 809.0]
 	}
 	Object {
-	  $ObjectID		  12
+	  $ObjectID		  14
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -290,7 +312,7 @@ Model {
 	  SceneRectInView	  [-60.048437500000034, -52.518750000000026, 656.8, 323.6]
 	}
 	Object {
-	  $ObjectID		  13
+	  $ObjectID		  15
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -301,7 +323,7 @@ Model {
 	  SceneRectInView	  [-551.1484375, -323.9375, 1642.0, 809.0]
 	}
 	Object {
-	  $ObjectID		  14
+	  $ObjectID		  16
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -312,7 +334,7 @@ Model {
 	  SceneRectInView	  [-551.1484375, -323.9375, 1642.0, 809.0]
 	}
 	Object {
-	  $ObjectID		  15
+	  $ObjectID		  17
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -323,7 +345,7 @@ Model {
 	  SceneRectInView	  [-551.1484375, -323.9375, 1642.0, 809.0]
 	}
 	Object {
-	  $ObjectID		  16
+	  $ObjectID		  18
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -334,18 +356,7 @@ Model {
 	  SceneRectInView	  [-598.1484375, -302.9375, 1642.0, 809.0]
 	}
 	Object {
-	  $ObjectID		  17
-	  IsActive		  [0]
-	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "57"
-	  Extents		  [1376.0, 809.0]
-	  ZoomFactor		  [2.5]
-	  Offset		  [-47.134151785714437, -36.984523809523978]
-	  SceneRectInView	  [-47.134151785714437, -36.984523809523978, 550.4, 323.6]
-	}
-	Object {
-	  $ObjectID		  18
+	  $ObjectID		  19
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -354,17 +365,6 @@ Model {
 	  ZoomFactor		  [1.0]
 	  Offset		  [-648.02734375, -325.0]
 	  SceneRectInView	  [-648.02734375, -325.0, 1642.0, 809.0]
-	}
-	Object {
-	  $ObjectID		  19
-	  IsActive		  [0]
-	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "54"
-	  Extents		  [1376.0, 809.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-648.02734375, -330.0]
-	  SceneRectInView	  [-648.02734375, -330.0, 1376.0, 809.0]
 	}
 	Object {
 	  $ObjectID		  20
@@ -789,9 +789,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "christopher"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Feb 25 17:43:35 2021"
-  RTWModifiedTimeStamp	  536175815
-  ModelVersionFormat	  "1.%<AutoIncrement:170>"
+  LastModifiedDate	  "Fri Feb 26 16:37:15 2021"
+  RTWModifiedTimeStamp	  536257520
+  ModelVersionFormat	  "1.%<AutoIncrement:173>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1995,9 +1995,9 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "250"
+    ZoomFactor		    "40"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "538"
+    SIDHighWatermark	    "540"
     SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      Scope
@@ -2050,28 +2050,28 @@ Model {
 	    Type		    "edit"
 	    Name		    "SP_before"
 	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,12)"
+	    Value		    "setpoint_init(1,12)"
 	  }
 	  Object {
 	    $ObjectID		    72
 	    Type		    "edit"
 	    Name		    "SP_after"
 	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,12)"
+	    Value		    "setpoint_init(2,12)"
 	  }
 	  Object {
 	    $ObjectID		    73
 	    Type		    "edit"
 	    Name		    "tRampStart"
 	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,12)"
+	    Value		    "setpoint_init(3,12)"
 	  }
 	  Object {
 	    $ObjectID		    74
 	    Type		    "edit"
 	    Name		    "deltaT_ramp"
 	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
+	    Value		    "setpoint_change_duration"
 	  }
 	  PropName		  "Parameters"
 	}
@@ -2656,13 +2656,13 @@ Model {
     }
     Block {
       BlockType		      Step
-      Name		      "IDVs"
+      Name		      "IDVInput"
       SID		      "462"
       Position		      [70, 1090, 100, 1120]
       ZOrder		      141
-      Time		      "IDV_Init(3,:)"
-      Before		      "IDV_Init(1,:)"
-      After		      "IDV_Init(2,:)"
+      Time		      "idv_init(3,:)"
+      Before		      "idv_init(1,:)"
+      After		      "idv_init(2,:)"
       SampleTime	      "0"
     }
     Block {
@@ -2687,28 +2687,28 @@ Model {
 	    Type		    "edit"
 	    Name		    "SP_before"
 	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,6)"
+	    Value		    "setpoint_init(1,6)"
 	  }
 	  Object {
 	    $ObjectID		    84
 	    Type		    "edit"
 	    Name		    "SP_after"
 	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,6)"
+	    Value		    "setpoint_init(2,6)"
 	  }
 	  Object {
 	    $ObjectID		    85
 	    Type		    "edit"
 	    Name		    "tRampStart"
 	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,6)"
+	    Value		    "setpoint_init(3,6)"
 	  }
 	  Object {
 	    $ObjectID		    86
 	    Type		    "edit"
 	    Name		    "deltaT_ramp"
 	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
+	    Value		    "setpoint_change_duration"
 	  }
 	  PropName		  "Parameters"
 	}
@@ -3073,28 +3073,28 @@ Model {
 	    Type		    "edit"
 	    Name		    "SP_before"
 	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,1)"
+	    Value		    "setpoint_init(1,1)"
 	  }
 	  Object {
 	    $ObjectID		    96
 	    Type		    "edit"
 	    Name		    "SP_after"
 	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,1)"
+	    Value		    "setpoint_init(2,1)"
 	  }
 	  Object {
 	    $ObjectID		    97
 	    Type		    "edit"
 	    Name		    "tRampStart"
 	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,1)"
+	    Value		    "setpoint_init(3,1)"
 	  }
 	  Object {
 	    $ObjectID		    98
 	    Type		    "edit"
 	    Name		    "deltaT_ramp"
 	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
+	    Value		    "setpoint_change_duration"
 	  }
 	  PropName		  "Parameters"
 	}
@@ -3447,28 +3447,28 @@ Model {
 	    Type		    "edit"
 	    Name		    "SP_before"
 	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,4)"
+	    Value		    "setpoint_init(1,4)"
 	  }
 	  Object {
 	    $ObjectID		    108
 	    Type		    "edit"
 	    Name		    "SP_after"
 	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,4)"
+	    Value		    "setpoint_init(2,4)"
 	  }
 	  Object {
 	    $ObjectID		    109
 	    Type		    "edit"
 	    Name		    "tRampStart"
 	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,4)"
+	    Value		    "setpoint_init(3,4)"
 	  }
 	  Object {
 	    $ObjectID		    110
 	    Type		    "edit"
 	    Name		    "deltaT_ramp"
 	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
+	    Value		    "setpoint_change_duration"
 	  }
 	  PropName		  "Parameters"
 	}
@@ -3709,28 +3709,28 @@ Model {
 	    Type		    "edit"
 	    Name		    "SP_before"
 	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,5)"
+	    Value		    "setpoint_init(1,5)"
 	  }
 	  Object {
 	    $ObjectID		    120
 	    Type		    "edit"
 	    Name		    "SP_after"
 	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,5)"
+	    Value		    "setpoint_init(2,5)"
 	  }
 	  Object {
 	    $ObjectID		    121
 	    Type		    "edit"
 	    Name		    "tRampStart"
 	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,5)"
+	    Value		    "setpoint_init(3,5)"
 	  }
 	  Object {
 	    $ObjectID		    122
 	    Type		    "edit"
 	    Name		    "deltaT_ramp"
 	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
+	    Value		    "setpoint_change_duration"
 	  }
 	  PropName		  "Parameters"
 	}
@@ -3971,28 +3971,28 @@ Model {
 	    Type		    "edit"
 	    Name		    "SP_before"
 	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,9)"
+	    Value		    "setpoint_init(1,9)"
 	  }
 	  Object {
 	    $ObjectID		    132
 	    Type		    "edit"
 	    Name		    "SP_after"
 	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,9)"
+	    Value		    "setpoint_init(2,9)"
 	  }
 	  Object {
 	    $ObjectID		    133
 	    Type		    "edit"
 	    Name		    "tRampStart"
 	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,9)"
+	    Value		    "setpoint_init(3,9)"
 	  }
 	  Object {
 	    $ObjectID		    134
 	    Type		    "edit"
 	    Name		    "deltaT_ramp"
 	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
+	    Value		    "setpoint_change_duration"
 	  }
 	  PropName		  "Parameters"
 	}
@@ -4233,28 +4233,28 @@ Model {
 	    Type		    "edit"
 	    Name		    "SP_before"
 	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,10)"
+	    Value		    "setpoint_init(1,10)"
 	  }
 	  Object {
 	    $ObjectID		    144
 	    Type		    "edit"
 	    Name		    "SP_after"
 	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,10)"
+	    Value		    "setpoint_init(2,10)"
 	  }
 	  Object {
 	    $ObjectID		    145
 	    Type		    "edit"
 	    Name		    "tRampStart"
 	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,10)"
+	    Value		    "setpoint_init(3,10)"
 	  }
 	  Object {
 	    $ObjectID		    146
 	    Type		    "edit"
 	    Name		    "deltaT_ramp"
 	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
+	    Value		    "setpoint_change_duration"
 	  }
 	  PropName		  "Parameters"
 	}
@@ -4507,28 +4507,28 @@ Model {
 	    Type		    "edit"
 	    Name		    "SP_before"
 	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,3)"
+	    Value		    "setpoint_init(1,3)"
 	  }
 	  Object {
 	    $ObjectID		    156
 	    Type		    "edit"
 	    Name		    "SP_after"
 	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,3)"
+	    Value		    "setpoint_init(2,3)"
 	  }
 	  Object {
 	    $ObjectID		    157
 	    Type		    "edit"
 	    Name		    "tRampStart"
 	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,3)"
+	    Value		    "setpoint_init(3,3)"
 	  }
 	  Object {
 	    $ObjectID		    158
 	    Type		    "edit"
 	    Name		    "deltaT_ramp"
 	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
+	    Value		    "setpoint_change_duration"
 	  }
 	  PropName		  "Parameters"
 	}
@@ -4769,28 +4769,28 @@ Model {
 	    Type		    "edit"
 	    Name		    "SP_before"
 	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,11)"
+	    Value		    "setpoint_init(1,11)"
 	  }
 	  Object {
 	    $ObjectID		    168
 	    Type		    "edit"
 	    Name		    "SP_after"
 	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,11)"
+	    Value		    "setpoint_init(2,11)"
 	  }
 	  Object {
 	    $ObjectID		    169
 	    Type		    "edit"
 	    Name		    "tRampStart"
 	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,11)"
+	    Value		    "setpoint_init(3,11)"
 	  }
 	  Object {
 	    $ObjectID		    170
 	    Type		    "edit"
 	    Name		    "deltaT_ramp"
 	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
+	    Value		    "setpoint_change_duration"
 	  }
 	  PropName		  "Parameters"
 	}
@@ -5032,28 +5032,28 @@ Model {
 	    Type		    "edit"
 	    Name		    "SP_before"
 	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,2)"
+	    Value		    "setpoint_init(1,2)"
 	  }
 	  Object {
 	    $ObjectID		    180
 	    Type		    "edit"
 	    Name		    "SP_after"
 	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,2)"
+	    Value		    "setpoint_init(2,2)"
 	  }
 	  Object {
 	    $ObjectID		    181
 	    Type		    "edit"
 	    Name		    "tRampStart"
 	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,2)"
+	    Value		    "setpoint_init(3,2)"
 	  }
 	  Object {
 	    $ObjectID		    182
 	    Type		    "edit"
 	    Name		    "deltaT_ramp"
 	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
+	    Value		    "setpoint_change_duration"
 	  }
 	  PropName		  "Parameters"
 	}
@@ -5297,7 +5297,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"40"
+	ZoomFactor		"60"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
@@ -6098,7 +6098,7 @@ Model {
 	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
+	    ZoomFactor		    "175"
 	    SimulinkSubDomain	    "Simulink"
 	    Block {
 	      BlockType		      Inport
@@ -6570,6 +6570,33 @@ Model {
 	      RndMeth		      "Floor"
 	    }
 	    Block {
+	      BlockType		      Scope
+	      Name		      "Scope"
+	      SID		      "540"
+	      Ports		      [1]
+	      Position		      [312, -46, 342, -14]
+	      ZOrder		      1
+	      ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(ext"
+	      "mgr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration("
+	      "'Sources','WiredSimulink',true,'DataLoggingVariableName','ScopeData1'),extmgr.Configuration('Visuals','Time Dom"
+	      "ain',true,'SerializedDisplays',{struct('MinYLimReal','0.2667364','MaxYLimReal','0.2667384','YLabelReal','','Min"
+	      "YLimMag','0.2667364','MaxYLimMag','0.2667384','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase'"
+	      ",false,'AxesColor',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder'"
+	      ",[1 1 0.0666666666666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.39215686"
+	      "2745098 0.831372549019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0"
+	      "745098039215686 0.650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames"
+	      "',{{}},'NumLines',1,'LineNames',{{'Product'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',stru"
+	      "ct('MinYLimReal','0.2667364','MaxYLimReal','0.2667384','YLabelReal','','MinYLimMag','0.2667364','MaxYLimMag','0"
+	      ".2667384','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTick"
+	      "Color',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[0.0745098039215686 0.6235294117647"
+	      "06 1;1 0.411764705882353 0.16078431372549;1 1 0.0666666666666667;0.717647058823529 0.274509803921569 1;0.392156"
+	      "862745098 0.831372549019608 0.0745098039215686;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863]))"
+	      ",extmgr.Configuration('Tools','Plot Navigation',true),extmgr.Configuration('Tools','Measurements',true,'Version"
+	      "','2019b')),'Version','2019b','Position',[675 325 570 413])"
+	      NumInputPorts	      "1"
+	      Floating		      off
+	    }
+	    Block {
 	      BlockType		      Outport
 	      Name		      "Valve %"
 	      SID		      "60"
@@ -6611,8 +6638,18 @@ Model {
 	      ZOrder		      5
 	      SrcBlock		      "Product"
 	      SrcPort		      1
-	      DstBlock		      "Discrete PI"
-	      DstPort		      1
+	      Points		      [35, 0]
+	      Branch {
+		ZOrder			8
+		Points			[0, -100]
+		DstBlock		"Scope"
+		DstPort			1
+	      }
+	      Branch {
+		ZOrder			6
+		DstBlock		"Discrete PI"
+		DstPort			1
+	      }
 	    }
 	  }
 	}
@@ -13056,28 +13093,28 @@ Model {
 	    Type		    "edit"
 	    Name		    "SP_before"
 	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,8)"
+	    Value		    "setpoint_init(1,8)"
 	  }
 	  Object {
 	    $ObjectID		    269
 	    Type		    "edit"
 	    Name		    "SP_after"
 	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,8)"
+	    Value		    "setpoint_init(2,8)"
 	  }
 	  Object {
 	    $ObjectID		    270
 	    Type		    "edit"
 	    Name		    "tRampStart"
 	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,8)"
+	    Value		    "setpoint_init(3,8)"
 	  }
 	  Object {
 	    $ObjectID		    271
 	    Type		    "edit"
 	    Name		    "deltaT_ramp"
 	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
+	    Value		    "setpoint_change_duration"
 	  }
 	  PropName		  "Parameters"
 	}
@@ -13318,28 +13355,28 @@ Model {
 	    Type		    "edit"
 	    Name		    "SP_before"
 	    Prompt		    "Value before ramp"
-	    Value		    "SetPoint_Init(1,7)"
+	    Value		    "setpoint_init(1,7)"
 	  }
 	  Object {
 	    $ObjectID		    281
 	    Type		    "edit"
 	    Name		    "SP_after"
 	    Prompt		    "Value after ramp"
-	    Value		    "SetPoint_Init(2,7)"
+	    Value		    "setpoint_init(2,7)"
 	  }
 	  Object {
 	    $ObjectID		    282
 	    Type		    "edit"
 	    Name		    "tRampStart"
 	    Prompt		    "Ramp start time"
-	    Value		    "SetPoint_Init(3,7)"
+	    Value		    "setpoint_init(3,7)"
 	  }
 	  Object {
 	    $ObjectID		    283
 	    Type		    "edit"
 	    Name		    "deltaT_ramp"
 	    Prompt		    "Ramp transition time"
-	    Value		    "SP_deltaTRamp"
+	    Value		    "setpoint_change_duration"
 	  }
 	  PropName		  "Parameters"
 	}
@@ -13654,13 +13691,13 @@ Model {
       SrcPort		      1
       Points		      [80, 0]
       Branch {
-	ZOrder			132
+	ZOrder			315
 	Points			[0, -1002; 280, 0]
 	DstBlock		"Mux"
 	DstPort			12
       }
       Branch {
-	ZOrder			131
+	ZOrder			314
 	DstBlock		"TE Plant"
 	DstPort			12
       }
@@ -13826,7 +13863,7 @@ Model {
     }
     Line {
       ZOrder		      85
-      SrcBlock		      "IDVs"
+      SrcBlock		      "IDVInput"
       SrcPort		      1
       DstBlock		      "TE Plant"
       DstPort		      13

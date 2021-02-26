@@ -25,8 +25,9 @@ class SimInterface(metaclass=Singleton):
         self._update_setpoint_data()
 
     def reset(self):
-        self._matlab_bridge.reset_workspace()
         self._matlab_bridge.stop_simulation()
+        self._matlab_bridge.reset_workspace()
+        self._matlab_bridge.reset_simulink_blocks()
         self.update()
 
     def extend_simulation(self, extra_sim_time=5):

@@ -1,4 +1,4 @@
-load('TEP_state_latest.mat', ...
+load('mode_one_no_faults.mat', ...
     'x',...
     'sp',...
     'idv',...
@@ -10,14 +10,14 @@ load('TEP_state_latest.mat', ...
 
 % load('InitVariables');
 xInitial = x;
-SetPoint_Init(1,:) = sp;
-SetPoint_Init(2,:) = sp;
-SetPoint_Init(3,:) = zeros(1,12);
-IDV_Init(1,:) = idv;
-IDV_Init(2,:) = idv;
-IDV_Init(3,:) = zeros(1,28);
+setpoint_init(1,:) = sp;
+setpoint_init(2,:) = sp;
+setpoint_init(3,:) = zeros(1,12);
+idv_init(1,:) = idv;
+idv_init(2,:) = idv;
+idv_init(3,:) = zeros(1,28);
 seed = 1000;
-SP_deltaTRamp = 0;
+setpoint_change_duration = 0;
 Ts_base = 5e-4;
 Ts_save = 0.05;
 
