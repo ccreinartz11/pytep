@@ -101,7 +101,7 @@ class SimInterface(metaclass=Singleton):
         si._matlab_bridge = mb
         si._load_dataframes()
         si._setup_internal_sp_info()
-        si.update()
+        si.reset()
         return si
 
     @staticmethod
