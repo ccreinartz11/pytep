@@ -15,14 +15,17 @@ class SimInterface(metaclass=Singleton):
         self._process_data = pd.DataFrame()
         self._process_units = pd.DataFrame()
         self._setpoint_data = pd.DataFrame()
+        self._idv_data = pd.DataFrame()
         self._internal_sp_info = None
 
     def simulate(self):
         self._matlab_bridge.run_until_paused()
 
     def update(self):
+        #  ???: Should the workspace refresh only be here? Does the workspace ever need to be updated otherwise?
         self._update_process_data()
         self._update_setpoint_data()
+        self._update_idv_data()
 
     def reset(self):
         self._matlab_bridge.stop_simulation()
@@ -53,6 +56,13 @@ class SimInterface(metaclass=Singleton):
         )
         self._setpoint_data = setpoint_data
 
+    def _update_idv_data(self):
+        idv_data = self._fetch_idv_data()
+        idv_data = pd.DataFrame(
+            data=idv_data, columns=self._idv_data.columns
+        )
+        self._idv_data = idv_data
+
     def _fetch_process_data(self):
         time = self._matlab_bridge.get_workspace_variable("tout")
         if not isinstance(time, Iterable):
@@ -64,6 +74,10 @@ class SimInterface(metaclass=Singleton):
     def _fetch_setpoint_data(self):
         setpoints = self._matlab_bridge.get_workspace_variable("setpoints")
         return setpoints
+    
+    def _fetch_idv_data(self):
+        idvs = self._matlab_bridge.get_workspace_variable("idv_list")
+        return idvs
 
     def _load_dataframes(self):
         setupinfo_path = pathlib.Path(__file__).parent / "setupinfo"
@@ -76,6 +90,9 @@ class SimInterface(metaclass=Singleton):
         with open(setupinfo_path / "process_var_units.pkl", "rb") as pv_units_file:
             pv_units = pickle.load(pv_units_file)
         self._process_units = pd.DataFrame(data=[pv_units], columns=pv_labels)
+        with open(setupinfo_path / "idv_labels.pkl", "rb") as idv_label_file:
+            idv_labels = pickle.load(idv_label_file)
+        self._idv_data = pd.DataFrame(columns=idv_labels)
 
     def plot_labels(self):
         return self._process_data.columns.tolist()
@@ -119,6 +136,15 @@ class SimInterface(metaclass=Singleton):
 
     def get_var_unit(self, col_label):
         return self._process_units[col_label][0]
+
+    # set faults (idv)
+
+    def set_idv(self, idv_idx, value, delay=0):
+        current_time = list(self._process_data['time'])[-1]
+        values_before_step, values_after_step, step_times = self._matlab_bridge.get_idv_input_block_params()
+        values_after_step[idv_idx] = value
+        step_times[idv_idx] = current_time + delay
+        self._matlab_bridge.set_idv_input_block_params(values_before_step, values_after_step, step_times)
 
     # setpoint commands
 
@@ -192,6 +218,7 @@ class SimInterface(metaclass=Singleton):
         self._ramp_setpoint(label, target_val, duration, slope)
 
     def _ramp_setpoint(self, setpoint_label, target_val=None, duration=None, slope=None):
+        # TODO: Add delay (default value: 0)
         """Generic setpoint ramp generation. The setpoint ramp profile starts at the current simulation time and current
         setpoint value and follows the ramp profile specified by the target value, duration and slope.
         Only two of the profile defining parameters may be set simultaneously (if all three are set, 'slope' is ignored).
