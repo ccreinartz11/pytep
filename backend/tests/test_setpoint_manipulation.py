@@ -109,3 +109,4 @@ def test_agitator_speed_ramp():
     si.simulate()
     si.update()
     assert si._setpoint_data['AgitatorSpeedSP'].values[-1] == 80
+

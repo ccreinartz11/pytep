@@ -1,10 +1,9 @@
-import matlab
+# import matlab
 import matlab.engine
 import numpy as np
 from pathlib import Path
 import time
 from collections.abc import Iterable
-
 
 import backend.engineutils as engineutils
 
@@ -96,7 +95,10 @@ class MatlabBridge:
     # Fault modificatiion (IDVs)
 
     def set_idv_input_block_params(self, values_before, values_after, step_times):
-        self._eng.set_idv_input_block_params(values_before, values_after, step_times, nargout=0)
+        vb = matlab.double(values_before[0].tolist())
+        va = matlab.double(values_after[0].tolist())
+        st = matlab.double(step_times[0].tolist())
+        self._eng.set_idv_input_block_params(vb, va, st, nargout=0)
 
     def get_idv_input_block_params(self):
         values_before, values_after, step_times = self._eng.get_idv_input_block_params(nargout=3)
@@ -104,7 +106,6 @@ class MatlabBridge:
         return aa(values_before), aa(values_after), aa(step_times)
 
     # Setpoint modification
-
     def set_production_sp(self, before=None, after=None, duration=0, start_time=None):
         block_name = "ProductionSP"
         self._set_sp_block_generic(block_name, before, after, duration, start_time)
@@ -267,7 +268,10 @@ class MatlabBridge:
         2d arrays are set as matrices.
         """
         if isinstance(value, np.ndarray):
-            var = value.tolist()
+            if value.dtype in [int, float]:
+                var = matlab.double(value)
+            else:
+                var = value.tolist()  # converted to cell-array in matlab
         else:
             var = value
         engineutils.set_variable(self._eng, name, var)

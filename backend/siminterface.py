@@ -142,9 +142,13 @@ class SimInterface(metaclass=Singleton):
     def set_idv(self, idv_idx, value, delay=0):
         current_time = list(self._process_data['time'])[-1]
         values_before_step, values_after_step, step_times = self._matlab_bridge.get_idv_input_block_params()
-        values_after_step[idv_idx] = value
-        step_times[idv_idx] = current_time + delay
+        values_after_step[0, idv_idx-1] = value
+        step_times[0, idv_idx-1] = current_time + delay
         self._matlab_bridge.set_idv_input_block_params(values_before_step, values_after_step, step_times)
+
+    def get_idv(self, idv_idx):
+        idv_label = "IDV{}".format(idv_idx)
+        return self._idv_data[idv_label].values[-1]
 
     # setpoint commands
 

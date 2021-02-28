@@ -25,6 +25,7 @@ Ts_save = 0.05;
 tout = 0;
 simout = zeros(1, 41);
 setpoints = sp;
+idv_list = idv;
 
 if (exist('controller_init', 'var'))
     Eadj_0 = controller_init(end, 1);
