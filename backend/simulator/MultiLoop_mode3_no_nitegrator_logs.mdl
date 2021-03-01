@@ -208,9 +208,9 @@ Model {
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "31"
 	  Extents		  [1642.0, 809.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [421.72279192875976, 584.8975633486009]
-	  SceneRectInView	  [421.72279192875976, 584.8975633486009, 1642.0, 809.0]
+	  ZoomFactor		  [1.5]
+	  Offset		  [993.85612526209286, 793.91423001526687]
+	  SceneRectInView	  [993.85612526209286, 793.91423001526687, 1094.6666666666667, 539.33333333333337]
 	}
 	Object {
 	  $ObjectID		  6
@@ -219,9 +219,9 @@ Model {
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
 	  Extents		  [1642.0, 809.0]
-	  ZoomFactor		  [1.25]
-	  Offset		  [184.13779342722808, 15.995238095237255]
-	  SceneRectInView	  [184.13779342722808, 15.995238095237255, 1313.6, 647.2]
+	  ZoomFactor		  [0.6]
+	  Offset		  [-914.72887323943837, -170.22142857142956]
+	  SceneRectInView	  [-914.72887323943837, -170.22142857142956, 2736.666666666667, 1348.3333333333335]
 	}
 	Object {
 	  $ObjectID		  7
@@ -789,8 +789,8 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "christopher"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Mar 01 12:06:33 2021"
-  RTWModifiedTimeStamp	  536501168
+  LastModifiedDate	  "Mon Mar 01 11:52:26 2021"
+  RTWModifiedTimeStamp	  536500328
   ModelVersionFormat	  "1.%<AutoIncrement:174>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -909,7 +909,7 @@ Model {
 	  Description		  ""
 	  Components		  []
 	  StartTime		  "0.0"
-	  StopTime		  "5"
+	  StopTime		  "72"
 	  AbsTol		  "auto"
 	  AutoScaleAbsTol	  on
 	  FixedStep		  "Ts_base"
@@ -1995,9 +1995,9 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "125"
+    ZoomFactor		    "60"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "540"
+    SIDHighWatermark	    "542"
     SimulinkSubDomain	    "Simulink"
     Block {
       BlockType		      Scope
@@ -5297,7 +5297,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"100"
+	ZoomFactor		"150"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
@@ -11788,28 +11788,18 @@ Model {
 	  Floating		  off
 	}
 	Block {
-	  BlockType		  ToWorkspace
-	  Name			  "To Workspace"
-	  SID			  "471"
-	  Ports			  [1]
-	  Position		  [1510, 1065, 1600, 1095]
-	  ZOrder		  16
-	  VariableName		  "controller_out_init"
-	  MaxDataPoints		  "inf"
-	  FixptAsFi		  on
-	  SampleTime		  "Ts_save"
+	  BlockType		  Terminator
+	  Name			  "Terminator"
+	  SID			  "541"
+	  Position		  [1720, 665, 1740, 685]
+	  ZOrder		  51
 	}
 	Block {
-	  BlockType		  ToWorkspace
-	  Name			  "To Workspace1"
-	  SID			  "511"
-	  Ports			  [1]
-	  Position		  [1605, 660, 1695, 690]
-	  ZOrder		  48
-	  VariableName		  "integrator_log"
-	  MaxDataPoints		  "inf"
-	  FixptAsFi		  on
-	  SampleTime		  "-1"
+	  BlockType		  Terminator
+	  Name			  "Terminator1"
+	  SID			  "542"
+	  Position		  [1525, 1165, 1545, 1185]
+	  ZOrder		  52
 	}
 	Block {
 	  BlockType		  Reference
@@ -12786,14 +12776,6 @@ Model {
 	  }
 	}
 	Line {
-	  ZOrder		  250
-	  SrcBlock		  "Mux2"
-	  SrcPort		  1
-	  Points		  [25, 0; 0, -95]
-	  DstBlock		  "To Workspace"
-	  DstPort		  1
-	}
-	Line {
 	  ZOrder		  260
 	  SrcBlock		  "From45"
 	  SrcPort		  1
@@ -12969,19 +12951,26 @@ Model {
 	  DstPort		  17
 	}
 	Line {
-	  ZOrder		  286
-	  SrcBlock		  "Mux3"
-	  SrcPort		  1
-	  DstBlock		  "To Workspace1"
-	  DstPort		  1
-	}
-	Line {
 	  ZOrder		  288
 	  SrcBlock		  "From65"
 	  SrcPort		  1
 	  Points		  [41, 0; 0, -50]
 	  DstBlock		  "Mux2"
 	  DstPort		  7
+	}
+	Line {
+	  ZOrder		  355
+	  SrcBlock		  "Mux3"
+	  SrcPort		  1
+	  DstBlock		  "Terminator"
+	  DstPort		  1
+	}
+	Line {
+	  ZOrder		  356
+	  SrcBlock		  "Mux2"
+	  SrcPort		  1
+	  DstBlock		  "Terminator1"
+	  DstPort		  1
 	}
       }
     }
@@ -13028,7 +13017,7 @@ Model {
       Name		      "To Workspace2"
       SID		      "235"
       Ports		      [1]
-      Position		      [555, 455, 615, 485]
+      Position		      [560, 455, 620, 485]
       ZOrder		      -10
       ShowName		      off
       VariableName	      "idv_list"
