@@ -10,7 +10,11 @@ with open("../loginfo.json") as f:
 logger = logging.getLogger()
 logger.debug("Test debug message.")
 
-logger.info("Test")
+test = {"Time": 0.5,
+        "x": 15,
+        "y": 22}
+
+logger.info(json.dumps(test))
 
 
 
