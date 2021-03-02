@@ -6,10 +6,10 @@ si = backend.siminterface.SimInterface.setup()
 def test_production_ramp():
     si.reset()
     si.extend_simulation(10)
-    si.ramp_production(target_val=25, duration=5)
+    si.ramp_production(target_val=24, duration=5)
     si.simulate()
     si.update()
-    assert si._setpoint_data['ProductionSP'].values[-1] == 25.0
+    assert si._setpoint_data['ProductionSP'].values[-1] == 24.0
 
 
 def test_strip_level_ramp():

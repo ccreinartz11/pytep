@@ -1,5 +1,4 @@
 import backend.siminterface
-import pytest
 
 
 si = backend.siminterface.SimInterface.setup()

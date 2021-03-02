@@ -18,6 +18,7 @@ class MatlabBridge:
         self.add_dir_to_matlab_path(self._sim_path)
         self._load_simulink()
         self._load_workspace()
+        self._init_setpoint_blocks_from_workspace()
         return
 
     def start_engine(self):
@@ -227,7 +228,7 @@ class MatlabBridge:
         """
 
         if None in [before, after]:
-            bef, aft, dur, t_start = self._eng.get_sp_generic(block_name, nargout=4)
+            bef, aft, dur, _ = self._eng.get_sp_generic(block_name, nargout=4)
             if before is None:
                 before = bef
             if after is None:
@@ -269,7 +270,7 @@ class MatlabBridge:
         """
         if isinstance(value, np.ndarray):
             if value.dtype in [int, float]:
-                var = matlab.double(value)
+                var = matlab.double(value.tolist())
             else:
                 var = value.tolist()  # converted to cell-array in matlab
         else:
