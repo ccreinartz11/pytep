@@ -3,10 +3,13 @@ import numpy as np
 import pickle
 import pathlib
 from collections.abc import Iterable
+import logging
 
 from utils.singleton import Singleton
 from backend.matlab_bridge import MatlabBridge
 
+
+logger = logging.getLogger()
 
 class SimInterface(metaclass=Singleton):
 
@@ -17,6 +20,7 @@ class SimInterface(metaclass=Singleton):
         self._setpoint_data = pd.DataFrame()
         self._idv_data = pd.DataFrame()
         self._internal_sp_info = None
+        self._logger = logging.getLogger(__name__)
 
     def simulate(self):
         self._matlab_bridge.run_until_paused()
