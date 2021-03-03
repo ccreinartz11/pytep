@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.175"
+    ComputedModelVersion    "1.176"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -208,9 +208,9 @@ Model {
 	  ViewObjType		  "SimulinkSubsys"
 	  LoadSaveID		  "31"
 	  Extents		  [1642.0, 809.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [421.72279192875976, 584.8975633486009]
-	  SceneRectInView	  [421.72279192875976, 584.8975633486009, 1642.0, 809.0]
+	  ZoomFactor		  [1.5]
+	  Offset		  [833.92279192875833, 857.514230015267]
+	  SceneRectInView	  [833.92279192875833, 857.514230015267, 1094.6666666666667, 539.33333333333337]
 	}
 	Object {
 	  $ObjectID		  6
@@ -219,9 +219,9 @@ Model {
 	  ViewObjType		  "SimulinkTopLevel"
 	  LoadSaveID		  "0"
 	  Extents		  [1642.0, 809.0]
-	  ZoomFactor		  [1.25]
-	  Offset		  [184.13779342722808, 15.995238095237255]
-	  SceneRectInView	  [184.13779342722808, 15.995238095237255, 1313.6, 647.2]
+	  ZoomFactor		  [0.79999999999999993]
+	  Offset		  [-371.79553990610543, -126.13809523809624]
+	  SceneRectInView	  [-371.79553990610543, -126.13809523809624, 2052.5, 1011.2500000000001]
 	}
 	Object {
 	  $ObjectID		  7
@@ -789,9 +789,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "christopher"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Mar 02 14:48:17 2021"
-  RTWModifiedTimeStamp	  536597296
-  ModelVersionFormat	  "1.%<AutoIncrement:175>"
+  LastModifiedDate	  "Wed Mar 03 21:40:02 2021"
+  RTWModifiedTimeStamp	  536708394
+  ModelVersionFormat	  "1.%<AutoIncrement:176>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -1995,7 +1995,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "125"
+    ZoomFactor		    "80"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "540"
     SimulinkSubDomain	    "Simulink"
@@ -5297,7 +5297,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"100"
+	ZoomFactor		"150"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
@@ -11809,7 +11809,7 @@ Model {
 	  VariableName		  "integrator_log"
 	  MaxDataPoints		  "inf"
 	  FixptAsFi		  on
-	  SampleTime		  "-1"
+	  SampleTime		  "Ts_save"
 	}
 	Block {
 	  BlockType		  Reference

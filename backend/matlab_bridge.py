@@ -51,7 +51,7 @@ class MatlabBridge:
 
     def block_until_sim_paused(self):
         while not self.get_sim_status() in ["paused", "stopped"]:
-            time.sleep(0.01)
+            time.sleep(0.001)
 
     def start_simulation(self):
         self._eng.start_simulation(nargout=0)
