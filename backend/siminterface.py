@@ -55,6 +55,9 @@ class SimInterface(metaclass=Singleton):
             current_time = time
         self._matlab_bridge.set_simpause_time(current_time + extra_sim_time)
 
+    def current_sim_time(self):
+        return self._process_data["Time"].values[-1]
+
     def _update_process_data(self):
         new_process_data = self._fetch_process_data()
         new_process_data = pd.DataFrame(

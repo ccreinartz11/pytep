@@ -15,7 +15,7 @@
 		"jsonshort": {
 			"class": "pythonjsonlogger.jsonlogger.JsonFormatter",
 			"datefmt": "%I:%M:%S",
-			"format": "%(asctime)s %(name)s %(levelname)s"
+			"format": ""
 		}
 	},
 	"handlers": {
