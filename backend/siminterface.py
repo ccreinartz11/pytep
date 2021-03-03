@@ -3,13 +3,22 @@ import numpy as np
 import pickle
 import pathlib
 from collections.abc import Iterable
-import logging
 
 from utils.singleton import Singleton
 from backend.matlab_bridge import MatlabBridge
 
+#  setup logger
+import logging
+import logging.config
+import json
+from pythonjsonlogger import jsonlogger
 
-logger = logging.getLogger()
+with open(pathlib.Path(__file__).parent.parent.absolute() / "loginfo.json") as f:
+    config = json.load(f)
+    logging.config.dictConfig(config)
+
+logger = logging.getLogger(__name__)
+
 
 class SimInterface(metaclass=Singleton):
 
@@ -148,11 +157,26 @@ class SimInterface(metaclass=Singleton):
         values_before_step, values_after_step, step_times = self._matlab_bridge.get_idv_input_block_params()
         values_after_step[0, idv_idx-1] = value
         step_times[0, idv_idx-1] = current_time + delay
+        self._log_idv_change(idv_idx, value, current_time)
         self._matlab_bridge.set_idv_input_block_params(values_before_step, values_after_step, step_times)
 
     def get_idv(self, idv_idx):
         idv_label = "IDV{}".format(idv_idx)
         return self._idv_data[idv_label].values[-1]
+
+    def _log_idv_change(self, idv_idx, target_val, start_time):
+        log = self._idv_change_log_message(idv_idx, target_val, start_time)
+        logger.info(log)
+
+    @staticmethod
+    def _idv_change_log_message(idv_idx, target_val, start_time):
+        log = {
+            "simulation_command": "idv_change",
+            "idv_idx": idv_idx,
+            "simulation_time": start_time,
+            "target_value": target_val
+        }
+        return log
 
     # setpoint commands
 
@@ -259,6 +283,24 @@ class SimInterface(metaclass=Singleton):
             sp_set_func(before=current_sp_val, after=target_val, duration=duration, start_time=current_time)
         else:
             raise ValueError("_ramp_setpoint was called with incorrect parameter configuration.")
+        
+        self._log_setpoint_ramp(setpoint_label, target_val, duration, current_time)
+
+    def _log_setpoint_ramp(self, setpoint_label, target_val, duration, start_time):
+        log = self._setpoint_ramp_log_message(setpoint_label, target_val, duration, start_time)
+        logger.info(log)
+
+    @staticmethod
+    def _setpoint_ramp_log_message(setpoint_label, target_val, duration, start_time):
+        log = {
+            "simulation_command": "setpoint_ramp",
+            "setpoint_label": setpoint_label,
+            "simulation_time": start_time,
+            "target_value": target_val,
+            "duration": duration
+        }
+        return log
+
 
 
 

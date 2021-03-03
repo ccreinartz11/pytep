@@ -11,6 +11,11 @@
 			"class": "pythonjsonlogger.jsonlogger.JsonFormatter",
 			"datefmt": "%I:%M:%S",
 			"format": "%(asctime)s %(name)s %(levelname)s %(message)s"
+		},
+		"jsonshort": {
+			"class": "pythonjsonlogger.jsonlogger.JsonFormatter",
+			"datefmt": "%I:%M:%S",
+			"format": "%(asctime)s %(name)s %(levelname)s"
 		}
 	},
 	"handlers": {
@@ -23,8 +28,8 @@
 		"file_handler": {
 			"level": "INFO",
 				"class": "logging.handlers.WatchedFileHandler",
-				"formatter": "json",
-				"filename": "../log/scenario.log",
+				"formatter": "jsonshort",
+				"filename": "./log/scenario.log",
 				"mode": "a",
 				"encoding": "utf-8"
 		}
@@ -32,6 +37,11 @@
 	"loggers": {
 		"": {
 			"level": "DEBUG",
+			"handlers": ["console", "file_handler"],
+			"propagate": "no"
+		},
+		"siminterface": {
+			"level": "INFO",
 			"handlers": ["console", "file_handler"],
 			"propagate": "no"
 		}
