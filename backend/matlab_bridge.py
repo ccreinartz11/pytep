@@ -634,7 +634,7 @@ class MatlabBridge:
         self._eng.eval("save('{}')".format(name), nargout=0)
 
     def get_workspace_variable(self, name):
-        """Fetches workspace variable from matlab workspace to python.
+        """Fetches a workspace variable from the MATLAB workspace to Python.
 
         Parameters
         ----------
@@ -672,7 +672,7 @@ class MatlabBridge:
         ----------
         name : string
             string identifier for desired workspace variable
-        value : 
+        value : np.floats, np.arrays
             1d arrays are set as vectors.
             2d arrays are set as matrices.
         """
