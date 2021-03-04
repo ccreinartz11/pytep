@@ -247,6 +247,19 @@ class SimInterface(metaclass=Singleton):
     # set faults (idv)
 
     def set_idv(self, idv_idx, value, delay=0):
+        """
+        Set the fault magnitude and delay in hours before the magnitude is changed from its current value for
+        one idv (IDV1-IDV28).
+
+        Parameters
+        ----------
+        idv_idx: int
+            Index of the idv (IDV1-IDV28) TODO: Include link to relevant paper here.
+        value: float
+            Activation flag for the IDV. Value between 0 and 1.
+        delay:
+            Delay in hours before the idv value is changed from it's current value.
+        """
         current_time = list(self._process_data['time'])[-1]
         values_before_step, values_after_step, step_times = self._matlab_bridge.get_idv_input_block_params()
         values_after_step[0, idv_idx-1] = value
@@ -255,6 +268,19 @@ class SimInterface(metaclass=Singleton):
         self._matlab_bridge.set_idv_input_block_params(values_before_step, values_after_step, step_times)
 
     def get_idv(self, idv_idx):
+        """
+        Getter for the current magnitude value of one of the 28 process faults.
+
+        Parameters
+        ----------
+        idv_idx: int
+            Value between 1 and 28
+
+        Returns
+        -------
+            idv_magnitude: float
+                Value between 0 and 1
+        """
         idv_label = "IDV{}".format(idv_idx)
         return self._idv_data[idv_label].values[-1]
 
@@ -296,50 +322,254 @@ class SimInterface(metaclass=Singleton):
         self._internal_sp_info = sp_info
 
     def ramp_production(self, target_val=None, duration=None, slope=None):
+        """Initiates a ramp profile for the production setpoint at at the current simulation time. The ramp will start
+        immediately, when :func:`~backend.siminterface.SimInterface.simulate` is called.
+        The setpoint ramp profile starts at the current simulation time and current setpoint value and follows a ramp
+        profile specified by the target value, duration and slope.
+        Only two of the profile defining parameters may be set simultaneously (if all three are set, 'slope' is ignored).
+
+        Parameters
+        ----------
+        target_val : float, optional
+            Value of the setpoint after the ramp profile is completed.
+        duration : float, optional (default: 0.0)
+            Duration of the change from the current setpoint value to the `target_val` in (hours).
+            Step change for duration = 0, ramp otherwise
+        slope : float, optional
+            Slope of the ramp profile of the setpoint change in setpoint_change/hour. Not considered if `target_val` and
+            `duration` are also both specified.
+        """
         label = 'ProductionSP'
         self._ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_stripper_level(self, target_val=None, duration=None, slope=None):
+        """Initiates a ramp profile for the stripper level setpoint at at the current simulation time. The ramp will start
+        immediately, when :func:`~backend.siminterface.SimInterface.simulate` is called.
+        The setpoint ramp profile starts at the current simulation time and current setpoint value and follows a ramp
+        profile specified by the target value, duration and slope.
+        Only two of the profile defining parameters may be set simultaneously (if all three are set, 'slope' is ignored).
+
+        Parameters
+        ----------
+        target_val : float, optional
+            Value of the setpoint after the ramp profile is completed.
+        duration : float, optional (default: 0.0)
+            Duration of the change from the current setpoint value to the `target_val` in (hours).
+            Step change for duration = 0, ramp otherwise
+        slope : float, optional
+            Slope of the ramp profile of the setpoint change in setpoint_change/hour. Not considered if `target_val` and
+            `duration` are also both specified.
+        """
         label = 'StripLevelSP'
         self._ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_separator_level(self, target_val=None, duration=None, slope=None):
+        """Initiates a ramp profile for the separator level setpoint at at the current simulation time. The ramp will start
+        immediately, when :func:`~backend.siminterface.SimInterface.simulate` is called.
+        The setpoint ramp profile starts at the current simulation time and current setpoint value and follows a ramp
+        profile specified by the target value, duration and slope.
+        Only two of the profile defining parameters may be set simultaneously (if all three are set, 'slope' is ignored).
+
+        Parameters
+        ----------
+        target_val : float, optional
+            Value of the setpoint after the ramp profile is completed.
+        duration : float, optional (default: 0.0)
+            Duration of the change from the current setpoint value to the `target_val` in (hours).
+            Step change for duration = 0, ramp otherwise
+        slope : float, optional
+            Slope of the ramp profile of the setpoint change in setpoint_change/hour. Not considered if `target_val` and
+            `duration` are also both specified.
+        """
         label = 'SepLevelSP'
         self._ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_reactor_level(self, target_val=None, duration=None, slope=None):
+        """Initiates a ramp profile for the reactor level setpoint at at the current simulation time. The ramp will start
+        immediately, when :func:`~backend.siminterface.SimInterface.simulate` is called.
+        The setpoint ramp profile starts at the current simulation time and current setpoint value and follows a ramp
+        profile specified by the target value, duration and slope.
+        Only two of the profile defining parameters may be set simultaneously (if all three are set, 'slope' is ignored).
+
+        Parameters
+        ----------
+        target_val : float, optional
+            Value of the setpoint after the ramp profile is completed.
+        duration : float, optional (default: 0.0)
+            Duration of the change from the current setpoint value to the `target_val` in (hours).
+            Step change for duration = 0, ramp otherwise
+        slope : float, optional
+            Slope of the ramp profile of the setpoint change in setpoint_change/hour. Not considered if `target_val` and
+            `duration` are also both specified.
+        """
         label = 'ReactorLevelSP'
         self._ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_reactor_pressure(self, target_val=None, duration=None, slope=None):
+        """Initiates a ramp profile for the reactor pressure setpoint at at the current simulation time. The ramp will start
+        immediately, when :func:`~backend.siminterface.SimInterface.simulate` is called.
+        The setpoint ramp profile starts at the current simulation time and current setpoint value and follows a ramp
+        profile specified by the target value, duration and slope.
+        Only two of the profile defining parameters may be set simultaneously (if all three are set, 'slope' is ignored).
+
+        Parameters
+        ----------
+        target_val : float, optional
+            Value of the setpoint after the ramp profile is completed.
+        duration : float, optional (default: 0.0)
+            Duration of the change from the current setpoint value to the `target_val` in (hours).
+            Step change for duration = 0, ramp otherwise
+        slope : float, optional
+            Slope of the ramp profile of the setpoint change in setpoint_change/hour. Not considered if `target_val` and
+            `duration` are also both specified.
+        """
         label = 'ReactorPressSP'
         self._ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_g_in_product(self, target_val=None, duration=None, slope=None):
+        """Initiates a ramp profile for the mole percent of compoent g in the product stream (indicator of process quality) setpoint at at the current simulation time. The ramp will start
+        immediately, when :func:`~backend.siminterface.SimInterface.simulate` is called.
+        The setpoint ramp profile starts at the current simulation time and current setpoint value and follows a ramp
+        profile specified by the target value, duration and slope.
+        Only two of the profile defining parameters may be set simultaneously (if all three are set, 'slope' is ignored).
+
+        Parameters
+        ----------
+        target_val : float, optional
+            Value of the setpoint after the ramp profile is completed.
+        duration : float, optional (default: 0.0)
+            Duration of the change from the current setpoint value to the `target_val` in (hours).
+            Step change for duration = 0, ramp otherwise
+        slope : float, optional
+            Slope of the ramp profile of the setpoint change in setpoint_change/hour. Not considered if `target_val` and
+            `duration` are also both specified.
+        """
         label = 'MolePctGSP'
         self._ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_ya(self, target_val=None, duration=None, slope=None):
+        """Initiates a ramp profile for the yA setpoint at at the current simulation time. The ramp will start
+        immediately, when :func:`~backend.siminterface.SimInterface.simulate` is called.
+        The setpoint ramp profile starts at the current simulation time and current setpoint value and follows a ramp
+        profile specified by the target value, duration and slope.
+        Only two of the profile defining parameters may be set simultaneously (if all three are set, 'slope' is ignored).
+
+        Parameters
+        ----------
+        target_val : float, optional
+            Value of the setpoint after the ramp profile is completed.
+        duration : float, optional (default: 0.0)
+            Duration of the change from the current setpoint value to the `target_val` in (hours).
+            Step change for duration = 0, ramp otherwise
+        slope : float, optional
+            Slope of the ramp profile of the setpoint change in setpoint_change/hour. Not considered if `target_val` and
+            `duration` are also both specified.
+        """
         label = 'YASP'
         self._ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_yac(self, target_val=None, duration=None, slope=None):
+        """Initiates a ramp profile for the yAC setpoint at at the current simulation time. The ramp will start
+        immediately, when :func:`~backend.siminterface.SimInterface.simulate` is called.
+        The setpoint ramp profile starts at the current simulation time and current setpoint value and follows a ramp
+        profile specified by the target value, duration and slope.
+        Only two of the profile defining parameters may be set simultaneously (if all three are set, 'slope' is ignored).
+
+        Parameters
+        ----------
+        target_val : float, optional
+            Value of the setpoint after the ramp profile is completed.
+        duration : float, optional (default: 0.0)
+            Duration of the change from the current setpoint value to the `target_val` in (hours).
+            Step change for duration = 0, ramp otherwise
+        slope : float, optional
+            Slope of the ramp profile of the setpoint change in setpoint_change/hour. Not considered if `target_val` and
+            `duration` are also both specified.
+        """
         label = 'YACSP'
         self._ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_reactor_temp(self, target_val=None, duration=None, slope=None):
+        """Initiates a ramp profile for the reactor temperature setpoint at at the current simulation time. The ramp will start
+        immediately, when :func:`~backend.siminterface.SimInterface.simulate` is called.
+        The setpoint ramp profile starts at the current simulation time and current setpoint value and follows a ramp
+        profile specified by the target value, duration and slope.
+        Only two of the profile defining parameters may be set simultaneously (if all three are set, 'slope' is ignored).
+
+        Parameters
+        ----------
+        target_val : float, optional
+            Value of the setpoint after the ramp profile is completed.
+        duration : float, optional (default: 0.0)
+            Duration of the change from the current setpoint value to the `target_val` in (hours).
+            Step change for duration = 0, ramp otherwise
+        slope : float, optional
+            Slope of the ramp profile of the setpoint change in setpoint_change/hour. Not considered if `target_val` and
+            `duration` are also both specified.
+        """
         label = 'ReactorTempSP'
         self._ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_recycle_valve_pos(self, target_val=None, duration=None, slope=None):
+        """Initiates a ramp profile for the recycle valve position setpoint at at the current simulation time. The ramp will start
+        immediately, when :func:`~backend.siminterface.SimInterface.simulate` is called.
+        The setpoint ramp profile starts at the current simulation time and current setpoint value and follows a ramp
+        profile specified by the target value, duration and slope.
+        Only two of the profile defining parameters may be set simultaneously (if all three are set, 'slope' is ignored).
+
+        Parameters
+        ----------
+        target_val : float, optional
+            Value of the setpoint after the ramp profile is completed.
+        duration : float, optional (default: 0.0)
+            Duration of the change from the current setpoint value to the `target_val` in (hours).
+            Step change for duration = 0, ramp otherwise
+        slope : float, optional
+            Slope of the ramp profile of the setpoint change in setpoint_change/hour. Not considered if `target_val` and
+            `duration` are also both specified.
+        """
         label = 'RecycleValvePosSP'
         self._ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_steam_valve_pos(self, target_val=None, duration=None, slope=None):
+        """Initiates a ramp profile for the steam valve position setpoint at at the current simulation time. The ramp will start
+        immediately, when :func:`~backend.siminterface.SimInterface.simulate` is called.
+        The setpoint ramp profile starts at the current simulation time and current setpoint value and follows a ramp
+        profile specified by the target value, duration and slope.
+        Only two of the profile defining parameters may be set simultaneously (if all three are set, 'slope' is ignored).
+
+        Parameters
+        ----------
+        target_val : float, optional
+            Value of the setpoint after the ramp profile is completed.
+        duration : float, optional (default: 0.0)
+            Duration of the change from the current setpoint value to the `target_val` in (hours).
+            Step change for duration = 0, ramp otherwise
+        slope : float, optional
+            Slope of the ramp profile of the setpoint change in setpoint_change/hour. Not considered if `target_val` and
+            `duration` are also both specified.
+        """
         label = 'SteamValvePosSP'
         self._ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_agitator_speed(self, target_val=None, duration=None, slope=None):
+        """Initiates a ramp profile for the agitator speed setpoint at at the current simulation time. The ramp will start
+        immediately, when :func:`~backend.siminterface.SimInterface.simulate` is called.
+        The setpoint ramp profile starts at the current simulation time and current setpoint value and follows a ramp
+        profile specified by the target value, duration and slope.
+        Only two of the profile defining parameters may be set simultaneously (if all three are set, 'slope' is ignored).
+
+        Parameters
+        ----------
+        target_val : float, optional
+            Value of the setpoint after the ramp profile is completed.
+        duration : float, optional (default: 0.0)
+            Duration of the change from the current setpoint value to the `target_val` in (hours).
+            Step change for duration = 0, ramp otherwise
+        slope : float, optional
+            Slope of the ramp profile of the setpoint change in setpoint_change/hour. Not considered if `target_val` and
+            `duration` are also both specified.
+        """
         label = 'AgitatorSpeedSP'
         self._ramp_setpoint(label, target_val, duration, slope)
 
