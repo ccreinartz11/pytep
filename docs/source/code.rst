@@ -7,6 +7,7 @@ The main API of PyTEP.
 
 .. autoclass:: backend.siminterface.SimInterface
    :members:
+   :undoc-members:
 
 MatlabBridge
 --------------
@@ -14,6 +15,7 @@ Low level wrapper for the Matlab engine for python that enables communication wi
 
 .. autoclass:: backend.matlab_bridge.MatlabBridge
    :members:
+   :undoc-members:
 
 engineutils
 -----------
@@ -21,3 +23,4 @@ General low-level utility functions for the Matlab engine for python, which are 
 
 .. automodule:: backend.engineutils
    :members:
+   :undoc-members:
