@@ -26,6 +26,7 @@ tout = 0;
 simout = zeros(1, 41);
 setpoints = sp;
 idv_list = idv;
+OpCost = 0;
 
 if (exist('controller_init', 'var'))
     Eadj_0 = controller_init(end, 1);

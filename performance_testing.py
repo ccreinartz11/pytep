@@ -2,8 +2,7 @@ import matlab.engine  # The program doesn't execute if this is not imported befo
 import backend.siminterface
 
 import time
-
-n_pauses = [1, 2, 5, 10, 15, 20]
+import pickle
 
 si = backend.siminterface.SimInterface.setup()
 
@@ -13,29 +12,14 @@ total_sim_time = 50
 
 # first simulation after start of the engine takes ca. 8 seconds longer than any following (no effect on results though)
 si.reset()
-print("Initial simtime: {}".format(si.process_data["time"].values[-1]))
 t_start = time.perf_counter()
-si.extend_simulation(total_sim_time)
+si.extend_simulation(1)
 si.simulate()
 si.update()
+print("Final simtime: {}".format(si.process_data["time"].values[-1]))
 t_end = time.perf_counter()
-
-print("Time first run: {}".format(t_end-t_start))
-
-# first simulation after start of the engine takes ca. 8 seconds longer than any following (no effect on results though)
-si.reset()
-print("Initial simtime: {}".format(si.process_data["time"].values[-1]))
-t_start = time.perf_counter()
-si.extend_simulation(total_sim_time)
-si.simulate()
-si.update()
-t_end = time.perf_counter()
-
-print("Time second run: {}".format(t_end-t_start))
-
-# print("Final simtime: {}".format(si.process_data["time"].values[-1]))
-# print(f"Simtime between pauses: {total_sim_time}")
-# print("Elapsed real time {}".format(t_end-t_start))
+#
+# n_pauses = [1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50]
 #
 # for np in n_pauses:
 #     si.reset()
@@ -53,4 +37,11 @@ print("Time second run: {}".format(t_end-t_start))
 #     print(f"Simtime between pauses: {time_between_pauses}")
 #     print("Elapsed real time {}".format(t_end-t_start))
 #
-# print(elapsed_times)
+# print("Elapsed times: {}".format(elapsed_times))
+# print("Times between pauses: {}".format(times_between_pauses))
+#
+# with open("tests/elapsed_times_perf.pkl", 'wb') as f:
+#     pickle.dump(elapsed_times, f)
+#
+# with open("tests/times_between_pauses_perf.pkl", 'wb') as f:
+#     pickle.dump(times_between_pauses, f)

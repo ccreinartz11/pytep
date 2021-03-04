@@ -29,7 +29,7 @@
 			"level": "INFO",
 				"class": "logging.handlers.WatchedFileHandler",
 				"formatter": "jsonshort",
-				"filename": "./log/scenario.log",
+				"filename": "./scenario.log",
 				"mode": "a",
 				"encoding": "utf-8"
 		}

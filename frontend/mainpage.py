@@ -4,8 +4,7 @@ import dash_bootstrap_components as dbc
 
 from frontend.main_plots_panel import main_plots_panel
 from frontend.input_panel import input_panel
-
-fixed_plots_panel = html.Div("Fixed plots here.")
+from frontend.cost_plot_panel import cost_plot_panel
 
 mainpage = html.Div(
     [
@@ -15,17 +14,18 @@ mainpage = html.Div(
                     [
                         dbc.Row(
                             dbc.Col(input_panel),
-                            className="h-50",
+                            className="h-75",
                             style={"box-sizing": "border-box"},
                         ),
                         dbc.Row(
-                            dbc.Col(fixed_plots_panel),
-                            className="h-50",
+                            dbc.Col(cost_plot_panel),
+                            className="h-25",
                             style={"background-color": "black"},
                         ),
                     ],
                     width=4,
-                    id="left-column",
+                    className="h-100",
+                    id="left-column"
                 ),
                 dbc.Col(
                     main_plots_panel,

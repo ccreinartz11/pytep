@@ -27,6 +27,7 @@ class SimInterface(metaclass=Singleton):
         self._process_data = pd.DataFrame()
         self._process_units = pd.DataFrame()
         self._setpoint_data = pd.DataFrame()
+        self._cost_data = pd.DataFrame()
         self._idv_data = pd.DataFrame()
         self._internal_sp_info = None
         self._logger = logging.getLogger(__name__)
@@ -39,6 +40,7 @@ class SimInterface(metaclass=Singleton):
         self._update_process_data()
         self._update_setpoint_data()
         self._update_idv_data()
+        self._update_cost_data()
 
     def reset(self):
         self._matlab_bridge.stop_simulation()
@@ -55,9 +57,6 @@ class SimInterface(metaclass=Singleton):
             current_time = time
         self._matlab_bridge.set_simpause_time(current_time + extra_sim_time)
 
-    def current_sim_time(self):
-        return self._process_data["Time"].values[-1]
-
     def _update_process_data(self):
         new_process_data = self._fetch_process_data()
         new_process_data = pd.DataFrame(
@@ -71,6 +70,15 @@ class SimInterface(metaclass=Singleton):
             data=setpoint_data, columns=self._setpoint_data.columns
         )
         self._setpoint_data = setpoint_data
+
+    def _update_cost_data(self):
+        cost_data = self._fetch_cost_data()
+        if isinstance(cost_data, float):
+            cost_data = [cost_data]
+        cost_data = pd.DataFrame(
+            data=cost_data, columns=self._cost_data.columns
+        )
+        self._cost_data = cost_data
 
     def _update_idv_data(self):
         idv_data = self._fetch_idv_data()
@@ -90,6 +98,10 @@ class SimInterface(metaclass=Singleton):
     def _fetch_setpoint_data(self):
         setpoints = self._matlab_bridge.get_workspace_variable("setpoints")
         return setpoints
+
+    def _fetch_cost_data(self):
+        cost = self._matlab_bridge.get_workspace_variable("OpCost")
+        return cost
     
     def _fetch_idv_data(self):
         idvs = self._matlab_bridge.get_workspace_variable("idv_list")
@@ -109,6 +121,8 @@ class SimInterface(metaclass=Singleton):
         with open(setupinfo_path / "idv_labels.pkl", "rb") as idv_label_file:
             idv_labels = pickle.load(idv_label_file)
         self._idv_data = pd.DataFrame(columns=idv_labels)
+        # pure dummy init for cost data
+        self._cost_data = pd.DataFrame(data=[0], columns=["cost"])
 
     def plot_labels(self):
         return self._process_data.columns.tolist()
@@ -126,6 +140,19 @@ class SimInterface(metaclass=Singleton):
     @process_data.setter
     def process_data(self, data):
         self._process_data = data
+
+    def current_sim_time(self):
+        return self._process_data["time"].values[-1]
+
+    def operating_cost(self):
+        """
+        Getter for the operating cost time series of the active simulation.
+
+        Returns
+        -------
+        Pandas dataframe containing a single "Cost" column.
+        """
+        return self._cost_data
 
     @staticmethod
     def setup():

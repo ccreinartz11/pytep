@@ -10,7 +10,7 @@ Welcome to pytep's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   code
 
 Indices and tables
 ==================
