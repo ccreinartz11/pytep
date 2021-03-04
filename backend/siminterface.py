@@ -33,9 +33,16 @@ class SimInterface(metaclass=Singleton):
         self._logger = logging.getLogger(__name__)
 
     def simulate(self):
+        """
+        Start/Continue the the active simulation until it is paused or terminates.
+        """
         self._matlab_bridge.run_until_paused()
 
     def update(self):
+        """
+        Fetches current simulation data from the MATLAB workspace and updates process_data, setpoint_data, idv_data and
+        cost_data.
+        """
         #  ???: Should the workspace refresh only be here? Does the workspace ever need to be updated otherwise?
         self._update_process_data()
         self._update_setpoint_data()
@@ -43,19 +50,32 @@ class SimInterface(metaclass=Singleton):
         self._update_cost_data()
 
     def reset(self):
+        """
+        Resets the simulation environment to it's initial condition. All unsaved simulation results are lost on reset.
+        On reset, the active simulation is stopped, the MATLAB workspace is cleared fully and then reloaded from an
+        initialization script in MATLAB.
+        :func:`~backend.siminterface.SimInterface.update` is called to reset the internal variables of the SimInterface.
+        """
         self._matlab_bridge.stop_simulation()
         self._matlab_bridge.reset_workspace()
         self._matlab_bridge.reset_simulink_blocks()
         self.update()
 
-    def extend_simulation(self, extra_sim_time=5):
-        """Extends the simulation time by extra_sim_time [h]"""
+    def extend_simulation(self, duration=5):
+        """
+        Sets the time in hours until the simulation is automatically paused after a call to :func:`~backend.siminterface.SimInterface.simulate`.
+
+        Parameters
+        ----------
+        duration: float
+            Additional simulation time in hours.
+        """
         time = self._matlab_bridge.get_workspace_variable("tout")
         if isinstance(time, Iterable):
             current_time = time[-1]
         else:
             current_time = time
-        self._matlab_bridge.set_simpause_time(current_time + extra_sim_time)
+        self._matlab_bridge.set_simpause_time(current_time + duration)
 
     def _update_process_data(self):
         new_process_data = self._fetch_process_data()
@@ -124,24 +144,59 @@ class SimInterface(metaclass=Singleton):
         # pure dummy init for cost data
         self._cost_data = pd.DataFrame(data=[0], columns=["cost"])
 
-    def plot_labels(self):
+    def process_data_labels(self):
+        """
+        Returns the columns of the dataframe that is returned when calling :func:`~backend.siminterface.SimInterface.process_data`.
+
+        Returns
+        -------
+        process_data_columns : list
+            List of processdata labels
+        """
         return self._process_data.columns.tolist()
 
     def timed_var(self, var_name):
-        """Returns a dataframe with columns `time` and `var_name`"""
+        """
+        Returns a dataframe with columns ["time", "var_name"], containing the time series representing the current
+        simulation output.
+
+        Parameters
+        ----------
+        var_name: string
+            :func:`~backend.siminterface.SimInterface.process_data_labels` returns a list of feasible variable names.
+
+        Returns
+        -------
+        timed_var : pandas dataframe
+            Dataframe with columns ["time", "var_name"]
+        """
         if var_name == "time":
             return self._process_data[["time"]]
         return self._process_data[["time", var_name]]
 
     @property
     def process_data(self):
+        """
+        Returns a dataframe containing the process data timeseries.
+
+        Returns
+        -------
+        process_data: pandas dataframe
+        """
         return self._process_data
 
-    @process_data.setter
-    def process_data(self, data):
-        self._process_data = data
+    # @process_data.setter
+    # def process_data(self, data):
+    #     self._process_data = data
 
     def current_sim_time(self):
+        """
+        Getter for the current simulation time in hours.
+
+        Returns
+        -------
+        simulation_time: float
+        """
         return self._process_data["time"].values[-1]
 
     def operating_cost(self):
@@ -150,12 +205,23 @@ class SimInterface(metaclass=Singleton):
 
         Returns
         -------
-        Pandas dataframe containing a single "Cost" column.
+        Operating cost: pandas dataframe
+            Pandas dataframe containing a "Cost" column.
         """
         return self._cost_data
 
     @staticmethod
     def setup():
+        """
+        Setup for the SimInterface. The first initialization of SimInterface should be done using this method. Any
+        following initialization should be done using the regular constructor, which will return the already existing
+        SimInterface object (SimInterface is a singleton class).
+
+        Returns
+        -------
+        simulation interface: backend.siminterface.SimInterface()
+            Fully initialized simulation interface for the Tennessee Eastman Simulator.
+        """
         si = SimInterface()
         mb = MatlabBridge()
         si._matlab_bridge = mb
@@ -164,21 +230,19 @@ class SimInterface(metaclass=Singleton):
         si.reset()
         return si
 
-    @staticmethod
-    def _dummy_setup():
-        interface = SimInterface()
-        dummy_data = pd.read_pickle("./frontend/dummy_frame.pkl")
-        interface.process_data = dummy_data
-        return interface
+    def get_var_unit(self, var_label):
+        """
+        Returns the unit of any process variable included in the dictionary returned when calling :func:`~backend.siminterface.SimInterface.process_data`
 
-    @staticmethod
-    def _setup_no_engine():
-        si = SimInterface()
-        si._load_dataframes()
-        return si
+        Parameters
+        ----------
+        var_label: Label of the process variable for which the unit will be returned.
 
-    def get_var_unit(self, col_label):
-        return self._process_units[col_label][0]
+        Returns
+        -------
+        var unit: string
+        """
+        return self._process_units[var_label][0]
 
     # set faults (idv)
 

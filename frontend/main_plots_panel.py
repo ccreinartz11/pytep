@@ -16,7 +16,7 @@ main_plots_panel = html.Div(
         dbc.Row(
             [
                 dbc.Col([
-                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
+                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.process_data_labels()],
                                  value='time',
                                  multi=False,
                                  clearable=False,
@@ -27,7 +27,7 @@ main_plots_panel = html.Div(
                     style={"background-color": "blue", "border": "solid"},
                 ),
                 dbc.Col([
-                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
+                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.process_data_labels()],
                                  value='time',
                                  multi=False,
                                  clearable=False,
@@ -44,7 +44,7 @@ main_plots_panel = html.Div(
         dbc.Row(
             [
                 dbc.Col([
-                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
+                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.process_data_labels()],
                                  value='time',
                                  multi=False,
                                  clearable=False,
@@ -55,7 +55,7 @@ main_plots_panel = html.Div(
                     style={"background-color": "blue", "border": "solid"}
                 ),
                 dbc.Col([
-                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
+                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.process_data_labels()],
                                  value='time',
                                  multi=False,
                                  clearable=False,
@@ -71,7 +71,7 @@ main_plots_panel = html.Div(
         ),        dbc.Row(
             [
                 dbc.Col([
-                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
+                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.process_data_labels()],
                                  value='time',
                                  multi=False,
                                  clearable=False,
@@ -82,7 +82,7 @@ main_plots_panel = html.Div(
                     style={"background-color": "blue", "border": "solid"}
                 ),
                 dbc.Col([
-                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
+                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.process_data_labels()],
                                  value='time',
                                  multi=False,
                                  clearable=False,
@@ -98,7 +98,7 @@ main_plots_panel = html.Div(
         ),        dbc.Row(
             [
                 dbc.Col([
-                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
+                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.process_data_labels()],
                                  value='time',
                                  multi=False,
                                  clearable=False,
@@ -109,7 +109,7 @@ main_plots_panel = html.Div(
                     style={"background-color": "blue", "border": "solid"}
                 ),
                 dbc.Col([
-                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.plot_labels()],
+                    dcc.Dropdown(options=[{'label': label, 'value': label} for label in siminterface.process_data_labels()],
                                  value='time',
                                  multi=False,
                                  clearable=False,
