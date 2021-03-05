@@ -82,6 +82,15 @@ class SimInterface(metaclass=Singleton):
             current_time = time
         self._matlab_bridge.set_simpause_time(current_time + duration)
 
+    # def _update_process_data(self):
+    #     new_process_data = self._fetch_new_process_data()
+    #     if new_process_data.size == 0:
+    #         return  # no new process data
+    #     new_process_data = pd.DataFrame(
+    #         data=new_process_data, columns=self._process_data.columns
+    #     )
+    #     self._process_data = pd.concat([self._process_data, new_process_data], axis=0)
+
     def _update_process_data(self):
         new_process_data = self._fetch_process_data()
         new_process_data = pd.DataFrame(
@@ -114,6 +123,8 @@ class SimInterface(metaclass=Singleton):
         
     def _fetch_new_process_data(self):
         time = self._matlab_bridge.get_workspace_variable("latest_tout")
+        if time.size == 0:
+            return np.asarray([])  # no new processdata
         if not isinstance(time, Iterable):
             time = np.asarray(time).reshape(1, 1)
         process_vars = self._matlab_bridge.get_workspace_variable("latest_simout")
