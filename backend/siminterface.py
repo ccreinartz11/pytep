@@ -26,6 +26,7 @@ class SimInterface(metaclass=Singleton):
         self._matlab_bridge = None
         self._process_data = pd.DataFrame()
         self._process_units = pd.DataFrame()
+        self._manipulated_variables = pd.DataFrame() # TODO: XMV NOT INCLUDED IN SIMINTERFACE
         self._setpoint_data = pd.DataFrame()
         self._cost_data = pd.DataFrame()
         self._idv_data = pd.DataFrame()
@@ -43,7 +44,11 @@ class SimInterface(metaclass=Singleton):
         Fetches current simulation data from the MATLAB workspace and updates process_data, setpoint_data, idv_data and
         cost_data.
         """
-        #  ???: Should the workspace refresh only be here? Does the workspace ever need to be updated otherwise?
+        try:
+            current_sim_time = self.current_sim_time()
+        except IndexError:
+            current_sim_time = 0
+        self._matlab_bridge.isolate_recent_data_in_workspace(current_sim_time)
         self._update_process_data()
         self._update_setpoint_data()
         self._update_idv_data()
@@ -106,6 +111,14 @@ class SimInterface(metaclass=Singleton):
             data=idv_data, columns=self._idv_data.columns
         )
         self._idv_data = idv_data
+        
+    def _fetch_new_process_data(self):
+        time = self._matlab_bridge.get_workspace_variable("latest_tout")
+        if not isinstance(time, Iterable):
+            time = np.asarray(time).reshape(1, 1)
+        process_vars = self._matlab_bridge.get_workspace_variable("latest_simout")
+        time_and_pv = np.hstack((time, process_vars))
+        return time_and_pv
 
     def _fetch_process_data(self):
         time = self._matlab_bridge.get_workspace_variable("tout")

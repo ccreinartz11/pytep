@@ -39,7 +39,7 @@ class MatlabBridge:
     #  Simulation Commands
 
     def run_until_paused(self):
-        """Runs the Simulink Simulation until it is succesfully paused or stopped
+        """Runs the Simulink Simulation until it is paused or stopped
         """
         self.run_simulation()
         self.block_until_sim_paused()
@@ -681,6 +681,21 @@ class MatlabBridge:
                 var = matlab.double(value.tolist())
             else:
                 var = value.tolist()  # converted to cell-array in matlab
+        elif isinstance(value, np.float):
+            var = float(value)
         else:
             var = value
         engineutils.set_variable(self._eng, name, var)
+
+    def isolate_recent_data_in_workspace(self, ref_time):
+        """Extracts the parts of the timeseries simulation data in the MATLAB workspace for which t_sim > ref_time and
+        and stores them in separate arrays in the MATlAB workspace.
+        Created arrays are: latest_tout, latest_op_cost, latest_simout, latest_xmv, latest_setpoints, latest_idv_list
+
+        Parameters
+        ----------
+        ref_time: float
+            Absolute simulation time.
+        """
+        self.set_workspace_variable("t_current", ref_time)
+        self._eng.isolate_recent_data_in_workspace(nargout=0)

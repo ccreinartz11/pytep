@@ -24,6 +24,7 @@ Ts_save = 0.05;
 % dummy init for pytep queries
 tout = 0;
 simout = zeros(1, 41);
+xmv = zeros(1, 12); 
 setpoints = sp;
 idv_list = idv;
 OpCost = 0;
