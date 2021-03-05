@@ -133,6 +133,7 @@ class SimInterface(metaclass=Singleton):
         self._setpoint_data = setpoint_data
 
     def _update_cost_data(self):
+        # FIXME: Doesn't work if there is no new cost data
         new_data = self._fetch_new_cost_data()
         new_data = pd.DataFrame(
             data=new_data, columns=self._cost_data.columns
