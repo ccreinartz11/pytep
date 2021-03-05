@@ -44,9 +44,12 @@ class SimInterface(metaclass=Singleton):
         Fetches current simulation data from the MATLAB workspace and updates process_data, setpoint_data, idv_data and
         cost_data.
         """
+        # TODO: Check here if there even is new data. Skip if not.
         try:
             current_sim_time = self.current_sim_time()
         except IndexError:
+            Warning("Current sim time is empty. This should not happen with proper initialization. "
+                    "Current sim time is set to 0.")
             current_sim_time = 0
         self._matlab_bridge.isolate_recent_data_in_workspace(current_sim_time)
         self._update_process_data()
@@ -64,7 +67,17 @@ class SimInterface(metaclass=Singleton):
         self._matlab_bridge.stop_simulation()
         self._matlab_bridge.reset_workspace()
         self._matlab_bridge.reset_simulink_blocks()
-        self.update()
+        self._init_internal_variables()
+
+    def _init_internal_variables(self):
+        """
+        Fetches current simulation data from the MATLAB workspace and updates process_data, setpoint_data, idv_data and
+        cost_data.
+        """
+        self._init_process_data()
+        self._init_setpoint_data()
+        self._init_idv_data()
+        self._init_cost_data()
 
     def extend_simulation(self, duration=5):
         """
@@ -82,23 +95,37 @@ class SimInterface(metaclass=Singleton):
             current_time = time
         self._matlab_bridge.set_simpause_time(current_time + duration)
 
+    def _update_process_data(self):
+        new_process_data = self._fetch_new_process_data()
+        if new_process_data.size == 0:
+            return  # no new process data
+        new_process_data = pd.DataFrame(
+            data=new_process_data, columns=self._process_data.columns
+        )
+        self._process_data = pd.concat([self._process_data, new_process_data], axis=0)
+
     # def _update_process_data(self):
-    #     new_process_data = self._fetch_new_process_data()
-    #     if new_process_data.size == 0:
-    #         return  # no new process data
+    #     new_process_data = self._fetch_process_data()
     #     new_process_data = pd.DataFrame(
     #         data=new_process_data, columns=self._process_data.columns
     #     )
-    #     self._process_data = pd.concat([self._process_data, new_process_data], axis=0)
+    #     self._process_data = new_process_data
 
-    def _update_process_data(self):
+    def _init_process_data(self):
         new_process_data = self._fetch_process_data()
         new_process_data = pd.DataFrame(
             data=new_process_data, columns=self._process_data.columns
         )
-        self._process_data = new_process_data  # FIXME: It would be better if the new process data was appended
+        self._process_data = new_process_data
 
     def _update_setpoint_data(self):
+        new_data = self._fetch_new_setpoint_data()
+        new_data = pd.DataFrame(
+            data=new_data, columns=self._setpoint_data.columns
+        )
+        self._setpoint_data = pd.concat([self._setpoint_data, new_data], axis=0)
+
+    def _init_setpoint_data(self):
         setpoint_data = self._fetch_setpoint_data()
         setpoint_data = pd.DataFrame(
             data=setpoint_data, columns=self._setpoint_data.columns
@@ -106,6 +133,13 @@ class SimInterface(metaclass=Singleton):
         self._setpoint_data = setpoint_data
 
     def _update_cost_data(self):
+        new_data = self._fetch_new_cost_data()
+        new_data = pd.DataFrame(
+            data=new_data, columns=self._cost_data.columns
+        )
+        self._cost_data = pd.concat([self._cost_data, new_data], axis=0)
+
+    def _init_cost_data(self):
         cost_data = self._fetch_cost_data()
         if isinstance(cost_data, float):
             cost_data = [cost_data]
@@ -115,12 +149,19 @@ class SimInterface(metaclass=Singleton):
         self._cost_data = cost_data
 
     def _update_idv_data(self):
+        new_data = self._fetch_new_idv_data()
+        new_data = pd.DataFrame(
+            data=new_data, columns=self._idv_data.columns
+        )
+        self._idv_data = pd.concat([self._idv_data, new_data], axis=0)
+
+    def _init_idv_data(self):
         idv_data = self._fetch_idv_data()
         idv_data = pd.DataFrame(
             data=idv_data, columns=self._idv_data.columns
         )
         self._idv_data = idv_data
-        
+
     def _fetch_new_process_data(self):
         time = self._matlab_bridge.get_workspace_variable("latest_tout")
         if time.size == 0:
@@ -139,14 +180,27 @@ class SimInterface(metaclass=Singleton):
         time_and_pv = np.hstack((time, process_vars))
         return time_and_pv
 
+    def _fetch_new_setpoint_data(self):
+        setpoints = self._matlab_bridge.get_workspace_variable("latest_setpoints")
+        return setpoints
+
     def _fetch_setpoint_data(self):
         setpoints = self._matlab_bridge.get_workspace_variable("setpoints")
         return setpoints
 
+    def _fetch_new_cost_data(self):
+        # TODO: Check if this fails if only one new time is returned or if no new data is present
+        cost = self._matlab_bridge.get_workspace_variable("latest_op_cost")
+        return cost
+
     def _fetch_cost_data(self):
         cost = self._matlab_bridge.get_workspace_variable("OpCost")
         return cost
-    
+
+    def _fetch_new_idv_data(self):
+        idvs = self._matlab_bridge.get_workspace_variable("latest_idv_list")
+        return idvs
+
     def _fetch_idv_data(self):
         idvs = self._matlab_bridge.get_workspace_variable("idv_list")
         return idvs
