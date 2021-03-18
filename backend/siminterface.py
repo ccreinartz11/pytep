@@ -96,20 +96,16 @@ class SimInterface(metaclass=Singleton):
         self._matlab_bridge.set_simpause_time(current_time + duration)
 
     def _update_process_data(self):
-        new_process_data = self._fetch_new_process_data()
-        if new_process_data.size == 0:
-            return  # no new process data
-        new_process_data = pd.DataFrame(
-            data=new_process_data, columns=self._process_data.columns
-        )
-        self._process_data = pd.concat([self._process_data, new_process_data], axis=0)
-
-    # def _update_process_data(self):
-    #     new_process_data = self._fetch_process_data()
-    #     new_process_data = pd.DataFrame(
-    #         data=new_process_data, columns=self._process_data.columns
-    #     )
-    #     self._process_data = new_process_data
+        try:
+            new_process_data = self._fetch_new_process_data()
+            if new_process_data.size == 0:
+                return  # no new process data
+            new_process_data = pd.DataFrame(
+                data=new_process_data, columns=self._process_data.columns
+            )
+            self._process_data = pd.concat([self._process_data, new_process_data], axis=0)
+        except ValueError:
+            pass
 
     def _init_process_data(self):
         new_process_data = self._fetch_process_data()
@@ -119,11 +115,15 @@ class SimInterface(metaclass=Singleton):
         self._process_data = new_process_data
 
     def _update_setpoint_data(self):
-        new_data = self._fetch_new_setpoint_data()
-        new_data = pd.DataFrame(
-            data=new_data, columns=self._setpoint_data.columns
-        )
-        self._setpoint_data = pd.concat([self._setpoint_data, new_data], axis=0)
+        try:
+            new_data = self._fetch_new_setpoint_data()
+            new_data = pd.DataFrame(
+                data=new_data, columns=self._setpoint_data.columns
+            )
+            self._setpoint_data = pd.concat([self._setpoint_data, new_data], axis=0)
+        except ValueError:
+            pass  # This is executed if there is no new data since the last update
+
 
     def _init_setpoint_data(self):
         setpoint_data = self._fetch_setpoint_data()
@@ -133,12 +133,14 @@ class SimInterface(metaclass=Singleton):
         self._setpoint_data = setpoint_data
 
     def _update_cost_data(self):
-        # FIXME: Doesn't work if there is no new cost data
-        new_data = self._fetch_new_cost_data()
-        new_data = pd.DataFrame(
-            data=new_data, columns=self._cost_data.columns
-        )
-        self._cost_data = pd.concat([self._cost_data, new_data], axis=0)
+        try:
+            new_data = self._fetch_new_cost_data()
+            new_data = pd.DataFrame(
+                data=new_data, columns=self._cost_data.columns
+            )
+            self._cost_data = pd.concat([self._cost_data, new_data], axis=0)
+        except ValueError:
+            pass
 
     def _init_cost_data(self):
         cost_data = self._fetch_cost_data()
@@ -150,11 +152,14 @@ class SimInterface(metaclass=Singleton):
         self._cost_data = cost_data
 
     def _update_idv_data(self):
-        new_data = self._fetch_new_idv_data()
-        new_data = pd.DataFrame(
-            data=new_data, columns=self._idv_data.columns
-        )
-        self._idv_data = pd.concat([self._idv_data, new_data], axis=0)
+        try:
+            new_data = self._fetch_new_idv_data()
+            new_data = pd.DataFrame(
+                data=new_data, columns=self._idv_data.columns
+            )
+            self._idv_data = pd.concat([self._idv_data, new_data], axis=0)
+        except ValueError:
+            pass
 
     def _init_idv_data(self):
         idv_data = self._fetch_idv_data()

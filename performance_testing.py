@@ -8,21 +8,22 @@ si = backend.siminterface.SimInterface.setup()
 
 elapsed_times = {}
 times_between_pauses = {}
-total_sim_time = 50
+total_sim_time = 100
 
 # first simulation after start of the engine takes ca. 8 seconds longer than any following (no effect on results though)
 si.reset()
 t_start = time.perf_counter()
-si.extend_simulation(50)
+si.extend_simulation(100)
 si.simulate()
 si.update()
 print("Final simtime: {}".format(si.process_data["time"].values[-1]))
 t_end = time.perf_counter()
 
 a = range(1, 11)
-tbp = [aa/10 for aa in a]
+tbp = [0.05] + [aa/10 for aa in a] + [2, 3, 4, 5]
+# tbp = [1, 5]
 
-for time_between_pauses in tbp:
+for time_between_pauses in reversed(tbp):
     si.reset()
     current_time = 0
     print("Initial simtime: {}".format(si.process_data["time"].values[-1]))
@@ -42,5 +43,5 @@ for time_between_pauses in tbp:
 print("Elapsed times: {}".format(elapsed_times))
 print("Times between pauses: {}".format(times_between_pauses))
 
-with open("tests/elapsed_times_perf_005_to_1.pkl", 'wb') as f:
+with open("tests/elapsed_times_perf_100hours_005_to_1.pkl", 'wb') as f:
     pickle.dump(elapsed_times, f)
