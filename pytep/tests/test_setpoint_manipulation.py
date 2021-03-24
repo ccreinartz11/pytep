@@ -1,6 +1,6 @@
-import pytep.backend.siminterface
+import pytep.siminterface
 
-si = pytep.backend.siminterface.SimInterface.setup()
+si = pytep.siminterface.SimInterface.setup()
 
 
 def test_production_ramp():

@@ -1,7 +1,7 @@
-import pytep.backend.siminterface
+import pytep.siminterface
 
 
-si = pytep.backend.siminterface.SimInterface.setup()
+si = pytep.siminterface.SimInterface.setup()
 
 
 def test_idv_manipulation_no_delay():

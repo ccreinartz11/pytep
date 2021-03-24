@@ -1,10 +1,9 @@
-import matlab.engine
-import pytep.backend.siminterface
+import pytep.siminterface
 
 import time
 import pickle
 
-si = pytep.backend.siminterface.SimInterface.setup()
+si = pytep.siminterface.SimInterface.setup()
 
 elapsed_times = {}
 times_between_pauses = {}

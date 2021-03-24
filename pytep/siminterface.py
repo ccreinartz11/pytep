@@ -1,3 +1,4 @@
+import matlab.engine
 import pandas as pd
 import numpy as np
 import pickle
@@ -5,14 +6,14 @@ import pathlib
 from collections.abc import Iterable
 
 from pytep.utils.singleton import Singleton
-from pytep.backend.matlab_bridge import MatlabBridge
+from pytep.matlab_bridge import MatlabBridge
 
 #  setup logger
 import logging
 import logging.config
 import json
 
-with open(pathlib.Path(__file__).parent.parent.absolute() / "loginfo.json") as f:
+with open(pathlib.Path(__file__).parent.absolute() / "loginfo.json") as f:
     config = json.load(f)
     logging.config.dictConfig(config)
 

@@ -5,7 +5,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output, ALL, State, MATCH
 from dashboard.app import app
 
-import pytep.backend.siminterface as simulation_interface
+import pytep.siminterface as simulation_interface
 siminterface = simulation_interface.SimInterface()
 
 f_vars = ["f1", "f2", "f3", "f4"]

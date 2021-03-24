@@ -5,7 +5,7 @@ import plotly.express as px
 
 from dashboard.app import app
 
-import pytep.backend.siminterface as simulation_interface
+import pytep.siminterface as simulation_interface
 siminterface = simulation_interface.SimInterface()
 
 cost_plot_panel = html.Div(
