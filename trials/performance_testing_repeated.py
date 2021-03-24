@@ -45,5 +45,5 @@ for idx in range(100):
         print("Elapsed real time {}".format(t_end-t_start))
     elapsed_times_summary["Iteration{}".format(idx)] = elapsed_times
 
-    with open("trials/performance_summary_100hours", 'wb') as f:
+    with open("performance_summary_100hours", 'wb') as f:
         pickle.dump(elapsed_times, f)

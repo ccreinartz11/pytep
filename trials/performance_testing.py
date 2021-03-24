@@ -1,3 +1,4 @@
+import matlab.engine
 import pytep.backend.siminterface
 
 import time
@@ -42,5 +43,5 @@ for time_between_pauses in reversed(tbp):
 print("Elapsed times: {}".format(elapsed_times))
 print("Times between pauses: {}".format(times_between_pauses))
 
-with open("trials/elapsed_times_perf_100hours_005_to_1.pkl", 'wb') as f:
+with open("elapsed_times_perf_100hours_005_to_1.pkl", 'wb') as f:
     pickle.dump(elapsed_times, f)
