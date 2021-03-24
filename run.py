@@ -1,3 +1,4 @@
+import matlab.engine  # The program doesn't execute if this is not imported before the simulation interface
 import pytep.backend.siminterface as simulation_interface
 si = simulation_interface.SimInterface.setup()  # siminterface is singleton. Must be set up first.
 import index
