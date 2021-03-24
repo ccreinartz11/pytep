@@ -1,6 +1,5 @@
 from app import app
-from app import server
-from frontend import mainpage
+from dashboard.content import mainpage
 
 app.layout = mainpage.mainpage
 

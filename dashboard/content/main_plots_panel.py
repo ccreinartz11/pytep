@@ -4,7 +4,7 @@ import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 import plotly.express as px
 
-from app import app
+from dashboard.app import app
 
 import pytep.backend.siminterface as simulation_interface
 siminterface = simulation_interface.SimInterface()

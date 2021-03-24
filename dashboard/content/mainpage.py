@@ -1,10 +1,9 @@
 import dash_html_components as html
-import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 
-from frontend.main_plots_panel import main_plots_panel
-from frontend.input_panel import input_panel
-from frontend.cost_plot_panel import cost_plot_panel
+from dashboard.content.main_plots_panel import main_plots_panel
+from dashboard.content.input_panel import input_panel
+from dashboard.content.cost_plot_panel import cost_plot_panel
 
 mainpage = html.Div(
     [
