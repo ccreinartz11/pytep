@@ -1,10 +1,9 @@
-import matlab.engine  # The program doesn't execute if this is not imported before the simulation interface
-import backend.siminterface
+import pytep.backend.siminterface
 
 import time
 import pickle
 
-si = backend.siminterface.SimInterface.setup()
+si = pytep.backend.siminterface.SimInterface.setup()
 
 elapsed_times = {}
 times_between_pauses = {}
@@ -46,5 +45,5 @@ for idx in range(100):
         print("Elapsed real time {}".format(t_end-t_start))
     elapsed_times_summary["Iteration{}".format(idx)] = elapsed_times
 
-    with open("tests/performance_summary_100hours", 'wb') as f:
+    with open("trials/performance_summary_100hours", 'wb') as f:
         pickle.dump(elapsed_times, f)

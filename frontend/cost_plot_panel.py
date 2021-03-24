@@ -1,14 +1,11 @@
-import pandas as pd
-
 import dash_html_components as html
 import dash_core_components as dcc
-import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 import plotly.express as px
 
 from app import app
 
-import backend.siminterface as simulation_interface
+import pytep.backend.siminterface as simulation_interface
 siminterface = simulation_interface.SimInterface()
 
 cost_plot_panel = html.Div(

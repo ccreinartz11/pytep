@@ -2,10 +2,10 @@ import dash
 import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 import dash_html_components as html
-from dash.dependencies import Input, Output, ALL, State, MATCH, ALLSMALLER
+from dash.dependencies import Input, Output, ALL, State, MATCH
 from app import app
 
-import backend.siminterface as simulation_interface
+import pytep.backend.siminterface as simulation_interface
 siminterface = simulation_interface.SimInterface()
 
 f_vars = ["f1", "f2", "f3", "f4"]

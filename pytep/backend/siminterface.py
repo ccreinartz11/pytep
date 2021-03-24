@@ -4,14 +4,13 @@ import pickle
 import pathlib
 from collections.abc import Iterable
 
-from utils.singleton import Singleton
-from backend.matlab_bridge import MatlabBridge
+from pytep.utils.singleton import Singleton
+from pytep.backend.matlab_bridge import MatlabBridge
 
 #  setup logger
 import logging
 import logging.config
 import json
-from pythonjsonlogger import jsonlogger
 
 with open(pathlib.Path(__file__).parent.parent.absolute() / "loginfo.json") as f:
     config = json.load(f)

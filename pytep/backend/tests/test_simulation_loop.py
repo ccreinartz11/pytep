@@ -1,7 +1,6 @@
-import numpy as np
 import time
 
-import backend.matlab_bridge as matlab_bridge
+import pytep.backend.matlab_bridge as matlab_bridge
 
 bridge = matlab_bridge.MatlabBridge()
 

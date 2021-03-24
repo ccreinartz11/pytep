@@ -4,7 +4,7 @@ from pathlib import Path
 import time
 from collections.abc import Iterable
 
-import backend.engineutils as engineutils
+import pytep.backend.engineutils as engineutils
 
 
 class MatlabBridge:

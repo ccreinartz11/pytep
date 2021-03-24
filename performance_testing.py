@@ -1,10 +1,9 @@
-import matlab.engine  # The program doesn't execute if this is not imported before the simulation interface
-import backend.siminterface
+import pytep.backend.siminterface
 
 import time
 import pickle
 
-si = backend.siminterface.SimInterface.setup()
+si = pytep.backend.siminterface.SimInterface.setup()
 
 elapsed_times = {}
 times_between_pauses = {}
@@ -43,5 +42,5 @@ for time_between_pauses in reversed(tbp):
 print("Elapsed times: {}".format(elapsed_times))
 print("Times between pauses: {}".format(times_between_pauses))
 
-with open("tests/elapsed_times_perf_100hours_005_to_1.pkl", 'wb') as f:
+with open("trials/elapsed_times_perf_100hours_005_to_1.pkl", 'wb') as f:
     pickle.dump(elapsed_times, f)
