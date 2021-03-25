@@ -17,16 +17,18 @@ def _convert_df_to_plot_format(df):
 
 
 def main():
-    dict50 = pd.read_pickle("performance_50hours")
-    df50 = _convert_df_to_plot_format(dict50)
-    dict100 = pd.read_pickle("performance_100hours")
-    df100 = _convert_df_to_plot_format(dict100)
-    f, ax = plt.subplots(figsize=(5, 5))
-    ax.set(xscale="linear", yscale="linear")
-    sns.lineplot(data=df50[df50["x"] <= 5], x="x", y="y", ax=ax)
-    sns.lineplot(data=df100[df100["x"] <= 5], x="x", y="y", ax=ax)
-    plt.show()
+    df = pd.read_pickle('trials/performance_100hour_simulations.pkl')
 
+
+    mean = df.mean()
+    std  = df.std()
+    plt.plot(mean.index, mean.values, 'b')
+    plt.plot(mean.index, mean.values - 2*std.values, '--r')
+    plt.plot(mean.index, mean.values + 2*std.values, '--r')
+    plt.xscale('log', basex=2)
+    plt.ylabel('Time (seconds)')
+    plt.xlabel('Simulation time between pauses (hours)')
+    plt.show()
 
 if __name__ == '__main__':
     main()
