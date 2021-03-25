@@ -1,6 +1,8 @@
 import pytep.siminterface
 
 import time
+import pandas as pd
+from pathlib import Path
 import pickle
 
 si = pytep.siminterface.SimInterface.setup()
@@ -21,12 +23,12 @@ t_end = time.perf_counter()
 a = range(1, 11)
 tbp = [0.05] + [aa/10 for aa in a] + [2, 3, 4, 5]
 
-elapsed_times_summary = {}
+perf_data = pd.DataFrame(columns=tbp)
 
 for idx in range(100):
     elapsed_times = {}
     a = range(1, 11)
-    tbp = [0.05] + [aa / 10 for aa in a] + [2, 3, 4, 5]
+    tbp = [0.05] + [aa / 10 for aa in a] + [2, 3, 4, 5, 10, 25, 50]
     for time_between_pauses in reversed(tbp):
         si.reset()
         current_time = 0
@@ -43,7 +45,7 @@ for idx in range(100):
         print("Final simtime: {}".format(si.process_data["time"].values[-1]))
         print(f"Simtime between pauses: {time_between_pauses}")
         print("Elapsed real time {}".format(t_end-t_start))
-    elapsed_times_summary["Iteration{}".format(idx)] = elapsed_times
+    perf_data = perf_data.append(elapsed_times, ignore_index=True)
+    perf_data.to_pickle(Path(__file__).parent / 'performance_100hour_simulations.pkl')
 
-    with open("performance_summary_100hours", 'wb') as f:
-        pickle.dump(elapsed_times, f)
+
