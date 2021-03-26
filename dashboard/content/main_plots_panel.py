@@ -19,7 +19,7 @@ main_plots_panel = html.Div(
                                  multi=False,
                                  clearable=False,
                                  id='dropdown_p1'),
-                    dcc.Graph(figure={}, className="w-100 h-100", id="graph_p1")],
+                    dcc.Graph(figure={}, className="graph-height", id="graph_p1")],
                     className="w-50 h-100",
                     id="main-plot-one",
                     style={"background-color": "blue", "border": "solid"},
@@ -30,13 +30,13 @@ main_plots_panel = html.Div(
                                  multi=False,
                                  clearable=False,
                                  id='dropdown_p2'),
-                    dcc.Graph(figure={}, className="w-100 h-100", id="graph_p2")],
+                    dcc.Graph(figure={}, className="graph-height", id="graph_p2")],
                     className="w-50 h-100",
                     id="main-plot-two",
                     style={"background-color": "blue", "border": "solid"}
                 )
             ],
-            className="h-25",
+            className="graph-container",
             no_gutters=True,
         ),
         dbc.Row(
@@ -47,7 +47,7 @@ main_plots_panel = html.Div(
                                  multi=False,
                                  clearable=False,
                                  id='dropdown_p3'),
-                    dcc.Graph(figure={}, className="w-100 h-100", id="graph_p3")],
+                    dcc.Graph(figure={}, className="graph-height", id="graph_p3")],
                     className="w-50 h-100",
                     id="main-plot-three",
                     style={"background-color": "blue", "border": "solid"}
@@ -58,13 +58,13 @@ main_plots_panel = html.Div(
                                  multi=False,
                                  clearable=False,
                                  id='dropdown_p4'),
-                    dcc.Graph(figure={}, className="w-100 h-100", id="graph_p4")],
+                    dcc.Graph(figure={}, className="graph-height", id="graph_p4")],
                     className="w-50 h-100",
                     id="main-plot-four",
                     style={"background-color": "blue", "border": "solid"}
                 )
             ],
-            className="h-25",
+            className="graph-container",
             no_gutters=True,
         ),        dbc.Row(
             [
@@ -74,7 +74,7 @@ main_plots_panel = html.Div(
                                  multi=False,
                                  clearable=False,
                                  id='dropdown_p5'),
-                    dcc.Graph(figure={}, className="w-100 h-100", id="graph_p5")],
+                    dcc.Graph(figure={}, className="graph-height", id="graph_p5")],
                     className="w-50 h-100",
                     id="main-plot-five",
                     style={"background-color": "blue", "border": "solid"}
@@ -85,13 +85,13 @@ main_plots_panel = html.Div(
                                  multi=False,
                                  clearable=False,
                                  id='dropdown_p6'),
-                    dcc.Graph(figure={}, className="w-100 h-100", id="graph_p6")],
+                    dcc.Graph(figure={}, className="graph-height", id="graph_p6")],
                     className="w-50 h-100",
                     id="main-plot-six",
                     style={"background-color": "blue", "border": "solid"}
                 )
             ],
-            className="h-25",
+            className="graph-container",
             no_gutters=True,
         ),        dbc.Row(
             [
@@ -101,7 +101,7 @@ main_plots_panel = html.Div(
                                  multi=False,
                                  clearable=False,
                                  id='dropdown_p7'),
-                    dcc.Graph(figure={}, className="w-100 h-100", id="graph_p7")],
+                    dcc.Graph(figure={}, className="graph-height", id="graph_p7")],
                     className="w-50 h-100",
                     id="main-plot-seven",
                     style={"background-color": "blue", "border": "solid"}
@@ -112,13 +112,13 @@ main_plots_panel = html.Div(
                                  multi=False,
                                  clearable=False,
                                  id='dropdown_p8'),
-                    dcc.Graph(figure={}, className="w-100 h-100", id="graph_p8")],
+                    dcc.Graph(figure={}, className="graph-height", id="graph_p8")],
                     className="w-50 h-100",
                     id="main-plot-eight",
                     style={"background-color": "blue", "border": "solid"}
                 )
             ],
-            className="h-25",
+            className="graph-container",
             no_gutters=True,
         ),
     ],
@@ -133,6 +133,7 @@ main_plots_panel = html.Div(
 )
 def plot_on_p1(col_label):
     return line(col_label)
+
 
 @app.callback(
     Output(component_id='graph_p2', component_property='figure'),

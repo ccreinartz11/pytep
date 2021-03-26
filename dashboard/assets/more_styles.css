@@ -69,6 +69,16 @@
  margin-top:40px;
 }
 
+.graph-height{
+height: 200px;
+width: 100%;
+}
+
+.graph-container{
+height: 240px;
+width: 100%;
+}
+
 #input-panel{
     color: red;
 }

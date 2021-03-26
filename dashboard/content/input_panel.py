@@ -24,7 +24,7 @@ input_panel = html.Div(
         html.Div(
             id="container_mvar",
             children=[],
-            #className='w-100 h-100',
+            className='graph-container',
         ),
         html.Div(
             id="container_fvar",
