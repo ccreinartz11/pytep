@@ -424,7 +424,7 @@ class SimInterface(metaclass=Singleton):
             `duration` are also both specified.
         """
         label = 'ProductionSP'
-        self._ramp_setpoint(label, target_val, duration, slope)
+        self.ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_stripper_level(self, target_val=None, duration=None, slope=None):
         """Initiates a ramp profile for the stripper level setpoint at at the current simulation time. The ramp will start
@@ -445,7 +445,7 @@ class SimInterface(metaclass=Singleton):
             `duration` are also both specified.
         """
         label = 'StripLevelSP'
-        self._ramp_setpoint(label, target_val, duration, slope)
+        self.ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_separator_level(self, target_val=None, duration=None, slope=None):
         """Initiates a ramp profile for the separator level setpoint at at the current simulation time. The ramp will start
@@ -466,7 +466,7 @@ class SimInterface(metaclass=Singleton):
             `duration` are also both specified.
         """
         label = 'SepLevelSP'
-        self._ramp_setpoint(label, target_val, duration, slope)
+        self.ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_reactor_level(self, target_val=None, duration=None, slope=None):
         """Initiates a ramp profile for the reactor level setpoint at at the current simulation time. The ramp will start
@@ -487,7 +487,7 @@ class SimInterface(metaclass=Singleton):
             `duration` are also both specified.
         """
         label = 'ReactorLevelSP'
-        self._ramp_setpoint(label, target_val, duration, slope)
+        self.ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_reactor_pressure(self, target_val=None, duration=None, slope=None):
         """Initiates a ramp profile for the reactor pressure setpoint at at the current simulation time. The ramp will start
@@ -508,7 +508,7 @@ class SimInterface(metaclass=Singleton):
             `duration` are also both specified.
         """
         label = 'ReactorPressSP'
-        self._ramp_setpoint(label, target_val, duration, slope)
+        self.ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_g_in_product(self, target_val=None, duration=None, slope=None):
         """Initiates a ramp profile for the mole percent of compoent g in the product stream (indicator of process quality) setpoint at at the current simulation time. The ramp will start
@@ -529,7 +529,7 @@ class SimInterface(metaclass=Singleton):
             `duration` are also both specified.
         """
         label = 'MolePctGSP'
-        self._ramp_setpoint(label, target_val, duration, slope)
+        self.ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_ya(self, target_val=None, duration=None, slope=None):
         """Initiates a ramp profile for the yA setpoint at at the current simulation time. The ramp will start
@@ -550,7 +550,7 @@ class SimInterface(metaclass=Singleton):
             `duration` are also both specified.
         """
         label = 'YASP'
-        self._ramp_setpoint(label, target_val, duration, slope)
+        self.ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_yac(self, target_val=None, duration=None, slope=None):
         """Initiates a ramp profile for the yAC setpoint at at the current simulation time. The ramp will start
@@ -571,7 +571,7 @@ class SimInterface(metaclass=Singleton):
             `duration` are also both specified.
         """
         label = 'YACSP'
-        self._ramp_setpoint(label, target_val, duration, slope)
+        self.ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_reactor_temp(self, target_val=None, duration=None, slope=None):
         """Initiates a ramp profile for the reactor temperature setpoint at at the current simulation time. The ramp will start
@@ -592,7 +592,7 @@ class SimInterface(metaclass=Singleton):
             `duration` are also both specified.
         """
         label = 'ReactorTempSP'
-        self._ramp_setpoint(label, target_val, duration, slope)
+        self.ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_recycle_valve_pos(self, target_val=None, duration=None, slope=None):
         """Initiates a ramp profile for the recycle valve position setpoint at at the current simulation time. The ramp will start
@@ -613,7 +613,7 @@ class SimInterface(metaclass=Singleton):
             `duration` are also both specified.
         """
         label = 'RecycleValvePosSP'
-        self._ramp_setpoint(label, target_val, duration, slope)
+        self.ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_steam_valve_pos(self, target_val=None, duration=None, slope=None):
         """Initiates a ramp profile for the steam valve position setpoint at at the current simulation time. The ramp will start
@@ -634,7 +634,7 @@ class SimInterface(metaclass=Singleton):
             `duration` are also both specified.
         """
         label = 'SteamValvePosSP'
-        self._ramp_setpoint(label, target_val, duration, slope)
+        self.ramp_setpoint(label, target_val, duration, slope)
 
     def ramp_agitator_speed(self, target_val=None, duration=None, slope=None):
         """Initiates a ramp profile for the agitator speed setpoint at at the current simulation time. The ramp will start
@@ -655,9 +655,9 @@ class SimInterface(metaclass=Singleton):
             `duration` are also both specified.
         """
         label = 'AgitatorSpeedSP'
-        self._ramp_setpoint(label, target_val, duration, slope)
+        self.ramp_setpoint(label, target_val, duration, slope)
 
-    def _ramp_setpoint(self, setpoint_label, target_val=None, duration=None, slope=None):
+    def ramp_setpoint(self, setpoint_label, target_val=None, duration=None, slope=None, delay=None):
         # TODO: Add delay (default value: 0)
         """Generic setpoint ramp generation. The setpoint ramp profile starts at the current simulation time and current
         setpoint value and follows the ramp profile specified by the target value, duration and slope.
@@ -669,6 +669,7 @@ class SimInterface(metaclass=Singleton):
         target_val (float): Target value of setpoint to be assumed after ramp profile completed.
         duration (float): Duration in (h) of ramp profile.
         slope (float): Value change/(h) of the ramp profile.
+        delay (float): Delay until the ramp transition is initiated
         """
 
         current_sp_val = list(self._setpoint_data[setpoint_label])[-1]
@@ -682,17 +683,17 @@ class SimInterface(metaclass=Singleton):
                         "duration and slope specified. Slope is ignored.")
             slope = None
         if slope is None:
-            sp_set_func(before=current_sp_val, after=target_val, duration=duration, start_time=current_time)
+            sp_set_func(before=current_sp_val, after=target_val, duration=duration, start_time=current_time+delay)
         elif duration is None:
             dur = abs((target_val-current_sp_val)/slope)
-            sp_set_func(before=current_sp_val, after=target_val, duration=dur, start_time=current_time)
+            sp_set_func(before=current_sp_val, after=target_val, duration=dur, start_time=current_time+delay)
         elif target_val is None:
             target_val = current_sp_val + slope * duration
-            sp_set_func(before=current_sp_val, after=target_val, duration=duration, start_time=current_time)
+            sp_set_func(before=current_sp_val, after=target_val, duration=duration, start_time=current_time+delay)
         else:
             raise ValueError("_ramp_setpoint was called with incorrect parameter configuration.")
         
-        self._log_setpoint_ramp(setpoint_label, target_val, duration, current_time)
+        self._log_setpoint_ramp(setpoint_label, target_val, duration, current_time+delay)
 
     def _log_setpoint_ramp(self, setpoint_label, target_val, duration, start_time):
         log = self._setpoint_ramp_log_message(setpoint_label, target_val, duration, start_time)
