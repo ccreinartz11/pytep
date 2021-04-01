@@ -657,7 +657,7 @@ class SimInterface(metaclass=Singleton):
         label = 'AgitatorSpeedSP'
         self.ramp_setpoint(label, target_val, duration, slope)
 
-    def ramp_setpoint(self, setpoint_label, target_val=None, duration=None, slope=None, delay=None):
+    def ramp_setpoint(self, setpoint_label, target_val=None, duration=None, slope=None, delay=0):
         # TODO: Add delay (default value: 0)
         """Generic setpoint ramp generation. The setpoint ramp profile starts at the current simulation time and current
         setpoint value and follows the ramp profile specified by the target value, duration and slope.
