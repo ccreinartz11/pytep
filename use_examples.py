@@ -25,6 +25,7 @@ from planning.greedy_tep_planner import GreedyTEPPlanner
 tep_interface = SimInterface.setup()
 tep_interface.setup()
 planner = GreedyTEPPlanner()
+save_dir = "./example_save_dir"
 
 planning_complete = False
 current_tep_state = tep_interface.latest_process_data()
