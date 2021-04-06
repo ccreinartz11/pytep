@@ -28,6 +28,7 @@ class SimInterface(metaclass=Singleton):
         self._process_units = pd.DataFrame()
         self._manipulated_variables = pd.DataFrame() # TODO: XMV NOT INCLUDED IN SIMINTERFACE
         self._setpoint_data = pd.DataFrame()
+        self._setpoint_labels = list()
         self._cost_data = pd.DataFrame()
         self._idv_data = pd.DataFrame()
         self._internal_sp_info = None
@@ -219,6 +220,7 @@ class SimInterface(metaclass=Singleton):
         with open(setupinfo_path / "setpoint_labels.pkl", "rb") as setpoint_label_file:
             setpoint_labels = pickle.load(setpoint_label_file)
         self._setpoint_data = pd.DataFrame(columns=setpoint_labels)
+        self._setpoint_labels = setpoint_labels
         with open(setupinfo_path / "process_var_units.pkl", "rb") as pv_units_file:
             pv_units = pickle.load(pv_units_file)
         self._process_units = pd.DataFrame(data=[pv_units], columns=pv_labels)
@@ -383,6 +385,10 @@ class SimInterface(metaclass=Singleton):
         return log
 
     # setpoint commands
+
+    @property
+    def setpoint_labels(self):
+        return self._setpoint_labels
 
     def _setup_internal_sp_info(self):
         """Generates a dictionary containing setpoint labels as keys and correponding utility functions (getter/setter)
