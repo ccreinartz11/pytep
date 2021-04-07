@@ -26,7 +26,8 @@ class SimInterface(metaclass=Singleton):
         self._matlab_bridge = None
         self._process_data = pd.DataFrame()
         self._process_units = pd.DataFrame()
-        self._manipulated_variables = pd.DataFrame() # TODO: XMV NOT INCLUDED IN SIMINTERFACE
+        self._manipulated_variables = pd.DataFrame()
+        self._manipulated_var_units = pd.DataFrame()
         self._setpoint_data = pd.DataFrame()
         self._setpoint_labels = list()
         self._cost_data = pd.DataFrame()
@@ -298,9 +299,9 @@ class SimInterface(metaclass=Singleton):
         with open(setupinfo_path / "process_var_units.pkl", "rb") as pv_units_file:
             pv_units = pickle.load(pv_units_file)
         self._process_units = pd.DataFrame(data=[pv_units], columns=pv_labels)
-        with open(setupinfo_path / "xmv_units.pkl", "rb") as pv_units_file:
-            pv_units = pickle.load(pv_units_file)
-        self._process_units = pd.DataFrame(data=[pv_units], columns=pv_labels)
+        with open(setupinfo_path / "xmv_units.pkl", "rb") as xmv_units_file:
+            xmv_units = pickle.load(xmv_units_file)
+        self._manipulated_var_units = pd.DataFrame(data=[xmv_units], columns=xmv_labels)
         with open(setupinfo_path / "idv_labels.pkl", "rb") as idv_label_file:
             idv_labels = pickle.load(idv_label_file)
         self._idv_data = pd.DataFrame(columns=idv_labels)
