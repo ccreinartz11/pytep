@@ -609,7 +609,7 @@ class MatlabBridge:
                 t = self.get_workspace_variable('tout')
                 current_time = t[-1]
                 start_time = current_time
-        self._eng.set_sp_generic(block_name, before, after, duration, start_time, nargout=0)
+        self._eng.set_sp_generic(block_name, float(before), float(after), float(duration), float(start_time), nargout=0)
 
     # Data queries, setters and other utility methods
 

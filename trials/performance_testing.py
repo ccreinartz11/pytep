@@ -14,7 +14,6 @@ si.reset()
 t_start = time.perf_counter()
 si.extend_simulation(100)
 si.simulate()
-si.update()
 print("Final simtime: {}".format(si.process_data["time"].values[-1]))
 t_end = time.perf_counter()
 
@@ -31,7 +30,6 @@ for time_between_pauses in reversed(tbp):
         extend_time = min(time_between_pauses, total_sim_time-current_time)
         si.extend_simulation(extend_time)
         si.simulate()
-        si.update()
         current_time = current_time + extend_time
     t_end = time.perf_counter()
     elapsed_times[time_between_pauses] = t_end - t_start

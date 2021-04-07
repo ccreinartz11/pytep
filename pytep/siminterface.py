@@ -34,11 +34,41 @@ class SimInterface(metaclass=Singleton):
         self._internal_sp_info = None
         self._logger = logging.getLogger(__name__)
 
-    def simulate(self):
+    def save_all(self, save_dir):
+        """
+        Saves the time, process data, manipulated variables, setpoint data, cost data and idv data as separate pickled
+        dataframes in the specified save directory. Multiple saves in the same save_dir will result in older files being
+        overwritten.
+        Parameters
+        ----------
+        save_dir: pathlib.Path, string
+            Directory in which the simulation data should be saved.
+        """
+
+        pd_save_path = pathlib.Path(save_dir) / "process_data.pkl"
+        self._process_data.to_pickle(pd_save_path)
+
+        sp_save_path = pathlib.Path(save_dir) / "setpoint_data.pkl"
+        self._setpoint_data.to_pickle(sp_save_path)
+
+        idv_save_path = pathlib.Path(save_dir) / "idv_data.pkl"
+        self._idv_data.to_pickle(idv_save_path)
+
+        cost_save_path = pathlib.Path(save_dir) / "cost_data.pkl"
+        self._cost_data.to_pickle(cost_save_path)
+
+        manipulated_vars_path = pathlib.Path(save_dir) / "manipulated_vars.pkl"
+        self._manipulated_variables.to_pickle(manipulated_vars_path)
+
+
+    def simulate(self, duration=None):
         """
         Start/Continue the the active simulation until it is paused or terminates.
         """
+        if duration is not None:
+            self.extend_simulation(duration)
         self._matlab_bridge.run_until_paused()
+        self.update()
 
     def update(self):
         """
@@ -52,11 +82,15 @@ class SimInterface(metaclass=Singleton):
             Warning("Current sim time is empty. This should not happen with proper initialization. "
                     "Current sim time is set to 0.")
             current_sim_time = 0
-        self._matlab_bridge.isolate_recent_data_in_workspace(current_sim_time)
-        self._update_process_data()
-        self._update_setpoint_data()
-        self._update_idv_data()
-        self._update_cost_data()
+        if current_sim_time == 0:
+            self._init_internal_variables()
+        else:
+            self._matlab_bridge.isolate_recent_data_in_workspace(current_sim_time)
+            self._update_process_data()
+            self._update_setpoint_data()
+            self._update_idv_data()
+            self._update_cost_data()
+            self._update_manipulated_variables()
 
     def reset(self):
         """
@@ -79,6 +113,7 @@ class SimInterface(metaclass=Singleton):
         self._init_setpoint_data()
         self._init_idv_data()
         self._init_cost_data()
+        self._init_manipulated_variables()
 
     def extend_simulation(self, duration=5):
         """
@@ -115,6 +150,25 @@ class SimInterface(metaclass=Singleton):
         )
         self._process_data = new_process_data
 
+    def _update_manipulated_variables(self):
+        try:
+            new_manipulated_variables = self._fetch_new_manipulated_variables()
+            if new_manipulated_variables.size == 0:
+                return  # no new manipulated variables
+            new_manipulated_variables = pd.DataFrame(
+                data=new_manipulated_variables, columns=self._manipulated_variables.columns
+            )
+            self._manipulated_variables = pd.concat([self._manipulated_variables, new_manipulated_variables], axis=0)
+        except ValueError:
+            pass
+
+    def _init_manipulated_variables(self):
+        new_manipulated_variables = self._fetch_manipulated_variables()
+        new_manipulated_variables = pd.DataFrame(
+            data=new_manipulated_variables, columns=self._manipulated_variables.columns
+        )
+        self._manipulated_variables = new_manipulated_variables
+
     def _update_setpoint_data(self):
         try:
             new_data = self._fetch_new_setpoint_data()
@@ -124,7 +178,6 @@ class SimInterface(metaclass=Singleton):
             self._setpoint_data = pd.concat([self._setpoint_data, new_data], axis=0)
         except ValueError:
             pass  # This is executed if there is no new data since the last update
-
 
     def _init_setpoint_data(self):
         setpoint_data = self._fetch_setpoint_data()
@@ -187,6 +240,24 @@ class SimInterface(metaclass=Singleton):
         time_and_pv = np.hstack((time, process_vars))
         return time_and_pv
 
+    def _fetch_new_manipulated_variables(self):
+        time = self._matlab_bridge.get_workspace_variable("latest_tout")
+        if time.size == 0:
+            return np.asarray([])
+        if not isinstance(time, Iterable):
+            time = np.asarray(time).reshape(1, 1)
+        manipulated_vars = self._matlab_bridge.get_workspace_variable("latest_xmv")
+        time_and_pv = np.hstack((time, manipulated_vars))
+        return time_and_pv
+
+    def _fetch_manipulated_variables(self):
+        time = self._matlab_bridge.get_workspace_variable("tout")
+        if not isinstance(time, Iterable):
+            time = np.asarray(time).reshape(1, 1)
+        process_vars = self._matlab_bridge.get_workspace_variable("xmv")
+        time_and_pv = np.hstack((time, process_vars))
+        return time_and_pv
+
     def _fetch_new_setpoint_data(self):
         setpoints = self._matlab_bridge.get_workspace_variable("latest_setpoints")
         return setpoints
@@ -217,11 +288,17 @@ class SimInterface(metaclass=Singleton):
         with open(setupinfo_path / "process_var_labels.pkl", "rb") as pv_label_file:
             pv_labels = pickle.load(pv_label_file)
         self._process_data = pd.DataFrame(columns=pv_labels)
+        with open(setupinfo_path / "xmv_labels.pkl", "rb") as xmv_label_file:
+            xmv_labels = pickle.load(xmv_label_file)
+        self._manipulated_variables = pd.DataFrame(columns=xmv_labels)
         with open(setupinfo_path / "setpoint_labels.pkl", "rb") as setpoint_label_file:
             setpoint_labels = pickle.load(setpoint_label_file)
         self._setpoint_data = pd.DataFrame(columns=setpoint_labels)
         self._setpoint_labels = setpoint_labels
         with open(setupinfo_path / "process_var_units.pkl", "rb") as pv_units_file:
+            pv_units = pickle.load(pv_units_file)
+        self._process_units = pd.DataFrame(data=[pv_units], columns=pv_labels)
+        with open(setupinfo_path / "xmv_units.pkl", "rb") as pv_units_file:
             pv_units = pickle.load(pv_units_file)
         self._process_units = pd.DataFrame(data=[pv_units], columns=pv_labels)
         with open(setupinfo_path / "idv_labels.pkl", "rb") as idv_label_file:
@@ -270,10 +347,6 @@ class SimInterface(metaclass=Singleton):
         process_data: pandas dataframe
         """
         return self._process_data
-
-    # @process_data.setter
-    # def process_data(self, data):
-    #     self._process_data = data
 
     def current_sim_time(self):
         """
@@ -385,6 +458,14 @@ class SimInterface(metaclass=Singleton):
         return log
 
     # setpoint commands
+
+    def current_setpoint_value(self, setpoint_label):
+        cur = self._setpoint_data.tail(1)
+        cur_val = cur[setpoint_label].values[0]
+        return cur_val
+
+    def current_setpoints(self):
+        return self._setpoint_data.tail(1)
 
     @property
     def setpoint_labels(self):
