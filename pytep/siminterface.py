@@ -338,6 +338,34 @@ class SimInterface(metaclass=Singleton):
         process_data: pandas dataframe
         """
         return self._process_data
+    
+    def current_process_data(self):
+        """
+        Returns a dataframe containing a single row representing the current simulation state (process data).
+        Returns
+        -------
+        process_data: pandas dataframe
+        """
+        return self._process_data.tail(1)
+
+    @property
+    def manipulated_variables(self):
+        """Returns a dataframe containing the manipulated variables timeseries.
+
+        Returns
+        -------
+        manipulated_variables: pandas dataframe
+        """
+        return self._manipulated_variables
+
+    def current_manipulated_variables(self):
+        """
+        Returns a dataframe containing a single row representing the current simulation state (manipulated_variables).
+        Returns
+        -------
+        manipulated_variables: pandas dataframe
+        """
+        return self._manipulated_variables.tail(1)
 
     def current_sim_time(self):
         """
@@ -359,6 +387,9 @@ class SimInterface(metaclass=Singleton):
             Pandas dataframe containing a "Cost" column.
         """
         return self._cost_data
+
+    def current_operating_cost(self):
+        return self._cost_data.tail(1)
 
     @staticmethod
     def setup():

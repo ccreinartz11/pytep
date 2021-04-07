@@ -1,3 +1,5 @@
+# Example one
+
 from pytep.siminterface import SimInterface
 from itertools import product
 from pathlib import Path
@@ -17,8 +19,8 @@ for sp in tep.setpoint_labels:
         tep.simulate(duration=100)
         tep.save_all(save_dir)
 
+# Example two
 
-## Example number two (showcasing the interactive capabilities of pytep - not possible with any other simulator rn)
 
 from pytep.siminterface import SimInterface
 from planning.tep_planner import TEPPlanner
