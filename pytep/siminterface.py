@@ -242,22 +242,12 @@ class SimInterface(metaclass=Singleton):
         return time_and_pv
 
     def _fetch_new_manipulated_variables(self):
-        time = self._matlab_bridge.get_workspace_variable("latest_tout")
-        if time.size == 0:
-            return np.asarray([])
-        if not isinstance(time, Iterable):
-            time = np.asarray(time).reshape(1, 1)
-        manipulated_vars = self._matlab_bridge.get_workspace_variable("latest_xmv")
-        time_and_pv = np.hstack((time, manipulated_vars))
-        return time_and_pv
+        vars = self._matlab_bridge.get_workspace_variable("latest_xmv")
+        return vars
 
     def _fetch_manipulated_variables(self):
-        time = self._matlab_bridge.get_workspace_variable("tout")
-        if not isinstance(time, Iterable):
-            time = np.asarray(time).reshape(1, 1)
-        process_vars = self._matlab_bridge.get_workspace_variable("xmv")
-        time_and_pv = np.hstack((time, process_vars))
-        return time_and_pv
+        vars = self._matlab_bridge.get_workspace_variable("xmv")
+        return vars
 
     def _fetch_new_setpoint_data(self):
         setpoints = self._matlab_bridge.get_workspace_variable("latest_setpoints")
