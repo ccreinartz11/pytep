@@ -1,4 +1,3 @@
-import seaborn as sns
 import matplotlib.pyplot as plt
 from matplotlib.ticker import ScalarFormatter
 from matplotlib import rc
@@ -43,11 +42,12 @@ def main():
     fmt.set_scientific(False)
     ax.xaxis.set_major_formatter(fmt)
     ax.yaxis.set_tick_params(labelsize=10)
+    ax.xaxis.set_tick_params(labelsize=10)
     ax.yaxis.set_major_locator(plt.MaxNLocator(8))
-    plt.ylabel('Relative Performance')
+    plt.ylabel('Performance decrease')
     plt.xlabel('Simulation time between pauses (hours)')
     plt.grid()
-    plt.legend()
+    plt.legend(prop={'size': 10})
     plt.tight_layout()
     plt.savefig(Path(__file__).parent / 'performance_plot.pdf', bbox_inches='tight')
     plt.show()
