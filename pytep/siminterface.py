@@ -61,7 +61,6 @@ class SimInterface(metaclass=Singleton):
         manipulated_vars_path = pathlib.Path(save_dir) / "manipulated_vars.pkl"
         self._manipulated_variables.to_pickle(manipulated_vars_path)
 
-
     def simulate(self, duration=None):
         """
         Start/Continue the the active simulation until it is paused or terminates.
