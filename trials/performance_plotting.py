@@ -23,15 +23,21 @@ def _convert_df_to_plot_format(df):
 
 
 def main():
-    df = pd.read_pickle(Path(__file__).parent / 'performance_100hour_simulations.pkl')
-    df = df.head(1)
+    df50 = pd.read_pickle(Path(__file__).parent / 'performance_50hour_simulations.pkl')
+    df50 = df50.head(1)
+    df100 = pd.read_pickle(Path(__file__).parent / 'performance_100hour_simulations.pkl')
+    df100 = df100.head(1)
 
-    mean = df.mean()
-    min_mean = mean.min()
+    mean50 = df50.mean()
+    min_mean_50 = mean50.min()
+    mean100 = df100.mean()
+    min_mean100 = mean100.min()
     
     fig = plt.figure(figsize=(6, 3.2))
     ax = fig.gca()
-    plt.plot(mean.index, mean.values/min_mean, 'b', label='100 hours')
+    plt.plot()
+    plt.plot(mean50.index, mean50.values/min_mean_50, 'r', label='50 hours')
+    plt.plot(mean100.index, mean100.values/min_mean100, 'b', label='100 hours')
     plt.xscale('log', basex=10)
     fmt=ScalarFormatter(useOffset=False)
     fmt.set_scientific(False)
@@ -43,7 +49,7 @@ def main():
     plt.grid()
     plt.legend()
     plt.tight_layout()
-    plt.savefig('trials/performance_plot.pdf', bbox_inches='tight')
+    plt.savefig(Path(__file__).parent / 'performance_plot.pdf', bbox_inches='tight')
     plt.show()
 
 if __name__ == '__main__':
