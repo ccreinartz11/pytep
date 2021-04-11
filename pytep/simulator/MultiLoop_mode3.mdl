@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.176"
+    ComputedModelVersion    "1.177"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -206,14 +206,25 @@ Model {
 	  IsActive		  [1]
 	  IsTabbed		  [1]
 	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "31"
+	  LoadSaveID		  "278"
 	  Extents		  [1642.0, 809.0]
-	  ZoomFactor		  [1.5]
-	  Offset		  [833.92279192875833, 857.514230015267]
-	  SceneRectInView	  [833.92279192875833, 857.514230015267, 1094.6666666666667, 539.33333333333337]
+	  ZoomFactor		  [4.0]
+	  Offset		  [178.76666666666642, -265.18809523809529]
+	  SceneRectInView	  [178.76666666666642, -265.18809523809529, 410.5, 202.25]
 	}
 	Object {
 	  $ObjectID		  6
+	  IsActive		  [0]
+	  IsTabbed		  [0]
+	  ViewObjType		  "SimulinkSubsys"
+	  LoadSaveID		  "31"
+	  Extents		  [1642.0, 809.0]
+	  ZoomFactor		  [0.518936877076412]
+	  Offset		  [-727.08066581306, -2.9782330345709624]
+	  SceneRectInView	  [-727.08066581306, -2.9782330345709624, 3164.16133162612, 1558.9564660691419]
+	}
+	Object {
+	  $ObjectID		  7
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkTopLevel"
@@ -224,7 +235,7 @@ Model {
 	  SceneRectInView	  [-371.79553990610543, -126.13809523809624, 2052.5, 1011.2500000000001]
 	}
 	Object {
-	  $ObjectID		  7
+	  $ObjectID		  8
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -235,7 +246,7 @@ Model {
 	  SceneRectInView	  [-100.33415178571443, -36.984523809523978, 656.8, 323.6]
 	}
 	Object {
-	  $ObjectID		  8
+	  $ObjectID		  9
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -246,7 +257,7 @@ Model {
 	  SceneRectInView	  [-124.83686755952374, -113.57142857142873, 938.28571428571433, 462.28571428571428]
 	}
 	Object {
-	  $ObjectID		  9
+	  $ObjectID		  10
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -257,7 +268,7 @@ Model {
 	  SceneRectInView	  [-551.1484375, -323.9375, 1642.0, 809.0]
 	}
 	Object {
-	  $ObjectID		  10
+	  $ObjectID		  11
 	  IsActive		  [0]
 	  IsTabbed		  [0]
 	  ViewObjType		  "SimulinkSubsys"
@@ -266,17 +277,6 @@ Model {
 	  ZoomFactor		  [1.0]
 	  Offset		  [-598.1484375, -302.9375]
 	  SceneRectInView	  [-598.1484375, -302.9375, 1642.0, 809.0]
-	}
-	Object {
-	  $ObjectID		  11
-	  IsActive		  [0]
-	  IsTabbed		  [0]
-	  ViewObjType		  "SimulinkSubsys"
-	  LoadSaveID		  "278"
-	  Extents		  [1642.0, 809.0]
-	  ZoomFactor		  [1.0]
-	  Offset		  [-478.5, -481.5]
-	  SceneRectInView	  [-478.5, -481.5, 1642.0, 809.0]
 	}
 	Object {
 	  $ObjectID		  12
@@ -789,9 +789,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "christopher"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Mar 03 21:40:02 2021"
-  RTWModifiedTimeStamp	  536708394
-  ModelVersionFormat	  "1.%<AutoIncrement:176>"
+  LastModifiedDate	  "Thu Apr 08 11:10:53 2021"
+  RTWModifiedTimeStamp	  539779554
+  ModelVersionFormat	  "1.%<AutoIncrement:177>"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -3149,7 +3149,7 @@ Model {
       System {
 	Name			"ProductionSP"
 	Location		[1920, 0, 3600, 1050]
-	Open			off
+	Open			on
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
 	ExecutionDomainType	"Deduce"
@@ -3163,13 +3163,13 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"100"
+	ZoomFactor		"400"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Constant
 	  Name			  "Constant"
 	  SID			  "283"
-	  Position		  [20, -55, 50, -25]
+	  Position		  [215, -230, 245, -200]
 	  ZOrder		  3
 	  Value			  "SP_before"
 	}
@@ -3177,7 +3177,7 @@ Model {
 	  BlockType		  Constant
 	  Name			  "Constant1"
 	  SID			  "347"
-	  Position		  [20, -135, 50, -105]
+	  Position		  [215, -140, 245, -110]
 	  ZOrder		  7
 	  Value			  "deltaT_ramp"
 	}
@@ -3186,7 +3186,7 @@ Model {
 	  Name			  "Ramp"
 	  SID			  "281"
 	  Ports			  [0, 1]
-	  Position		  [20, 30, 50, 60]
+	  Position		  [215, -185, 245, -155]
 	  ZOrder		  1
 	  LibraryVersion	  "1.453"
 	  SourceBlock		  "simulink/Sources/Ramp"
@@ -3209,7 +3209,7 @@ Model {
 	  Name			  "Saturation"
 	  SID			  "439"
 	  Ports			  [1, 1]
-	  Position		  [230, -55, 260, -25]
+	  Position		  [340, -185, 370, -155]
 	  ZOrder		  9
 	  InputPortMap		  "u0"
 	  UpperLimit		  "max(SP_before, SP_after)"
@@ -3219,7 +3219,7 @@ Model {
 	  BlockType		  Step
 	  Name			  "Step"
 	  SID			  "345"
-	  Position		  [20, -215, 50, -185]
+	  Position		  [340, -120, 370, -90]
 	  ZOrder		  5
 	  Time			  "tRampStart"
 	  Before		  "SP_before"
@@ -3231,7 +3231,7 @@ Model {
 	  Name			  "Sum"
 	  SID			  "284"
 	  Ports			  [2, 1]
-	  Position		  [130, -50, 150, -30]
+	  Position		  [280, -225, 300, -205]
 	  ZOrder		  4
 	  ShowName		  off
 	  IconShape		  "round"
@@ -3254,7 +3254,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "Out1"
 	  SID			  "280"
-	  Position		  [635, -127, 665, -113]
+	  Position		  [490, -127, 520, -113]
 	  ZOrder		  8
 	  IconDisplay		  "Port number"
 	  VectorParamsAs1DForOutWhenUnconnected	off
@@ -3270,7 +3270,7 @@ Model {
 	  ZOrder		  3
 	  SrcBlock		  "Ramp"
 	  SrcPort		  1
-	  Points		  [85, 0]
+	  Points		  [40, 0]
 	  DstBlock		  "Sum"
 	  DstPort		  2
 	}
@@ -3278,6 +3278,7 @@ Model {
 	  ZOrder		  21
 	  SrcBlock		  "Sum"
 	  SrcPort		  1
+	  Points		  [15, 0; 0, 45]
 	  DstBlock		  "Saturation"
 	  DstPort		  1
 	}
@@ -3285,6 +3286,7 @@ Model {
 	  ZOrder		  6
 	  SrcBlock		  "Constant1"
 	  SrcPort		  1
+	  Points		  [138, 0; 0, 5]
 	  DstBlock		  "Switch"
 	  DstPort		  2
 	}
@@ -3299,7 +3301,6 @@ Model {
 	  ZOrder		  22
 	  SrcBlock		  "Step"
 	  SrcPort		  1
-	  Points		  [161, 0; 0, 95]
 	  DstBlock		  "Switch"
 	  DstPort		  3
 	}
@@ -3307,7 +3308,7 @@ Model {
 	  ZOrder		  25
 	  SrcBlock		  "Saturation"
 	  SrcPort		  1
-	  Points		  [68, 0; 0, -95]
+	  Points		  [10, 0; 0, 35]
 	  DstBlock		  "Switch"
 	  DstPort		  1
 	}
@@ -5283,7 +5284,7 @@ Model {
       System {
 	Name			"TE Plant"
 	Location		[1920, 0, 3600, 1050]
-	Open			on
+	Open			off
 	PortBlocksUseCompactNotation off
 	SetExecutionDomain	off
 	ExecutionDomainType	"Deduce"
@@ -5297,7 +5298,7 @@ Model {
 	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
 	TiledPageScale		1
 	ShowPageBoundaries	off
-	ZoomFactor		"150"
+	ZoomFactor		"52"
 	SimulinkSubDomain	"Simulink"
 	Block {
 	  BlockType		  Inport
