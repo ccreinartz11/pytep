@@ -33,33 +33,6 @@ class SimInterface(metaclass=Singleton):
         self._cost_data = pd.DataFrame()
         self._idv_data = pd.DataFrame()
         self._internal_sp_info = None
-        self._logger = logging.getLogger(__name__)
-
-    def save_all(self, save_dir):
-        """
-        Saves the time, process data, manipulated variables, setpoint data, cost data and idv data as separate pickled
-        dataframes in the specified save directory. Multiple saves in the same save_dir will result in older files being
-        overwritten.
-        Parameters
-        ----------
-        save_dir: pathlib.Path, string
-            Directory in which the simulation data should be saved.
-        """
-
-        pd_save_path = pathlib.Path(save_dir) / "process_data.pkl"
-        self._process_data.to_pickle(pd_save_path)
-
-        sp_save_path = pathlib.Path(save_dir) / "setpoint_data.pkl"
-        self._setpoint_data.to_pickle(sp_save_path)
-
-        idv_save_path = pathlib.Path(save_dir) / "idv_data.pkl"
-        self._idv_data.to_pickle(idv_save_path)
-
-        cost_save_path = pathlib.Path(save_dir) / "cost_data.pkl"
-        self._cost_data.to_pickle(cost_save_path)
-
-        manipulated_vars_path = pathlib.Path(save_dir) / "manipulated_vars.pkl"
-        self._manipulated_variables.to_pickle(manipulated_vars_path)
 
     def simulate(self, duration=None):
         """
@@ -103,6 +76,52 @@ class SimInterface(metaclass=Singleton):
         self._matlab_bridge.reset_workspace()
         self._matlab_bridge.reset_simulink_blocks()
         self._init_internal_variables()
+
+    @staticmethod
+    def setup():
+        """
+        Setup for the SimInterface. The first initialization of SimInterface should be done using this method. Any
+        following initialization should be done using the regular constructor, which will return the already existing
+        SimInterface object (SimInterface is a singleton class).
+
+        Returns
+        -------
+        simulation interface: backend.siminterface.SimInterface()
+            Fully initialized simulation interface for the Tennessee Eastman Simulator.
+        """
+        si = SimInterface()
+        mb = MatlabBridge()
+        si._matlab_bridge = mb
+        si._load_dataframes()
+        si._setup_internal_sp_info()
+        si.reset()
+        return si
+
+    def save_all(self, save_dir):
+        """
+        Saves the time, process data, manipulated variables, setpoint data, cost data and idv data as separate pickled
+        dataframes in the specified save directory. Multiple saves in the same save_dir will result in older files being
+        overwritten.
+        Parameters
+        ----------
+        save_dir: pathlib.Path, string
+            Directory in which the simulation data should be saved.
+        """
+
+        pd_save_path = pathlib.Path(save_dir) / "process_data.pkl"
+        self._process_data.to_pickle(pd_save_path)
+
+        sp_save_path = pathlib.Path(save_dir) / "setpoint_data.pkl"
+        self._setpoint_data.to_pickle(sp_save_path)
+
+        idv_save_path = pathlib.Path(save_dir) / "idv_data.pkl"
+        self._idv_data.to_pickle(idv_save_path)
+
+        cost_save_path = pathlib.Path(save_dir) / "cost_data.pkl"
+        self._cost_data.to_pickle(cost_save_path)
+
+        manipulated_vars_path = pathlib.Path(save_dir) / "manipulated_vars.pkl"
+        self._manipulated_variables.to_pickle(manipulated_vars_path)
 
     def _init_internal_variables(self):
         """
@@ -390,26 +409,6 @@ class SimInterface(metaclass=Singleton):
     def current_operating_cost(self):
         return self._cost_data.tail(1)
 
-    @staticmethod
-    def setup():
-        """
-        Setup for the SimInterface. The first initialization of SimInterface should be done using this method. Any
-        following initialization should be done using the regular constructor, which will return the already existing
-        SimInterface object (SimInterface is a singleton class).
-
-        Returns
-        -------
-        simulation interface: backend.siminterface.SimInterface()
-            Fully initialized simulation interface for the Tennessee Eastman Simulator.
-        """
-        si = SimInterface()
-        mb = MatlabBridge()
-        si._matlab_bridge = mb
-        si._load_dataframes()
-        si._setup_internal_sp_info()
-        si.reset()
-        return si
-
     def get_var_unit(self, var_label):
         """
         Returns the unit of any process variable included in the dictionary returned when calling :func:`~backend.siminterface.SimInterface.process_data`
@@ -466,7 +465,7 @@ class SimInterface(metaclass=Singleton):
 
     def _log_idv_change(self, idv_idx, target_val, start_time):
         log = self._idv_change_log_message(idv_idx, target_val, start_time)
-        logger.info(log)
+        logger.debug(log)
 
     @staticmethod
     def _idv_change_log_message(idv_idx, target_val, start_time):
@@ -805,7 +804,7 @@ class SimInterface(metaclass=Singleton):
 
     def _log_setpoint_ramp(self, setpoint_label, target_val, duration, start_time):
         log = self._setpoint_ramp_log_message(setpoint_label, target_val, duration, start_time)
-        logger.info(log)
+        logger.debug(log)
 
     @staticmethod
     def _setpoint_ramp_log_message(setpoint_label, target_val, duration, start_time):
