@@ -12,9 +12,7 @@
     - [Linux](#linux)
     - [Windows (Using anaconda prompt)](#windows-using-anaconda-prompt)
   - [Step 3) Validating the MATLAB engine install](#step-3-validating-the-matlab-engine-install)
-- [Installing pyTEP](#installing-pytep)
-  - [from pip](#from-pip)
-  - [from source](#from-source)
+- [Installing pyTEP through pip](#installing-pytep-through-pip)
   - [Validating installation](#validating-installation)
 - [Misc](#misc)
   - [Recompiling the TEP binaries](#recompiling-the-tep-binaries)
@@ -36,7 +34,7 @@ Reinartz, C. and Enevoldsen, T.T. "pyTEP: A Python package for interactive simul
 
 # Installation guidelines
 In order to install and run pyTEP, the MATLAB engine for pythong must be installed, which requires the following conditions to be met:
-- A licensed (and activated) MATLAB/Simulink installation (Tested with 2019b and 2020b)
+- A licensed (and activated) MATLAB/Simulink installation (Tested with 2019a and 2020b)
 - Python 3.7
 - (Optional) virtual Python environment
   
@@ -92,30 +90,36 @@ Whilst in the virtual environment, type ```python``` to obtain a Python shell
 A MALTAB engine object should then be successfully created:
 ```<matlab.engine.matlabengine.MatlabEngine object at 0x7f3424ae9f50>```
 
-# Installing pyTEP
-## from pip
+The MATLAB engine for Python has now been successfully installed in your virtual environment, and you're now ready to install pyTEP itself.
+
+# Installing pyTEP through pip
+pyTEP is available on pypi (https://pypi.org/project/pytep/)
 ```
 pip install pytep
 ```
-## from source
-
 ## Validating installation
+Once pyTEP has been installed, it can be validated by running a simple simulation using the following sequence. Note that ```si.setup()``` takes a while due to loading the TEP Simulink model.
 ```
->>> import pytep.....
-
+>>> import pytep.siminterface as siminterface
+>>> si = siminterface.SimInterface()
+>>> si.setup()
+<pytep.siminterface.SimInterface object at 0x7fac07e2a4d0>
+>>> si.set_idv(1, 0.5)
+>>> si.simulate(1)
+>>> si.get_idv(1)
+0.5
 ```
 
 # Misc
 ## Recompiling the TEP binaries
-FIND THE ERROR MESSAGE
-
-Calling
+In some circumstance, the actual TEP binaries for MATLAB must be recompiled for the given system. This can be achieved by opening the MATLAB console and navigating to ```pytep/simulator``` and calling
 ```
 mex temexd_mod.c
 ```
-will create temexd_mod.mexa64, which requires ```gcc``` (or any other c compiler) in order to be compiled.
+which will then create ```temexd_mod.mexa64```, which requires ```gcc``` (or any other c compiler) in order to be compiled.
+
 ## Installing Python 3.7
-ADD TEXT FOR PYTHON 3.7 INSTALL
+The following sequence is instructions for installing the Python3.7 interpreter.
 ```bash
 sudo apt install software-properties-common
 sudo add-apt-repository ppa:deadsnakes/ppa
