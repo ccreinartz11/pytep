@@ -13,11 +13,11 @@ import logging
 import logging.config
 import json
 
-with open(pathlib.Path(__file__).parent.absolute() / "loginfo.json") as f:
-    config = json.load(f)
-    logging.config.dictConfig(config)
-
-logger = logging.getLogger(__name__)
+# with open(pathlib.Path(__file__).parent.absolute() / "loginfo.json") as f:
+#     config = json.load(f)
+#     logging.config.dictConfig(config)
+#
+# logger = logging.getLogger(__name__)
 
 
 class SimInterface(metaclass=Singleton):
@@ -465,7 +465,7 @@ class SimInterface(metaclass=Singleton):
 
     def _log_idv_change(self, idv_idx, target_val, start_time):
         log = self._idv_change_log_message(idv_idx, target_val, start_time)
-        logger.debug(log)
+        # logger.debug(log)
 
     @staticmethod
     def _idv_change_log_message(idv_idx, target_val, start_time):
@@ -804,7 +804,7 @@ class SimInterface(metaclass=Singleton):
 
     def _log_setpoint_ramp(self, setpoint_label, target_val, duration, start_time):
         log = self._setpoint_ramp_log_message(setpoint_label, target_val, duration, start_time)
-        logger.debug(log)
+        # logger.debug(log)
 
     @staticmethod
     def _setpoint_ramp_log_message(setpoint_label, target_val, duration, start_time):
