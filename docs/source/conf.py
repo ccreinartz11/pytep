@@ -24,7 +24,7 @@ copyright = '2021, Christopher Reinartz, Technical University of Denmark'
 author = 'Christopher Reinartz, Thomas Thuesen Enevoldsen'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0'
+release = '0.0.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -75,6 +75,7 @@ import sys
 sys.path.insert(0, os.path.abspath('../..'))
 
 github_doc_root = 'https://github.com/ChristopherReinartz/pytep/tree/master/docs'
+sys.path.insert(0, os.path.abspath(os.path.join(github_doc_root, '..','..')))
 
 #def setup(app):
 #    app.add_config_value('recommonmark_config', {
