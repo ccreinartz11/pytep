@@ -8,6 +8,8 @@ setuptools.setup(
     version="0.0.1",
     author="Christopher Reinartz, Thomas Enevoldsen",
     author_email="ccrein@elektro.dtu.dk",
+    url="https://github.com/ChristopherReinartz/pytep.git",
+    download_url="https://github.com/ChristopherReinartz/pytep/archive/refs/tags/v0.0.1.tar.gz",
     description="Tennessee Eastman simulator",
     long_description=README.md,
     long_description_content_type="text/markdown",
