@@ -5,8 +5,8 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pytep",
-    version="0.0.7",
-    author="Christopher Reinartz",
+    version="0.0.1",
+    author="Christopher Reinartz, Thomas Enevoldsen",
     author_email="ccrein@elektro.dtu.dk",
     description="Tennessee Eastman simulator",
     long_description=long_description,
@@ -17,7 +17,12 @@ setuptools.setup(
         "License :: OSI Approved :: BSD License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.7',
+    python_requires='==3.7.*',
     include_package_data=True,
+    install_requires=[
+	'dash>=1.20.0',
+	'pandas>=1.2.3',
+	'pytest>=6.2.3',
+    ]
 )
 
