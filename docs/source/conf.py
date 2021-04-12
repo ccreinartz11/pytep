@@ -44,7 +44,7 @@ source_suffix = {
     '.rst': 'restructuredtext'
 #    '.md': 'markdown'
 }
-# autodoc_mock_imports = ["matlab"]
+autodoc_mock_imports = ["matlab","matlab.engine"]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
