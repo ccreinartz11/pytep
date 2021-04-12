@@ -1,2 +1,2 @@
-include pytep/simulator/*
-include pytep/setupinfo/*
+include pytep/simulator/**/*
+include pytep/setupinfo/**/*
