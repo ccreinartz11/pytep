@@ -73,7 +73,8 @@ html_static_path = ['_static']
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../..'))
-
+from shutil import copyfile
+copyfile('../README.md', 'source/README.md')
 github_doc_root = 'https://github.com/ChristopherReinartz/pytep/tree/master/docs'
 
 def setup(app):
