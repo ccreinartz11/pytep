@@ -71,3 +71,13 @@ html_static_path = ['_static']
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../..'))
+
+from recommonmark.transform import AutoStructify
+
+github_doc_root = 'https://github.com/ChristopherReinartz/pytep/tree/master/docs'
+def setup(app):
+    app.add_config_value('recommonmark_config', {
+            'url_resolver': lambda url: github_doc_root + url,
+            'auto_toc_tree_section': 'Contents',
+            }, True)
+    app.add_transform(AutoStructify)
