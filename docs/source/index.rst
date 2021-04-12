@@ -3,13 +3,14 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-
 .. toctree::
    readme_link
-   :maxdepth: 2  
-   :caption: Contents:
-
+   :maxdepth: 1
+   :caption: Documentation
+  
    code
+
+
 
 Indices and tables
 ==================
