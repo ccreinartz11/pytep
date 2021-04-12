@@ -26,14 +26,14 @@ sudo python3.7 setup.py install --prefix="/PATH/TO/VENVDIR/pyTEPenv"
 
 #### Windows (Using anaconda prompt)
 
-Open anaconda prompt (Anaconda 3) as Administrator. 
+Open the Anaconda prompt (Anaconda 3) as Administrator. 
 
 Create and activate a virtual environment such as '''pyTEPenv''' with Python3.7.
 ```
 conda create -n yourenvname python=3.7 anaconda
 source activate yourenvname
 ```
-Once the virtual environment is created and the MATLAB path has been obtained, change directories to the MATLAB engine path and run setup ```setup.py```, whilst pointing it towards your virtual environment (execute the following while your newly craeted virtual envirnoment is active).
+Once the virtual environment is created and the MATLAB path has been obtained, change directories to the MATLAB engine path and run setup ```setup.py```, whilst pointing it towards the locations of your virtual environment (execute the following while your newly created virtual envirnoment is active).
 ```
 cd /usr/local/MATLAB/R2019b/extern/engines/python
 python setup.py install --prefix="Path to your virtual environment\yourenvname"
