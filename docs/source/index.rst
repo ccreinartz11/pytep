@@ -5,8 +5,8 @@
 
 
 .. toctree::
-   About <../../README.md>
-   :maxdepth: 2
+   readme_link
+   :maxdepth: 2  
    :caption: Contents:
 
    code
