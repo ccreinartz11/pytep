@@ -5,7 +5,7 @@
 
 
 .. toctree::
-   About <README.md>
+   About <../../README.md>
    :maxdepth: 2
    :caption: Contents:
 
