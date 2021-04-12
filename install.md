@@ -1,4 +1,4 @@
-# MATLAB engine installation guidelines (Linux)
+# MATLAB engine installation guidelines
 In order to install and run pyTEP, the MATLAB engine for pythong must be installed, which requires the following conditions to be met:
 - A licensed (and activated) MATLAB/Simulink installation (Tested with 2019b and 2020b)
 - Python 3.7
@@ -13,12 +13,30 @@ The resulting path will look similar to
 ```'/usr/local/MATLAB/R2019b/extern/engines/python'```
 
 ### Step 2) Installing the MATLAB engine
+
+#### Linux
+
 Create a virtual environment such as ```pyTEPenv``` with Python3.7, take note of the location of which the virtual environment is created (e.g. ```/home/USER/.venvs/pyTEPenv```).
 
-Once venv is created and the MATLAB path has been obtained, change directories to the MATLAB engine path and run setup ```setup.py```, whilst pointing it towards your virtual environment
+Once the virtual environment is created and the MATLAB path has been obtained, change directories to the MATLAB engine path and run setup ```setup.py```, whilst pointing it towards your virtual environment
 ```
 cd /usr/local/MATLAB/R2019b/extern/engines/python
 sudo python3.7 setup.py install --prefix="/PATH/TO/VENVDIR/pyTEPenv"
+```
+
+#### Windows (Using anaconda prompt)
+
+Open anaconda prompt (Anaconda 3) as Administrator. 
+
+Create and activate a virtual environment such as '''pyTEPenv''' with Python3.7.
+```
+conda create -n yourenvname python=3.7 anaconda
+source activate yourenvname
+```
+Once the virtual environment is created and the MATLAB path has been obtained, change directories to the MATLAB engine path and run setup ```setup.py```, whilst pointing it towards your virtual environment (execute the following while your newly craeted virtual envirnoment is active).
+```
+cd /usr/local/MATLAB/R2019b/extern/engines/python
+python setup.py install --prefix="Path to your virtual environment\yourenvname"
 ```
 
 ### Step 3) Validating the MATLAB engine install
