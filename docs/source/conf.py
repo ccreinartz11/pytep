@@ -34,9 +34,14 @@ extensions = [
         'sphinx.ext.napoleon',
         'sphinx.ext.autodoc',
         'sphinx.ext.viewcode',
-        'sphinx.ext.coverage'
+        'sphinx.ext.coverage',
+        'recommonmark'
 ]
 
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown'
+}
 # autodoc_mock_imports = ["matlab"]
 
 # Add any paths that contain templates here, relative to this directory.
