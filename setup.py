@@ -9,7 +9,7 @@ setuptools.setup(
     author="Christopher Reinartz, Thomas Enevoldsen",
     author_email="ccrein@elektro.dtu.dk",
     description="Tennessee Eastman simulator",
-    long_description=long_description,
+    long_description=README.md,
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
     classifiers=[
