@@ -23,7 +23,12 @@
 <!-- /TOC -->
 
 # What is pyTEP?
-INTRODUCE pyTEP here
+pyTEP is an open-source simulation API for the Tennessee Eastman process in Python. 
+It facilitates the setup of complex simulation scenarios and provides the option of interactive simulation.
+
+Through pyTEPs high-level API, users can setup simulations, change operating conditions and store simulation data without being exposed to the underlying mechanics of the simulator.
+In addition to the newly introduced features, pyTEP promises more versatility and more straightforward usage that existing TEP simulators.
+
 ## How to cite
 ```
 Reinartz, C. and Enevoldsen, T.T. "pyTEP: A Python package for interactive simulations of the Tennessee Eastman process", 2021
