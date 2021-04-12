@@ -1,3 +1,5 @@
+import recommonmark
+from recommonmark.transform import AutoStructify
 # Configuration file for the Sphinx documentation builder.
 #
 # This file only contains a selection of the most common options. For a full
@@ -72,9 +74,8 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('../..'))
 
-from recommonmark.transform import AutoStructify
-
 github_doc_root = 'https://github.com/ChristopherReinartz/pytep/tree/master/docs'
+
 def setup(app):
     app.add_config_value('recommonmark_config', {
             'url_resolver': lambda url: github_doc_root + url,
