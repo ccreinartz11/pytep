@@ -38,10 +38,7 @@ extensions = [
         'recommonmark'
 ]
 
-source_suffix = {
-    '.rst': 'restructuredtext',
-    '.md': 'markdown'
-}
+source_suffix = ['.rst', '.md']
 # autodoc_mock_imports = ["matlab"]
 
 # Add any paths that contain templates here, relative to this directory.
