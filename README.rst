@@ -154,7 +154,7 @@ Issues - Look here first
 Wrong MATLAB/Simulink version
 ------------------------------
 
-pyTEP is build and distributed for Python3.7 and MATLAB/Simulink 2019b. 
+pyTEP is built and distributed for Python3.7 and MATLAB/Simulink 2019b. 
 The default installation assumes that you meet these requirements (this includes the version of the installed Matlab engine for python). 
 
 If you use one of the following MATLAB versions - R2019a, R2020a, R2020b - you should also be able to use pyTEP. 
