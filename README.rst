@@ -129,8 +129,7 @@ Once `si.setup()` is called, you can always reset the simulation environment usi
 .. code-block:: python
 
    >>> import pytep.siminterface as siminterface
-   >>> si = siminterface.SimInterface()
-   >>> si.setup()
+   >>> si = siminterface.SimInterface().setup()
    <pytep.siminterface.SimInterface object at 0x7fac07e2a4d0>
    >>> si.set_idv(1, 0.5)
    >>> si.simulate(1)
