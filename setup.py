@@ -11,8 +11,8 @@ setuptools.setup(
     url="https://github.com/ChristopherReinartz/pytep.git",
     download_url="https://github.com/ChristopherReinartz/pytep/archive/refs/tags/v0.0.2.tar.gz",
     description="Tennessee Eastman simulator",
-    long_description="README.md",
-    long_description_content_type="text/markdown",
+    long_description="README.rst",
+    long_description_content_type="text/x-rst",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
