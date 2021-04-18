@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pytep",
-    version="0.0.1",
+    version="0.0.2",
     author="Christopher Reinartz, Thomas Enevoldsen",
     author_email="ccrein@elektro.dtu.dk",
     url="https://github.com/ChristopherReinartz/pytep.git",
