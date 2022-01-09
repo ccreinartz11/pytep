@@ -1,0 +1,43 @@
+,0
+0,time
+1,A Feed
+2,D Feed
+3,E Feed
+4,A and C Feed
+5,Recycle Flow
+6,Reactor Feed Rate
+7,Reactor Pressure
+8,Reactor Level
+9,Reactor Temperature
+10,Purge Rate
+11,Product Sep Temp
+12,Product Sep Level
+13,Product Sep Pressure
+14,Product Sep Underflow
+15,Stripper Level
+16,Stripper Pressure
+17,Stripper Underflow
+18,Stripper Temp
+19,Stripper Steam Flow
+20,Compressor Work
+21,Reactor Coolant Temp
+22,Separator Coolant Temp
+23,Component A to Reactor
+24,Component B to Reactor
+25,Component C to Reactor
+26,Component D to Reactor
+27,Component E to Reactor
+28,Component F to Reactor
+29,Component A in Purge
+30,Component B in Purge
+31,Component C in Purge
+32,Component D in Purge
+33,Component E in Purge
+34,Component F in Purge
+35,Component G in Purge
+36,Component H in Purge
+37,Component D in Product
+38,Component E in Product
+39,Component F in Product
+40,Component G in Product
+41,Component H in Product
