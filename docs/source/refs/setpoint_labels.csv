@@ -1,0 +1,13 @@
+index , label
+0,ProductionSP
+1,StripLevelSP
+2,SepLevelSP
+3,ReactorLevelSP
+4,ReactorPressSP
+5,MolePctGSP
+6,YASP
+7,YACSP
+8,ReactorTempSP
+9,RecycleValvePosSP
+10,SteamValvePosSP
+11,AgitatorSpeedSP
